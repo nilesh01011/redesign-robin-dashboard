@@ -33,7 +33,7 @@ function Popup() {
     <>
       <div ref={domNode} className="notification">
         {/* notification button */}
-        <div onClick={() => setIsOpen(!isOpen)}>
+        <button type="button" title="Notification" onClick={() => setIsOpen(!isOpen)} style={{color:theme === "light" ? "black" : "white"}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
@@ -51,7 +51,7 @@ function Popup() {
           {isOpen === false && (
             <small className="notificationContainerCount">1</small>
           )}
-        </div>
+        </button>
 
         {isOpen === true && (
           <div

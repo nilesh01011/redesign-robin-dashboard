@@ -203,7 +203,9 @@ function Sidebar() {
             {collapsed === true ? (
               <>
                 {theme === "dark" ? (
-                  <div
+                  <button
+                    type="button"
+                    title="Dark Theme"
                     className="themeBtn"
                     onClick={() => handleThemeChange("dark")}
                     style={{
@@ -228,9 +230,11 @@ function Sidebar() {
                         }`}
                       />
                     </svg>
-                  </div>
+                  </button>
                 ) : (
-                  <div
+                  <button
+                    type="button"
+                    title="Light Theme"
                     className="themeBtn"
                     onClick={() => handleThemeChange("light")}
                     style={{
@@ -262,7 +266,7 @@ function Sidebar() {
                         }`}
                       />
                     </svg>
-                  </div>
+                  </button>
                 )}
               </>
             ) : (
@@ -346,7 +350,7 @@ function Sidebar() {
         {/* mobile view theme */}
         <div
           className="themeContainer mobileView"
-          style={{ backgroundColor: theme === "light" ? "#F2F2F2" : "#1c1a1a", }}
+          style={{ backgroundColor: theme === "light" ? "#F2F2F2" : "#1c1a1a" }}
         >
           <div
             className="themeWrapper"
