@@ -1,0 +1,34 @@
+.inputFields {
+  width: 100%;
+  height: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+  background-color: transparent;
+}
+.inputFields::-moz-placeholder {
+  color: #858585;
+  content: "*";
+}
+.inputFields::placeholder {
+  color: #858585;
+  content: "*";
+}
+.inputFields + svg {
+  margin-left: -25px;
+  margin-top: -2px;
+  visibility: visible;
+  cursor: pointer;
+}
+.inputFields:-moz-placeholder-shown + svg {
+  visibility: hidden;
+}
+.inputFields:placeholder-shown + svg {
+  visibility: hidden;
+}
+.inputFields::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}/*# sourceMappingURL=styles.css.map */

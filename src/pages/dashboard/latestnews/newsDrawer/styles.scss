@@ -1,0 +1,102 @@
+.newsDrawerContainer {
+    width: 520px;
+    height: 100%;
+    position: fixed;
+    right: -150%;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    overflow-y: scroll;
+    padding-bottom: 20px;
+
+    // &::-webkit-scrollbar {
+    //     width: 8px;
+    // }
+
+    // &.light::-webkit-scrollbar-track {
+    //     background: #F0EFEF;
+    // }
+
+    // &.dark::-webkit-scrollbar-track {
+    //     background: #242424;
+    // }
+
+    // &::-webkit-scrollbar-thumb {
+    //     border-radius: 10px;
+    // }
+
+    // &.light::-webkit-scrollbar-thumb {
+    //     background: #8A8A8A;
+    // }
+
+    // &.dark::-webkit-scrollbar-thumb {
+    //     background: #1C1A1A;
+    // }
+
+    & .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid;
+        position: sticky;
+        top: 0;
+    }
+
+    & .contents {
+        padding-top: 20px;
+        padding-left: 35px;
+        padding-right: 35px;
+        width: 100%;
+
+        & h5 {
+            font-size: 16px;
+        }
+
+        & .newsHeading {
+            margin-bottom: 8px;
+
+            & .date {
+                padding: 4px 8px;
+                font-size: 12px;
+                border: 1px solid;
+                border-radius: 2px;
+                width: max-content;
+                margin-top: 5px;
+            }
+        }
+
+        & img {
+            margin: 15px 0;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        & p {
+            line-height: 23px;
+        }
+    }
+}
+
+//  media queries
+@media screen and (max-width:576px) {
+    .newsDrawerContainer {
+        width: 85%;
+
+        & .contents {
+            padding-left: 16px;
+            padding-right: 16px;
+
+            & p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .newsDrawerContainer {
+        width: 90%;
+    }
+}

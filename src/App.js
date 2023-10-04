@@ -1,23 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./index.scss";
+import Header from "./components/header";
+import Sidebar from "./components/sidebar";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+// dashboard
+import DashboardPage from "./pages/dashboard";
+// favourites
+import Favourites from "./pages/favourites";
+import CriticalityGroup from "./pages/favourites/criticalityGroup";
+// parts
+import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
+// admin
+import CustomerMaster from "./pages/admin/customer-master/customerMaster";
 
 function App() {
+  const theme = useSelector((state) => state.theme);
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.body.style.backgroundColor = "#FFFFFF";
+      document.body.style.color = "#0B0B0C";
+      document.body.classList.add("light");
+      document.body.classList.remove("dark");
+    }
+
+    if (theme === "dark") {
+      document.body.style.backgroundColor = "#0B0B0C";
+      document.body.style.color = "#ffffff";
+      document.body.classList.add("dark");
+      document.body.classList.remove("light");
+    }
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {/* sidebar */}
+      <Sidebar />
+      <div className="main-container">
+        {/* Headers */}
+        <Header />
+        {/* main contents */}
+        <Routes>
+          {/* dashboard */}
+          <Route path="/dashboard" element={<DashboardPage />}></Route>
+          {/* favourites */}
+          <Route path="/favourites" element={<Favourites />}></Route>
+          <Route
+            path="/favourites/criticality-group"
+            element={<CriticalityGroup />}
+          ></Route>
+          {/* Parts */}
+          <Route
+            path="/parts/parts-ordering/suggest-order-qty"
+            element={<SuggestOrderQty />}
+          ></Route>
+          {/* Admin */}
+          <Route
+            path="/admin/customer-master"
+            element={<CustomerMaster />}
+          ></Route>
+        </Routes>
+        {/* Footer */}
+        <div className="footer">
+          <span>Copyright © 2023 ROBIN.</span>
+        </div>
+      </div>
     </div>
   );
 }

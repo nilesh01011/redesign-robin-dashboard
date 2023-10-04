@@ -1,0 +1,137 @@
+.sidebar {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  z-index: 9998;
+  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.sidebar .sidebarBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 14px 0;
+}
+.sidebar .sidebarBtn.mobileViewBtn {
+  display: none;
+}
+.sidebar .sidebarBtn .iconRotate {
+  transform: rotate(180deg);
+}
+.sidebar .sidebarBtn .mobileIcons {
+  display: none;
+}
+.sidebar .sidebarContainer {
+  padding: 14px;
+  padding-top: 0;
+  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.sidebar .sidebarContainer.desktopStrip {
+  width: 60px;
+}
+.sidebar .sidebarContainer.desktopCollapse {
+  width: 282px;
+}
+.sidebar .sidebarContainer .searchInputContainer.mobileView {
+  display: none;
+}
+.sidebar .themeContainer {
+  width: 100%;
+}
+.sidebar .themeContainer.mobileView {
+  display: none;
+}
+.sidebar .themeContainer .themeWrapper {
+  border-radius: 6px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar .themeContainer .themeWrapper .themeBtn {
+  width: 100%;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.sidebar .themeContainer .themeWrapper .themeCollapsedBtn {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 880px) {
+  #overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    transition: 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9997;
+    display: none;
+  }
+  .sidebar {
+    width: 84%;
+    position: fixed;
+    top: 0;
+    left: -150%;
+    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    height: 100%;
+  }
+  .sidebar .desktopViewBtn {
+    display: none;
+  }
+  .sidebar .sidebarBtn {
+    position: static;
+  }
+  .sidebar .sidebarBtn.mobileViewBtn {
+    display: flex;
+  }
+  .sidebar .sidebarBtn .icons {
+    display: none;
+  }
+  .sidebar .sidebarBtn .mobileIcons {
+    display: block;
+  }
+  .sidebar .sidebarContainer {
+    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    height: 100%;
+    width: 100% !important;
+  }
+  .sidebar .sidebarContainer .searchInputContainer.desktopView, .sidebar .sidebarContainer .searchInputContainer .searchIcons {
+    display: none !important;
+  }
+  .sidebar .sidebarContainer .searchInputContainer.mobileView {
+    display: block;
+  }
+  .sidebar .themeContainer.desktopView {
+    display: none;
+  }
+  .sidebar .themeContainer.mobileView {
+    display: flex;
+  }
+  .sidebar .themeContainer.mobileView .themeWrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */
