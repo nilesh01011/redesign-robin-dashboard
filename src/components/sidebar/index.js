@@ -80,7 +80,7 @@ function Sidebar() {
             {/* icons */}
             <span
               className={`icons ${collapsed ? "iconRotate" : ""}`}
-              style={{ color: collapsed ? "" : "#FF3E5B",marginLeft:2 }}
+              style={{ color: collapsed ? "" : "#FF3E5B", marginLeft: 2 }}
             >
               <svg
                 stroke="currentColor"
@@ -192,9 +192,6 @@ function Sidebar() {
           style={{
             padding: collapsed === true ? "7px 10px" : "10px 16px",
             backgroundColor: theme === "light" ? "#F2F2F2" : "#1c1a1a",
-            position: "sticky",
-            bottom: 0,
-            left: 0,
           }}
         >
           <div
@@ -347,7 +344,10 @@ function Sidebar() {
           </div>
         </div>
         {/* mobile view theme */}
-        <div className="themeContainer mobileView">
+        <div
+          className="themeContainer mobileView"
+          style={{ backgroundColor: theme === "light" ? "#F2F2F2" : "#1c1a1a", }}
+        >
           <div
             className="themeWrapper"
             style={{

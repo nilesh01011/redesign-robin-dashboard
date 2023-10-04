@@ -139,6 +139,7 @@ function Header() {
         </svg>
       ),
       text: "Logout",
+      color: "#FF3E5B",
     },
   ];
 
@@ -252,22 +253,23 @@ function Header() {
             </p>
           </div>
           {/* user profiles */}
-          <div className="userProfileContainer">
+          <div ref={domNode} className="userProfileContainer">
             <div
-              className="userProfile"
-              ref={domNode}
               onClick={() => setUserProfileDropdown(true)}
+              className="userProfile"
+              style={{ cursor: "pointer" }}
             >
               {/* icons */}
               <span className="userAvatar">NR</span>
               {/* user details */}
-              <div className="userDetails" style={{ cursor: "pointer" }}>
+              <div className="userDetails">
                 {/* user name */}
                 <span className="username">Nilesh Rathod</span>
                 <p>
                   <span className="userNumber" style={{ color: "#FF3E5B" }}>
                     Mahindra Automotive
                   </span>
+                  {/* arrow icons */}
                   <span>
                     <svg
                       style={{
@@ -301,11 +303,22 @@ function Header() {
                 }}
               >
                 {userDropdownDetails.map((ele) => (
-                  <div key={ele.id} className="lists" onClick={() => console.log(ele.text)}>
+                  <div
+                    key={ele.id}
+                    className="lists"
+                    onClick={() => console.log(ele.text)}
+                  >
                     {/* icons */}
                     <span>{ele.icons}</span>
                     {/* text */}
-                    <p>{ele.text}</p>
+                    <p
+                      style={{
+                        textTransform: "capitalize",
+                        color: ele.color && ele.color,
+                      }}
+                    >
+                      {ele.text}
+                    </p>
                   </div>
                 ))}
               </div>

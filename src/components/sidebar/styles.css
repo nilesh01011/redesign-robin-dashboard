@@ -31,6 +31,7 @@
   padding: 14px;
   padding-top: 0;
   transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  z-index: 5;
 }
 .sidebar .sidebarContainer.desktopStrip {
   width: 60px;
@@ -43,6 +44,9 @@
 }
 .sidebar .themeContainer {
   width: 100%;
+  position: sticky;
+  left: 0;
+  bottom: 0;
 }
 .sidebar .themeContainer.mobileView {
   display: none;
@@ -73,6 +77,7 @@
   font-size: 12px;
   padding: 4px 12px;
   border-radius: 3px;
+  z-index: 10;
 }
 
 @media screen and (max-width: 880px) {

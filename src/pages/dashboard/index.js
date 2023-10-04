@@ -178,13 +178,14 @@ function DashboardPage() {
               {/* images */}
               <div className="images">
                 <img
-                  src={MAHINDRA_SPONSOR_BANNER}
-                  alt="Mahindra Sponsor Banner"
+                  src="https://auto.mahindra.com//-/media/project/mahindra/dotcom/mahindra/in-news---home/pr/neo-ambulance/bolero-neo-ambulancefor-website.jpg?rev=cab8637b0f6f4a80a53cd2a23006e0d6&extension=webp"
+                  alt="Mahindra Ads"
                 />
               </div>
               {/* contents */}
-              <div className="key_highlights_right_content_box" 
-              // style={{backgroundColor:theme === "light" ? "#f2f2f261" : ""}}
+              <div
+                className="key_highlights_right_content_box"
+                // style={{backgroundColor:theme === "light" ? "#f2f2f261" : ""}}
               >
                 <p>Mahindra to sponsor</p>
                 <h4>

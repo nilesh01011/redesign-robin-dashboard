@@ -2,11 +2,13 @@
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 10px;
+    z-index: 5;
 }
 
 .mobileView {
     display: none;
+    z-index: 5;
 }
 
 .menuLists {
