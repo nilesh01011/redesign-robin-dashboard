@@ -166,7 +166,7 @@ function Index() {
             <div
               className="fields"
               style={{
-                borderColor: touched.id
+                borderColor: !values.id && touched.id
                   ? "#ED302D"
                   : theme === "light"
                   ? ""
@@ -222,7 +222,7 @@ function Index() {
             <div
               className="fields"
               style={{
-                borderColor: touched.password
+                borderColor: !values.password && touched.password
                   ? "#ED302D"
                   : theme === "light"
                   ? ""

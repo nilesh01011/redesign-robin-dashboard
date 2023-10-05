@@ -169,13 +169,13 @@ function Header() {
   const handleClicks = (text) => {
     setModelListDetails(text);
     setUserProfileDropdown(false);
-    // document.querySelector("body").classList.add("removeScrollbar")
+    document.querySelector("body").classList.add("removeScrollbar");
     document.querySelector("body").style.overflow = "hidden";
   };
 
   const handleClosed = () => {
     setModelListDetails("");
-    // document.querySelector("body").classList.remove("removeScrollbar")
+    document.querySelector("body").classList.remove("removeScrollbar");
     document.querySelector("body").style.overflow = "auto";
   };
 

@@ -31,6 +31,11 @@ function MenuItems({ collapsed, setCollapsed }) {
     toggleExpanded(item);
   };
 
+  // const handleTooltip = (item) => {
+  //   console.log(item);
+  //   toggleExpanded(item);
+  // };
+
   // desktop view menuitems
   function renderItem(item) {
     const IsExpand = expanded[item.name];
@@ -49,6 +54,7 @@ function MenuItems({ collapsed, setCollapsed }) {
           className="menuLists"
           key={item.key}
         >
+          {/* menuItems Heading */}
           <div
             className="menuItemsHead"
             onClick={() => handleCollapseRecursive(item.name)}
@@ -62,6 +68,9 @@ function MenuItems({ collapsed, setCollapsed }) {
                 lineHeight: collapsed === false && "2px",
                 justifyContent: collapsed && "center",
               }}
+              // onMouseOver={() => collapsed && handleTooltip(item.name)}
+              // onMouseLeave={() => collapsed && setExpanded({})}
+              title={collapsed && item.name}
             >
               {item.icon && <span>{item.icon}</span>}
               {/* items name */}
@@ -115,6 +124,18 @@ function MenuItems({ collapsed, setCollapsed }) {
               {item.items.map(renderItem)}
             </ul>
           )}
+          {/* tooltips */}
+          {/* {collapsed && IsExpand && expanded && (
+            <span
+              className="tooltip"
+              style={{
+                backgroundColor: theme === "light" ? "white" : "#242424",
+                color: theme === "light" ? "black" : "white",
+              }}
+            >
+              {item.name}
+            </span>
+          )} */}
         </div>
       );
     } else {
@@ -140,6 +161,9 @@ function MenuItems({ collapsed, setCollapsed }) {
               lineHeight: collapsed === false && "2px",
               justifyContent: collapsed && "center",
             }}
+            // onMouseOver={() => collapsed && handleTooltip(item.name)}
+            // onMouseLeave={() => collapsed && setExpanded({})}
+            title={collapsed && item.name}
           >
             {item.icon && <span>{item.icon}</span>}
 
@@ -159,6 +183,19 @@ function MenuItems({ collapsed, setCollapsed }) {
               </div>
             )}
           </div>
+
+          {/* tooltips */}
+          {/* {collapsed && IsExpand && expanded && (
+            <span
+              className={`tooltip ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+              style={{
+                backgroundColor: theme === "light" ? "white" : "#242424",
+                color: theme === "light" ? "black" : "white",
+              }}
+            >
+              {item.name}
+            </span>
+          )} */}
         </div>
       );
     }

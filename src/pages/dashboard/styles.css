@@ -92,14 +92,18 @@
 }
 .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .images {
   width: 100%;
+  height: 100%;
   max-height: 268px;
 }
 .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .images img {
   width: 100%;
   height: 100%;
+  max-height: 268px;
   -o-object-fit: contain;
      object-fit: contain;
   border-radius: 4px;
+  -o-object-position: top;
+     object-position: top;
 }
 .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box {
   position: absolute;
@@ -251,6 +255,22 @@
   }
   .dashboard .boxContainer .key_highlights_container .key_highlights_left_side, .dashboard .boxContainer .key_highlights_container .key_highlights_right_side {
     width: 100%;
+  }
+  .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .images {
+    max-height: 300px;
+  }
+  .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .images img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    max-height: 300px;
+    -o-object-position: bottom;
+       object-position: bottom;
+  }
+  .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box h4, .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box p {
+    font-size: 14px;
+  }
+  .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box span {
+    font-size: 12px;
   }
   .dashboard .boxContainer .dashboard_api .graphs_container {
     grid-template-columns: repeat(1, 1fr);

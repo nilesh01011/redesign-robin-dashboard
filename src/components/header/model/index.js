@@ -6,22 +6,25 @@ import Profile from "./profile";
 import ChangePassword from "./changePassword";
 
 function Model({ text, setModelListDetails }) {
+  const handleCloseModel = () => {
+    setModelListDetails(false);
+  };
 
   const handleModelShow = (type) => {
     if (type === "My Profile" || type === "my profile") {
-      return <Profile />;
+      return <Profile handleCloseModel={handleCloseModel} />;
     }
 
     if (type === "Setting" || type === "setting") {
-      return <Setting />;
+      return <Setting handleCloseModel={handleCloseModel} />;
     }
 
     if (type === "Change Password" || type === "change password") {
-      return <ChangePassword />
+      return <ChangePassword handleCloseModel={handleCloseModel} />;
     }
 
     if (type === "Logout" || type === "logout") {
-      return <Logout />;
+      return <Logout handleCloseModel={handleCloseModel} />;
     }
   };
 
