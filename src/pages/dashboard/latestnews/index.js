@@ -13,7 +13,7 @@ function LatestNews({
   const handleDrawer = (id) => {
     setNewsDrawerID(id);
     setIsNewsDrawerOpen(!isNewsDrawerOpen);
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "hidden";
   };
 
   return (

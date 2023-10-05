@@ -16,6 +16,11 @@ function NewsDrawer({ newsDrawerID, isNewsDrawerOpen, setIsNewsDrawerOpen }) {
       });
     }
   }, [newsDrawerID]);
+
+  const handleDrawerClosed = () => {
+    setIsNewsDrawerOpen(!isNewsDrawerOpen);
+    document.body.style.overflow = "auto";
+  }
   return (
     <div
       className={`newsDrawerContainer ${theme === "light" ? "light" : "dark"}`}
@@ -35,7 +40,7 @@ function NewsDrawer({ newsDrawerID, isNewsDrawerOpen, setIsNewsDrawerOpen }) {
         <h4 style={{ fontSize: 18 }}>Latest News</h4>
         {/* cancel icon */}
         <span
-          onClick={() => setIsNewsDrawerOpen(!isNewsDrawerOpen)}
+          onClick={() => handleDrawerClosed()}
           style={{ cursor: "pointer" }}
         >
           <svg

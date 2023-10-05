@@ -21,6 +21,11 @@ function DashboardPage() {
   const [isNewsDrawerOpen, setIsNewsDrawerOpen] = useState(false);
   const [newsDrawerID, setNewsDrawerID] = useState(0);
 
+  const handleDrawerClosed = () => {
+    setIsNewsDrawerOpen(!isNewsDrawerOpen);
+    document.body.style.overflow = "auto";
+  }
+
   return (
     <>
       <div className="dashboard">
@@ -314,7 +319,7 @@ function DashboardPage() {
       <div
         id="newsDrawerOverlay"
         style={{ display: isNewsDrawerOpen ? "block" : "none" }}
-        onClick={() => setIsNewsDrawerOpen(!isNewsDrawerOpen)}
+        onClick={() => handleDrawerClosed()}
       ></div>
     </>
   );
