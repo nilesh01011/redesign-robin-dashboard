@@ -46,7 +46,8 @@ function Sidebar() {
       <aside
         className="sidebar"
         style={{
-          background: theme === "light" ? "white" : "#242424",
+          background: theme === "light" ? "white" : "#1C1C1C",
+          boxShadow:theme === "light" ? " 0 0 3px rgba(0, 0, 0, 0.2)" : "1px 0px 1px 0px rgba(255, 255, 255, 0.15)"
         }}
       >
         {/* ================ main sidebar ================ */}
@@ -60,7 +61,7 @@ function Sidebar() {
             onClick={toggleCollapsed}
             className="sidebarBtn desktopViewBtn"
             style={{
-              backgroundColor: theme === "light" ? "white" : "#242424",
+              backgroundColor: theme === "light" ? "white" : "#1C1C1C",
             }}
           >
             {/* images */}
@@ -191,7 +192,7 @@ function Sidebar() {
           className="themeContainer desktopView"
           style={{
             padding: collapsed === true ? "7px 10px" : "10px 16px",
-            backgroundColor: theme === "light" ? "#F2F2F2" : "#1c1a1a",
+            backgroundColor: theme === "light" ? "#F2F2F2" : "#232324",
           }}
         >
           <div
@@ -350,7 +351,7 @@ function Sidebar() {
         {/* mobile view theme */}
         <div
           className="themeContainer mobileView"
-          style={{ backgroundColor: theme === "light" ? "#F2F2F2" : "#1c1a1a" }}
+          style={{ backgroundColor: theme === "light" ? "#F2F2F2" : "#232324" }}
         >
           <div
             className="themeWrapper"

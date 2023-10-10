@@ -1,11 +1,12 @@
 import React from "react";
-import Title from "../../../../components/title";
 import { useSelector } from "react-redux";
+import "./styles.scss";
+import Title from "../../components/title";
 
 function Index() {
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="suggestedorder container-fluid">
+    <div className="crm container-fluid">
       {/* ============ title ============ */}
       <div
         style={{
@@ -15,9 +16,8 @@ function Index() {
           }`,
         }}
       >
-        <Title title="Suggested Order Qty. (SOQ)" />
+        <Title title="CRM" />
       </div>
-      {/* =============== Content ================ */}
     </div>
   );
 }

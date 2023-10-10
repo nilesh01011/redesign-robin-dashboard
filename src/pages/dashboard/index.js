@@ -1,38 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 import Title from "../../components/title";
 import {
   actionItems,
+  keyHighlights,
   latestNews,
   todayBirthday,
   upcomingBirthday,
 } from "../../data";
-import Dropdown from "../../components/dropdown";
-import { MAHINDRA_SPONSOR_BANNER } from "../../assets";
+// import Dropdown from "../../components/dropdown";
+// import { MAHINDRA_SPONSOR_BANNER } from "../../assets";
 import ActionItemsCollapsed from "./actionitemsCollapsed";
 import Graphs from "./graphs";
 import LatestNews from "./latestnews";
 import NewsDrawer from "./latestnews/newsDrawer";
 import BirthdayCalendar from "./birthdaycalendar";
+// import KeyHighlightsCarousel from "./keyhightlightsCarousel";
+import KeyHightlightsCarousel from "./keyHightLights_Carousel/KeyHightlightsCarousel";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
   const [isNewsDrawerOpen, setIsNewsDrawerOpen] = useState(false);
   const [newsDrawerID, setNewsDrawerID] = useState(0);
+  const [activendex, setActiveIndex] = useState(0);
+
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   const handleDrawerClosed = () => {
     setIsNewsDrawerOpen(!isNewsDrawerOpen);
     document.body.style.overflow = "auto";
-  }
+  };
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex = 0;
+    } else if (newIndex >= keyHighlights.length) {
+      newIndex = keyHighlights.length - 1;
+    }
+    setCurrentIndex(newIndex);
+    setActiveIndex(newIndex);
+  };
+
+  console.log(currentIndex);
 
   return (
     <>
-      <div className="dashboard">
+      <div className="dashboard container-fluid">
         {/* ============ title ============ */}
         <div
           style={{
-            // marginTop: 20,
+            marginTop: 20,
             borderBottom: `1px solid ${
               theme === "light" ? "#DEDEDE" : "#635D5D"
             }`,
@@ -55,7 +72,7 @@ function DashboardPage() {
           >
             {/* left sides */}
             <div className="key_highlights_heading_left heading_side">
-              {/* title */}
+              {/* keyhightlight title */}
               <div className="title_heads">
                 <h4>Key Highlights</h4>
                 <p>
@@ -93,29 +110,42 @@ function DashboardPage() {
                   </span>
                 </p>
               </div>
+              {/* divide */}
+              <div
+                className="divider"
+                style={{
+                  backgroundColor: theme === "light" ? "#B5B5B6" : "#635d5d",
+                }}
+              ></div>
+              {/* carousel slider */}
+              {/* <div
+                className="key_highlights_carousel"
+                style={{ transform: `translate(-${activendex * 100}%)` }}
+              >
+                {keyHighlights.map((ele) => (
+                  <KeyHighlightsCarousel key={ele.key} data={ele} />
+                ))}
+              </div> */}
               <div className="heads">
-                {/* divide */}
-                <div
-                  className="divider"
-                  style={{
-                    backgroundColor: theme === "light" ? "#B5B5B6" : "#635d5d",
-                  }}
-                ></div>
                 {/* label */}
                 <span className="label_name">GST Update</span>
                 {/* text */}
                 <p className="text" style={{ color: "#FF3E5B" }}>
                   Lorem Ipsum is simply dummy text of the printing Lorem Ipsum
-                  is simply dummy text of the printing.
+                  is simply dummy text of the printing
                   <span style={{ color: "#858585", marginLeft: 4 }}>
                     5min ago
                   </span>
                 </p>
               </div>
             </div>
-            {/* right sides icons */}
+            {/* <KeyHightlightsCarousel /> */}
+            {/* carousel right sides icons */}
             <div className="key_highlights_heading_right heading_side">
-              <span>
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={() => updateIndex(activendex - 1)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18"
@@ -131,7 +161,10 @@ function DashboardPage() {
                   />
                 </svg>
               </span>
-              <span>
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={() => updateIndex(activendex + 1)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18"

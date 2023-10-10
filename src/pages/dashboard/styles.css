@@ -19,26 +19,40 @@
   align-items: center;
   gap: 10px;
 }
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads .divider {
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .divider {
   width: 1px;
   height: 24px;
 }
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads .label_name {
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .key_highlights_carousel {
+  width: 1000px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s;
+  white-space: nowrap;
+}
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .key_highlights_carousel .heads {
+  width: 100%;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .key_highlights_carousel .heads .label_name {
   padding: 0 8px;
-  background-color: #FFD8DE;
-  border: 1px solid #ED302D;
-  color: #ED302D;
+  background-color: #ffd8de;
+  border: 1px solid #ed302d;
+  color: #ed302d;
   font-size: 12px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2px;
+}
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads h4 {
+  white-space: nowrap;
 }
 .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads p {
   display: none;
@@ -80,7 +94,7 @@
   border-radius: 10px;
 }
 .dashboard .boxContainer .key_highlights_container .key_highlights_left_side .key_hightlights_contents.light::-webkit-scrollbar-thumb {
-  background: #B5B5B6;
+  background: #b5b5b6;
 }
 .dashboard .boxContainer .key_highlights_container .key_highlights_left_side .key_hightlights_contents.dark::-webkit-scrollbar-thumb {
   background: #242424;
@@ -110,7 +124,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #FF3E5B;
+  background-color: #ff3e5b;
   color: white;
   padding: 5px 16px;
   border-radius: 0 0 4px 4px;
@@ -140,7 +154,7 @@
   justify-content: center;
   gap: 6px;
   border-radius: 4px;
-  background-color: #FF3E5B;
+  background-color: #ff3e5b;
   color: white;
   padding: 6px 16px;
   height: 40px;

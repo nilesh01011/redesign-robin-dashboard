@@ -23,19 +23,30 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function Index({ customersList, setInputFields, inputFields }) {
+function Index({
+  customersList,
+  setInputFields,
+  inputFields,
+  setSelectedDropdownFilterText,
+  selectDropdownFilterText,
+}) {
   const theme = useSelector((state) => state.theme);
   const [selected, setSelected] = useState("");
   const [error, setError] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    if(!selected){
-      return setSelected(customersList[0].name)
+    if (!selected) {
+      return setSelected(customersList[0].name);
     } else {
-      setSelected(selected)
+      setSelected(selected);
     }
-  },[selected, setSelected])
+
+    if (selectDropdownFilterText === "") {
+      setSelectedDropdownFilterText(customersList[0].search);
+    }
+
+  }, [selected, setSelected]);
 
   const handleSubmitFilter = (e) => {
     e.preventDefault();
@@ -43,15 +54,18 @@ function Index({ customersList, setInputFields, inputFields }) {
     if (!selected) {
       setError(true);
     }
-    console.log(selected);
+    // console.log(selected);
   };
 
   // dropdown
   const selectBoxText = (ele) => {
     // setSelected(ele.target.innerHTML);
-    setSelected(ele);
+    setSelected(ele.name);
     setIsDropdownOpen(!isDropdownOpen);
     setError(false);
+
+    // dropdown text number
+    setSelectedDropdownFilterText(ele.search);
   };
 
   let domNode = useClickOutSide(() => {
@@ -78,7 +92,11 @@ function Index({ customersList, setInputFields, inputFields }) {
         className="selectDropdownFilterContainer"
         style={{
           backgroundColor: theme === "light" ? "white" : "#0B0B0C",
-          borderColor: isDropdownOpen ? theme === "light" ? "black" : "white" : error
+          borderColor: isDropdownOpen
+            ? theme === "light"
+              ? "black"
+              : "white"
+            : error
             ? "#ED302D"
             : theme === "light"
             ? "#B5B5B6"
@@ -149,6 +167,7 @@ function Index({ customersList, setInputFields, inputFields }) {
         <div className="inputFieldsContainer">
           <InputField
             placeholder="Enter customer name"
+            // type={selected === "Customer Name" ? "text" : "number"}
             type="search"
             paddingLeft="175px"
             paddingRight="25px"
@@ -191,11 +210,10 @@ function Index({ customersList, setInputFields, inputFields }) {
           className="allListItems"
         >
           {customersList.map((ele, id) => {
-            console.log(selected);
             return (
               <li
                 key={id}
-                onClick={() => selectBoxText(ele.name)}
+                onClick={() => selectBoxText(ele)}
                 className={`allListItemsChild ${
                   theme === "light" ? "lightHover" : "darkHover"
                 }`}

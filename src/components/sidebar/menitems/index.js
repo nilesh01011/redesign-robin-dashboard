@@ -31,10 +31,9 @@ function MenuItems({ collapsed, setCollapsed }) {
     toggleExpanded(item);
   };
 
-  // const handleTooltip = (item) => {
-  //   console.log(item);
-  //   toggleExpanded(item);
-  // };
+  const handleExpandRecursiveRedirect = (item) => {
+    handleRedirect(item.link)
+  };
 
   // desktop view menuitems
   function renderItem(item) {
@@ -53,6 +52,7 @@ function MenuItems({ collapsed, setCollapsed }) {
           }}
           className="menuLists"
           key={item.key}
+          // onClick={() => handleExpandRecursiveRedirect(item.name)}
         >
           {/* menuItems Heading */}
           <div
@@ -68,9 +68,7 @@ function MenuItems({ collapsed, setCollapsed }) {
                 lineHeight: collapsed === false && "2px",
                 justifyContent: collapsed && "center",
               }}
-              // onMouseOver={() => collapsed && handleTooltip(item.name)}
-              // onMouseLeave={() => collapsed && setExpanded({})}
-              title={collapsed && item.name}
+              title={collapsed ? item.name : ""}
             >
               {item.icon && <span>{item.icon}</span>}
               {/* items name */}
@@ -124,18 +122,6 @@ function MenuItems({ collapsed, setCollapsed }) {
               {item.items.map(renderItem)}
             </ul>
           )}
-          {/* tooltips */}
-          {/* {collapsed && IsExpand && expanded && (
-            <span
-              className="tooltip"
-              style={{
-                backgroundColor: theme === "light" ? "white" : "#242424",
-                color: theme === "light" ? "black" : "white",
-              }}
-            >
-              {item.name}
-            </span>
-          )} */}
         </div>
       );
     } else {
@@ -152,6 +138,7 @@ function MenuItems({ collapsed, setCollapsed }) {
                 : "#fff",
           }}
           onClick={() => setCollapsed(false)}
+          // onClick={() => collapsed && handleExpandRecursiveRedirect(item)}
         >
           <div
             className="items"
@@ -161,9 +148,7 @@ function MenuItems({ collapsed, setCollapsed }) {
               lineHeight: collapsed === false && "2px",
               justifyContent: collapsed && "center",
             }}
-            // onMouseOver={() => collapsed && handleTooltip(item.name)}
-            // onMouseLeave={() => collapsed && setExpanded({})}
-            title={collapsed && item.name}
+            title={collapsed ? item.name : ""}
           >
             {item.icon && <span>{item.icon}</span>}
 

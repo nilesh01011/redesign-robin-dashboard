@@ -3,9 +3,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   z-index: 9998;
   transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  position: relative;
 }
 .sidebar .sidebarBtn {
   display: flex;
@@ -32,6 +32,7 @@
   padding-top: 0;
   transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   z-index: 5;
+  height: 100%;
 }
 .sidebar .sidebarContainer.desktopStrip {
   width: 60px;
@@ -48,12 +49,13 @@
   left: 0;
   bottom: 0;
   z-index: 10;
+  box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.15);
 }
 .sidebar .themeContainer.mobileView {
   display: none;
 }
 .sidebar .themeContainer .themeWrapper {
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 5px;
   display: flex;
   align-items: center;

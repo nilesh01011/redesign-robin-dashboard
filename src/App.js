@@ -11,6 +11,8 @@ import Favourites from "./pages/favourites";
 import CriticalityGroup from "./pages/favourites/criticalityGroup";
 // parts
 import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
+// CRM
+import CRM from "./pages/crm";
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
 
@@ -55,6 +57,7 @@ function App() {
             path="/parts/parts-ordering/suggest-order-qty"
             element={<SuggestOrderQty />}
           ></Route>
+          <Route path="/crm" element={<CRM />}></Route>
           {/* Admin */}
           <Route
             path="/admin/customer-master"

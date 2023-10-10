@@ -9,6 +9,8 @@ function Logout({ handleCloseModel }) {
 
   const handleLogout = () => {
     router("/");
+    document.querySelector("body").classList.remove("removeScrollbar");
+    document.querySelector("body").style.overflow = "auto";
   };
   return (
     <div

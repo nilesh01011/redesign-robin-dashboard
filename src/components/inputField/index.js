@@ -12,14 +12,14 @@ function Index({
   onBlur,
   name,
   showPassword,
+  inputFields,
+  setInputFields
 }) {
   const theme = useSelector((state) => state.theme);
 
-  const [inputs, setInputs] = useState("");
-
   // handle search inputs cancle btn
   const handleCancle = () => {
-    setInputs("");
+    setInputFields("");
   };
 
   return (
@@ -34,9 +34,9 @@ function Index({
           paddingRight: paddingRight && paddingRight,
           color: theme === "light" ? "" : "white",
         }}
-        value={type === "search" ? inputs : value}
+        value={type === "search" ? inputFields : value}
         onChange={
-          type === "search" ? (e) => setInputs(e.target.value) : onChange
+          type === "search" ? (e) => setInputFields(e.target.value) : onChange
         }
         autoComplete="off"
         onBlur={onBlur && onBlur}

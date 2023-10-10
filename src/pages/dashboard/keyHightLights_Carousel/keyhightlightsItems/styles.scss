@@ -1,0 +1,21 @@
+.heads {
+    width: 100%;
+    // white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+
+    & .label_name {
+      padding: 0 8px;
+      background-color: #ffd8de;
+      border: 1px solid #ed302d;
+      color: #ed302d;
+      font-size: 12px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+  }

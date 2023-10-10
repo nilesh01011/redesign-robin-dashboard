@@ -114,8 +114,6 @@
   left: 0;
   right: 0;
   width: 100%;
-  max-width: -moz-max-content;
-  max-width: max-content;
   height: -moz-max-content;
   height: max-content;
   border-radius: 10px;

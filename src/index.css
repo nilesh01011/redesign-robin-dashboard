@@ -18,8 +18,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-left: 32px;
-  padding-right: 32px;
 }
 
 .footer {
@@ -31,7 +29,7 @@
   margin-bottom: 15px;
 }
 .footer span {
-  color: #B5B5B6;
+  color: #b5b5b6;
   font-size: 12px;
 }
 
@@ -58,11 +56,11 @@ body.removeScrollbar::-webkit-scrollbar {
 }
 
 body.light::-webkit-scrollbar-track {
-  background: #F0EFEF;
+  background: #f0efef;
 }
 
 body.dark::-webkit-scrollbar-track {
-  background: #1C1A1A;
+  background: #1c1a1a;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -70,15 +68,31 @@ body::-webkit-scrollbar-thumb {
 }
 
 body.light::-webkit-scrollbar-thumb {
-  background: #8A8A8A;
+  background: #8a8a8a;
 }
 
 body.dark::-webkit-scrollbar-thumb {
   background: #242424;
 }
 
+.container-fluid {
+  padding: 0 32px;
+}
+
+.tableContainer {
+  width: 100%;
+  height: 100%;
+  max-height: 379px;
+  overflow: scroll;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.tableContainer::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 880px) {
-  .main-container {
+  .container-fluid {
     padding-left: 20px;
     padding-right: 20px;
   }

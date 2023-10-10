@@ -7,6 +7,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Logout from "./model/logout";
 import Model from "./model";
+import Title from "../title";
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -28,7 +29,7 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function Header() {
+function Header({ title }) {
   const theme = useSelector((state) => state.theme);
   const [userProfileDropdown, setUserProfileDropdown] = useState(false);
   // user dropdown details
@@ -180,13 +181,31 @@ function Header() {
   };
 
   return (
-    <>
-      <div
-        style={{
-          background: theme === "light" ? "white" : "black",
-          color: theme === "light" ? "black" : "white",
-        }}
-        className="header"
+    <div
+      style={{
+        background: theme === "light" ? "white" : "#1C1C1C",
+        color: theme === "light" ? "black" : "white",
+        boxShadow:
+          theme === "light"
+            ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
+            : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
+        paddingLeft: 32,
+        paddingRight: 32,
+        // borderBottom: `1px solid ${theme === "light" ? "#DEDEDE" : "#635D5D"}`,
+      }}
+    >
+      <div className="header"
+      //  style={{
+      //   background: theme === "light" ? "white" : "#1C1C1C",
+      //   color: theme === "light" ? "black" : "white",
+      //   boxShadow:
+      //     theme === "light"
+      //       ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
+      //       : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
+      //   paddingLeft: 32,
+      //   paddingRight: 32,
+      //   borderBottom: `1px solid ${theme === "light" ? "#DEDEDE" : "#635D5D"}`,
+      // }}
       >
         <div className="headerLeft">
           <div className="userText">
@@ -453,7 +472,13 @@ function Header() {
         id="overlay"
         onClick={handleClosed}
       ></div>
-    </>
+
+      {/* ============ title ============ */}
+      {/* <div
+      >
+        <Title title={title} />
+      </div> */}
+    </div>
   );
 }
 

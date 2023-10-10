@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+  height: 100%;
+  border-spacing: 0;
+}
+table tr td, table tr th {
+  padding: 13px 20px;
+  font-size: 14px;
+  text-align: left;
+}
+table .tableHeads {
+  position: sticky;
+  top: 0;
+}
+table .tableHeads tr th span {
+  position: relative;
+}
+table .tableHeads tr th span svg {
+  position: absolute;
+  right: -25px;
+  top: 1px;
+}
+table .tableHeads tr th:first-child {
+  border-top-left-radius: 4px;
+}
+table .tableHeads tr th:last-child {
+  border-top-right-radius: 4px;
+}/*# sourceMappingURL=styles.css.map */
