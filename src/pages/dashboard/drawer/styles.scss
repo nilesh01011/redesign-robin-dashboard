@@ -1,4 +1,4 @@
-.newsDrawerContainer {
+.drawerContainer {
     width: 520px;
     height: 100%;
     position: fixed;
@@ -10,29 +10,31 @@
     overflow-y: scroll;
     padding-bottom: 20px;
 
-    // &::-webkit-scrollbar {
-    //     width: 8px;
-    // }
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
 
-    // &.light::-webkit-scrollbar-track {
-    //     background: #F0EFEF;
-    // }
+    &.light::-webkit-scrollbar-track {
+        background: #F0EFEF;
+    }
 
-    // &.dark::-webkit-scrollbar-track {
-    //     background: #242424;
-    // }
+    &.dark::-webkit-scrollbar-track {
+        background: #1C1C1C;
+    }
 
-    // &::-webkit-scrollbar-thumb {
-    //     border-radius: 10px;
-    // }
+    // thumb
 
-    // &.light::-webkit-scrollbar-thumb {
-    //     background: #8A8A8A;
-    // }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+    }
 
-    // &.dark::-webkit-scrollbar-thumb {
-    //     background: #1C1A1A;
-    // }
+    &.light::-webkit-scrollbar-thumb {
+        background: #8A8A8A;
+    }
+
+    &.dark::-webkit-scrollbar-thumb {
+        background: #545454;
+    }
 
     & .title {
         display: flex;
@@ -45,9 +47,6 @@
     }
 
     & .contents {
-        padding-top: 20px;
-        padding-left: 35px;
-        padding-right: 35px;
         width: 100%;
 
         & h5 {
@@ -81,12 +80,12 @@
 
 //  media queries
 @media screen and (max-width:576px) {
-    .newsDrawerContainer {
+    .drawerContainer {
         width: 85%;
 
         & .contents {
-            padding-left: 16px;
-            padding-right: 16px;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
 
             & p {
                 font-size: 14px;

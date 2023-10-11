@@ -4,20 +4,26 @@ import { useSelector } from "react-redux";
 
 function LatestNews({
   items,
-  setNewsDrawerID,
-  setIsNewsDrawerOpen,
-  isNewsDrawerOpen,
+  setDrawerSliderID,
+  setIsDrawerOpen,
+  isDrawerOpen,
+  setDrawerType
 }) {
   const theme = useSelector((state) => state.theme);
 
   const handleDrawer = (id) => {
-    setNewsDrawerID(id);
-    setIsNewsDrawerOpen(!isNewsDrawerOpen);
+    setDrawerSliderID(id);
+    setIsDrawerOpen(!isDrawerOpen);
     document.body.style.overflow = "hidden";
+    setDrawerType("Latest News")
   };
 
   return (
-    <div className="latestNews" onClick={() => handleDrawer(items.id)}>
+    <div
+      className="latestNews"
+      style={{ borderColor: theme === "light" ? "#E6E6E6" : "#232324" }}
+      onClick={() => handleDrawer(items.id)}
+    >
       {/* text */}
       <div className="text">
         <h5>{items.title}</h5>
@@ -28,7 +34,7 @@ function LatestNews({
         className="date"
         style={{
           backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-          borderColor: theme === "light" ? "#E6E6E6" : "#635d5d",
+          borderColor: theme === "light" ? "#E6E6E6" : "#232324",
           color: "#858585",
         }}
       >

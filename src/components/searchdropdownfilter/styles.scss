@@ -1,163 +1,162 @@
 .selectDropdownFilter {
-    min-height: 50px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  & .selectDropdownFilterContainer {
+    border-radius: 4px;
+    padding: 5px 12px;
+    border: 1px solid;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & .selectOption {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      height: 100%;
+
+      & .selectOptionContainer {
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        color: #635d5d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid;
+
+        & .selectOptionFields {
+          width: 100%;
+          min-width: 160px;
+          max-width: 160px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          gap: 10px;
+          padding: 10px 6px;
+
+          // select fields
+          & .selectFields {
+            width: max-content;
+            white-space: nowrap;
+            user-select: none;
+            text-transform: capitalize;
+            font-size: 12px;
+          }
+
+          // icons
+          & .icons {
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            color: #ed302d;
+          }
+        }
+      }
+    }
+  }
+
+  & .dropdownFieldContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    flex: 1;
+    position: relative;
+  }
+
+  & .inputFieldsContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  & .btn {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 6px;
+    cursor: pointer;
+  }
+
+  & .error {
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    font-size: 12px;
+    color: #ed302d;
+  }
+
+  & .allListItems {
+    width: 100%;
+    z-index: 20;
+    border: 1px solid;
+    border-radius: 3px;
+    transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    font-size: 12px;
+    padding: 12px 10px;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    position: relative;
+    gap: 4px;
 
-    & .selectDropdownFilterContainer {
-        border-radius: 4px;
-        padding: 8px;
-        border: 1px solid;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    & .allListItemsChild {
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
 
-        & .selectOption {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            height: 100%;
+      &:not(:last-child) {
+        border-bottom: 1px solid;
+      }
 
-            & .selectOptionContainer {
-                width: 100%;
-                height: 100%;
-                border-radius: 3px;
-                color: #635D5D;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border: 1px solid;
+      &:first-child {
+        border-radius: 3px 3px 0 0;
+      }
 
-                & .selectOptionFields {
-                    width: 100%;
-                    min-width: 160px;
-                    max-width: 160px;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    cursor: pointer;
-                    gap: 10px;
-                    padding: 6px 10px;
+      &:last-child {
+        border-radius: 0 0 3px 3px;
+      }
 
-                    // select fields
-                    & .selectFields {
-                        width: max-content;
-                        white-space: nowrap;
-                        user-select: none;
-                        text-transform: capitalize;
-                        font-size: 14px;
-                    }
+      &.lightHover {
+        color: #0b0b0c;
+        border-color: #dedede;
+      }
 
-                    // icons
-                    & .icons {
-                        height: 14px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-                        color: #ED302D;
-                    }
+      &.darkHover {
+        color: #a3a3a3;
+        border-color: #232324;
+      }
 
-                }
+      &.darkHover:hover {
+        background-color: #232324;
+        color: #a3a3a3;
+      }
 
-            }
-        }
+      &.lightHover:hover {
+        background-color: #f2f2f2;
+        color: #0b0b0c;
+      }
     }
-
-    & .dropdownFieldContainer {
-        width: 100%;
-        height: 100%;
-        border-radius: 4px;
-        flex: 1;
-        position: relative;
-    }
-
-    & .inputFieldsContainer {
-        width: 100%;
-        height: 100%;
-    }
-
-    & .btn {
-        width: max-content;
-        height: max-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        right: 6px;
-        cursor: pointer;
-    }
-
-    & .error {
-        position: absolute;
-        left: 0;
-        bottom: -18px;
-        font-size: 12px;
-        color: #ED302D;
-    }
-
-    & .allListItems {
-        width: 100%;
-        z-index: 20;
-        border: 1px solid;
-        border-radius: 3px;
-        transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-        font-size: 14px;
-
-        // &:not(:last-child) {
-        //     border: 1px solid;
-        // }
-
-        & .allListItemsChild {
-            padding: 10px 1rem;
-            cursor: pointer;
-
-            &:not(:last-child) {
-                border-bottom: 1px solid;
-            }
-
-            &:first-child {
-                border-radius: 3px 3px 0 0;
-            }
-
-            &:last-child {
-                border-radius: 0 0 3px 3px;
-            }
-
-            &.lightHover {
-                color: #0B0B0C;
-                border-color: #DEDEDE;
-            }
-
-            &.darkHover {
-                color: #A3A3A3;
-                border-color: #232324;
-            }
-
-            &.darkHover:hover {
-                background-color: #232324;
-                color: #A3A3A3;
-            }
-
-            &.lightHover:hover {
-                background-color: #f2f2f2;
-                color: #0B0B0C;
-            }
-        }
-    }
+  }
 }
 
 // media queries
-@media screen and (max-width:480px) {
-    .selectDropdownFilter {
-        & .selectDropdownFilterContainer {
-            & .inputFieldsContainer input {
-                padding-left: 155px !important;
-                padding-right: 15px !important;
-            }
-        }
+@media screen and (max-width: 480px) {
+  .selectDropdownFilter {
+    & .selectDropdownFilterContainer {
+      & .inputFieldsContainer input {
+        padding-left: 155px !important;
+        padding-right: 15px !important;
+      }
     }
+  }
 }

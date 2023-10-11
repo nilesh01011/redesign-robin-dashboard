@@ -78,12 +78,15 @@ function Graphs({ title }) {
       },
     ],
   };
+
+  const borderColor = theme === "light" ? "#E6E6E6" : "#232324";
+
   return (
     <div
       className="graphsContainer"
       style={{
         backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-        borderColor: theme === "light" ? "#dedede" : "#635d5d",
+        borderColor: borderColor,
       }}
     >
       {/* title */}

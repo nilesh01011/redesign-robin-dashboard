@@ -45,7 +45,6 @@ function Index({
     if (selectDropdownFilterText === "") {
       setSelectedDropdownFilterText(customersList[0].search);
     }
-
   }, [selected, setSelected]);
 
   const handleSubmitFilter = (e) => {
@@ -108,7 +107,7 @@ function Index({
           style={{
             width: "auto",
             position: "absolute",
-            left: 6,
+            left: 12,
             top: 6,
             bottom: 6,
           }}
@@ -166,7 +165,7 @@ function Index({
         {/* inputs */}
         <div className="inputFieldsContainer">
           <InputField
-            placeholder="Enter customer name"
+            placeholder="Search"
             // type={selected === "Customer Name" ? "text" : "number"}
             type="search"
             paddingLeft="175px"
@@ -217,7 +216,13 @@ function Index({
                 className={`allListItemsChild ${
                   theme === "light" ? "lightHover" : "darkHover"
                 }`}
-                style={{ color: selected === ele.name && "#FF3E5B" }}
+                style={{
+                  color: selected === ele.name && "#FF3E5B",
+                  backgroundColor:
+                    selected === ele.name ? theme === "light"
+                      ? "#F2F2F2"
+                      : "#232324" : ""
+                }}
               >
                 {ele.name}
               </li>

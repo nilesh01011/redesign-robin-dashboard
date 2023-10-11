@@ -11,54 +11,61 @@ import {
 } from "../../data";
 // import Dropdown from "../../components/dropdown";
 // import { MAHINDRA_SPONSOR_BANNER } from "../../assets";
-import ActionItemsCollapsed from "./actionitemsCollapsed";
+import ActionItemsCollapsed from "./actionitems";
 import Graphs from "./graphs";
 import LatestNews from "./latestnews";
-import NewsDrawer from "./latestnews/newsDrawer";
+import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
 // import KeyHighlightsCarousel from "./keyhightlightsCarousel";
 import KeyHightlightsCarousel from "./keyHightLights_Carousel/KeyHightlightsCarousel";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
-  const [isNewsDrawerOpen, setIsNewsDrawerOpen] = useState(false);
-  const [newsDrawerID, setNewsDrawerID] = useState(0);
-  const [activendex, setActiveIndex] = useState(0);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerSliderID, setDrawerSliderID] = useState(0);
+  const [drawerType, setDrawerType] = useState("");
+  // const [activendex, setActiveIndex] = useState(0);
 
-  const [currentIndex, setCurrentIndex] = useState(1);
+  // const [currentIndex, setCurrentIndex] = useState(1);
 
   const handleDrawerClosed = () => {
-    setIsNewsDrawerOpen(!isNewsDrawerOpen);
+    setIsDrawerOpen(!isDrawerOpen);
     document.body.style.overflow = "auto";
   };
-  const updateIndex = (newIndex) => {
-    if (newIndex < 0) {
-      newIndex = 0;
-    } else if (newIndex >= keyHighlights.length) {
-      newIndex = keyHighlights.length - 1;
-    }
-    setCurrentIndex(newIndex);
-    setActiveIndex(newIndex);
-  };
+  // const updateIndex = (newIndex) => {
+  //   if (newIndex < 0) {
+  //     newIndex = 0;
+  //   } else if (newIndex >= keyHighlights.length) {
+  //     newIndex = keyHighlights.length - 1;
+  //   }
+  //   setCurrentIndex(newIndex);
+  //   setActiveIndex(newIndex);
+  // };
 
-  console.log(currentIndex);
+  const borderColor = theme === "light" ? "#E6E6E6" : "#232324";
 
   return (
     <>
-      <div className="dashboard container-fluid">
+      <div className="dashboard">
         {/* ============ title ============ */}
         <div
           style={{
-            marginTop: 20,
-            borderBottom: `1px solid ${
-              theme === "light" ? "#DEDEDE" : "#635D5D"
-            }`,
+            paddingTop: 7,
+            // borderBottom: `1px solid ${
+            //   theme === "light" ? "#DEDEDE" : "#635D5D"
+            // }`,
+            background: theme === "light" ? "white" : "#1C1C1C",
+            boxShadow:
+              theme === "light"
+                ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
+                : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
           }}
+          className="container-fluid"
         >
           <Title title="Dashboard" />
         </div>
         {/* =============== Content ================ */}
-        <div className="boxContainer">
+        <div className="boxContainer container-fluid">
           {/* ========== New Design ========== */}
 
           {/* heading */}
@@ -67,7 +74,7 @@ function DashboardPage() {
             style={{
               color: theme === "light" ? "black" : "white",
               backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-              borderColor: theme === "light" ? "#E6E6E6" : "#635d5d",
+              borderColor: borderColor,
             }}
           >
             {/* left sides */}
@@ -144,7 +151,7 @@ function DashboardPage() {
             <div className="key_highlights_heading_right heading_side">
               <span
                 style={{ cursor: "pointer" }}
-                onClick={() => updateIndex(activendex - 1)}
+                // onClick={() => updateIndex(activendex - 1)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +170,7 @@ function DashboardPage() {
               </span>
               <span
                 style={{ cursor: "pointer" }}
-                onClick={() => updateIndex(activendex + 1)}
+                // onClick={() => updateIndex(activendex + 1)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +197,7 @@ function DashboardPage() {
             {/* left side */}
             <div
               className="key_highlights_left_side box_Contents"
-              style={{ borderColor: theme === "light" ? "#E6E6E6" : "#635d5d" }}
+              style={{ borderColor: borderColor }}
             >
               {/* title */}
               <h4>Action Items</h4>
@@ -200,18 +207,26 @@ function DashboardPage() {
                   theme === "light" ? "light" : "dark"
                 }`}
                 style={{
-                  borderColor: theme === "light" ? "#E6E6E6" : "#635d5d",
+                  borderColor: borderColor,
                 }}
               >
                 {actionItems.map((ele) => {
-                  return <ActionItemsCollapsed key={ele.id} items={ele} />;
+                  return (
+                    <ActionItemsCollapsed
+                      key={ele.id}
+                      items={ele}
+                      setIsDrawerOpen={setIsDrawerOpen}
+                      setDrawerSliderID={setDrawerSliderID}
+                      setDrawerType={setDrawerType}
+                    />
+                  );
                 })}
               </div>
             </div>
             {/* Ads right side */}
             <div
               className="key_highlights_right_side box_Contents"
-              style={{ borderColor: theme === "light" ? "#E6E6E6" : "#635d5d" }}
+              style={{ borderColor: borderColor }}
             >
               {/* images */}
               <div className="images">
@@ -219,18 +234,6 @@ function DashboardPage() {
                   src="https://auto.mahindra.com//-/media/project/mahindra/dotcom/mahindra/in-news---home/pr/neo-ambulance/bolero-neo-ambulancefor-website.jpg?rev=cab8637b0f6f4a80a53cd2a23006e0d6&extension=webp"
                   alt="Mahindra Ads"
                 />
-              </div>
-              {/* contents */}
-              <div
-                className="key_highlights_right_content_box"
-                // style={{backgroundColor:theme === "light" ? "#f2f2f261" : ""}}
-              >
-                <p>Mahindra to sponsor</p>
-                <h4>
-                  ICC Men’s Cricket World Cup 2023 on Disney+ Hotstar for its
-                  Auto and Farm Business
-                </h4>
-                <span>5 September 2023</span>
               </div>
             </div>
           </div>
@@ -264,7 +267,7 @@ function DashboardPage() {
             {/* graphs contents */}
             <div
               className="graphs_container"
-              style={{ borderColor: theme === "light" ? "#DEDEDE" : "#635D5D" }}
+              style={{ borderColor: borderColor }}
             >
               <Graphs title="Retail" />
               <Graphs title="Billing" />
@@ -276,7 +279,7 @@ function DashboardPage() {
             {/* news */}
             <div
               className="newsContainer boxs"
-              style={{ borderColor: theme === "light" ? "#DEDEDE" : "#635D5D" }}
+              style={{ borderColor: borderColor }}
             >
               {/* title */}
               <h4
@@ -286,20 +289,24 @@ function DashboardPage() {
               >
                 Latest News
               </h4>
-              {latestNews.map((ele) => (
-                <LatestNews
-                  key={ele.id}
-                  items={ele}
-                  setIsNewsDrawerOpen={setIsNewsDrawerOpen}
-                  isNewsDrawerOpen={isNewsDrawerOpen}
-                  setNewsDrawerID={setNewsDrawerID}
-                />
-              ))}
+              <div className="newsWrapper">
+                {latestNews.map((ele) => (
+                  <LatestNews
+                    key={ele.id}
+                    items={ele}
+                    setIsDrawerOpen={setIsDrawerOpen}
+                    setDrawerSliderID={setDrawerSliderID}
+                    isDrawerOpen={isDrawerOpen}
+                    drawerSliderID={drawerSliderID}
+                    setDrawerType={setDrawerType}
+                  />
+                ))}
+              </div>
             </div>
             {/* birthday */}
             <div
               className="birthdaySection boxs"
-              style={{ borderColor: theme === "light" ? "#DEDEDE" : "#635D5D" }}
+              style={{ borderColor: borderColor }}
             >
               {/* title */}
               <h4
@@ -343,15 +350,16 @@ function DashboardPage() {
       </div>
 
       {/* News Drawer */}
-      <NewsDrawer
-        newsDrawerID={newsDrawerID}
-        isNewsDrawerOpen={isNewsDrawerOpen}
-        setIsNewsDrawerOpen={setIsNewsDrawerOpen}
+      <Drawer
+        drawerSliderID={drawerSliderID}
+        isDrawerOpen={isDrawerOpen}
+        drawerType={drawerType}
+        setIsDrawerOpen={setIsDrawerOpen}
       />
       {/* overlay */}
       <div
         id="newsDrawerOverlay"
-        style={{ display: isNewsDrawerOpen ? "block" : "none" }}
+        style={{ display: isDrawerOpen ? "block" : "none" }}
         onClick={() => handleDrawerClosed()}
       ></div>
     </>

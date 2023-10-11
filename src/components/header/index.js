@@ -185,13 +185,8 @@ function Header({ title }) {
       style={{
         background: theme === "light" ? "white" : "#1C1C1C",
         color: theme === "light" ? "black" : "white",
-        boxShadow:
-          theme === "light"
-            ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
-            : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
         paddingLeft: 32,
         paddingRight: 32,
-        // borderBottom: `1px solid ${theme === "light" ? "#DEDEDE" : "#635D5D"}`,
       }}
     >
       <div className="header"
