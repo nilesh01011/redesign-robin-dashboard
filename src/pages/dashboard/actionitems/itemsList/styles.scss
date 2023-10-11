@@ -16,14 +16,14 @@
     position: relative;
 
     & .status {
-        position: absolute;
-        left: -18px;
-        top: 4px;
-        width: 8px;
-        height: 8px;
-        background-color: #ff3e5b;
-        border-radius: 50%;
-      }
+      position: absolute;
+      left: -18px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      background-color: #ff3e5b;
+      border-radius: 50%;
+    }
 
     & .subTest {
       display: flex;

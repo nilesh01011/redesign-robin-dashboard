@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import Title from "../../components/title";
 import {
   actionItems,
+  billingBarGraphs,
   keyHighlights,
   latestNews,
+  retailBarGraphs,
   todayBirthday,
   upcomingBirthday,
 } from "../../data";
@@ -18,6 +20,7 @@ import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
 // import KeyHighlightsCarousel from "./keyhightlightsCarousel";
 import KeyHightlightsCarousel from "./keyHightLights_Carousel/KeyHightlightsCarousel";
+import BarChart from "./barChart/BarChart";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -269,16 +272,19 @@ function DashboardPage() {
               className="graphs_container"
               style={{ borderColor: borderColor }}
             >
-              <Graphs title="Retail" />
+              {/* <Graphs title="Retail" /> */}
+              <BarChart title="Retail" dataItems={retailBarGraphs} />
               <Graphs title="Billing" />
-              <Graphs title="Stock In Days" />
+              {/* <Graphs title="Stock In Days" /> */}
+              {/* <BarChart title="Billing" dataItems={billingBarGraphs} /> */}
+              <BarChart title="Stock In Days" dataItems={billingBarGraphs} />
             </div>
           </div>
           {/* news and birthdays */}
           <div className="news_birthday">
             {/* news */}
             <div
-              className="newsContainer boxs"
+              className={`newsContainer boxs`}
               style={{ borderColor: borderColor }}
             >
               {/* title */}
@@ -289,7 +295,11 @@ function DashboardPage() {
               >
                 Latest News
               </h4>
-              <div className="newsWrapper">
+              <div
+                className={`newsWrapper ${
+                  theme === "light" ? "light" : "dark"
+                }`}
+              >
                 {latestNews.map((ele) => (
                   <LatestNews
                     key={ele.id}
@@ -305,7 +315,7 @@ function DashboardPage() {
             </div>
             {/* birthday */}
             <div
-              className="birthdaySection boxs"
+              className={`birthdaySection boxs`}
               style={{ borderColor: borderColor }}
             >
               {/* title */}
@@ -321,27 +331,33 @@ function DashboardPage() {
               </h4>
 
               {/* contents */}
-              <div className="birthdayListContainer">
-                {/* title */}
-                <h5 style={{ marginBottom: 20 }}>Today’s Birthday</h5>
+              <div
+                className={`birthdatListWapper ${
+                  theme === "light" ? "light" : "dark"
+                }`}
+              >
+                <div className="birthdayListContainer">
+                  {/* title */}
+                  <h5 style={{ marginBottom: 20 }}>Today’s Birthday</h5>
 
-                {/* birthday username */}
-                <div className="birthdayList">
-                  {todayBirthday.map((ele) => (
-                    <BirthdayCalendar key={ele.id} userData={ele} />
-                  ))}
+                  {/* birthday username */}
+                  <div className="birthdayList">
+                    {todayBirthday.map((ele) => (
+                      <BirthdayCalendar key={ele.id} userData={ele} />
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="birthdayListContainer">
-                {/* title */}
-                <h5 style={{ marginBottom: 20 }}>Upcoming Birthday</h5>
+                <div className="birthdayListContainer">
+                  {/* title */}
+                  <h5 style={{ marginBottom: 20 }}>Upcoming Birthday</h5>
 
-                {/* birthday username */}
-                <div className="birthdayList">
-                  {upcomingBirthday.map((ele) => (
-                    <BirthdayCalendar key={ele.id} userData={ele} />
-                  ))}
+                  {/* birthday username */}
+                  <div className="birthdayList">
+                    {upcomingBirthday.map((ele) => (
+                      <BirthdayCalendar key={ele.id} userData={ele} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 function MenuItems({ collapsed, setCollapsed }) {
   const [expanded, setExpanded] = useState({});
-
+  const [tooltip, setTooltip] = useState(false);
   const theme = useSelector((state) => state.theme);
 
   const router = useNavigate();
@@ -31,8 +31,80 @@ function MenuItems({ collapsed, setCollapsed }) {
     toggleExpanded(item);
   };
 
-  const handleExpandRecursiveRedirect = (item) => {
-    handleRedirect(item.link)
+  const handleTooltip = (item) => {
+    console.log(item);
+    setTooltip(!tooltip);
+    if (!item) return setExpanded({});
+    toggleExpanded(item);
+  };
+
+  // tooltip render
+  const reRenderTooltips = (item) => {
+    // const IsExpand = expanded[item.name];
+
+    // if (item.isFolder) {
+    //   return (
+    //     <div key={item.id}>
+    //       <div className="tooltipHead" onClick={() => toggleExpanded(item)}>
+    //         {item.name}
+
+    //         arrow icons
+    //         <span
+    //           style={{
+    //             transform: IsExpand && "rotate(180deg)",
+    //             transition: "all 0.3s ease-in-out",
+    //             color: IsExpand && "#FF3E5B",
+    //             display: "flex",
+    //             alignItems: "center",
+    //             justifyContent: "center",
+    //           }}
+    //         >
+    //           <svg
+    //             stroke="currentColor"
+    //             fill="currentColor"
+    //             strokeWidth="0"
+    //             viewBox="0 0 16 16"
+    //             height="14"
+    //             width="14"
+    //             xmlns="http://www.w3.org/2000/svg"
+    //           >
+    //             <path
+    //               fillRule="evenodd"
+    //               d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+    //             ></path>
+    //           </svg>
+    //         </span>
+    //       </div>
+    //       inner menu lists
+    //       {IsExpand && (
+    //         <ul style={{ paddingLeft: "30px", fontSize: 12 }}>
+    //           {item.items.map(reRenderTooltips)}
+    //         </ul>
+    //       )}
+    //     </div>
+    //   );
+    // } else {
+    //   return (
+    //     <div
+    //       key={item.id}
+    //       className={`tooltip ${
+    //         theme === "light" ? "lightTheme" : "darkTheme"
+    //       }`}
+    //       style={{
+    //         backgroundColor: theme === "light" ? "white" : "#545454",
+    //         color: theme === "light" ? "black" : "white",
+    //         boxShadow:
+    //           theme === "light"
+    //             ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+    //             : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
+    //       }}
+    //     >
+    //       {item.name}
+    //     </div>
+    //   );
+    // }
+
+    return <div key={item.id}>{item.name}</div>;
   };
 
   // desktop view menuitems
@@ -52,7 +124,6 @@ function MenuItems({ collapsed, setCollapsed }) {
           }}
           className="menuLists"
           key={item.key}
-          // onClick={() => handleExpandRecursiveRedirect(item.name)}
         >
           {/* menuItems Heading */}
           <div
@@ -68,7 +139,9 @@ function MenuItems({ collapsed, setCollapsed }) {
                 lineHeight: collapsed === false && "2px",
                 justifyContent: collapsed && "center",
               }}
-              title={collapsed ? item.name : ""}
+              // title={collapsed ? item.name : ""}
+              onMouseOver={() => collapsed === true && handleTooltip(item.name)}
+              onMouseLeave={() => collapsed === true && handleTooltip()}
             >
               {item.icon && <span>{item.icon}</span>}
               {/* items name */}
@@ -122,6 +195,24 @@ function MenuItems({ collapsed, setCollapsed }) {
               {item.items.map(renderItem)}
             </ul>
           )}
+          {/* tooltips */}
+          {collapsed === true && tooltip === true && IsExpand && (
+            <div
+              className={`tooltip ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
+              style={{
+                backgroundColor: theme === "light" ? "white" : "#545454",
+                color: theme === "light" ? "black" : "white",
+                boxShadow:
+                  theme === "light"
+                    ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+                    : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
+              }}
+            >
+              {reRenderTooltips(item)}
+            </div>
+          )}
         </div>
       );
     } else {
@@ -138,7 +229,6 @@ function MenuItems({ collapsed, setCollapsed }) {
                 : "#fff",
           }}
           onClick={() => setCollapsed(false)}
-          // onClick={() => collapsed && handleExpandRecursiveRedirect(item)}
         >
           <div
             className="items"
@@ -148,7 +238,10 @@ function MenuItems({ collapsed, setCollapsed }) {
               lineHeight: collapsed === false && "2px",
               justifyContent: collapsed && "center",
             }}
-            title={collapsed ? item.name : ""}
+            // title={collapsed ? item.name : ""}
+            // onMouseLeave={() => setExpanded({})}
+            onMouseOver={() => collapsed === true && handleTooltip(item.name)}
+            onMouseLeave={() => collapsed === true && handleTooltip()}
           >
             {item.icon && <span>{item.icon}</span>}
 
@@ -170,17 +263,23 @@ function MenuItems({ collapsed, setCollapsed }) {
           </div>
 
           {/* tooltips */}
-          {/* {collapsed && IsExpand && expanded && (
-            <span
-              className={`tooltip ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+          {collapsed === true && tooltip === true && IsExpand && (
+            <div
+              className={`tooltip ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
               style={{
-                backgroundColor: theme === "light" ? "white" : "#242424",
+                backgroundColor: theme === "light" ? "white" : "#545454",
                 color: theme === "light" ? "black" : "white",
+                boxShadow:
+                  theme === "light"
+                    ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+                    : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
               }}
             >
-              {item.name}
-            </span>
-          )} */}
+              {reRenderTooltips(item)}
+            </div>
+          )}
         </div>
       );
     }

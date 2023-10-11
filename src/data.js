@@ -1003,6 +1003,108 @@ export const upcomingBirthday = [
   },
 ];
 
+export const retailBarGraphs = [
+  {
+    id: 1,
+    count: 130,
+    name: "scorio-N",
+    bgColor: "#264554",
+  },
+  {
+    id: 2,
+    count: 100,
+    name: "XUV700",
+    bgColor: "#299F91",
+  },
+  {
+    id: 3,
+    count: 60,
+    name: "Thar",
+    bgColor: "#EAC566",
+  },
+  {
+    id: 4,
+    count: 140,
+    name: "XUV300",
+    bgColor: "#F1A367",
+  },
+  {
+    id: 5,
+    count: 180,
+    name: "marazzo",
+    bgColor: "#E96E4F",
+  },
+  {
+    id: 6,
+    count: 120,
+    name: "bolero neo",
+    bgColor: "#5F6E37",
+  },
+  {
+    id: 7,
+    count: 90,
+    name: "bolero",
+    bgColor: "#283612",
+  },
+  {
+    id: 8,
+    count: 190,
+    name: "scorpio classic",
+    bgColor: "#BE6E24",
+  },
+];
+
+export const billingBarGraphs = [
+  {
+    id: 1,
+    count: 130,
+    name: "scorio-N",
+    bgColor: "#264554",
+  },
+  {
+    id: 2,
+    count: 100,
+    name: "XUV700",
+    bgColor: "#299F91",
+  },
+  {
+    id: 3,
+    count: 60,
+    name: "Thar",
+    bgColor: "#EAC566",
+  },
+  {
+    id: 4,
+    count: 140,
+    name: "XUV300",
+    bgColor: "#F1A367",
+  },
+  {
+    id: 5,
+    count: 180,
+    name: "marazzo",
+    bgColor: "#E96E4F",
+  },
+  {
+    id: 6,
+    count: 120,
+    name: "bolero neo",
+    bgColor: "#5F6E37",
+  },
+  {
+    id: 7,
+    count: 90,
+    name: "bolero",
+    bgColor: "#283612",
+  },
+  {
+    id: 8,
+    count: 190,
+    name: "scorpio classic",
+    bgColor: "#BE6E24",
+  },
+];
+
 // Admin => Customer Master Table
 
 export const tableHead = [

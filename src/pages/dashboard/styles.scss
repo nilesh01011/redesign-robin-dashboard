@@ -209,12 +209,39 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        overflow: scroll;
         max-height: 367px;
         min-height: 367px;
 
         &.birthdaySection {
           gap: 16px;
+        }
+
+        & .birthdatListWapper,
+        & .newsWrapper {
+          overflow-y: scroll;
+
+          // scrollbar
+          &::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          // thumb
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+          }
+
+          &.light::-webkit-scrollbar-thumb {
+            background: #8a8a8a;
+          }
+
+          &.dark::-webkit-scrollbar-thumb {
+            background: #242424;
+          }
         }
 
         & h4 {
@@ -223,10 +250,6 @@
           position: sticky;
           top: 0;
           z-index: 3;
-        }
-
-        &::-webkit-scrollbar {
-          display: none;
         }
       }
 

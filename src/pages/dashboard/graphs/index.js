@@ -27,9 +27,6 @@ const options = {
       ticks: {
         display: false,
       },
-      // border:{
-      //   display: false,
-      // }
     },
     y: {
       grid: {
@@ -72,7 +69,6 @@ function Graphs({ title }) {
         label: "Dataset 1",
         data: [180, 245],
         backgroundColor: ["#2782F9", "#F99C22"],
-        fill: true,
         // barThickness:80,
         borderRadius: 5,
       },
