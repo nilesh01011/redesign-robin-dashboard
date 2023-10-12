@@ -1,0 +1,24 @@
+.carousel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  overflow: hidden;
+}
+.carousel .inner {
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  white-space: nowrap;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.carousel .inner::-webkit-scrollbar {
+  display: none;
+}
+.carousel .sliderBtn {
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=styles.css.map */

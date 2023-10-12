@@ -134,7 +134,9 @@ function MenuItems({ collapsed, setCollapsed }) {
             <div
               className="items"
               style={{
-                color: IsExpand || pathname === item.link ? "#FF3E5B" : "",
+                color:
+                  (IsExpand && "#FF3E5B") ||
+                  (pathname === item.link && "#FF3E5B"),
                 margin: "0",
                 lineHeight: collapsed === false && "2px",
                 justifyContent: collapsed && "center",
@@ -143,7 +145,15 @@ function MenuItems({ collapsed, setCollapsed }) {
               onMouseOver={() => collapsed === true && handleTooltip(item.name)}
               onMouseLeave={() => collapsed === true && handleTooltip()}
             >
-              {item.icon && <span>{item.icon}</span>}
+              {item.icon && (
+                <span
+                  style={{
+                    color: pathname === item.link && "#FF3E5B",
+                  }}
+                >
+                  {item.icon}
+                </span>
+              )}
               {/* items name */}
               {!collapsed && (
                 <div
@@ -156,6 +166,7 @@ function MenuItems({ collapsed, setCollapsed }) {
                         : "#f2f2f2",
                   }}
                   onClick={() => handleRedirect(item.link)}
+                  className="menuText"
                 >
                   {item.name}
                 </div>
@@ -233,13 +244,12 @@ function MenuItems({ collapsed, setCollapsed }) {
           <div
             className="items"
             style={{
-              color: IsExpand ? "#FF3E5B" : "",
+              color: IsExpand && "#FF3E5B",
               margin: "0",
               lineHeight: collapsed === false && "2px",
               justifyContent: collapsed && "center",
             }}
             // title={collapsed ? item.name : ""}
-            // onMouseLeave={() => setExpanded({})}
             onMouseOver={() => collapsed === true && handleTooltip(item.name)}
             onMouseLeave={() => collapsed === true && handleTooltip()}
           >
@@ -256,6 +266,7 @@ function MenuItems({ collapsed, setCollapsed }) {
                       : "#f2f2f2",
                 }}
                 onClick={() => handleRedirect(item.link)}
+                className="menuText"
               >
                 {item.name}
               </div>
@@ -408,6 +419,7 @@ function MenuItems({ collapsed, setCollapsed }) {
   return (
     <>
       <div className="menuListContainer">{menuItems.map(renderItem)}</div>
+      {/* mobiles View */}
       <div className="mobileView">
         {menuItems.map(renderMobileViewMenuItems)}
       </div>

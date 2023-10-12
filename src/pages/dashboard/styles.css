@@ -3,7 +3,7 @@
 }
 .dashboard .boxContainer {
   width: 100%;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .dashboard .boxContainer .key_highlights_heading {
   width: 100%;
@@ -23,23 +23,21 @@
   width: 1px;
   height: 24px;
 }
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .key_highlights_carousel {
-  width: 1000px;
-  overflow: hidden;
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads h4 {
+  white-space: nowrap;
+}
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads p {
+  display: none;
+}
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 20px;
-  transition: transform 0.3s;
-  white-space: nowrap;
-}
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .key_highlights_carousel .heads {
-  width: 100%;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
   gap: 10px;
+  flex-grow: 1;
 }
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .key_highlights_carousel .heads .label_name {
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads .label_name {
+  white-space: nowrap;
   padding: 0 8px;
   background-color: #ffd8de;
   border: 1px solid #ed302d;
@@ -51,10 +49,7 @@
   justify-content: center;
   border-radius: 2px;
 }
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads h4 {
-  white-space: nowrap;
-}
-.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads p {
+.dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads.two {
   display: none;
 }
 .dashboard .boxContainer .key_highlights_heading .text {
@@ -113,27 +108,11 @@
   width: 100%;
   height: 100%;
   max-height: 268px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 4px;
-  -o-object-position: top;
-     object-position: top;
-}
-.dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: #ff3e5b;
-  color: white;
-  padding: 5px 16px;
-  border-radius: 0 0 4px 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box span {
-  font-size: 14px;
+  -o-object-position: left;
+     object-position: left;
 }
 .dashboard .boxContainer .key_highlights_container .box_Contents {
   border: 1px solid;
@@ -147,6 +126,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.dashboard .boxContainer .dashboard_api .dashboard_api_title h2 {
+  font-size: 1.3em;
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title .addWidgetBtn {
   display: flex;
@@ -192,10 +174,29 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  overflow: scroll;
   max-height: 367px;
   min-height: 367px;
+}
+.dashboard .boxContainer .news_birthday .boxs.birthdaySection {
+  gap: 16px;
+}
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper, .dashboard .boxContainer .news_birthday .boxs .newsWrapper {
+  overflow-y: scroll;
+}
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper::-webkit-scrollbar, .dashboard .boxContainer .news_birthday .boxs .newsWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper::-webkit-scrollbar-track, .dashboard .boxContainer .news_birthday .boxs .newsWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.light::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.light::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+}
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.dark::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.dark::-webkit-scrollbar-thumb {
+  background: #242424;
 }
 .dashboard .boxContainer .news_birthday .boxs h4 {
   padding: 16px;
@@ -204,8 +205,8 @@
   top: 0;
   z-index: 3;
 }
-.dashboard .boxContainer .news_birthday .boxs::-webkit-scrollbar {
-  display: none;
+.dashboard .boxContainer .news_birthday .newsWrapper {
+  padding: 10px 16px;
 }
 .dashboard .boxContainer .news_birthday .birthdaySection .birthdayListContainer {
   padding: 16px;
@@ -247,7 +248,7 @@
     align-items: flex-start;
     width: 100%;
   }
-  .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads .divider {
+  .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .divider {
     display: none;
   }
   .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .title_heads {
@@ -295,6 +296,12 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+  }
+  .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads.one {
+    display: none;
+  }
+  .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads.two {
+    display: flex;
   }
 }
 @media screen and (max-width: 756px) {

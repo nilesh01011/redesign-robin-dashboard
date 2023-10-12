@@ -46,8 +46,12 @@ function Sidebar() {
       <aside
         className="sidebar"
         style={{
+          // position: collapsed === true ? "fixed" : "relative",
           background: theme === "light" ? "white" : "#1C1C1C",
-          boxShadow:theme === "light" ? " 0 0 3px rgba(0, 0, 0, 0.2)" : "1px 0px 1px 0px rgba(255, 255, 255, 0.15)"
+          boxShadow:
+            theme === "light"
+              ? " 0 0 3px rgba(0, 0, 0, 0.2)"
+              : "1px 0px 1px 0px rgba(255, 255, 255, 0.15)",
         }}
       >
         {/* ================ main sidebar ================ */}
@@ -134,10 +138,11 @@ function Sidebar() {
           <div
             className="searchInputContainer desktopView"
             style={{
-              marginTop: collapsed ? 14 : 4,
+              paddingTop: collapsed ? 13 : 4,
               marginBottom: 14,
-              // marginBottom: collapsed ? 14 : 14,
+              top: collapsed === true ? 52 : 54,
               display: collapsed && "flex",
+              backgroundColor: theme === "light" ? "white" : "#1C1C1C",
               justifyContent: collapsed && "center",
             }}
           >
@@ -185,7 +190,9 @@ function Sidebar() {
             />
           </div>
           {/* =================== menu items ================== */}
-          <MenuItems collapsed={collapsed} setCollapsed={setCollapsed} />
+          <div className="sidebarMenuItemsContainer">
+            <MenuItems collapsed={collapsed} setCollapsed={setCollapsed} />
+          </div>
         </div>
         {/* ================ theme buttons ================= */}
         <div

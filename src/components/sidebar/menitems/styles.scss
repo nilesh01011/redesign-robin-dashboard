@@ -4,6 +4,8 @@
   flex-direction: column;
   gap: 10px;
   z-index: 5;
+  // position: sticky;
+  // top: 85px;
 }
 
 .mobileView {
@@ -26,18 +28,6 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-
-    & .tooltip {
-      position: absolute;
-      top: 30%;
-      left: 200%;
-      width: max-content;
-      height: max-content;
-      display: block;
-      background-color: red;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
   }
 
   & .items {
@@ -48,6 +38,11 @@
     height: 32px;
     gap: 10px;
     white-space: nowrap;
+
+    &:hover,
+    &:hover .menuText {
+      color: #ff3e5b !important;
+    }
   }
 
   & .tooltip {

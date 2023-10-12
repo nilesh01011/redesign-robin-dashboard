@@ -14,12 +14,13 @@ import {
 // import Dropdown from "../../components/dropdown";
 // import { MAHINDRA_SPONSOR_BANNER } from "../../assets";
 import ActionItemsCollapsed from "./actionitems";
-import Graphs from "./graphs";
+// import Graphs from "./graphs";
 import LatestNews from "./latestnews";
 import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
 // import KeyHighlightsCarousel from "./keyhightlightsCarousel";
-import KeyHightlightsCarousel from "./keyHightLights_Carousel/KeyHightlightsCarousel";
+// import KeyHightlightsCarousel from "./keyHightLights_Carousel/KeyHightlightsCarousel";
+import DoughnutChart from "./doughnutChart/doughnutChart";
 import BarChart from "./barChart/BarChart";
 
 function DashboardPage() {
@@ -35,15 +36,6 @@ function DashboardPage() {
     setIsDrawerOpen(!isDrawerOpen);
     document.body.style.overflow = "auto";
   };
-  // const updateIndex = (newIndex) => {
-  //   if (newIndex < 0) {
-  //     newIndex = 0;
-  //   } else if (newIndex >= keyHighlights.length) {
-  //     newIndex = keyHighlights.length - 1;
-  //   }
-  //   setCurrentIndex(newIndex);
-  //   setActiveIndex(newIndex);
-  // };
 
   const borderColor = theme === "light" ? "#E6E6E6" : "#232324";
 
@@ -53,17 +45,13 @@ function DashboardPage() {
         {/* ============ title ============ */}
         <div
           style={{
-            paddingTop: 7,
-            // borderBottom: `1px solid ${
-            //   theme === "light" ? "#DEDEDE" : "#635D5D"
-            // }`,
             background: theme === "light" ? "white" : "#1C1C1C",
             boxShadow:
               theme === "light"
                 ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
                 : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
           }}
-          className="container-fluid"
+          className="container-fluid titleContainer"
         >
           <Title title="Dashboard" />
         </div>
@@ -127,16 +115,8 @@ function DashboardPage() {
                   backgroundColor: theme === "light" ? "#B5B5B6" : "#635d5d",
                 }}
               ></div>
-              {/* carousel slider */}
-              {/* <div
-                className="key_highlights_carousel"
-                style={{ transform: `translate(-${activendex * 100}%)` }}
-              >
-                {keyHighlights.map((ele) => (
-                  <KeyHighlightsCarousel key={ele.key} data={ele} />
-                ))}
-              </div> */}
-              <div className="heads">
+              {/* contents */}
+              <div className="heads one">
                 {/* label */}
                 <span className="label_name">GST Update</span>
                 {/* text */}
@@ -148,14 +128,32 @@ function DashboardPage() {
                   </span>
                 </p>
               </div>
+
+              <div className="heads two">
+                <div
+                  className="headsContainer"
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* label */}
+                  <span className="label_name">GST Update</span>
+                  <span style={{ color: "#858585", marginLeft: 4 }}>
+                    5min ago
+                  </span>
+                </div>
+                {/* text */}
+                <p className="text" style={{ color: "#FF3E5B" }}>
+                  Lorem Ipsum is simply dummy text of the printing Lorem Ipsum
+                  is simply dummy text of the printing
+                </p>
+              </div>
             </div>
-            {/* <KeyHightlightsCarousel /> */}
-            {/* carousel right sides icons */}
             <div className="key_highlights_heading_right heading_side">
-              <span
-                style={{ cursor: "pointer" }}
-                // onClick={() => updateIndex(activendex - 1)}
-              >
+              <span style={{ cursor: "pointer" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18"
@@ -171,10 +169,7 @@ function DashboardPage() {
                   />
                 </svg>
               </span>
-              <span
-                style={{ cursor: "pointer" }}
-                // onClick={() => updateIndex(activendex + 1)}
-              >
+              <span style={{ cursor: "pointer" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18"
@@ -244,7 +239,7 @@ function DashboardPage() {
           <div className="dashboard_api">
             <div className="dashboard_api_title">
               {/* title */}
-              <h2>Dashboard KPI</h2>
+              <h2>Business KPI</h2>
               {/* buttons */}
               <button type="button" className="addWidgetBtn">
                 <span>
@@ -274,10 +269,8 @@ function DashboardPage() {
             >
               {/* <Graphs title="Retail" /> */}
               <BarChart title="Retail" dataItems={retailBarGraphs} />
-              <Graphs title="Billing" />
-              {/* <Graphs title="Stock In Days" /> */}
-              {/* <BarChart title="Billing" dataItems={billingBarGraphs} /> */}
-              <BarChart title="Stock In Days" dataItems={billingBarGraphs} />
+              <BarChart title="Billing" dataItems={billingBarGraphs} />
+              <DoughnutChart title="Retail" dataItems={retailBarGraphs} />
             </div>
           </div>
           {/* news and birthdays */}

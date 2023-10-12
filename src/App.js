@@ -3,7 +3,7 @@ import "./index.scss";
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // dashboard
 import DashboardPage from "./pages/dashboard";
 // favourites
@@ -15,6 +15,7 @@ import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
 import CRM from "./pages/crm";
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
+import Model from "./components/header/model";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -35,13 +36,34 @@ function App() {
     }
   }, [theme]);
 
+  // model
+  const [modelListDetails, setModelListDetails] = useState("");
+
+  const handleClosed = () => {
+    setModelListDetails("");
+    document.querySelector("body").classList.remove("removeScrollbar");
+    document.querySelector("body").style.overflow = "auto";
+  };
+
   return (
     <div className="container">
       {/* sidebar */}
       <Sidebar />
       <div className="main-container">
         {/* Headers */}
-        <Header />
+        <Header setModelListDetails={setModelListDetails} />
+
+        {modelListDetails && (
+          <Model
+            text={modelListDetails}
+            setModelListDetails={setModelListDetails}
+          />
+        )}
+        <div
+          style={{ display: modelListDetails ? "block" : "none" }}
+          id="overlay"
+          onClick={handleClosed}
+        ></div>
         {/* main contents */}
         <Routes>
           {/* dashboard */}

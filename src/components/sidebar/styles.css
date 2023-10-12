@@ -5,7 +5,6 @@
   justify-content: space-between;
   z-index: 9998;
   transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  position: relative;
 }
 .sidebar .sidebarBtn {
   display: flex;
@@ -40,8 +39,16 @@
 .sidebar .sidebarContainer.desktopCollapse {
   width: 282px;
 }
+.sidebar .sidebarContainer .searchInputContainer {
+  position: sticky;
+  z-index: 9;
+}
 .sidebar .sidebarContainer .searchInputContainer.mobileView {
   display: none;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer {
+  position: sticky;
+  top: 108px;
 }
 .sidebar .themeContainer {
   width: 100%;
@@ -81,6 +88,7 @@
   padding: 4px 12px;
   border-radius: 3px;
   z-index: 10;
+  line-height: 2px;
 }
 
 @media screen and (max-width: 880px) {
@@ -110,7 +118,7 @@
     display: none;
   }
   .sidebar .sidebarBtn {
-    position: static;
+    position: relative;
   }
   .sidebar .sidebarBtn.mobileViewBtn {
     display: flex;

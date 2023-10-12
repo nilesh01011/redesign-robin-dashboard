@@ -25,19 +25,6 @@
   justify-content: space-between;
   position: relative;
 }
-.menuLists .menuItemsHead .tooltip {
-  position: absolute;
-  top: 30%;
-  left: 200%;
-  width: -moz-max-content;
-  width: max-content;
-  height: -moz-max-content;
-  height: max-content;
-  display: block;
-  background-color: red;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 .menuLists .items {
   width: 100%;
   cursor: pointer;
@@ -46,6 +33,45 @@
   height: 32px;
   gap: 10px;
   white-space: nowrap;
+}
+.menuLists .items:hover, .menuLists .items:hover .menuText {
+  color: #ff3e5b !important;
+}
+.menuLists .tooltip {
+  position: absolute;
+  top: 50%;
+  left: 140%;
+  transform: translateY(-50%);
+  width: -moz-max-content;
+  width: max-content;
+  display: block;
+  padding: 6px 14px;
+  border-radius: 5px;
+  height: -moz-max-content;
+  height: max-content;
+  z-index: 10;
+  font-size: 14px;
+}
+.menuLists .tooltip .tooltipHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+}
+.menuLists .tooltip::before {
+  content: "";
+  position: absolute;
+  border: 6px solid transparent;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menuLists .tooltip.lightTheme::before {
+  border-right-color: #ffffff;
+}
+.menuLists .tooltip.darkTheme::before {
+  border-right-color: #545454;
 }
 
 @media screen and (max-width: 880px) {

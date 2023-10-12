@@ -1,5 +1,6 @@
 .selectDropdownFilter {
-  min-height: 50px;
+  height: -moz-max-content;
+  height: max-content;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -7,7 +8,7 @@
 }
 .selectDropdownFilter .selectDropdownFilterContainer {
   border-radius: 4px;
-  padding: 8px;
+  padding: 5px 12px;
   border: 1px solid;
   position: relative;
   display: flex;
@@ -24,7 +25,7 @@
   width: 100%;
   height: 100%;
   border-radius: 3px;
-  color: #635D5D;
+  color: #635d5d;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +41,7 @@
   justify-content: space-between;
   cursor: pointer;
   gap: 10px;
-  padding: 6px 10px;
+  padding: 10px 6px;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields {
   width: -moz-max-content;
@@ -50,7 +51,7 @@
      -moz-user-select: none;
           user-select: none;
   text-transform: capitalize;
-  font-size: 14px;
+  font-size: 12px;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .icons {
   height: 14px;
@@ -58,7 +59,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  color: #ED302D;
+  color: #ed302d;
 }
 .selectDropdownFilter .dropdownFieldContainer {
   width: 100%;
@@ -88,7 +89,7 @@
   left: 0;
   bottom: -18px;
   font-size: 12px;
-  color: #ED302D;
+  color: #ed302d;
 }
 .selectDropdownFilter .allListItems {
   width: 100%;
@@ -96,11 +97,16 @@
   border: 1px solid;
   border-radius: 3px;
   transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  font-size: 14px;
+  font-size: 12px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 .selectDropdownFilter .allListItems .allListItemsChild {
-  padding: 10px 1rem;
+  padding: 5px 10px;
   cursor: pointer;
+  border-radius: 4px;
 }
 .selectDropdownFilter .allListItems .allListItemsChild:not(:last-child) {
   border-bottom: 1px solid;
@@ -112,20 +118,20 @@
   border-radius: 0 0 3px 3px;
 }
 .selectDropdownFilter .allListItems .allListItemsChild.lightHover {
-  color: #0B0B0C;
-  border-color: #DEDEDE;
+  color: #0b0b0c;
+  border-color: #dedede;
 }
 .selectDropdownFilter .allListItems .allListItemsChild.darkHover {
-  color: #A3A3A3;
+  color: #a3a3a3;
   border-color: #232324;
 }
 .selectDropdownFilter .allListItems .allListItemsChild.darkHover:hover {
   background-color: #232324;
-  color: #A3A3A3;
+  color: #a3a3a3;
 }
 .selectDropdownFilter .allListItems .allListItemsChild.lightHover:hover {
   background-color: #f2f2f2;
-  color: #0B0B0C;
+  color: #0b0b0c;
 }
 
 @media screen and (max-width: 480px) {

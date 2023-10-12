@@ -13,6 +13,9 @@
   cursor: pointer;
   padding: 6px 10px;
 }
+.actionItems .actionItems_heading:hover {
+  color: #FF3E5B;
+}
 .actionItems .actionItems_heading.lightHover:hover {
   background-color: #F2F2F2;
 }

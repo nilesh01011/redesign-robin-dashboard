@@ -25,38 +25,6 @@
           height: 24px;
         }
 
-        // carousel
-        // & .key_highlights_carousel {
-        //   width: 1000px;
-        //   overflow: hidden;
-        //   display: flex;
-        //   align-items: center;
-        //   gap: 20px;
-        //   transition: transform 0.3s;
-        //   white-space: nowrap;
-
-        //   & .heads {
-        //     width: 100%;
-        //     white-space: nowrap;
-        //     display: inline-flex;
-        //     align-items: center;
-        //     gap: 10px;
-
-        //     & .label_name {
-        //       padding: 0 8px;
-        //       background-color: #ffd8de;
-        //       border: 1px solid #ed302d;
-        //       color: #ed302d;
-        //       font-size: 12px;
-        //       height: 24px;
-        //       display: flex;
-        //       align-items: center;
-        //       justify-content: center;
-        //       border-radius: 2px;
-        //     }
-        //   }
-        // }
-
         & .title_heads {
           & h4 {
             white-space: nowrap;
@@ -65,6 +33,33 @@
           & p {
             display: none;
           }
+        }
+
+        & .heads {
+          width: 100%;
+          // white-space: nowrap;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-grow: 1;
+
+          & .label_name {
+            white-space: nowrap;
+            padding: 0 8px;
+            background-color: #ffd8de;
+            border: 1px solid #ed302d;
+            color: #ed302d;
+            font-size: 12px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+          }
+        }
+
+        & .heads.two {
+          display: none;
         }
       }
 
@@ -156,6 +151,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        & h2 {
+          font-size: 1.3em;
+        }
 
         & .addWidgetBtn {
           display: flex;
@@ -312,10 +311,8 @@
         align-items: flex-start;
         width: 100%;
 
-        & .heads {
-          & .divider {
-            display: none;
-          }
+        & .divider {
+          display: none;
         }
 
         & .title_heads {
@@ -385,6 +382,14 @@
           flex-direction: column;
           align-items: flex-start;
           gap: 4px;
+        }
+
+        & .heads.one {
+          display: none;
+        }
+
+        & .heads.two {
+          display: flex;
         }
       }
     }

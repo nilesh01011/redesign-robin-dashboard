@@ -9,7 +9,6 @@ function Index() {
       {/* ============ title ============ */}
       <div
         style={{
-          paddingTop: 7,
           // borderBottom: `1px solid ${
           //   theme === "light" ? "#DEDEDE" : "#635D5D"
           // }`,
@@ -19,7 +18,7 @@ function Index() {
               ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
               : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
         }}
-        className="container-fluid"
+        className="container-fluid titleContainer"
       >
         <Title title="Suggested Order Qty. (SOQ)" />
       </div>

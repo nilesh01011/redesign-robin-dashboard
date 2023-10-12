@@ -145,7 +145,6 @@ function CustomerMaster() {
         {/* ============ title ============ */}
         <div
           style={{
-            paddingTop: 7,
             // borderBottom: `1px solid ${
             //   theme === "light" ? "#DEDEDE" : "#635D5D"
             // }`,
@@ -154,8 +153,11 @@ function CustomerMaster() {
               theme === "light"
                 ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
                 : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
+                position: "sticky",
+                top: 64,
+                zIndex: 10,
           }}
-          className="container-fluid"
+          className="container-fluid titleContainer"
         >
           <Title title="Customer Master" />
         </div>

@@ -11,18 +11,23 @@ function BarChart({ title, dataItems }) {
   const borderColor = theme === "light" ? "#E6E6E6" : "#232324";
 
   const options = {
-    barPercentage: 0.5,
-    // categoryPercentage: 0.2,
     plugins: {
-      legend: {
+      datalabels: {
         display: false,
-      },
-      subtitle: {
-        display: false,
+        // color: theme === "light" ? "black" : "white",
+        // font: {
+        //   size: 10,
+        //   weight: "bold",
+        // },
+        // anchor: "start",
+        // offset: 0,
+        // align: "end",
       },
     },
     scales: {
       x: {
+        barPercentage: 0.8,
+        categoryPercentage: 0.7, // add this
         display: false,
         grid: {
           drawBorder: false,
@@ -30,6 +35,9 @@ function BarChart({ title, dataItems }) {
           display: false,
         },
         ticks: {
+          display: false,
+        },
+        border: {
           display: false,
         },
       },
@@ -65,10 +73,12 @@ function BarChart({ title, dataItems }) {
         backgroundColor: dataItems.map((ele) => {
           return ele.bgColor;
         }),
+        borderWidth: 1,
         barThickness: 15,
-        borderRadius: 50,
-        borderStipped: false,
-        barPercentage: 1,
+        borderRadius: 20,
+        borderSkipped: false,
+        barPercentage: 0.5,
+        categoryPercentage: 0.5,
       },
     ],
   };
@@ -81,46 +91,49 @@ function BarChart({ title, dataItems }) {
       }}
     >
       {/* title */}
-      <h2>{title}</h2>
+      <h2 style={{ borderColor: borderColor }}>{title}</h2>
       {/* graphs */}
       <div className="graphsWrapper">
-        {/* legends */}
-        <div className="legends">
-          {dataItems.map((ele) => (
-            <p
-              key={ele.key}
-              // style={{ minHeight: 26 }}
-            >
-              <span
+        <div className="leftSide">
+          {/* legends */}
+          <div className="legends">
+            {dataItems.map((ele) => (
+              <p
+                key={ele.key}
                 style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  display: "block",
-                  backgroundColor: ele.bgColor,
+                  width:"100%",
+                  color: theme === "light" ? "#545454" : "#858585",
+                  display: "flex",
+                  justifyContent: "space-between",
                 }}
-              ></span>
-              <span style={{ fontSize: 12 }}>{ele.name}</span>
-            </p>
-          ))}
+              >
+                {/* name and color */}
+                <span
+                style={{ display: "flex", gap:4,alignItems:"center" }}
+                >
+                  <span
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      display: "block",
+                      backgroundColor: ele.bgColor,
+                    }}
+                  ></span>
+                  <span style={{ fontSize: 12 }}>{ele.name}</span>
+                </span>
+                {/* count */}
+                <span>{ele.count}</span>
+              </p>
+            ))}
+          </div>
         </div>
+
         {/* graphs */}
-        <div
-          className="graphs"
-          //  style={{ height: "100%", width: "auto" }}
-        >
-          <Bar options={options} data={data} />
-        </div>
-        {/* data count */}
-        <div className="dataCounts">
-          {dataItems.map((ele) => (
-            <p
-              key={ele.key}
-              // style={{ minHeight: 24 }}
-            >
-              <span style={{ fontSize: 12 }}>{ele.count}</span>
-            </p>
-          ))}
+        <div className="rightSide">
+          <div className="graphs">
+            <Bar options={options} data={data} height={180} />
+          </div>
         </div>
       </div>
     </div>

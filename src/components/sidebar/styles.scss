@@ -5,7 +5,6 @@
   justify-content: space-between;
   z-index: 9998;
   transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  position: relative;
 
   // sidebar Header
   & .sidebarBtn {
@@ -50,9 +49,18 @@
 
     // search input
     & .searchInputContainer {
+      position: sticky;
+      z-index: 9;
+
       &.mobileView {
         display: none;
       }
+    }
+
+    // sidebarMenuItemsContainer
+    & .sidebarMenuItemsContainer {
+      position: sticky;
+      top: 108px;
     }
   }
 
@@ -99,6 +107,7 @@
         padding: 4px 12px;
         border-radius: 3px;
         z-index: 10;
+        line-height: 2px;
       }
     }
   }
@@ -135,7 +144,7 @@
 
     // sidebar Header
     & .sidebarBtn {
-      position: static;
+      position: relative;
 
       &.mobileViewBtn {
         display: flex;

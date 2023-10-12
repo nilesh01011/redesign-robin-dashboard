@@ -7,7 +7,6 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Logout from "./model/logout";
 import Model from "./model";
-import Title from "../title";
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -29,12 +28,14 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function Header({ title }) {
+function Header({ handleClosed, setModelListDetails }) {
   const theme = useSelector((state) => state.theme);
   const [userProfileDropdown, setUserProfileDropdown] = useState(false);
+  // location dropdown
+  const [locationListDropdown, setLocationListDropdown] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState("Goregoan (W) Mumbai");
   // user dropdown details
   const [listHover, setListHover] = useState(0);
-  const [modelListDetails, setModelListDetails] = useState("");
   // skeleton loading
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,6 +54,13 @@ function Header({ title }) {
       sidebar.style.left = 0;
       overlay.style.display = "block";
     }
+  };
+
+  const handleClicks = (text) => {
+    setModelListDetails(text);
+    setUserProfileDropdown(false);
+    document.querySelector("body").classList.add("removeScrollbar");
+    document.querySelector("body").style.overflow = "hidden";
   };
 
   // user logout details
@@ -163,22 +171,37 @@ function Header({ title }) {
     },
   ];
 
+  // location list
+  const locationList = [
+    {
+      id: 1,
+      name: "Kandivali (E) Mumbai",
+    },
+    {
+      id: 2,
+      name: "Goregoan (W) Mumbai",
+    },
+    {
+      id: 3,
+      name: "Andheri (W) Mumbai",
+    },
+    {
+      id: 4,
+      name: "Kurla (W) Mumbai",
+    },
+  ];
+
   let domNode = useClickOutSide(() => {
     setUserProfileDropdown(false);
   });
 
-  const handleClicks = (text) => {
-    setModelListDetails(text);
-    setUserProfileDropdown(false);
-    document.querySelector("body").classList.add("removeScrollbar");
-    document.querySelector("body").style.overflow = "hidden";
+  const handleClicksLocationListDropdown = (e) => {
+    setLocationListDropdown(!locationListDropdown);
   };
 
-  const handleClosed = () => {
-    setModelListDetails("");
-    document.querySelector("body").classList.remove("removeScrollbar");
-    document.querySelector("body").style.overflow = "auto";
-  };
+  let domNode_2 = useClickOutSide(() => {
+    setLocationListDropdown(false);
+  });
 
   return (
     <div
@@ -187,23 +210,15 @@ function Header({ title }) {
         color: theme === "light" ? "black" : "white",
         paddingLeft: 32,
         paddingRight: 32,
+        position: "sticky",
+        top: 0,
+        zIndex: 10,
+        // position:"relative"
       }}
     >
-      <div className="header"
-      //  style={{
-      //   background: theme === "light" ? "white" : "#1C1C1C",
-      //   color: theme === "light" ? "black" : "white",
-      //   boxShadow:
-      //     theme === "light"
-      //       ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
-      //       : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
-      //   paddingLeft: 32,
-      //   paddingRight: 32,
-      //   borderBottom: `1px solid ${theme === "light" ? "#DEDEDE" : "#635D5D"}`,
-      // }}
-      >
+      <div className="header">
         <div className="headerLeft">
-          <div className="userText">
+          <div ref={domNode_2} className="userText">
             {isLoading ? (
               <SkeletonTheme
                 baseColor={`${theme === "dark" ? "#444" : "#f5f5f5"}`}
@@ -225,26 +240,72 @@ function Header({ title }) {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "0.7rem",
                     color: "#FF3E5B",
+                    cursor: "pointer",
                   }}
+                  onClick={(e) => handleClicksLocationListDropdown(e)}
                 >
-                  Goregoan (W) Mumbai
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 16 16"
-                    height="14"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                    ></path>
-                  </svg>
+                  {/* Goregoan (W) Mumbai */}
+                  <span style={{ minWidth: 130 }}>{currentLocation}</span>
+                  <span>
+                    <svg
+                      style={{
+                        transform: locationListDropdown && "rotate(180deg)",
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="11"
+                      height="7"
+                      viewBox="0 0 11 7"
+                      fill="none"
+                    >
+                      <path
+                        d="M1.92896 1.5L5.46449 5.03553L9.00002 1.5"
+                        stroke="#FF3E5B"
+                        strokeWidth="1.5"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
+                      />
+                    </svg>
+                  </span>
                 </span>
+
+                {/* dropdown */}
+                {locationListDropdown && (
+                  <div
+                    className="locationDropdownList"
+                    style={{
+                      backgroundColor:
+                        theme === "light" ? "#ffffff" : "#1C1C1C",
+                      boxShadow:
+                        theme === "light"
+                          ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+                          : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
+                    }}
+                  >
+                    {locationList.map((ele) => (
+                      <div
+                        title={ele.text}
+                        key={ele.id}
+                        className="lists"
+                        onClick={() => setCurrentLocation(ele.name)}
+                        // style={{
+                        //   backgroundColor:
+                        //     currentLocation === ele.name && "#FFD8DE",
+                        // }}
+                      >
+                        {/* location name */}
+                        <p
+                          style={{
+                            color: currentLocation === ele.name && "#ff3e5b",
+                          }}
+                        >
+                          {ele.name}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </>
             )}
           </div>
@@ -432,6 +493,10 @@ function Header({ title }) {
                 className="dropdownUserDetails"
                 style={{
                   backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
+                  boxShadow:
+                    theme === "light"
+                      ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+                      : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
                 }}
               >
                 {userDropdownDetails.map((ele) => (
@@ -456,23 +521,6 @@ function Header({ title }) {
           </div>
         </div>
       </div>
-      {modelListDetails && (
-        <Model
-          text={modelListDetails}
-          setModelListDetails={setModelListDetails}
-        />
-      )}
-      <div
-        style={{ display: modelListDetails ? "block" : "none" }}
-        id="overlay"
-        onClick={handleClosed}
-      ></div>
-
-      {/* ============ title ============ */}
-      {/* <div
-      >
-        <Title title={title} />
-      </div> */}
     </div>
   );
 }
