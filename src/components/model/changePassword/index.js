@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import { changePassword } from "../../../../utils/formikSchema";
 import { useFormik } from "formik";
 import InputFields from "./inputFields";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { changePassword } from "../../../utils/formikSchema";
 
 // formik form initial values
 const initialValues = {

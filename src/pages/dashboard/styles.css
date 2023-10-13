@@ -120,7 +120,7 @@
 }
 .dashboard .boxContainer .dashboard_api {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title {
   display: flex;
@@ -128,7 +128,7 @@
   justify-content: space-between;
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title h2 {
-  font-size: 1.3em;
+  font-size: 20px;
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title .addWidgetBtn {
   display: flex;

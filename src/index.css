@@ -23,7 +23,7 @@
 .titleContainer {
   padding-top: 7px;
   position: sticky;
-  top: 64px;
+  top: 61px;
   z-index: 6;
 }
 
@@ -32,9 +32,14 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 35px;
-  margin-bottom: 15px;
   padding-right: 32px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
 }
 .footer span {
   color: #b5b5b6;
@@ -107,6 +112,6 @@ body.dark::-webkit-scrollbar-thumb {
     padding-right: 20px;
   }
   .titleContainer {
-    top: 59px;
+    top: 51px;
   }
 }/*# sourceMappingURL=index.css.map */

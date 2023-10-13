@@ -15,7 +15,7 @@ import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
 import CRM from "./pages/crm";
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
-import Model from "./components/header/model";
+import Model from "./components/model";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -53,12 +53,26 @@ function App() {
         {/* Headers */}
         <Header setModelListDetails={setModelListDetails} />
 
-        {modelListDetails && (
-          <Model
-            text={modelListDetails}
-            setModelListDetails={setModelListDetails}
-          />
-        )}
+        {/* <div
+          className="modelContainerBox"
+          style={{
+            display: modelListDetails ? "block" : "none",
+            position: "absolute",
+            left: 0,
+            top: 0,
+            height: "100vh",
+            width: "100%",
+            // zIndex: 99997,
+          }}
+        > */}
+          {modelListDetails && (
+            <Model
+              text={modelListDetails}
+              setModelListDetails={setModelListDetails}
+            />
+          )}
+        {/* </div> */}
+
         <div
           style={{ display: modelListDetails ? "block" : "none" }}
           id="overlay"
@@ -87,7 +101,7 @@ function App() {
           ></Route>
         </Routes>
         {/* Footer */}
-        <div className="footer">
+        <div className="footer" style={{backgroundColor:theme === "light" ? "#ffffff" : "#0B0B0C"}}>
           <span>Copyright © 2023 ROBIN.</span>
         </div>
       </div>

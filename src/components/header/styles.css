@@ -4,14 +4,18 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding: 13px 0;
-}
-.header .mobileViewBtn {
-  display: none;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 .header .headerLeft {
   display: flex;
+  align-items: center;
   gap: 10px;
+}
+.header .headerLeft .mobileViewBtn {
+  display: none;
 }
 .header .headerLeft .userAvatar {
   height: 48px;
@@ -39,7 +43,7 @@
   margin: 0;
 }
 .header .headerLeft .userText .dealerName {
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 2px;
   font-weight: 600;
 }
@@ -198,20 +202,24 @@
 }
 
 @media screen and (max-width: 880px) {
-  .header .headerLeft {
-    display: none;
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .header .mobileViewBtn {
+  .header .headerLeft .mobileViewBtn {
     display: flex;
     align-items: center;
-    height: 24px;
+    height: 30px;
     line-height: 6px;
     cursor: pointer;
   }
-  .header .mobileViewBtn img {
+  .header .headerLeft .mobileViewBtn img {
     width: 100%;
     height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
+  }
+  .header .headerRight .helpDesk, .header .headerRight .userProfileContainer {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */

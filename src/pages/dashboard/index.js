@@ -239,7 +239,7 @@ function DashboardPage() {
           <div className="dashboard_api">
             <div className="dashboard_api_title">
               {/* title */}
-              <h2>Business KPI</h2>
+              <h2>Business KPIs</h2>
               {/* buttons */}
               <button type="button" className="addWidgetBtn">
                 <span>

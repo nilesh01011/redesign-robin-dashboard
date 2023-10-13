@@ -5,8 +5,8 @@ import Popup from "./popup";
 import { B_DARK_THEME, B_LIGHT_THEME } from "../../assets";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Logout from "./model/logout";
-import Model from "./model";
+// import Logout from "./model/logout";
+// import Model from "./model";
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -208,8 +208,8 @@ function Header({ handleClosed, setModelListDetails }) {
       style={{
         background: theme === "light" ? "white" : "#1C1C1C",
         color: theme === "light" ? "black" : "white",
-        paddingLeft: 32,
-        paddingRight: 32,
+        // paddingLeft: 32,
+        // paddingRight: 32,
         position: "sticky",
         top: 0,
         zIndex: 10,
@@ -218,6 +218,43 @@ function Header({ handleClosed, setModelListDetails }) {
     >
       <div className="header">
         <div className="headerLeft">
+          {/* mobile view button */}
+          <div className="mobileViewBtn" onClick={handleSidebar}>
+            {isLoading ? (
+              <SkeletonTheme
+                baseColor={`${theme === "dark" ? "#444" : "#f5f5f5"}`}
+                highlightColor={`${theme === "dark" ? "#50535a" : "#ebebeb"}`}
+              >
+                <Skeleton width={35} height={35} />
+              </SkeletonTheme>
+            ) : (
+              <>
+                <img
+                  src={theme === "light" ? B_LIGHT_THEME : B_DARK_THEME}
+                  alt="robin-b-logo"
+                  title="Sidebar-collapsed"
+                />
+                <span>
+                  <svg
+                    style={{ transform: "rotate(180deg)" }}
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth="0"
+                    viewBox="0 0 16 16"
+                    height="18"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                    ></path>
+                  </svg>
+                </span>
+              </>
+            )}
+          </div>
+          {/* location dropdown */}
           <div ref={domNode_2} className="userText">
             {isLoading ? (
               <SkeletonTheme
@@ -288,7 +325,10 @@ function Header({ handleClosed, setModelListDetails }) {
                         title={ele.text}
                         key={ele.id}
                         className="lists"
-                        onClick={() => setCurrentLocation(ele.name)}
+                        onClick={() => {
+                          setCurrentLocation(ele.name);
+                          setLocationListDropdown(false);
+                        }}
                         // style={{
                         //   backgroundColor:
                         //     currentLocation === ele.name && "#FFD8DE",
@@ -309,42 +349,6 @@ function Header({ handleClosed, setModelListDetails }) {
               </>
             )}
           </div>
-        </div>
-        {/* mobile view button */}
-        <div className="mobileViewBtn" onClick={handleSidebar}>
-          {isLoading ? (
-            <SkeletonTheme
-              baseColor={`${theme === "dark" ? "#444" : "#f5f5f5"}`}
-              highlightColor={`${theme === "dark" ? "#50535a" : "#ebebeb"}`}
-            >
-              <Skeleton width={35} height={35} />
-            </SkeletonTheme>
-          ) : (
-            <>
-              <img
-                src={theme === "light" ? B_LIGHT_THEME : B_DARK_THEME}
-                alt="robin-b-logo"
-                title="Sidebar-collapsed"
-              />
-              <span>
-                <svg
-                  style={{ transform: "rotate(180deg)" }}
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 16 16"
-                  height="18"
-                  width="18"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-                  ></path>
-                </svg>
-              </span>
-            </>
-          )}
         </div>
         {/* header right */}
         <div className="headerRight">
