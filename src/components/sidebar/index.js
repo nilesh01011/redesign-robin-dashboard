@@ -10,6 +10,8 @@ import {
 } from "../../assets";
 import SearchInput from "./sidebarSearchInput";
 import MenuItems from "./menitems";
+import MobileView from "./mobileView/MobileView";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(true);
@@ -17,6 +19,7 @@ function Sidebar() {
   const [searchMenuItems, setSearchMenuItems] = useState("");
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
+  const router = useNavigate();
   // Theme changed
   const handleThemeChange = (theme) => {
     dispatch(toggleTheme(theme));
@@ -58,7 +61,7 @@ function Sidebar() {
         <div
           className={`sidebarContainer ${
             collapsed ? "desktopStrip" : "desktopCollapse"
-          }`}
+          } ${theme === "light" ? "lightTheme" : "darkTheme"}`}
         >
           {/* ============= toggle button ================= */}
           <div
@@ -105,11 +108,18 @@ function Sidebar() {
           </div>
 
           {/* mobile view */}
-          <div className="sidebarBtn mobileViewBtn">
+          <div
+            className="sidebarBtn mobileViewBtn"
+            style={{ backgroundColor: theme === "light" ? "white" : "#1C1C1C" }}
+          >
             <img
               src={theme === "light" ? ROBIN_LIGHT_THEME : ROBIN_DARK_THEME}
               alt="logo"
               height={26}
+              onClick={() => {
+                router("/dashboard");
+                handleSidebar();
+              }}
             />
             {/* mobile view icons */}
             <span
@@ -139,7 +149,7 @@ function Sidebar() {
             className="searchInputContainer desktopView"
             style={{
               paddingTop: collapsed ? 13 : 4,
-              marginBottom: 14,
+              paddingBottom: 14,
               top: collapsed === true ? 52 : 54,
               display: collapsed && "flex",
               backgroundColor: theme === "light" ? "white" : "#1C1C1C",
@@ -178,9 +188,10 @@ function Sidebar() {
           </div>
 
           <div
-            className="searchInputContainer mobileView"
+            className="searchInputContainer mobileViewSearch"
             style={{
-              marginBottom: 14,
+              paddingBottom: 14,
+              backgroundColor: theme === "light" ? "white" : "#1C1C1C",
             }}
           >
             <SearchInput
@@ -191,7 +202,10 @@ function Sidebar() {
           </div>
           {/* =================== menu items ================== */}
           <div className="sidebarMenuItemsContainer">
+            {/* Desktop View */}
             <MenuItems collapsed={collapsed} setCollapsed={setCollapsed} />
+            {/* Mobile View */}
+            <MobileView collapsed={collapsed} setCollapsed={setCollapsed} />
           </div>
         </div>
         {/* ================ theme buttons ================= */}
@@ -357,8 +371,14 @@ function Sidebar() {
         </div>
         {/* mobile view theme */}
         <div
-          className="themeContainer mobileView"
-          style={{ backgroundColor: theme === "light" ? "#F2F2F2" : "#232324" }}
+          className="themeContainer mobileViewThemeWrapper"
+          style={{
+            backgroundColor: theme === "light" ? "#F2F2F2" : "#232324",
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
         >
           <div
             className="themeWrapper"

@@ -33,6 +33,24 @@
   z-index: 5;
   height: 100%;
 }
+.sidebar .sidebarContainer::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar .sidebarContainer.lightTheme::-webkit-scrollbar-track {
+  background: #f0efef;
+}
+.sidebar .sidebarContainer.darkTheme::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+.sidebar .sidebarContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.sidebar .sidebarContainer.lightTheme::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+}
+.sidebar .sidebarContainer.darkTheme::-webkit-scrollbar-thumb {
+  background: #545454;
+}
 .sidebar .sidebarContainer.desktopStrip {
   width: 60px;
 }
@@ -43,7 +61,7 @@
   position: sticky;
   z-index: 9;
 }
-.sidebar .sidebarContainer .searchInputContainer.mobileView {
+.sidebar .sidebarContainer .searchInputContainer.mobileViewSearch {
   display: none;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer {
@@ -58,7 +76,7 @@
   z-index: 10;
   box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.15);
 }
-.sidebar .themeContainer.mobileView {
+.sidebar .themeContainer.mobileViewThemeWrapper {
   display: none;
 }
 .sidebar .themeContainer .themeWrapper {
@@ -117,9 +135,6 @@
   .sidebar .desktopViewBtn {
     display: none;
   }
-  .sidebar .sidebarBtn {
-    position: relative;
-  }
   .sidebar .sidebarBtn.mobileViewBtn {
     display: flex;
   }
@@ -133,20 +148,23 @@
     transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
     width: 100% !important;
+    overflow-y: scroll;
   }
   .sidebar .sidebarContainer .searchInputContainer.desktopView, .sidebar .sidebarContainer .searchInputContainer .searchIcons {
     display: none !important;
   }
-  .sidebar .sidebarContainer .searchInputContainer.mobileView {
+  .sidebar .sidebarContainer .searchInputContainer.mobileViewSearch {
     display: block;
+    position: sticky;
+    top: 54px;
   }
   .sidebar .themeContainer.desktopView {
     display: none;
   }
-  .sidebar .themeContainer.mobileView {
+  .sidebar .themeContainer.mobileViewThemeWrapper {
     display: flex;
   }
-  .sidebar .themeContainer.mobileView .themeWrapper {
+  .sidebar .themeContainer.mobileViewThemeWrapper .themeWrapper {
     width: 100%;
     border-radius: 0;
   }

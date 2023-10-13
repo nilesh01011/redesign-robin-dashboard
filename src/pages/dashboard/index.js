@@ -11,26 +11,20 @@ import {
   todayBirthday,
   upcomingBirthday,
 } from "../../data";
-// import Dropdown from "../../components/dropdown";
-// import { MAHINDRA_SPONSOR_BANNER } from "../../assets";
 import ActionItemsCollapsed from "./actionitems";
 // import Graphs from "./graphs";
 import LatestNews from "./latestnews";
 import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
-// import KeyHighlightsCarousel from "./keyhightlightsCarousel";
-// import KeyHightlightsCarousel from "./keyHightLights_Carousel/KeyHightlightsCarousel";
-import DoughnutChart from "./doughnutChart/doughnutChart";
-import BarChart from "./barChart/BarChart";
+import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
+import BarChart from "./graphs/barChart/BarChart";
+import KeyhightLightsCarousel from "./keyhightLightsCarousel/KeyhightLightsCarousel";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [drawerSliderID, setDrawerSliderID] = useState(0);
   const [drawerType, setDrawerType] = useState("");
-  // const [activendex, setActiveIndex] = useState(0);
-
-  // const [currentIndex, setCurrentIndex] = useState(1);
 
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -41,7 +35,7 @@ function DashboardPage() {
 
   return (
     <>
-      <div className="dashboard">
+      <div className="dashboard minHeight">
         {/* ============ title ============ */}
         <div
           style={{
@@ -53,7 +47,7 @@ function DashboardPage() {
           }}
           className="container-fluid titleContainer"
         >
-          <Title title="Dashboard" />
+          <Title title="Home" />
         </div>
         {/* =============== Content ================ */}
         <div className="boxContainer container-fluid">
@@ -129,6 +123,8 @@ function DashboardPage() {
                 </p>
               </div>
 
+              {/* <KeyhightLightsCarousel /> */}
+
               <div className="heads two">
                 <div
                   className="headsContainer"
@@ -189,19 +185,19 @@ function DashboardPage() {
           </div>
           {/* key highlights contents */}
           <div
-            className="key_highlights_container"
+            className="actionItems_container"
             style={{ backgroundColor: theme === "light" ? "white" : "" }}
           >
             {/* left side */}
             <div
-              className="key_highlights_left_side box_Contents"
+              className="actionItems_left_side box_Contents"
               style={{ borderColor: borderColor }}
             >
               {/* title */}
               <h4>Action Items</h4>
               {/* contents */}
               <div
-                className={`key_hightlights_contents ${
+                className={`actionItems_contents ${
                   theme === "light" ? "light" : "dark"
                 }`}
                 style={{
@@ -223,7 +219,7 @@ function DashboardPage() {
             </div>
             {/* Ads right side */}
             <div
-              className="key_highlights_right_side box_Contents"
+              className="actionItems_right_side box_Contents"
               style={{ borderColor: borderColor }}
             >
               {/* images */}
@@ -258,14 +254,14 @@ function DashboardPage() {
                     />
                   </svg>
                 </span>
-                Add Widget
+                Add KPI
               </button>
             </div>
 
             {/* graphs contents */}
             <div
               className="graphs_container"
-              style={{ borderColor: borderColor }}
+              // style={{ borderColor: borderColor }}
             >
               {/* <Graphs title="Retail" /> */}
               <BarChart title="Retail" dataItems={retailBarGraphs} />

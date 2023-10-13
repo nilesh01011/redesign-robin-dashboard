@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
-import Popup from "./popup";
+import Notification from "./notification";
 import { B_DARK_THEME, B_LIGHT_THEME } from "../../assets";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Title from "../title";
 // import Logout from "./model/logout";
 // import Model from "./model";
 
@@ -30,10 +31,15 @@ let useClickOutSide = (handler) => {
 
 function Header({ handleClosed, setModelListDetails }) {
   const theme = useSelector((state) => state.theme);
+
+  // const pathName
   const [userProfileDropdown, setUserProfileDropdown] = useState(false);
   // location dropdown
   const [locationListDropdown, setLocationListDropdown] = useState(false);
   const [currentLocation, setCurrentLocation] = useState("Goregoan (W) Mumbai");
+  // final year dropdown
+  const [finalYearDropdown, setFinalYearDropdown] = useState(false);
+  const [currentFinalYear, setCurrentFinalYear] = useState("FY 2023");
   // user dropdown details
   const [listHover, setListHover] = useState(0);
   // skeleton loading
@@ -189,12 +195,37 @@ function Header({ handleClosed, setModelListDetails }) {
       id: 4,
       name: "Kurla (W) Mumbai",
     },
+    {
+      id: 5,
+      name: "Vikhroli (W) Mumbai",
+    },
+  ];
+
+  // final year lisy
+  const finalYearList = [
+    {
+      id: 1,
+      name: "FY 2023",
+    },
+    {
+      id: 2,
+      name: "FY 2022",
+    },
+    {
+      id: 3,
+      name: "FY 2021",
+    },
+    {
+      id: 4,
+      name: "FY 2020",
+    },
   ];
 
   let domNode = useClickOutSide(() => {
     setUserProfileDropdown(false);
   });
 
+  // location dropdown
   const handleClicksLocationListDropdown = (e) => {
     setLocationListDropdown(!locationListDropdown);
   };
@@ -203,17 +234,23 @@ function Header({ handleClosed, setModelListDetails }) {
     setLocationListDropdown(false);
   });
 
+  // final year dropdown
+  const handleClicksFinalYearListDropdown = (e) => {
+    setFinalYearDropdown(!finalYearDropdown);
+  };
+
+  let domNode_3 = useClickOutSide(() => {
+    setFinalYearDropdown(false);
+  });
+
   return (
     <div
       style={{
         background: theme === "light" ? "white" : "#1C1C1C",
         color: theme === "light" ? "black" : "white",
-        // paddingLeft: 32,
-        // paddingRight: 32,
         position: "sticky",
         top: 0,
         zIndex: 10,
-        // position:"relative"
       }}
     >
       <div className="header">
@@ -254,8 +291,8 @@ function Header({ handleClosed, setModelListDetails }) {
               </>
             )}
           </div>
-          {/* location dropdown */}
-          <div ref={domNode_2} className="userText">
+          {/* dropdown list */}
+          <div className="userText">
             {isLoading ? (
               <SkeletonTheme
                 baseColor={`${theme === "dark" ? "#444" : "#f5f5f5"}`}
@@ -271,81 +308,170 @@ function Header({ handleClosed, setModelListDetails }) {
                   style={{ color: theme === "light" ? "#000" : "#fff" }}
                 >
                   {/* {dealerName} */}
-                  NBS International Ltd
+                  Koncept Automobile Pvt Ltd
                 </p>
-                <span
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    color: "#FF3E5B",
-                    cursor: "pointer",
-                  }}
-                  onClick={(e) => handleClicksLocationListDropdown(e)}
-                >
-                  {/* Goregoan (W) Mumbai */}
-                  <span style={{ minWidth: 130 }}>{currentLocation}</span>
-                  <span>
-                    <svg
-                      style={{
-                        transform: locationListDropdown && "rotate(180deg)",
-                        transition: "transform 0.3s ease-in-out",
-                      }}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="11"
-                      height="7"
-                      viewBox="0 0 11 7"
-                      fill="none"
-                    >
-                      <path
-                        d="M1.92896 1.5L5.46449 5.03553L9.00002 1.5"
-                        stroke="#FF3E5B"
-                        strokeWidth="1.5"
-                        strokeMiterlimit="10"
-                        strokeLinecap="square"
-                      />
-                    </svg>
-                  </span>
-                </span>
-
-                {/* dropdown */}
-                {locationListDropdown && (
+                <div className="dropdownLocationFinalYear">
+                  {/* location dropdown */}
                   <div
-                    className="locationDropdownList"
+                    ref={domNode_2}
                     style={{
-                      backgroundColor:
-                        theme === "light" ? "#ffffff" : "#1C1C1C",
-                      boxShadow:
-                        theme === "light"
-                          ? "rgb(0 0 0 / 20%) 0px 0px 3px"
-                          : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
+                      display: "flex",
+                      alignItems: "center",
+                      color: "#FF3E5B",
+                      cursor: "pointer",
+                      borderRight: `1px solid ${
+                        theme === "light" ? "#B5B5B6" : "#545454"
+                      }`,
+                      paddingRight: 6,
+                      position: "relative",
                     }}
+                    className="dropdown-container"
+                    onClick={(e) => handleClicksLocationListDropdown(e)}
                   >
-                    {locationList.map((ele) => (
-                      <div
-                        title={ele.text}
-                        key={ele.id}
-                        className="lists"
-                        onClick={() => {
-                          setCurrentLocation(ele.name);
-                          setLocationListDropdown(false);
+                    {/* Goregoan (W) Mumbai */}
+                    <span style={{ minWidth: 125 }}>{currentLocation}</span>
+                    <span>
+                      <svg
+                        style={{
+                          transform: locationListDropdown && "rotate(180deg)",
+                          transition: "transform 0.3s ease-in-out",
                         }}
-                        // style={{
-                        //   backgroundColor:
-                        //     currentLocation === ele.name && "#FFD8DE",
-                        // }}
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="11"
+                        height="7"
+                        viewBox="0 0 11 7"
+                        fill="none"
                       >
-                        {/* location name */}
-                        <p
-                          style={{
-                            color: currentLocation === ele.name && "#ff3e5b",
-                          }}
-                        >
-                          {ele.name}
-                        </p>
+                        <path
+                          d="M1.92896 1.5L5.46449 5.03553L9.00002 1.5"
+                          stroke="#FF3E5B"
+                          strokeWidth="1.5"
+                          strokeMiterlimit="10"
+                          strokeLinecap="square"
+                        />
+                      </svg>
+                    </span>
+
+                    {/* location dropdown */}
+                    {locationListDropdown && (
+                      <div
+                        className="locationDropdownList"
+                        style={{
+                          backgroundColor:
+                            theme === "light" ? "#ffffff" : "#1C1C1C",
+                          boxShadow:
+                            theme === "light"
+                              ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+                              : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
+                        }}
+                      >
+                        {locationList.map((ele) => (
+                          <div
+                            title={ele.text}
+                            key={ele.id}
+                            className="lists"
+                            onClick={() => {
+                              setCurrentLocation(ele.name);
+                              setLocationListDropdown(false);
+                            }}
+                          >
+                            {/* location name */}
+                            <p
+                              style={{
+                                color:
+                                  currentLocation === ele.name
+                                    ? "#ff3e5b"
+                                    : theme === "light"
+                                    ? "black"
+                                    : "white",
+                              }}
+                            >
+                              {ele.name}
+                            </p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    )}
                   </div>
-                )}
+                  {/* final year dropdown */}
+                  <div
+                    ref={domNode_3}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      color: "#FF3E5B",
+                      cursor: "pointer",
+                      paddingLeft: 6,
+                      position: "relative",
+                    }}
+                    onClick={(e) => handleClicksFinalYearListDropdown(e)}
+                    className="finalYearDropdownContainer dropdown-container"
+                  >
+                    <span style={{ minWidth: 48 }}>{currentFinalYear}</span>
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="11"
+                        height="7"
+                        viewBox="0 0 11 7"
+                        fill="none"
+                        style={{
+                          transform: finalYearDropdown && "rotate(180deg)",
+                          transition: "transform 0.3s ease-in-out",
+                        }}
+                      >
+                        <path
+                          d="M1.92896 1.5L5.46449 5.03553L9.00002 1.5"
+                          stroke="#FF3E5B"
+                          strokeWidth="1.5"
+                          strokeMiterlimit="10"
+                          strokeLinecap="square"
+                        ></path>
+                      </svg>
+                    </span>
+
+                    {/* final year dropdown */}
+                    {finalYearDropdown && (
+                      <div
+                        className="finalYearDropdown"
+                        style={{
+                          backgroundColor:
+                            theme === "light" ? "#ffffff" : "#1C1C1C",
+                          boxShadow:
+                            theme === "light"
+                              ? "rgb(0 0 0 / 20%) 0px 0px 3px"
+                              : "rgb(255 255 255 / 15%) 1px 0px 1px 0px",
+                        }}
+                      >
+                        {finalYearList.map((ele) => (
+                          <div
+                            title={ele.text}
+                            key={ele.id}
+                            className="lists"
+                            onClick={() => {
+                              setCurrentFinalYear(ele.name);
+                              setFinalYearDropdown(false);
+                            }}
+                          >
+                            {/* final year name */}
+                            <p
+                              style={{
+                                color:
+                                  currentFinalYear === ele.name
+                                    ? "#ff3e5b"
+                                    : theme === "light"
+                                    ? "black"
+                                    : "white",
+                              }}
+                            >
+                              {ele.name}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </>
             )}
           </div>
@@ -361,7 +487,7 @@ function Header({ handleClosed, setModelListDetails }) {
               <Skeleton width={30} height={35} />
             </SkeletonTheme>
           ) : (
-            <Popup />
+            <Notification />
           )}
           {/* help desk */}
           <div
@@ -456,14 +582,14 @@ function Header({ handleClosed, setModelListDetails }) {
                 style={{ cursor: "pointer" }}
               >
                 {/* icons */}
-                <span className="userAvatar">NR</span>
+                <span className="userAvatar">JD</span>
                 {/* user details */}
                 <div className="userDetails">
                   {/* user name */}
-                  <span className="username">Nilesh Rathod</span>
+                  <span className="username">Joana Doe</span>
                   <p>
                     <span className="userNumber" style={{ color: "#FF3E5B" }}>
-                      Mahindra Automotive
+                      Super Admin
                     </span>
                     {/* arrow icons */}
                     <span>
@@ -525,6 +651,20 @@ function Header({ handleClosed, setModelListDetails }) {
           </div>
         </div>
       </div>
+
+      {/* title */}
+      {/* <div
+        style={{
+          background: theme === "light" ? "white" : "#1C1C1C",
+          boxShadow:
+            theme === "light"
+              ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
+              : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
+        }}
+        // className="container-fluid"
+      >
+        <Title title={titleName} />
+      </div> */}
     </div>
   );
 }

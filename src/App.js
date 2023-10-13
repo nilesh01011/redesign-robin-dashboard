@@ -4,6 +4,7 @@ import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import Model from "./components/model";
 // dashboard
 import DashboardPage from "./pages/dashboard";
 // favourites
@@ -15,7 +16,7 @@ import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
 import CRM from "./pages/crm";
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
-import Model from "./components/model";
+import OTF from "./pages/otf/OTF";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -65,12 +66,12 @@ function App() {
             // zIndex: 99997,
           }}
         > */}
-          {modelListDetails && (
-            <Model
-              text={modelListDetails}
-              setModelListDetails={setModelListDetails}
-            />
-          )}
+        {modelListDetails && (
+          <Model
+            text={modelListDetails}
+            setModelListDetails={setModelListDetails}
+          />
+        )}
         {/* </div> */}
 
         <div
@@ -99,9 +100,14 @@ function App() {
             path="/admin/customer-master"
             element={<CustomerMaster />}
           ></Route>
+
+          <Route path="/admin/booking-form" element={<OTF />}></Route>
         </Routes>
         {/* Footer */}
-        <div className="footer" style={{backgroundColor:theme === "light" ? "#ffffff" : "#0B0B0C"}}>
+        <div
+          className="footer"
+          style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}
+        >
           <span>Copyright © 2023 ROBIN.</span>
         </div>
       </div>

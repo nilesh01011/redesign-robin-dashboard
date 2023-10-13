@@ -17,10 +17,12 @@
     position: relative;
     width: 100%;
     display: flex;
+    gap: 10px;
+    align-items: flex-start;
     padding-top: 20px;
 
     & .leftSide {
-      width: 30%;
+      width: 32%;
       height: 100%;
       display: flex;
       align-items: center;
@@ -34,6 +36,7 @@
         flex-direction: column;
         white-space: nowrap;
         height: 100%;
+        width: 100%;
 
         & p {
           display: flex;
@@ -54,7 +57,6 @@
       & .graphs {
         width: 100%;
         height: 100%;
-        padding:0 10px;
 
         & canvas {
           width: 100% !important;

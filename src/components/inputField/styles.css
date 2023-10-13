@@ -7,7 +7,10 @@
   outline: none;
   flex: 1;
   font-size: 14px;
-  background-color: transparent;
+  background-color: transparent !important;
+}
+.inputFields:focus, .inputFields:active {
+  background-color: transparent !important;
 }
 .inputFields::-moz-placeholder {
   color: #858585;

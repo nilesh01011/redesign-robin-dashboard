@@ -8,6 +8,8 @@ import ChangePassword from "./changePassword";
 function Model({ text, setModelListDetails }) {
   const handleCloseModel = () => {
     setModelListDetails(false);
+    document.querySelector("body").classList.remove("removeScrollbar");
+    document.querySelector("body").style.overflow = "auto";
   };
 
   const handleModelShow = (type) => {

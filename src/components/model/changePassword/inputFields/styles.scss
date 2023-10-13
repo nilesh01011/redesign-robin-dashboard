@@ -32,8 +32,11 @@
         & .iconsEye {
             position: absolute;
             right: 20px;
-            top: 13px;
+            top: 8px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 

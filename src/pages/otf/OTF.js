@@ -1,18 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import Title from "../../../components/title";
 import "./styles.scss";
+import Title from "../../components/title";
+import { useSelector } from "react-redux";
 
-function Index() {
+function OTF() {
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="criticalityGroup minHeight">
+    <div className="otf minHeight">
       {/* ============ title ============ */}
       <div
         style={{
-          // borderBottom: `1px solid ${
-          //   theme === "light" ? "#DEDEDE" : "#635D5D"
-          // }`,
           background: theme === "light" ? "white" : "#1C1C1C",
           boxShadow:
             theme === "light"
@@ -21,10 +18,10 @@ function Index() {
         }}
         className="container-fluid titleContainer"
       >
-        <Title title="Application Criticality Group Master" />
+        <Title title="Booking Form" />
       </div>
     </div>
   );
 }
 
-export default Index;
+export default OTF;

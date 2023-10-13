@@ -4,14 +4,12 @@
   flex-direction: column;
   gap: 10px;
   z-index: 5;
-  // position: sticky;
-  // top: 85px;
 }
 
-.mobileView {
-  display: none;
-  z-index: 5;
-}
+// .mobileView {
+//   display: none;
+//   z-index: 5;
+// }
 
 .menuLists {
   margin-top: 2px;
@@ -91,9 +89,9 @@
     display: none;
   }
 
-  .mobileView {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  // .mobileView {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 10px;
+  // }
 }

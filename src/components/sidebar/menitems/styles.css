@@ -6,11 +6,6 @@
   z-index: 5;
 }
 
-.mobileView {
-  display: none;
-  z-index: 5;
-}
-
 .menuLists {
   margin-top: 2px;
   position: relative;
@@ -77,10 +72,5 @@
 @media screen and (max-width: 880px) {
   .menuListContainer {
     display: none;
-  }
-  .mobileView {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
 }/*# sourceMappingURL=styles.css.map */

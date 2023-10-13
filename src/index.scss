@@ -20,11 +20,17 @@
   flex-direction: column;
 }
 
+// minHeight
+
+.minHeight {
+  min-height: 100vh;
+}
+
 // title Container
 .titleContainer {
   padding-top: 7px;
   position: sticky;
-  top: 61px;
+  top: 61.2px;
   z-index: 6;
 }
 
@@ -123,8 +129,7 @@ body.dark::-webkit-scrollbar-thumb {
   }
 
   // title Container
-.titleContainer {
-  top: 51px;
-}
-
+  .titleContainer {
+    top: 61.2px;
+  }
 }

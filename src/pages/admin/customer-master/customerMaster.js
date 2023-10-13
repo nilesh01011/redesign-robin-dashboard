@@ -140,22 +140,15 @@ function CustomerMaster() {
 
   return (
     <>
-      {/* <Header title="Customer Master" /> */}
-      <div className="customerMaster">
+      <div className="customerMaster minHeight">
         {/* ============ title ============ */}
         <div
           style={{
-            // borderBottom: `1px solid ${
-            //   theme === "light" ? "#DEDEDE" : "#635D5D"
-            // }`,
             background: theme === "light" ? "white" : "#1C1C1C",
             boxShadow:
               theme === "light"
                 ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
                 : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
-                position: "sticky",
-                top: 64,
-                zIndex: 10,
           }}
           className="container-fluid titleContainer"
         >
@@ -217,10 +210,21 @@ function CustomerMaster() {
                 {/* Advanced filters */}
                 <div
                   className="advanceFilter"
-                  style={{ cursor: "pointer", whiteSpace: "nowrap" }}
+                  style={{
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                 >
                   {/* icons */}
-                  <span>
+                  <span
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="14"

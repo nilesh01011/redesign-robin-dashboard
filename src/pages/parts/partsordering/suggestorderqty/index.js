@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function Index() {
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="suggestedorder">
+    <div className="suggestedorder minHeight">
       {/* ============ title ============ */}
       <div
         style={{

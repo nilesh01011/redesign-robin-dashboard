@@ -20,10 +20,14 @@
   flex-direction: column;
 }
 
+.minHeight {
+  min-height: 100vh;
+}
+
 .titleContainer {
   padding-top: 7px;
   position: sticky;
-  top: 61px;
+  top: 61.2px;
   z-index: 6;
 }
 
@@ -112,6 +116,6 @@ body.dark::-webkit-scrollbar-thumb {
     padding-right: 20px;
   }
   .titleContainer {
-    top: 51px;
+    top: 61.2px;
   }
 }/*# sourceMappingURL=index.css.map */

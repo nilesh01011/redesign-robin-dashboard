@@ -61,6 +61,7 @@ function NewsDrawer({
         style={{
           borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
           backgroundColor: theme === "light" ? "white" : "#242424",
+          zIndex:5
         }}
       >
         <h4 style={{ fontSize: 18 }}>{drawerType}</h4>

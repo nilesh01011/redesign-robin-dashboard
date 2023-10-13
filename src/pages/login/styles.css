@@ -94,7 +94,7 @@
 .loginPage .loginForm .formContainer form .fields .inputs .passwordIcons {
   position: absolute;
   right: -2px;
-  top: 5px;
+  top: 1px;
   cursor: pointer;
 }
 .loginPage .loginForm .formContainer form .fields .icons {

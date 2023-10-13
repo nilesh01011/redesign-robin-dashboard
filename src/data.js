@@ -369,9 +369,9 @@ export const menuItems = [
         link: "/admin/customer-master",
       },
       {
-        name: "Admin 1.2",
+        name: "OTF",
         key: 10.2,
-        link: "/admin/admin-1-2",
+        link: "/admin/booking-form",
       },
       {
         name: "Admin 1.3",
