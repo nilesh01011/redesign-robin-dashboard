@@ -4,7 +4,7 @@
 .dashboard .boxContainer {
   width: 100%;
   margin-top: 20px;
-  margin-bottom: 38px;
+  padding-bottom: 48px;
 }
 .dashboard .boxContainer .key_highlights_heading {
   width: 100%;
@@ -20,7 +20,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 100%;
 }
 .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .divider {
   width: 1px;

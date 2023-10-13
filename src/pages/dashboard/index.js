@@ -123,7 +123,9 @@ function DashboardPage() {
                 </p>
               </div>
 
-              {/* <KeyhightLightsCarousel /> */}
+              {/* <div style={{ overflowX: "hidden",width:"50%" }}>
+                <KeyhightLightsCarousel />
+              </div> */}
 
               <div className="heads two">
                 <div

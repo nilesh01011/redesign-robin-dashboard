@@ -4,7 +4,7 @@
   & .boxContainer {
     width: 100%;
     margin-top: 20px;
-    margin-bottom: 38px;
+    padding-bottom: 48px;
 
     // New Design
     & .key_highlights_heading {
@@ -22,7 +22,7 @@
         align-items: center;
 
         gap: 10px;
-        width: 100%;
+        // width: 100%;
         // overflow-x: hidden;
 
         & .divider {

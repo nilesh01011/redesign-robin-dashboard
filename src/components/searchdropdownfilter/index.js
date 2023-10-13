@@ -99,7 +99,7 @@ function Index({
             ? "#ED302D"
             : theme === "light"
             ? "#B5B5B6"
-            : "#545454",
+            : "#232324",
         }}
       >
         {/* dropdown list */}

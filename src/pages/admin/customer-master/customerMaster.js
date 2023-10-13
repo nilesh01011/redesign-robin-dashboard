@@ -159,7 +159,7 @@ function CustomerMaster() {
           {/* header */}
           <div
             style={{
-              border: `1px solid ${theme === "light" ? "#E6E6E6" : "#635D5D"}`,
+              border: `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
               backgroundColor: theme === "light" ? "#f2f2f2" : "#1C1C1C",
             }}
             className="customerMasterHeader"
@@ -171,7 +171,7 @@ function CustomerMaster() {
                 className="tabs"
                 style={{
                   border: `1px solid ${
-                    theme === "light" ? "#B5B5B6" : "#635D5D"
+                    theme === "light" ? "#B5B5B6" : "#232324"
                   }`,
                 }}
               >
@@ -308,7 +308,7 @@ function CustomerMaster() {
           <div
             className="tableContainer"
             style={{
-              borderColor: theme === "light" ? "#B5B5B6" : "#635d5d",
+              borderColor: theme === "light" ? "#B5B5B6" : "#232324",
             }}
           >
             <Table
