@@ -7,12 +7,13 @@ function Items({ data }) {
       {/* label */}
       <span className="label">
         <span className="label_name">GST Update</span>
-        <span className="date mobileView">{data.time}</span>
+        {/* <span className="date mobileView">{data.time}</span> */}
       </span>
       {/* text */}
-      <p className="text" style={{ color: "#FF3E5B" }}>
+      <p className="text">
         {data.description}
-        <span className="date desktopView">{data.time}</span>
+        {/* desktopView */}
+        <span className="date">{data.time}</span>
       </p>
     </div>
   );

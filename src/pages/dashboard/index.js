@@ -27,6 +27,11 @@ function DashboardPage() {
   const [drawerSliderID, setDrawerSliderID] = useState(0);
   const [drawerType, setDrawerType] = useState("");
 
+  // scrollbar in action items
+  const [actionItemsScrollBar, setActionItemsScrollBar] = useState(false);
+  const [latestNewsScrollBar, setLatestNewsScrollBar] = useState(false);
+  const [birthdayListScrollBar, setBirthdayListScrollBar] = useState(false);
+
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
     document.body.style.overflow = "auto";
@@ -176,10 +181,12 @@ function DashboardPage() {
               <div
                 className={`actionItems_contents ${
                   theme === "light" ? "light" : "dark"
-                }`}
+                } ${actionItemsScrollBar && "active"}`}
                 style={{
                   borderColor: borderColor,
                 }}
+                onMouseEnter={() => setActionItemsScrollBar(true)}
+                onMouseLeave={() => setActionItemsScrollBar(false)}
               >
                 {actionItems.map((ele) => {
                   return (
@@ -263,7 +270,9 @@ function DashboardPage() {
               <div
                 className={`newsWrapper ${
                   theme === "light" ? "light" : "dark"
-                }`}
+                } ${latestNewsScrollBar && "active"}`}
+                onMouseEnter={() => setLatestNewsScrollBar(true)}
+                onMouseLeave={() => setLatestNewsScrollBar(false)}
               >
                 {latestNews.map((ele) => (
                   <LatestNews
@@ -299,7 +308,9 @@ function DashboardPage() {
               <div
                 className={`birthdatListWapper ${
                   theme === "light" ? "light" : "dark"
-                }`}
+                } ${birthdayListScrollBar && "active"}`}
+                onMouseEnter={() => setBirthdayListScrollBar(true)}
+                onMouseLeave={() => setBirthdayListScrollBar(false)}
               >
                 <div className="birthdayListContainer">
                   {/* title */}

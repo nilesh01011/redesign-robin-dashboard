@@ -33,11 +33,15 @@ function Carousel({ children }) {
   };
 
   useLayoutEffect(() => {
-    setItemWidth(() => itemRef.current.offsetWidth);
+    if (itemRef.current.offsetWidth) {
+      setItemWidth(() => itemRef.current.offsetWidth);
+    }
   }, []);
 
   useEffect(() => {
-    setTranslateWidth(() => currentIndex * itemWidth);
+    if (currentIndex && itemWidth) {
+      setTranslateWidth(() => currentIndex * itemWidth);
+    }
   }, [currentIndex, itemWidth]);
 
   //   useEffect(() => {

@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
 import { Link } from "react-router-dom";
+import { notification } from "../../../data";
+import NotificationItems from "./notificationItems/NotificationItems";
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -25,6 +27,7 @@ let useClickOutSide = (handler) => {
 
 function Popup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("Inbox");
   const theme = useSelector((state) => state.theme);
   let domNode = useClickOutSide(() => {
     setIsOpen(false);
@@ -77,32 +80,31 @@ function Popup() {
           <div
             className="notificationContainer"
             style={{
-              backgroundColor: theme === "light" ? "#ffffff" : "#232324",
+              backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
               color: theme === "light" ? "#000000" : "#ffffff",
               border: `1px solid ${theme === "light" ? "#E6E6E6" : "#545454"}`,
             }}
           >
             {/* heading */}
             <div className="notificationHead" style={{ fontSize: 14 }}>
-              <b>Notifications</b>
-              <Link
-                to="/parts/parts-ordering/suggest-order-qty"
+              <h3>Notifications</h3>
+              <span
+                // to="/parts/parts-ordering/suggest-order-qty"
                 style={{ color: "#FF3E5B" }}
               >
-                View all
-              </Link>
+                Mark as all read
+              </span>
             </div>
             {/* divided */}
-            <div
+            {/* <div
               style={{
                 width: "100%",
                 height: "1px",
                 background: theme === "light" ? "#DEDEDE" : "#545454",
                 margin: "10px 0",
               }}
-            ></div>
-            {/* notification body */}
-            <span className="arrowIcons" style={{ zIndex: 10 }}>
+            ></div> */}
+            {/* <span className="arrowIcons" style={{ zIndex: 10 }}>
               <svg
                 style={{
                   color: theme === "light" ? "#FFFFFF" : "#232324",
@@ -147,6 +149,74 @@ function Popup() {
               >
                 View More
               </Link>
+            </div> */}
+
+            {/* Arrow Icons */}
+            <span className="arrowIcons" style={{ zIndex: 10 }}>
+              <svg
+                style={{
+                  color: theme === "light" ? "#FFFFFF" : "#232324",
+                }}
+                xmlns="http://www.w3.org/2000/svg"
+                width="23"
+                height="12"
+                viewBox="0 0 23 12"
+                fill="none"
+              >
+                <path
+                  d="M-1.90735e-06 12L23 12L12.944 1.50676C12.1566 0.685173 10.8434 0.685173 10.056 1.50676L-1.90735e-06 12Z"
+                  fill="currentColor"
+                  stroke={`${theme === "light" ? "#E6E6E6" : "#545454"}`}
+                />
+              </svg>
+            </span>
+            {/* notification body contents */}
+            <div className="notificationBody">
+              {/* tabs */}
+              <div
+                className="notificationTab"
+                style={{
+                  borderBottom: `1px solid ${
+                    theme === "light" ? "#E6E6E6" : "#545454"
+                  }`,
+                }}
+              >
+                {notification.map((ele) => (
+                  <button
+                    onClick={() => setActiveTab(ele.title)}
+                    key={ele.key}
+                    className={activeTab === ele.title && "active"}
+                  >
+                    <span
+                      style={{
+                        color:
+                          activeTab === ele.title
+                            ? "#FF3E5B"
+                            : theme === "light"
+                            ? "black"
+                            : "white",
+                      }}
+                    >
+                      {ele.title}
+                    </span>
+                    <span className="counts">{ele.items.length}</span>
+                  </button>
+                ))}
+              </div>
+              {/* contents */}
+              <div
+                className={`notificationTabsContent ${
+                  theme === "light" ? "light" : "dark"
+                }`}
+              >
+                {notification.map((ele) => {
+                  if (ele.title === activeTab) {
+                    return ele.items.map((el) => (
+                      <NotificationItems key={el.key} data={el} />
+                    ));
+                  }
+                })}
+              </div>
             </div>
           </div>
         )}

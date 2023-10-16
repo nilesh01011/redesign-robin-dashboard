@@ -18,12 +18,15 @@
     // contents
     & .actionItems_container {
       margin-top: 10px;
+      // display: grid;
+      // grid-template-columns: 2fr 1fr;
       display: flex;
-      gap: 30px;
+      gap: 20px;
       width: 100%;
 
       & .actionItems_left_side {
-        width: 70%;
+        // width: 100%;
+        width: 72%;
         padding: 16px;
         display: flex;
         flex-direction: column;
@@ -42,28 +45,34 @@
 
           &::-webkit-scrollbar {
             width: 8px;
+            opacity: 0;
           }
 
-          &::-webkit-scrollbar-track {
+          &.active::-webkit-scrollbar {
+            opacity: 1;
+          }
+
+          &.active::-webkit-scrollbar-track {
             background: transparent;
           }
 
-          &::-webkit-scrollbar-thumb {
+          &.active::-webkit-scrollbar-thumb {
             border-radius: 10px;
           }
 
-          &.light::-webkit-scrollbar-thumb {
+          &.active.light::-webkit-scrollbar-thumb {
             background: #b5b5b6;
           }
 
-          &.dark::-webkit-scrollbar-thumb {
+          &.active.dark::-webkit-scrollbar-thumb {
             background: #242424;
           }
         }
       }
 
       & .actionItems_right_side {
-        width: 30%;
+        width: 35%;
+        // width: 100%;
         position: relative;
         overflow: hidden;
 
@@ -169,23 +178,26 @@
           // scrollbar
           &::-webkit-scrollbar {
             width: 8px;
+            opacity: 0;
           }
 
-          &::-webkit-scrollbar-track {
+          &.active::-webkit-scrollbar {
+            opacity: 1;
+          }
+
+          &.active::-webkit-scrollbar-track {
             background: transparent;
           }
 
-          // thumb
-
-          &::-webkit-scrollbar-thumb {
+          &.active::-webkit-scrollbar-thumb {
             border-radius: 10px;
           }
 
-          &.light::-webkit-scrollbar-thumb {
-            background: #8a8a8a;
+          &.active.light::-webkit-scrollbar-thumb {
+            background: #b5b5b6;
           }
 
-          &.dark::-webkit-scrollbar-thumb {
+          &.active.dark::-webkit-scrollbar-thumb {
             background: #242424;
           }
         }
@@ -360,7 +372,6 @@
 }
 
 @media screen and (max-width: 660px) {
-
   .dashboard .boxContainer {
     & .dashboard_api {
       & .dashboard_api_title {

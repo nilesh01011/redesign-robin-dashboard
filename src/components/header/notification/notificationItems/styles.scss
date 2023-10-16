@@ -1,0 +1,90 @@
+.notificationItems {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 16px;
+  position: relative;
+
+  // &:hover {
+  //   background-color: #E6E6E6;
+  //   background-color: #1C1C1C;
+  // }
+
+  // & .status {
+  //   width: 8px;
+  //   height: 8px;
+  //   border-radius: 50%;
+  //   background-color: #ff3e5b;
+  // }
+
+  & .content {
+    padding-left: 18px;
+    position: relative;
+
+    & h4 {
+      font-size: 14px;
+      font-weight: 400;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: -18px;
+        top: 3px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ff3e5b;
+      }
+    }
+
+    & p {
+      font-size: 12px;
+      color: #858585;
+      margin: 4px 0;
+    }
+
+    & .master_TimeData {
+      display: flex;
+      align-items: center;
+
+      & span {
+        font-size: 10px;
+      }
+
+      & .divider {
+        width: 1px;
+        height: 10px;
+        margin: 0 6px;
+        display: block;
+        background: #858585;
+      }
+
+      & .dateTime {
+        display: flex;
+        align-items: center;
+        color: #858585;
+
+        & .dots {
+          width: 2px;
+          height: 2px;
+          border-radius: 50%;
+          background: #858585;
+          margin: 0 4px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  // edits
+  & .edits {
+    cursor: pointer;
+  }
+
+  & .editMails {
+    
+  }
+}
