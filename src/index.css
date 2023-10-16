@@ -109,6 +109,13 @@ body.dark::-webkit-scrollbar-thumb {
   display: none;
 }
 
+@media screen and (max-width: 992px) {
+  .footer,
+  .container-fluid {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+}
 @media screen and (max-width: 880px) {
   .footer,
   .container-fluid {

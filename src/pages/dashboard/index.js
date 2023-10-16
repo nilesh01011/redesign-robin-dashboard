@@ -12,13 +12,14 @@ import {
   upcomingBirthday,
 } from "../../data";
 import ActionItemsCollapsed from "./actionitems";
-// import Graphs from "./graphs";
 import LatestNews from "./latestnews";
 import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
 import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
 import BarChart from "./graphs/barChart/BarChart";
-import KeyhightLightsCarousel from "./keyhightLightsCarousel/KeyhightLightsCarousel";
+// Carousel
+import Carousel from "./carousel/Carousel";
+import Items from "./carousel/items/Items";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -63,11 +64,14 @@ function DashboardPage() {
             }}
           >
             {/* left sides */}
-            <div className="key_highlights_heading_left heading_side">
+            <div
+              className="key_highlights_heading_left heading_side"
+              style={{ display: "none" }}
+            >
               {/* keyhightlight title */}
               <div className="title_heads">
                 <h4>Key Highlights</h4>
-                <p>
+                {/* <p>
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +104,7 @@ function DashboardPage() {
                       />
                     </svg>
                   </span>
-                </p>
+                </p> */}
               </div>
               {/* divide */}
               <div
@@ -122,10 +126,6 @@ function DashboardPage() {
                   </span>
                 </p>
               </div>
-
-              {/* <div style={{ overflowX: "hidden",width:"50%" }}>
-                <KeyhightLightsCarousel />
-              </div> */}
 
               <div className="heads two">
                 <div
@@ -150,42 +150,17 @@ function DashboardPage() {
                 </p>
               </div>
             </div>
-            <div className="key_highlights_heading_right heading_side">
-              <span style={{ cursor: "pointer" }}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12.9283 1.94223C12.7584 1.76092 12.4736 1.75173 12.2923 1.92171L5.09228 8.67171C5.00153 8.75678 4.95005 8.87562 4.95005 9.00001C4.95005 9.12439 5.00153 9.24322 5.09228 9.3283L12.2923 16.0783C12.4736 16.2483 12.7584 16.2391 12.9283 16.0578C13.0983 15.8765 13.0891 15.5917 12.9078 15.4217L6.058 9.00001L12.9078 2.5783C13.0891 2.40832 13.0983 2.12354 12.9283 1.94223Z"
-                    fill="#FF3E5B"
-                  />
-                </svg>
-              </span>
-              <span style={{ cursor: "pointer" }}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M5.07166 1.94223C5.24164 1.76092 5.52642 1.75173 5.70773 1.92171L12.9077 8.67171C12.9985 8.75678 13.05 8.87562 13.05 9.00001C13.05 9.12439 12.9985 9.24323 12.9077 9.3283L5.70773 16.0783C5.52642 16.2483 5.24164 16.2391 5.07166 16.0578C4.90168 15.8765 4.91087 15.5917 5.09218 15.4217L11.942 9.00001L5.09218 2.5783C4.91087 2.40832 4.90168 2.12354 5.07166 1.94223Z"
-                    fill="#FF3E5B"
-                  />
-                </svg>
-              </span>
-            </div>
+
+            {/* Carousel Sections */}
+            <Carousel>
+              {/* carousel contenta */}
+              {keyHighlights.map((ele) => (
+                <Items key={ele.key} data={ele} />
+              ))}
+            </Carousel>
+            {/* Carousel Sections End */}
           </div>
-          {/* key highlights contents */}
+          {/* action items contents */}
           <div
             className="actionItems_container"
             style={{ backgroundColor: theme === "light" ? "white" : "" }}
@@ -265,7 +240,6 @@ function DashboardPage() {
               className="graphs_container"
               // style={{ borderColor: borderColor }}
             >
-              {/* <Graphs title="Retail" /> */}
               <BarChart title="Retail" dataItems={retailBarGraphs} />
               <BarChart title="Billing" dataItems={billingBarGraphs} />
               <DoughnutChart title="Retail" dataItems={retailBarGraphs} />

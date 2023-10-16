@@ -8,75 +8,11 @@
 
     // New Design
     & .key_highlights_heading {
-      width: 100%;
       border-radius: 4px;
       padding: 12px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       border: 1px solid;
-      overflow: hidden;
-
-      & .key_highlights_heading_left {
-        display: flex;
-        align-items: center;
-
-        gap: 10px;
-        // width: 100%;
-        // overflow-x: hidden;
-
-        & .divider {
-          width: 1px;
-          height: 24px;
-        }
-
-        & .title_heads {
-          // width: 20%;
-          & h4 {
-            white-space: nowrap;
-          }
-
-          & p {
-            display: none;
-          }
-        }
-
-        & .heads {
-          width: 100%;
-          // white-space: nowrap;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          flex-grow: 1;
-
-          & .label_name {
-            white-space: nowrap;
-            padding: 0 8px;
-            background-color: #ffd8de;
-            border: 1px solid #ed302d;
-            color: #ed302d;
-            font-size: 12px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 2px;
-          }
-        }
-
-        & .heads.two {
-          display: none;
-        }
-      }
-
-      & .key_highlights_heading_right {
-        display: flex;
-        align-items: center;
-      }
-
-      & .text {
-        font-size: 14px;
-      }
     }
 
     // contents
@@ -404,12 +340,35 @@
         }
       }
     }
+
+    // actionItems_container
+    & .actionItems_container {
+      flex-direction: column;
+
+      & .actionItems_left_side,
+      & .actionItems_right_side {
+        width: 100%;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 756px) {
   .dashboard .boxContainer {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 660px) {
+
+  .dashboard .boxContainer {
+    & .dashboard_api {
+      & .dashboard_api_title {
+        & h2 {
+          font-size: 16px;
+        }
+      }
+    }
   }
 }
 
