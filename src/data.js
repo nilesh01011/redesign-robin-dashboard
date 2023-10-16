@@ -478,7 +478,7 @@ export const notification = [
     title: "Archive",
     items: [
       {
-        key: 2.1,
+        key: "2.1",
         title: "Vehicle Tracking Details Will Be Updated Archive.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -487,7 +487,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.2,
+        key: "2.2",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -496,7 +496,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.3,
+        key: "2.3",
         title:
           "Delivery Note Details Need To Be Approval and Forward To Next Process.",
         text: "The Delivery Note contains the list of Items that are sent in the shipment and updates that inventory details. The Delivery Note is an optional step and a Sales Invoice.",
@@ -506,7 +506,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.4,
+        key: "2.4",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -515,7 +515,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.5,
+        key: "2.5",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -524,7 +524,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.6,
+        key: "2.6",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -533,7 +533,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.7,
+        key: "2.7",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -542,7 +542,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.8,
+        key: "2.8",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -551,7 +551,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.9,
+        key: "2.9",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",
@@ -560,7 +560,7 @@ export const notification = [
         readMark: true,
       },
       {
-        key: 2.10,
+        key: "2.10",
         title: "Vehicle Tracking Details Will Be Updated.",
         text: "Vehicle Tracking Details Will Be Updated.",
         master: "Application Master",

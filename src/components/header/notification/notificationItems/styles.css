@@ -7,6 +7,15 @@
   padding: 10px 16px;
   position: relative;
 }
+.notificationItems .status {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff3e5b;
+}
 .notificationItems .content {
   padding-left: 18px;
   position: relative;
@@ -15,16 +24,6 @@
   font-size: 14px;
   font-weight: 400;
   position: relative;
-}
-.notificationItems .content h4::after {
-  content: "";
-  position: absolute;
-  left: -18px;
-  top: 3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #ff3e5b;
 }
 .notificationItems .content p {
   font-size: 12px;
@@ -60,4 +59,28 @@
 }
 .notificationItems .edits {
   cursor: pointer;
+}
+.notificationItems .editMails {
+  position: absolute;
+  right: 18px;
+  top: 40px;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.notificationItems .editMails span {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.notificationItems .editMails span.light:hover {
+  background: #F2F2F2;
+  color: #ff3e5b;
+}
+.notificationItems .editMails span.dark:hover {
+  color: #ff3e5b;
 }/*# sourceMappingURL=styles.css.map */

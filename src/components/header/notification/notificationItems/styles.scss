@@ -12,12 +12,15 @@
   //   background-color: #1C1C1C;
   // }
 
-  // & .status {
-  //   width: 8px;
-  //   height: 8px;
-  //   border-radius: 50%;
-  //   background-color: #ff3e5b;
-  // }
+  & .status {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff3e5b;
+  }
 
   & .content {
     padding-left: 18px;
@@ -28,16 +31,16 @@
       font-weight: 400;
       position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        left: -18px;
-        top: 3px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #ff3e5b;
-      }
+      // &.active::after {
+      //   content: "";
+      //   position: absolute;
+      //   left: -18px;
+      //   top: 3px;
+      //   width: 8px;
+      //   height: 8px;
+      //   border-radius: 50%;
+      //   background-color: #ff3e5b;
+      // }
     }
 
     & p {
@@ -85,6 +88,31 @@
   }
 
   & .editMails {
-    
+    position: absolute;
+    right: 18px;
+    top: 40px;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & span {
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &.light:hover {
+        background: #F2F2F2;
+        color: #ff3e5b;
+      }
+
+      &.dark:hover {
+        // background: #F2F2F2;
+        color: #ff3e5b;
+      }
+    }
   }
 }

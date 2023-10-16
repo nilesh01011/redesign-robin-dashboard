@@ -185,7 +185,7 @@ function Popup() {
                   <button
                     onClick={() => setActiveTab(ele.title)}
                     key={ele.key}
-                    className={activeTab === ele.title && "active"}
+                    className={`${activeTab === ele.title && "active"}`}
                   >
                     <span
                       style={{

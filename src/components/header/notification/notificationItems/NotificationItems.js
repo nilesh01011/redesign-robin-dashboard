@@ -1,16 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
+
+let useClickOutSide = (handler) => {
+  let domNode = useRef();
+
+  useEffect(() => {
+    const handlerEvent = (e) => {
+      if (!domNode.current.contains(e.target)) {
+        handler();
+      }
+    };
+
+    document.addEventListener("mousedown", handlerEvent);
+
+    return () => {
+      document.removeEventListener("mousedown", handlerEvent);
+    };
+  }, [handler]);
+
+  return domNode;
+};
 
 function NotificationItems({ data }) {
   const theme = useSelector((state) => state.theme);
   const [editMail, setEditMail] = useState(false);
+  const [markAsRead,setMarkAsRead] = useState(true);
+
+  let domNode = useClickOutSide(() => {
+    setEditMail(false);
+  });
+
+  const handleMarkRead = () => {
+    data.readMark = !data.readMark;
+    setMarkAsRead(false)
+    setEditMail(false);
+  };
+
   return (
-    <div className="notificationItems">
+    <div ref={domNode} className="notificationItems">
+      {markAsRead && <span className="status"></span>}
       {/* content */}
       <div className="content">
         {/* title */}
-        <h4>{data.title}</h4>
+        <h4
+        // className={`${data.readMark === true ? "active" : ""}`}
+        >
+          {data.title}
+        </h4>
         {/* description text */}
         <p>{data.text}</p>
         {/* master and time data */}
@@ -72,9 +109,22 @@ function NotificationItems({ data }) {
       </div>
 
       {editMail && (
-        <div className="editMails">
-          <span>Archive</span>
-          <span>Mark as read</span>
+        <div
+          className="editMails"
+          style={{
+            borderColor: theme === "light" ? "#0B0B0C" : "#f2f2f2",
+            backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
+          }}
+        >
+          <span className={`${theme === "light" ? "light" : "dark"}`}>
+            Archive
+          </span>
+          <span
+            onClick={() => handleMarkRead()}
+            className={`${theme === "light" ? "light" : "dark"}`}
+          >
+            Mark as read
+          </span>
         </div>
       )}
     </div>
