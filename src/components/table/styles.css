@@ -12,6 +12,7 @@ table tr td, table tr th {
 table .tableHeads {
   position: sticky;
   top: 0;
+  overflow: hidden;
 }
 table .tableHeads tr th span {
   position: relative;

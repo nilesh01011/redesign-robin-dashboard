@@ -49,6 +49,12 @@
             user-select: none;
             text-transform: capitalize;
             font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &.mobileView {
+              display: none;
+            }
           }
 
           // icons
@@ -150,13 +156,44 @@
 }
 
 // media queries
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 660px) {
   .selectDropdownFilter {
     & .selectDropdownFilterContainer {
       & .inputFieldsContainer input {
-        padding-left: 155px !important;
+        padding-left: 125px !important;
         padding-right: 15px !important;
+      }
+
+      & .selectOption {
+        & .selectOptionContainer {
+          & .selectOptionFields {
+            min-width: 110px;
+            max-width: 110px;
+
+            & .selectFields {
+              &.mobileView {
+                display: block;
+              }
+
+              &.desktopView {
+                display: none;
+              }
+            }
+          }
+        }
       }
     }
   }
 }
+
+// @media screen and (max-width: 480px) {
+//   .selectDropdownFilter {
+//     & .selectDropdownFilterContainer {
+//       & .inputFieldsContainer input {
+//         padding-left: 155px !important;
+//         padding-right: 15px !important;
+//       }
+//     }
+//   }
+// }

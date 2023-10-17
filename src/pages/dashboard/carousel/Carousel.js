@@ -34,6 +34,7 @@ function Carousel({ children }) {
 
   useLayoutEffect(() => {
     if (itemRef.current.offsetWidth) {
+      console.log(itemRef.current.offsetWidth);
       setItemWidth(() => itemRef.current.offsetWidth);
     }
   }, []);
@@ -43,21 +44,6 @@ function Carousel({ children }) {
       setTranslateWidth(() => currentIndex * itemWidth);
     }
   }, [currentIndex, itemWidth]);
-
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       setTranslateWidth(() => currentIndex * itemWidth);
-
-  //       if (currentIndex > 0) {
-  //         setCurrentIndex((prev) => prev - 1);
-  //       }
-
-  //       if (currentIndex < children.length - 1) {
-  //         setCurrentIndex((prev) => prev + 1);
-  //       }
-
-  //     }, 1000);
-  //   });
 
   return (
     <div className="carousel">

@@ -1,1 +1,99 @@
-/*# sourceMappingURL=styles.css.map */
+.dropdown-menu {
+  width: 100%;
+  border-radius: 4px;
+}
+.dropdown-menu .selectOption {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.dropdown-menu .selectOption .selectOptionContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  color: #635d5d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid;
+}
+.dropdown-menu .selectOption .selectOptionContainer .selectOptionFields {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  gap: 10px;
+}
+.dropdown-menu .selectOption .selectOptionContainer .selectOptionFields .selectFields {
+  width: -moz-max-content;
+  width: max-content;
+  white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dropdown-menu .selectOption .selectOptionContainer .selectOptionFields .selectFields.mobileView {
+  display: none;
+}
+.dropdown-menu .selectOption .selectOptionContainer .selectOptionFields .icons {
+  height: 16px;
+  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.dropdown-menu .allListItems {
+  position: absolute;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 20;
+  border: 1px solid;
+  border-radius: 3px;
+  transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  font-size: 12px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dropdown-menu .allListItems.top {
+  bottom: calc(100% + 10px);
+}
+.dropdown-menu .allListItems.bottom {
+  bottom: calc(100% - 10px);
+}
+.dropdown-menu .allListItems .allListItemsChild {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.dropdown-menu .allListItems .allListItemsChild:not(:last-child) {
+  border-bottom: 1px solid;
+}
+.dropdown-menu .allListItems .allListItemsChild:first-child {
+  border-radius: 3px 3px 0 0;
+}
+.dropdown-menu .allListItems .allListItemsChild:last-child {
+  border-radius: 0 0 3px 3px;
+}
+.dropdown-menu .allListItems .allListItemsChild.lightHover {
+  color: #0b0b0c;
+  border-color: #dedede;
+}
+.dropdown-menu .allListItems .allListItemsChild.darkHover {
+  color: #a3a3a3;
+  border-color: #232324;
+}
+.dropdown-menu .allListItems .allListItemsChild.darkHover:hover {
+  background-color: #232324;
+  color: #a3a3a3;
+}
+.dropdown-menu .allListItems .allListItemsChild.lightHover:hover {
+  background-color: #f2f2f2;
+  color: #0b0b0c;
+}/*# sourceMappingURL=styles.css.map */

@@ -104,12 +104,12 @@ function App() {
           <Route path="/admin/booking-form" element={<OTF />}></Route>
         </Routes>
         {/* Footer */}
-        <div
+        {/* <div
           className="footer"
           style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}
         >
           <span>Copyright © 2023 ROBIN.</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

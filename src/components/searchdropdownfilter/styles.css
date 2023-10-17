@@ -52,6 +52,11 @@
           user-select: none;
   text-transform: capitalize;
   font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields.mobileView {
+  display: none;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .icons {
   height: 14px;
@@ -134,9 +139,19 @@
   color: #0b0b0c;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 660px) {
   .selectDropdownFilter .selectDropdownFilterContainer .inputFieldsContainer input {
-    padding-left: 155px !important;
+    padding-left: 125px !important;
     padding-right: 15px !important;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields {
+    min-width: 110px;
+    max-width: 110px;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields.mobileView {
+    display: block;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields.desktopView {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */

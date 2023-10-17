@@ -1,9 +1,52 @@
-.customerMasterContainer {
+.customerMaster {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.customerMaster .paginations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 0 32px;
+}
+.customerMaster .paginations .leftSide {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.customerMaster .paginations .leftSide .dropdownContainer {
+  min-width: 84px;
+  height: 100%;
+  position: relative;
+}
+.customerMaster .paginations .rightSide {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.customerMaster .paginations .rightSide .btn {
+  width: 28px;
+  height: 28px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #858585;
+}
+.customerMaster .customerMasterContainer {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
 }
-.customerMasterContainer .customerMasterHeader {
+.customerMaster .customerMasterContainer .customerMasterHeader {
   width: 100%;
   height: 100%;
   display: flex;
@@ -13,12 +56,12 @@
   border-radius: 4px;
   padding: 8px 20px;
 }
-.customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft {
+.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-.customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs {
+.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -27,7 +70,7 @@
   height: -moz-max-content;
   height: max-content;
 }
-.customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs button {
+.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs button {
   font-size: 14px;
   padding: 2px 6px;
   border-radius: 2px;
@@ -35,16 +78,16 @@
   border: none;
   cursor: pointer;
 }
-.customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer {
+.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer {
   display: flex;
   align-items: center;
   gap: 15px;
   width: 100%;
 }
-.customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .searchFilterDropdown {
+.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .searchFilterDropdown {
   width: 400px;
 }
-.customerMasterContainer .emptyDataTable {
+.customerMaster .customerMasterContainer .emptyDataTable {
   position: absolute;
   left: 0;
   right: 0;
@@ -61,9 +104,9 @@
   text-align: center;
   flex-direction: column;
 }
-.customerMasterContainer .emptyDataTable .addbutton {
+.customerMaster .customerMasterContainer .emptyDataTable .addbutton {
   padding: 8px 1rem;
-  background-color: #FF3E5B;
+  background-color: #ff3e5b;
   color: white;
   text-transform: capitalize;
   border-radius: 4px;
@@ -71,19 +114,33 @@
 }
 
 @media screen and (max-width: 992px) {
-  .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft {
+  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft {
     flex-direction: column;
     width: 100%;
   }
-  .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .searchFilterDropdown, .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs {
+  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .searchFilterDropdown, .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs {
     width: 100%;
   }
-  .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs button {
+  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs button {
     width: 100%;
+  }
+  .customerMaster .customerMasterContainer .paginations {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+}
+@media screen and (max-width: 880px) {
+  .customerMaster .paginations {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media screen and (max-width: 576px) {
-  .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .advanceFilter {
+  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .advanceFilter {
     display: none;
   }
 }/*# sourceMappingURL=styles.css.map */

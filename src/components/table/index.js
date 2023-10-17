@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
@@ -8,8 +8,12 @@ function Index({
   inputFields,
   // searchDropdownText,
   emptyTableData,
+  setDrawerData,
+  setDrawerType,
+  setIsDrawerOpen,
 }) {
   const theme = useSelector((state) => state.theme);
+  // const [tabelScrollbar, setTabelScrollbar] = useState(false);
 
   const filterData = tableBody.filter((item) => {
     return inputFields.toLowerCase() === ""
@@ -65,11 +69,11 @@ function Index({
           ))}
         </tr>
       </thead>
-      {/* tabel data */}
+      {/* table body */}
       {filterData.length === 0 ? (
         emptyTableData()
       ) : (
-        <tbody className="tableData">
+        <tbody>
           {filterData.map((ele, index) => (
             <tr key={ele.key}>
               <td>{index + 1}</td>
@@ -83,7 +87,14 @@ function Index({
               <td>
                 <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
                   {/* view data */}
-                  <span style={{ cursor: "pointer" }}>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      setDrawerData(ele);
+                      setDrawerType("view");
+                      setIsDrawerOpen(true);
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -100,7 +111,14 @@ function Index({
                     </svg>
                   </span>
                   {/* edit data */}
-                  <span style={{ cursor: "pointer" }}>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      setDrawerData(ele, "Edit");
+                      setDrawerType("edit");
+                      setIsDrawerOpen(true);
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"

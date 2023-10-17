@@ -158,7 +158,6 @@ function DashboardPage() {
 
             {/* Carousel Sections */}
             <Carousel>
-              {/* carousel contenta */}
               {keyHighlights.map((ele) => (
                 <Items key={ele.key} data={ele} />
               ))}

@@ -1,85 +1,133 @@
-.customerMasterContainer {
+.customerMaster {
+  height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
 
-  & .customerMasterHeader {
-    width: 100%;
-    height: 100%;
+  & .paginations {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
-    border-radius: 4px;
-    padding: 8px 20px;
+    margin: 20px 0;
+    padding: 0 32px;
 
-    & .customerMasterHeaderLeft {
+    & .leftSide {
+      width: 100%;
       display: flex;
       align-items: center;
       gap: 16px;
 
-      & .tabs {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 6px;
-        border-radius: 4px;
-        height: max-content;
-
-        & button {
-          font-size: 14px;
-          padding: 2px 6px;
-          border-radius: 2px;
-          outline: none;
-          border: none;
-          cursor: pointer;
-        }
+      & .dropdownContainer {
+        min-width: 84px;
+        height: 100%;
+        position: relative;
       }
+    }
 
-      & .searchFilterContainer {
+    & .rightSide {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      & .btn {
+        width: 28px;
+        height: 28px;
+        padding: 3px 7px;
+        border-radius: 4px;
         display: flex;
         align-items: center;
-        gap: 15px;
-        width: 100%;
-
-        & .searchFilterDropdown {
-          width: 400px;
-        }
+        justify-content: center;
+        color: #858585;
       }
     }
   }
-
-  & .emptyDataTable {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
+  & .customerMasterContainer {
     width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
     height: 100%;
-    min-height: 465px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     flex-direction: column;
+    gap: 20px;
+    position: relative;
 
-    & .addbutton {
-      padding: 8px 1rem;
-      background-color: #FF3E5B;
-      color: white;
-      text-transform: capitalize;
-      border-radius: 4px;
+    & .customerMasterHeader {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-top: 20px;
+      border-radius: 4px;
+      padding: 8px 20px;
+
+      & .customerMasterHeaderLeft {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        & .tabs {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          padding: 6px;
+          border-radius: 4px;
+          height: max-content;
+
+          & button {
+            font-size: 14px;
+            padding: 2px 6px;
+            border-radius: 2px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+          }
+        }
+
+        & .searchFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          width: 100%;
+
+          & .searchFilterDropdown {
+            width: 400px;
+          }
+        }
+      }
+    }
+
+    & .emptyDataTable {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      height: 100%;
+      min-height: 465px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+
+      & .addbutton {
+        padding: 8px 1rem;
+        background-color: #ff3e5b;
+        color: white;
+        text-transform: capitalize;
+        border-radius: 4px;
+        margin-top: 20px;
+      }
     }
   }
 }
 
 // media queries
 @media screen and (max-width: 992px) {
-  .customerMasterContainer {
+  .customerMaster .customerMasterContainer {
     & .customerMasterHeader {
       & .customerMasterHeaderLeft {
         flex-direction: column;
@@ -95,15 +143,33 @@
         }
       }
     }
+
+    & .paginations {
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .customerMaster {
+    & .paginations {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 }
 
 @media screen and (max-width: 576px) {
-  .customerMasterContainer {
+  .customerMaster .customerMasterContainer {
     & .customerMasterHeader {
       & .customerMasterHeaderLeft {
-        & .searchFilterContainer .advanceFilter {
-          display: none;
+        & .searchFilterContainer {
+          flex-direction: column;
+          align-items: flex-start;
+          .advanceFilter {
+            display: none;
+          }
         }
       }
     }

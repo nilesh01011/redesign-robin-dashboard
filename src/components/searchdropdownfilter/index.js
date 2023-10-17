@@ -72,8 +72,16 @@ function Index({
   });
 
   const wordSlice = (word) => {
-    if (word.length > 16) {
-      return word.slice(0, 16) + "...";
+    if (word.length > 20) {
+      return word.slice(0, 20) + "...";
+    } else {
+      return word;
+    }
+  };
+
+  const wordSlice_2 = (word) => {
+    if (word.length > 10) {
+      return word.slice(0, 10) + "...";
     } else {
       return word;
     }
@@ -128,11 +136,20 @@ function Index({
               >
                 <p
                   style={{ color: theme === "light" ? "black" : "#A3A3A3" }}
-                  className="selectFields"
+                  className="selectFields desktopView"
                 >
                   {!selected
                     ? wordSlice(customersList[0].name)
                     : wordSlice(selected)}
+                </p>
+
+                <p
+                  style={{ color: theme === "light" ? "black" : "#A3A3A3" }}
+                  className="selectFields mobileView"
+                >
+                  {!selected
+                    ? wordSlice_2(customersList[0].name)
+                    : wordSlice_2(selected)}
                 </p>
 
                 {/* icons */}

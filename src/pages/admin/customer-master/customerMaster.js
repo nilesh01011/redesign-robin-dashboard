@@ -6,6 +6,8 @@ import SelectDropdownFilter from "../../../components/searchdropdownfilter";
 import { customerMasterData, tableHead } from "../../../data";
 import Table from "../../../components/table";
 import Header from "../../../components/header";
+import Dropdown from "../../../components/dropdown";
+import Drawer from "./drawer/Drawer";
 
 function CustomerMaster() {
   const theme = useSelector((state) => state.theme);
@@ -14,6 +16,40 @@ function CustomerMaster() {
   const [tableData, setTableData] = useState([]);
   const [selectDropdownFilterText, setSelectedDropdownFilterText] =
     useState("");
+  // Drawer
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerData, setDrawerData] = useState([]);
+  const [drawerType, setDrawerType] = useState("");
+  // const [editDrawerData, setEditDrawerData] = useState([]);
+  // const [viewDrawerData, setViewDrawerData] = useState([]);
+
+  const handleDrawerClosed = () => {
+    // setDrawerData([]);
+    // setDrawerType("");
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  // select dropdown text
+  const [selected, setSelected] = useState("");
+  // active page
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // middle button
+  const [middleButton, setMiddleButton] = useState([4, 5, 6, 7, 8]);
+
+  const perPage = selected.split(" ");
+  const pageNumber = Number(perPage[0]);
+
+  const numOfTotalPages = Math.ceil(tableData?.length / pageNumber);
+
+  // const pages = [...Array(numOfTotalPages + 1).keys()].slice(1); // starting from 1 not to 0
+
+  // const indexOfLastTodo = currentPage * pageNumber; // 1 * 10 = 10
+  // const indexOfFirstTodo = indexOfLastTodo - pageNumber; // 10 - 10 = 0
+
+  // const visibleTableData = tableData.slice(indexOfFirstTodo, indexOfLastTodo); // 200 slices 10, 0 = 190
+
+  // console.log(visibleTableData)
 
   const tabs = [
     {
@@ -75,6 +111,7 @@ function CustomerMaster() {
     });
   }, [isActiveTabs]);
 
+  // empty table data
   const emptyTableData = () => {
     return (
       <div className="emptyDataTable" style={{ color: "#545454" }}>
@@ -138,9 +175,30 @@ function CustomerMaster() {
     );
   };
 
+  // paginations items
+  const paginationItems = [
+    {
+      name: "10 / page",
+    },
+    {
+      name: "20 / page",
+    },
+    {
+      name: "30 / page",
+    },
+    {
+      name: "40 / page",
+    },
+  ];
+
+  // useEffect(() => {
+  //   if (!selected) return setSelected(paginationItems[0].name);
+  //   setSelected(selected);
+  // }, [selected]);
+
   return (
     <>
-      <div className="customerMaster minHeight">
+      <div className="customerMaster">
         {/* ============ title ============ */}
         <div
           style={{
@@ -308,20 +366,211 @@ function CustomerMaster() {
           <div
             className="tableContainer"
             style={{
-              borderColor: theme === "light" ? "#B5B5B6" : "#232324",
+              borderColor: theme === "light" ? "#e6e6e6" : "#232324",
             }}
           >
             <Table
               tableHead={tableHead}
               tableBody={tableData}
+              // tableBody={visibleTableData}
               selectDropdownFilter={setSelectedDropdownFilterText}
               searchDropdownText={selectDropdownFilterText}
               inputFields={inputFields}
               emptyTableData={emptyTableData}
+              setDrawerData={setDrawerData}
+              setDrawerType={setDrawerType}
+              setIsDrawerOpen={setIsDrawerOpen}
             />
           </div>
         </div>
+        {/* Paginations */}
+        <div className="paginations">
+          {/* left side */}
+          <div className="leftSide">
+            {/* total length of table data */}
+            <p style={{ color: "#858585", fontSize: 14 }}>
+              Total{" "}
+              <span style={{ color: theme === "light" ? "black" : "white" }}>
+                {tableData.length}
+              </span>{" "}
+              items
+            </p>
+            {/* dropdown */}
+            <div className="dropdownContainer">
+              <Dropdown
+                items={paginationItems}
+                dropdownDirection="top"
+                padding="4px 12px"
+                selected={selected}
+                setSelected={setSelected}
+              />
+            </div>
+          </div>
+          {/* right side */}
+          <div className="rightSide">
+            {/* left btn */}
+            <button
+              type="button"
+              className="btn"
+              style={{
+                backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+                border: `1px solid ${
+                  theme === "light" ? "#b5b5b6" : "#232324"
+                }`,
+              }}
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M10.0552 1.51062C9.92303 1.3696 9.70154 1.36246 9.56052 1.49466L3.96052 6.74466C3.88995 6.81083 3.8499 6.90326 3.8499 7C3.8499 7.09675 3.88995 7.18917 3.96052 7.25534L9.56052 12.5053C9.70154 12.6375 9.92303 12.6304 10.0552 12.4894C10.1874 12.3484 10.1803 12.1269 10.0393 11.9947L4.71164 7L10.0393 2.00534C10.1803 1.87314 10.1874 1.65164 10.0552 1.51062Z"
+                    fill="#858585"
+                  />
+                </svg>
+              </span>
+            </button>
+            {/* table data first items */}
+            <button
+              type="button"
+              className="btn"
+              style={{
+                backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+                border: `1px solid ${
+                  theme === "light" ? "#b5b5b6" : "#232324"
+                }`,
+              }}
+            >
+              1
+            </button>
+            {/* left Dots */}
+            <button type="button" className="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="4"
+                viewBox="0 0 19 4"
+                fill="none"
+              >
+                <path
+                  d="M0.882812 2.0918C0.882812 1.61328 1.05143 1.2054 1.38867 0.868164C1.73047 0.530924 2.13835 0.362305 2.6123 0.362305C3.09082 0.362305 3.4987 0.530924 3.83594 0.868164C4.17773 1.2054 4.34863 1.61328 4.34863 2.0918C4.34863 2.57031 4.17773 2.98047 3.83594 3.32227C3.4987 3.65951 3.09082 3.82812 2.6123 3.82812C2.13835 3.82812 1.73047 3.65951 1.38867 3.32227C1.05143 2.98047 0.882812 2.57031 0.882812 2.0918ZM7.79102 2.0918C7.79102 1.61328 7.95964 1.2054 8.29688 0.868164C8.63867 0.530924 9.04655 0.362305 9.52051 0.362305C9.99902 0.362305 10.4069 0.530924 10.7441 0.868164C11.0859 1.2054 11.2568 1.61328 11.2568 2.0918C11.2568 2.57031 11.0859 2.98047 10.7441 3.32227C10.4069 3.65951 9.99902 3.82812 9.52051 3.82812C9.04655 3.82812 8.63867 3.65951 8.29688 3.32227C7.95964 2.98047 7.79102 2.57031 7.79102 2.0918ZM14.6992 2.0918C14.6992 1.61328 14.8678 1.2054 15.2051 0.868164C15.5469 0.530924 15.9548 0.362305 16.4287 0.362305C16.9072 0.362305 17.3151 0.530924 17.6523 0.868164C17.9941 1.2054 18.165 1.61328 18.165 2.0918C18.165 2.57031 17.9941 2.98047 17.6523 3.32227C17.3151 3.65951 16.9072 3.82812 16.4287 3.82812C15.9548 3.82812 15.5469 3.65951 15.2051 3.32227C14.8678 2.98047 14.6992 2.57031 14.6992 2.0918Z"
+                  fill="#858585"
+                />
+              </svg>
+            </button>
+            {/* Middel table data */}
+            {middleButton.map((ele, index) => (
+              <button
+                key={index}
+                type="button"
+                className="btn"
+                style={{
+                  backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+                  border: `1px solid ${
+                    ele === 6
+                      ? "#FF3E5B"
+                      : theme === "light"
+                      ? "#b5b5b6"
+                      : "#232324"
+                  }`,
+                  color: ele === 6 && "#FF3E5B",
+                }}
+              >
+                {ele}
+              </button>
+            ))}
+            {/* Middel table data end */}
+            {/* right Dots */}
+            <button type="button" className="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="4"
+                viewBox="0 0 19 4"
+                fill="none"
+              >
+                <path
+                  d="M0.882812 2.0918C0.882812 1.61328 1.05143 1.2054 1.38867 0.868164C1.73047 0.530924 2.13835 0.362305 2.6123 0.362305C3.09082 0.362305 3.4987 0.530924 3.83594 0.868164C4.17773 1.2054 4.34863 1.61328 4.34863 2.0918C4.34863 2.57031 4.17773 2.98047 3.83594 3.32227C3.4987 3.65951 3.09082 3.82812 2.6123 3.82812C2.13835 3.82812 1.73047 3.65951 1.38867 3.32227C1.05143 2.98047 0.882812 2.57031 0.882812 2.0918ZM7.79102 2.0918C7.79102 1.61328 7.95964 1.2054 8.29688 0.868164C8.63867 0.530924 9.04655 0.362305 9.52051 0.362305C9.99902 0.362305 10.4069 0.530924 10.7441 0.868164C11.0859 1.2054 11.2568 1.61328 11.2568 2.0918C11.2568 2.57031 11.0859 2.98047 10.7441 3.32227C10.4069 3.65951 9.99902 3.82812 9.52051 3.82812C9.04655 3.82812 8.63867 3.65951 8.29688 3.32227C7.95964 2.98047 7.79102 2.57031 7.79102 2.0918ZM14.6992 2.0918C14.6992 1.61328 14.8678 1.2054 15.2051 0.868164C15.5469 0.530924 15.9548 0.362305 16.4287 0.362305C16.9072 0.362305 17.3151 0.530924 17.6523 0.868164C17.9941 1.2054 18.165 1.61328 18.165 2.0918C18.165 2.57031 17.9941 2.98047 17.6523 3.32227C17.3151 3.65951 16.9072 3.82812 16.4287 3.82812C15.9548 3.82812 15.5469 3.65951 15.2051 3.32227C14.8678 2.98047 14.6992 2.57031 14.6992 2.0918Z"
+                  fill="#858585"
+                />
+              </svg>
+            </button>
+            {/* table data last items */}
+            <button
+              type="button"
+              className="btn"
+              style={{
+                backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+                border: `1px solid ${
+                  theme === "light" ? "#b5b5b6" : "#232324"
+                }`,
+              }}
+            >
+              {tableData.length}
+            </button>
+            {/* right btn */}
+            <button
+              type="button"
+              className="btn"
+              style={{
+                backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+                border: `1px solid ${
+                  theme === "light" ? "#b5b5b6" : "#232324"
+                }`,
+              }}
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M3.94476 1.51062C4.07697 1.3696 4.29846 1.36246 4.43948 1.49466L10.0395 6.74466C10.1101 6.81083 10.1501 6.90326 10.1501 7C10.1501 7.09675 10.1101 7.18917 10.0395 7.25534L4.43948 12.5053C4.29846 12.6375 4.07697 12.6304 3.94476 12.4894C3.81256 12.3484 3.8197 12.1269 3.96072 11.9947L9.28836 7L3.96072 2.00534C3.8197 1.87314 3.81256 1.65164 3.94476 1.51062Z"
+                    fill="#858585"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
+      {/* Footer */}
+      {tableData.length < 10 ? (
+        <div
+          className="footer"
+          style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}
+        >
+          <span>Copyright © 2023 ROBIN.</span>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/* Drawer */}
+      <Drawer
+        data={drawerData}
+        drawerType={drawerType}
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
+
+      {/* overlay */}
+      <div
+        id="newsDrawerOverlay"
+        style={{ display: isDrawerOpen ? "block" : "none" }}
+        onClick={() => handleDrawerClosed()}
+      ></div>
     </>
   );
 }
