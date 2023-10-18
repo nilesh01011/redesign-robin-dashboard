@@ -78,15 +78,6 @@
   border: none;
   cursor: pointer;
 }
-.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-}
-.customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .searchFilterDropdown {
-  width: 400px;
-}
 .customerMaster .customerMasterContainer .emptyDataTable {
   position: absolute;
   left: 0;
@@ -118,7 +109,7 @@
     flex-direction: column;
     width: 100%;
   }
-  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .searchFilterDropdown, .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs {
+  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs {
     width: 100%;
   }
   .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .tabs button {
@@ -130,17 +121,18 @@
   }
 }
 @media screen and (max-width: 880px) {
+  .customerMaster .customerMasterHeaderLeft .searchFilterContainer .advanceFilter {
+    display: none !important;
+  }
   .customerMaster .paginations {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media screen and (max-width: 576px) {
-  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer {
+@media screen and (max-width: 660px) {
+  .customerMaster .paginations {
     flex-direction: column;
+    gap: 16px;
     align-items: flex-start;
-  }
-  .customerMaster .customerMasterContainer .customerMasterHeader .customerMasterHeaderLeft .searchFilterContainer .advanceFilter {
-    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */

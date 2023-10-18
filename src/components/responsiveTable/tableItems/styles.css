@@ -1,0 +1,15 @@
+.tableItems {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tableItems:not(:last-child) {
+  border-bottom: 1px solid;
+}
+.tableItems .leftSideData p {
+  font-size: 14px;
+}
+.tableItems .leftSideData p span {
+  font-size: 12px;
+}/*# sourceMappingURL=styles.css.map */

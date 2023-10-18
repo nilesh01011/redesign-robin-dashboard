@@ -1312,7 +1312,7 @@ export const tableHead = [
   },
   {
     key: "3",
-    label: "Customer Name ",
+    label: "Customer Name",
   },
   {
     key: "4",
@@ -1350,6 +1350,7 @@ export const customerMasterData = [
         four: "9664321226",
         five: "ankitlad@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.2",
@@ -1359,6 +1360,7 @@ export const customerMasterData = [
         four: "9348583593",
         five: "sandiplad@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.3",
@@ -1368,6 +1370,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.4",
@@ -1377,6 +1380,7 @@ export const customerMasterData = [
         four: "9732642374",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.5",
@@ -1386,6 +1390,7 @@ export const customerMasterData = [
         four: "9637248423",
         five: "johndoe@mahindra.com",
         six: "Silver",
+        seven: "Action",
       },
       {
         key: "1.6",
@@ -1395,6 +1400,7 @@ export const customerMasterData = [
         four: "7623842378",
         five: "pauljohn@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.7",
@@ -1404,6 +1410,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johnbloom@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.8",
@@ -1413,6 +1420,7 @@ export const customerMasterData = [
         four: "9723823623",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.9",
@@ -1422,6 +1430,7 @@ export const customerMasterData = [
         four: "8682347234",
         five: "johndoe@mahindra.com",
         six: "Silver",
+        seven: "Action",
       },
       {
         key: "1.10",
@@ -1431,6 +1440,7 @@ export const customerMasterData = [
         four: "9682348329",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
 
       {
@@ -1441,6 +1451,7 @@ export const customerMasterData = [
         four: "9664321226",
         five: "ankitlad@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.12",
@@ -1450,6 +1461,7 @@ export const customerMasterData = [
         four: "9348583593",
         five: "sandiplad@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.13",
@@ -1459,6 +1471,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.14",
@@ -1468,6 +1481,7 @@ export const customerMasterData = [
         four: "9732642374",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.15",
@@ -1477,6 +1491,7 @@ export const customerMasterData = [
         four: "9637248423",
         five: "johndoe@mahindra.com",
         six: "Silver",
+        seven: "Action",
       },
       {
         key: "1.16",
@@ -1486,6 +1501,7 @@ export const customerMasterData = [
         four: "7623842378",
         five: "pauljohn@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.17",
@@ -1495,6 +1511,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johnbloom@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.18",
@@ -1504,6 +1521,7 @@ export const customerMasterData = [
         four: "9723823623",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.19",
@@ -1513,6 +1531,7 @@ export const customerMasterData = [
         four: "8682347234",
         five: "johndoe@mahindra.com",
         six: "Silver",
+        seven: "Action",
       },
       {
         key: "1.20",
@@ -1522,6 +1541,7 @@ export const customerMasterData = [
         four: "9682348329",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
 
       {
@@ -1550,6 +1570,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.24",
@@ -1559,6 +1580,7 @@ export const customerMasterData = [
         four: "9732642374",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.25",
@@ -1568,6 +1590,7 @@ export const customerMasterData = [
         four: "9637248423",
         five: "johndoe@mahindra.com",
         six: "Silver",
+        seven: "Action",
       },
       {
         key: "1.26",
@@ -1577,6 +1600,7 @@ export const customerMasterData = [
         four: "7623842378",
         five: "pauljohn@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.27",
@@ -1586,6 +1610,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johnbloom@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.28",
@@ -1595,6 +1620,7 @@ export const customerMasterData = [
         four: "9723823623",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.29",
@@ -1604,6 +1630,7 @@ export const customerMasterData = [
         four: "8682347234",
         five: "johndoe@mahindra.com",
         six: "Silver",
+        seven: "Action",
       },
       {
         key: "1.30",
@@ -1613,6 +1640,7 @@ export const customerMasterData = [
         four: "9682348329",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
     ],
   },
@@ -1628,6 +1656,7 @@ export const customerMasterData = [
         four: "9664321226",
         five: "rathodnilesh@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.2",
@@ -1637,6 +1666,7 @@ export const customerMasterData = [
         four: "9348583593",
         five: "johnmicheal@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.3",
@@ -1646,6 +1676,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.4",
@@ -1655,6 +1686,7 @@ export const customerMasterData = [
         four: "9732642374",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.5",
@@ -1664,6 +1696,7 @@ export const customerMasterData = [
         four: "9637248423",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.6",
@@ -1673,6 +1706,7 @@ export const customerMasterData = [
         four: "7623842378",
         five: "pauljohn@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.7",
@@ -1682,6 +1716,7 @@ export const customerMasterData = [
         four: "9873459873",
         five: "johnwarner@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.8",
@@ -1691,6 +1726,7 @@ export const customerMasterData = [
         four: "9723823623",
         five: "johnbloom@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.9",
@@ -1700,6 +1736,7 @@ export const customerMasterData = [
         four: "8682347234",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
       {
         key: "1.10",
@@ -1709,7 +1746,154 @@ export const customerMasterData = [
         four: "9682348329",
         five: "johndoe@mahindra.com",
         six: "Golden",
+        seven: "Action",
       },
     ],
+  },
+];
+
+// OTF Booking Table data
+
+export const bookingTableHead = [
+  {
+    key: "1",
+    label: "#",
+  },
+  {
+    key: "2",
+    label: "Booking No.",
+  },
+  {
+    key: "3",
+    label: "Booking Date",
+  },
+  {
+    key: "4",
+    label: "Customer Name",
+  },
+  {
+    key: "5",
+    label: "Model Description",
+  },
+  {
+    key: "6",
+    label: "Booking Status",
+  },
+  {
+    key: "7",
+    label: "Action",
+  },
+];
+
+export const bookingTableData = [
+  {
+    key: "1.1",
+    one: "BKN21A000001",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Booked",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.2",
+    one: "BKN21A000002",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Cancelled",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.3",
+    one: "BKN21A000003",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Cancellation Requsted",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.4",
+    one: "BKN21A000004",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Booked",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.5",
+    one: "BKN21A000005",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Transferred",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.6",
+    one: "BKN21A000006",
+    two: "01 Dec 2021",
+    three: "Nilesh Rathod",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Delivered",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.7",
+    one: "BKN21A000007",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Invoiced",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.8",
+    one: "BKN21A000008",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Alloted",
+    action:true,
+    notEdit: true,
+    status:true
+  },
+  {
+    key: "1.9",
+    one: "BKN21A000009",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Cancellation Requsted",
+    notEdit: true,
+    action:true,
+    status:true
+  },
+  {
+    key: "1.10",
+    one: "BKN21A0000010",
+    two: "01 Dec 2021",
+    three: "John Micheal",
+    four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
+    five: "Booked",
+    notEdit: true,
+    status:true,
+    action:true
   },
 ];

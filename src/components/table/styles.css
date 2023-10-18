@@ -27,4 +27,38 @@ table .tableHeads tr th:first-child {
 }
 table .tableHeads tr th:last-child {
   border-top-right-radius: 4px;
+}
+table tbody tr td {
+  border-bottom: 1px solid;
+}
+table tbody tr td .status {
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-size: 12px;
+}
+table tbody tr td .status.Alloted, table tbody tr td .status.Delivered, table tbody tr td .status.Booked {
+  border-color: #70c922;
+  background: #eefcd2;
+  color: #70c922;
+}
+table tbody tr td .status.Cancelled {
+  border-color: #ED302D;
+  background: #FEE3D4;
+  color: #ED302D;
+}
+table tbody tr td .status.Cancellation {
+  border-color: #F99C22;
+  background: #FEF3D2;
+  color: #F99C22;
+}
+table tbody tr td .status.Transferred {
+  border-color: #2782F9;
+  background: #D3EDFE;
+  color: #2782F9;
+}
+table tbody tr td .status.Invoiced {
+  border-color: #9747FF;
+  background: #F3EAFF;
+  color: #9747FF;
 }/*# sourceMappingURL=styles.css.map */

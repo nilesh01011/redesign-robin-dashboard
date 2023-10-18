@@ -340,6 +340,13 @@ function DashboardPage() {
         </div>
       </div>
 
+      <div
+        className="footer"
+        style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}
+      >
+        <span>Copyright © 2023 ROBIN.</span>
+      </div>
+
       {/* News Drawer */}
       <Drawer
         drawerSliderID={drawerSliderID}

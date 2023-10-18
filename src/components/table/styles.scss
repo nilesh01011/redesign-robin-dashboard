@@ -42,4 +42,51 @@ table {
       }
     }
   }
+
+  & tbody {
+    & tr {
+      & td {
+        border-bottom: 1px solid;
+
+        & .status {
+          padding: 2px 6px;
+          border-radius: 4px;
+          border: 1px solid;
+          font-size: 12px;
+
+          &.Alloted,
+          &.Delivered,
+          &.Booked {
+            border-color: #70c922;
+            background: #eefcd2;
+            color: #70c922;
+          }
+
+          &.Cancelled {
+            border-color: #ED302D;
+            background: #FEE3D4;
+            color: #ED302D;
+          }
+
+          &.Cancellation {
+            border-color: #F99C22;
+            background: #FEF3D2;
+            color: #F99C22;
+          }
+
+          &.Transferred {
+            border-color: #2782F9;
+            background: #D3EDFE;
+            color: #2782F9;
+          }
+
+          &.Invoiced {
+            border-color: #9747FF;
+            background: #F3EAFF;
+            color: #9747FF;
+          }
+        }
+      }
+    }
+  }
 }

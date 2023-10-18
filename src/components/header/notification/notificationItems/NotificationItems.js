@@ -6,6 +6,9 @@ let useClickOutSide = (handler) => {
   let domNode = useRef();
 
   useEffect(() => {
+    if (!domNode.current) {
+      return;
+    }
     const handlerEvent = (e) => {
       if (!domNode.current.contains(e.target)) {
         handler();
@@ -22,10 +25,10 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function NotificationItems({ data }) {
+function NotificationItems({ data, readMarkAll }) {
   const theme = useSelector((state) => state.theme);
   const [editMail, setEditMail] = useState(false);
-  const [markAsRead,setMarkAsRead] = useState(true);
+  const [markAsRead, setMarkAsRead] = useState(true);
 
   let domNode = useClickOutSide(() => {
     setEditMail(false);
@@ -33,13 +36,13 @@ function NotificationItems({ data }) {
 
   const handleMarkRead = () => {
     data.readMark = !data.readMark;
-    setMarkAsRead(false)
+    setMarkAsRead(false);
     setEditMail(false);
   };
 
   return (
     <div ref={domNode} className="notificationItems">
-      {markAsRead && <span className="status"></span>}
+      {readMarkAll || (markAsRead && <span className="status"></span>)}
       {/* content */}
       <div className="content">
         {/* title */}

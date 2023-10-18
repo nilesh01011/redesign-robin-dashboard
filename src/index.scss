@@ -121,6 +121,49 @@ body.dark::-webkit-scrollbar-thumb {
   }
 }
 
+// mobile devices
+.tableMobileView {
+  display: none;
+}
+
+.searchFilterContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+
+  & .searchFilterDropdown {
+    width: 400px;
+  }
+}
+
+// .emptyDataTable {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   top: 0;
+//   width: 100%;
+//   max-width: 300px;
+//   margin: 0 auto;
+//   height: 100%;
+//   min-height: 465px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   flex-direction: column;
+
+//   & .addbutton {
+//     padding: 8px 1rem;
+//     background-color: #ff3e5b;
+//     color: white;
+//     text-transform: capitalize;
+//     border-radius: 4px;
+//     margin-top: 20px;
+//   }
+// }
+
 // media queries
 @media screen and (max-width: 1168px) {
   .tableContainer {
@@ -146,5 +189,30 @@ body.dark::-webkit-scrollbar-thumb {
   // title Container
   .titleContainer {
     top: 61.2px;
+  }
+
+  // table display none
+  .tableContainer {
+    display: none;
+  }
+
+  .tableMobileView {
+    display: block;
+  }
+
+  // search dropdown
+  .searchFilterContainer .searchFilterDropdown {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .searchFilterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+
+    & .advanceFilter {
+      display: none;
+    }
   }
 }

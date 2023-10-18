@@ -1,0 +1,13 @@
+.otfContainer {
+  margin-top: 20px;
+  & .otfHeader {
+    margin-bottom: 20px;
+    & .otfHeaderLeftSide {
+      border-radius: 4px;
+      padding: 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}

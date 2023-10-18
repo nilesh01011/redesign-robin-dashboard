@@ -33,6 +33,7 @@
   width: -moz-fit-content;
   width: fit-content;
   white-space: wrap;
+  font-size: 14px;
 }
 .heads .date {
   font-size: 12px;

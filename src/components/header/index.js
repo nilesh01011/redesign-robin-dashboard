@@ -13,6 +13,9 @@ let useClickOutSide = (handler) => {
   let domNode = useRef();
 
   useEffect(() => {
+    if (!domNode.current) {
+      return;
+    }
     const handlerEvent = (e) => {
       if (!domNode.current.contains(e.target)) {
         handler();

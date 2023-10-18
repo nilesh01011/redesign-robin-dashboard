@@ -7,7 +7,7 @@
 
   & .selectDropdownFilterContainer {
     border-radius: 4px;
-    padding: 5px 12px;
+    padding: 5px 6px;
     border: 1px solid;
     position: relative;
     display: flex;
@@ -28,7 +28,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid;
 
         & .selectOptionFields {
           width: 100%;
@@ -40,7 +39,7 @@
           justify-content: space-between;
           cursor: pointer;
           gap: 10px;
-          padding: 10px 6px;
+          padding: 4px 6px;
 
           // select fields
           & .selectFields {
@@ -91,7 +90,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    right: 6px;
+    right: 3px;
     cursor: pointer;
   }
 
@@ -120,9 +119,9 @@
       cursor: pointer;
       border-radius: 4px;
 
-      &:not(:last-child) {
-        border-bottom: 1px solid;
-      }
+      // &:not(:last-child) {
+      //   border-bottom: 1px solid;
+      // }
 
       &:first-child {
         border-radius: 3px 3px 0 0;

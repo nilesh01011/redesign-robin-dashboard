@@ -9,6 +9,10 @@ let useClickOutSide = (handler) => {
   let domNode = useRef();
 
   useEffect(() => {
+    if (!domNode.current) {
+      return;
+    }
+
     const handlerEvent = (e) => {
       if (!domNode.current.contains(e.target)) {
         handler();
@@ -28,10 +32,12 @@ let useClickOutSide = (handler) => {
 function Popup() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Inbox");
+  const [readMarkAll, setReadMarkAll] = useState(false);
   const theme = useSelector((state) => state.theme);
   let domNode = useClickOutSide(() => {
     setIsOpen(false);
   });
+
   return (
     <>
       <div ref={domNode} className="notification">
@@ -90,66 +96,12 @@ function Popup() {
               <h3>Notifications</h3>
               <span
                 // to="/parts/parts-ordering/suggest-order-qty"
-                style={{ color: "#FF3E5B" }}
+                style={{ color: "#FF3E5B", cursor: "pointer" }}
+                onClick={() => setReadMarkAll(true)}
               >
                 Mark as all read
               </span>
             </div>
-            {/* divided */}
-            {/* <div
-              style={{
-                width: "100%",
-                height: "1px",
-                background: theme === "light" ? "#DEDEDE" : "#545454",
-                margin: "10px 0",
-              }}
-            ></div> */}
-            {/* <span className="arrowIcons" style={{ zIndex: 10 }}>
-              <svg
-                style={{
-                  color: theme === "light" ? "#FFFFFF" : "#232324",
-                }}
-                width="20"
-                height="9"
-                viewBox="0 0 20 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.75947 1.21387L1.68115 8.15796H17.9152L9.75947 1.21387Z"
-                  fill="currentColor"
-                  stroke={`${theme === "light" ? "#E6E6E6" : "#545454"}`}
-                ></path>
-              </svg>
-            </span>
-            <div className="notificationBody">
-              <b style={{ fontSize: "12px" }}>Smart Alert from ProMech!</b>
-              <p
-                style={{
-                  fontSize: "10px",
-                  marginTop: "5px",
-                  lineHeight: 1.6,
-                  color: theme === "light" ? "#635D5D" : "#B5B5B6",
-                }}
-              >
-                Stock up your inventory with Brake Pad Kit (Part
-                No:0603BAB0080KT) for XUV700 model as five customers have been
-                alerted with brake pad replacement request and they are likely
-                to send their vehicle for service in the coming week.
-              </p>
-              <Link
-                to="/parts/parts-ordering/suggest-order-qty"
-                style={{
-                  marginTop: "8px",
-                  marginBottom: "0",
-                  color: "#FF3E5B",
-                  textDecoration: "underline",
-                  fontSize: "10px",
-                }}
-              >
-                View More
-              </Link>
-            </div> */}
 
             {/* Arrow Icons */}
             <span className="arrowIcons" style={{ zIndex: 10 }}>
@@ -181,27 +133,50 @@ function Popup() {
                   }`,
                 }}
               >
-                {notification.map((ele) => (
-                  <button
-                    onClick={() => setActiveTab(ele.title)}
-                    key={ele.key}
-                    className={`${activeTab === ele.title && "active"}`}
+                {/* Inbox */}
+
+                <button
+                  onClick={() => setActiveTab("Inbox")}
+                  className={`${activeTab === "Inbox" && "active"}`}
+                >
+                  <span
+                    style={{
+                      color:
+                        activeTab === "Inbox"
+                          ? "#FF3E5B"
+                          : theme === "light"
+                          ? "black"
+                          : "white",
+                    }}
                   >
-                    <span
-                      style={{
-                        color:
-                          activeTab === ele.title
-                            ? "#FF3E5B"
-                            : theme === "light"
-                            ? "black"
-                            : "white",
-                      }}
-                    >
-                      {ele.title}
+                    Inbox
+                  </span>
+                  {!readMarkAll && (
+                    <span className="counts">
+                      {notification[0].items.length}
                     </span>
-                    <span className="counts">{ele.items.length}</span>
-                  </button>
-                ))}
+                  )}
+                </button>
+
+                {/* Archive */}
+                <button
+                  onClick={() => setActiveTab("Archive")}
+                  className={`${activeTab === "Archive" && "active"}`}
+                >
+                  <span
+                    style={{
+                      color:
+                        activeTab === "Archive"
+                          ? "#FF3E5B"
+                          : theme === "light"
+                          ? "black"
+                          : "white",
+                    }}
+                  >
+                    Archive
+                  </span>
+                  <span className="counts">{notification[1].items.length}</span>
+                </button>
               </div>
               {/* contents */}
               <div
@@ -212,7 +187,11 @@ function Popup() {
                 {notification.map((ele) => {
                   if (ele.title === activeTab) {
                     return ele.items.map((el) => (
-                      <NotificationItems key={el.key} data={el} />
+                      <NotificationItems
+                        key={el.key}
+                        data={el}
+                        readMarkAll={readMarkAll}
+                      />
                     ));
                   }
                 })}

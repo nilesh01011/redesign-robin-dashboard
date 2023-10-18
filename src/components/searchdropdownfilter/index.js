@@ -7,6 +7,9 @@ let useClickOutSide = (handler) => {
   let domNode = useRef();
 
   useEffect(() => {
+    if (!domNode.current) {
+      return;
+    }
     const handlerEvent = (e) => {
       if (!domNode.current.contains(e.target)) {
         handler();
@@ -115,7 +118,7 @@ function Index({
           style={{
             width: "auto",
             position: "absolute",
-            left: 12,
+            left: 8,
             top: 6,
             bottom: 6,
           }}
@@ -236,9 +239,11 @@ function Index({
                 style={{
                   color: selected === ele.name && "#FF3E5B",
                   backgroundColor:
-                    selected === ele.name ? theme === "light"
-                      ? "#F2F2F2"
-                      : "#232324" : ""
+                    selected === ele.name
+                      ? theme === "light"
+                        ? "#F2F2F2"
+                        : "#232324"
+                      : "",
                 }}
               >
                 {ele.name}

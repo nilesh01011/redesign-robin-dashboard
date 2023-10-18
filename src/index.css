@@ -108,6 +108,20 @@ body.dark::-webkit-scrollbar-thumb {
   display: none;
 }
 
+.tableMobileView {
+  display: none;
+}
+
+.searchFilterContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+.searchFilterContainer .searchFilterDropdown {
+  width: 400px;
+}
+
 @media screen and (max-width: 1168px) {
   .tableContainer {
     overflow: scroll;
@@ -128,5 +142,23 @@ body.dark::-webkit-scrollbar-thumb {
   }
   .titleContainer {
     top: 61.2px;
+  }
+  .tableContainer {
+    display: none;
+  }
+  .tableMobileView {
+    display: block;
+  }
+  .searchFilterContainer .searchFilterDropdown {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .searchFilterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .searchFilterContainer .advanceFilter {
+    display: none;
   }
 }/*# sourceMappingURL=index.css.map */

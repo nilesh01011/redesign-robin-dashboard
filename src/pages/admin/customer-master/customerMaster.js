@@ -8,6 +8,7 @@ import Table from "../../../components/table";
 import Header from "../../../components/header";
 import Dropdown from "../../../components/dropdown";
 import Drawer from "./drawer/Drawer";
+import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
 
 function CustomerMaster() {
   const theme = useSelector((state) => state.theme);
@@ -362,7 +363,7 @@ function CustomerMaster() {
             </div>
             {/* right side */}
           </div>
-          {/* contents */}
+          {/* desktop table contents */}
           <div
             className="tableContainer"
             style={{
@@ -370,6 +371,27 @@ function CustomerMaster() {
             }}
           >
             <Table
+              tableHead={tableHead}
+              tableBody={tableData}
+              // tableBody={visibleTableData}
+              selectDropdownFilter={setSelectedDropdownFilterText}
+              searchDropdownText={selectDropdownFilterText}
+              inputFields={inputFields}
+              emptyTableData={emptyTableData}
+              setDrawerData={setDrawerData}
+              setDrawerType={setDrawerType}
+              setIsDrawerOpen={setIsDrawerOpen}
+            />
+          </div>
+          {/* mobile table contents */}
+          <div
+            className="tableMobileView"
+            style={{
+              border: `1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,
+              borderRadius:4
+            }}
+          >
+            <ResponsiveTable
               tableHead={tableHead}
               tableBody={tableData}
               // tableBody={visibleTableData}

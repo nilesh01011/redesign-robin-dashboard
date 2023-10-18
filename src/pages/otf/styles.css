@@ -1,1 +1,13 @@
-/*# sourceMappingURL=styles.css.map */
+.otfContainer {
+  margin-top: 20px;
+}
+.otfContainer .otfHeader {
+  margin-bottom: 20px;
+}
+.otfContainer .otfHeader .otfHeaderLeftSide {
+  border-radius: 4px;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}/*# sourceMappingURL=styles.css.map */

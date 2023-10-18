@@ -8,7 +8,7 @@
 }
 .selectDropdownFilter .selectDropdownFilterContainer {
   border-radius: 4px;
-  padding: 5px 12px;
+  padding: 5px 6px;
   border: 1px solid;
   position: relative;
   display: flex;
@@ -29,7 +29,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields {
   width: 100%;
@@ -41,7 +40,7 @@
   justify-content: space-between;
   cursor: pointer;
   gap: 10px;
-  padding: 10px 6px;
+  padding: 4px 6px;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields {
   width: -moz-max-content;
@@ -86,7 +85,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  right: 6px;
+  right: 3px;
   cursor: pointer;
 }
 .selectDropdownFilter .error {
@@ -112,9 +111,6 @@
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
-}
-.selectDropdownFilter .allListItems .allListItemsChild:not(:last-child) {
-  border-bottom: 1px solid;
 }
 .selectDropdownFilter .allListItems .allListItemsChild:first-child {
   border-radius: 3px 3px 0 0;

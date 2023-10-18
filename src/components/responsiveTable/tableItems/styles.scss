@@ -1,0 +1,20 @@
+.tableItems {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:not(:last-child){
+    border-bottom: 1px solid;
+  }
+
+  & .leftSideData {
+    & p {
+      font-size: 14px;
+
+      & span {
+        font-size: 12px;
+      }
+    }
+  }
+}

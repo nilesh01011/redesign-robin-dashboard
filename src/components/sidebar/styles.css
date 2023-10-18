@@ -33,24 +33,6 @@
   z-index: 5;
   height: 100%;
 }
-.sidebar .sidebarContainer::-webkit-scrollbar {
-  width: 8px;
-}
-.sidebar .sidebarContainer.lightTheme::-webkit-scrollbar-track {
-  background: #f0efef;
-}
-.sidebar .sidebarContainer.darkTheme::-webkit-scrollbar-track {
-  background: #1c1c1c;
-}
-.sidebar .sidebarContainer::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-}
-.sidebar .sidebarContainer.lightTheme::-webkit-scrollbar-thumb {
-  background: #8a8a8a;
-}
-.sidebar .sidebarContainer.darkTheme::-webkit-scrollbar-thumb {
-  background: #545454;
-}
 .sidebar .sidebarContainer.desktopStrip {
   width: 60px;
 }
