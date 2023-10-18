@@ -6,11 +6,12 @@
   justify-content: space-between;
 
   & .paginations {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 0;
-    padding: 0 32px;
+    padding: 20px 32px;
+    z-index: 5;
 
     & .leftSide {
       width: 100%;
@@ -148,6 +149,9 @@
     & .paginations {
       padding-left: 20px;
       padding-right: 20px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
     }
   }
 }
@@ -158,6 +162,10 @@
       flex-direction: column;
       gap: 16px;
       align-items: flex-start;
+
+      & .rightSide {
+        flex-wrap: wrap;
+      }
     }
   }
 }

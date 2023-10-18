@@ -1,4 +1,7 @@
 .responsiveTable {
+  max-height: 600px;
+  overflow-y: scroll;
+
   & .responsiveTableHeaders {
     width: 100%;
     border-radius: 4px 4px 0 0;
@@ -6,6 +9,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 16px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 3;
 
     & p {
       font-size: 14px;
@@ -13,3 +20,18 @@
     }
   }
 }
+
+// media queries
+
+// @media screen and (max-width: 756px) {
+//   .responsiveTable {
+//     max-height: 800px;
+//   }
+// }
+
+
+// @media screen and (max-width: 576px) {
+//   .responsiveTable {
+//     max-height: 400px;
+//   }
+// }

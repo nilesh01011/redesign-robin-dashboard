@@ -5,8 +5,9 @@
 }
 
 // media queries
-@media screen and (max-width: 880px){
+@media screen and (max-width: 992px){
     .mobileViewMenuListContainer {
         display: block;
+        margin-bottom: 47px;
     }
 }

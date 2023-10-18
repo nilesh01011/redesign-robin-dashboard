@@ -85,7 +85,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body.light::-webkit-scrollbar-thumb {
-  background: #8a8a8a;
+  background: #B5B5B6;
 }
 
 body.dark::-webkit-scrollbar-thumb {
@@ -122,12 +122,7 @@ body.dark::-webkit-scrollbar-thumb {
   width: 400px;
 }
 
-@media screen and (max-width: 1168px) {
-  .tableContainer {
-    overflow: scroll;
-  }
-}
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1038px) {
   .footer,
   .container-fluid {
     padding-left: 26px;
@@ -148,6 +143,7 @@ body.dark::-webkit-scrollbar-thumb {
   }
   .tableMobileView {
     display: block;
+    margin-bottom: 80px;
   }
   .searchFilterContainer .searchFilterDropdown {
     width: 100%;

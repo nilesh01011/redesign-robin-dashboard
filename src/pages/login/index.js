@@ -147,7 +147,7 @@ function Index() {
             method="post"
             autoComplete="off"
             style={{
-              backgroundColor: theme === "light" ? "#F2F2F2" : "",
+              backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
               boxShadow:
                 theme === "light" && "0px 2px 4px 0px rgba(0, 0, 0, 0.15)",
             }}
@@ -324,6 +324,7 @@ function Index() {
               role="button"
               aria-label="submit"
               className="btn"
+              style={{ fontWeight: 700 }}
             >
               Login
             </button>

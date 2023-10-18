@@ -132,4 +132,22 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media screen and (max-width: 880px) {
+  .customerMasterDrawerContainer .drawerTypeText h3 {
+    font-size: 16px;
+  }
+  .customerMasterDrawerContainer .drawerData .leftSide {
+    display: none;
+  }
+  .customerMasterDrawerContainer .drawerData .rightSide {
+    width: 100%;
+  }
+  .customerMasterDrawerContainer .drawerData .rightSide .contents {
+    padding: 20px;
+  }
+  .customerMasterDrawerContainer .drawerData .rightSide .contents h2 {
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=styles.css.map */

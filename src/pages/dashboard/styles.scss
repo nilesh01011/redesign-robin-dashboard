@@ -1,5 +1,6 @@
 .dashboard {
   position: relative;
+  max-height: max-content;
 
   & .boxContainer {
     width: 100%;

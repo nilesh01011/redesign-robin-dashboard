@@ -200,8 +200,8 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             style={{
               boxShadow:
                 theme === "light"
-                  ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
-                  : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
+                  ? "1px 0px 0px 1px rgba(0, 0, 0, 0.15)"
+                  : "1px 0px 0px 1px rgba(255, 255, 255, 0.15)",
                   backgroundColor: theme === "light" ? "#fff" : "#0B0B0C",
             }}
           >

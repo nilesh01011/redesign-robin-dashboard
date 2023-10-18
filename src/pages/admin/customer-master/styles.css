@@ -6,11 +6,12 @@
   justify-content: space-between;
 }
 .customerMaster .paginations {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 0;
-  padding: 0 32px;
+  padding: 20px 32px;
+  z-index: 5;
 }
 .customerMaster .paginations .leftSide {
   width: 100%;
@@ -127,6 +128,9 @@
   .customerMaster .paginations {
     padding-left: 20px;
     padding-right: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 }
 @media screen and (max-width: 660px) {
@@ -134,5 +138,8 @@
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
+  }
+  .customerMaster .paginations .rightSide {
+    flex-wrap: wrap;
   }
 }/*# sourceMappingURL=styles.css.map */

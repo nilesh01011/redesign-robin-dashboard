@@ -4,17 +4,43 @@
   flex-direction: column;
   gap: 10px;
   z-index: 5;
-}
+  // overflow-y: scroll;
+  // max-height: 630px;
 
-// .mobileView {
-//   display: none;
-//   z-index: 5;
-// }
+  // &::-webkit-scrollbar {
+  //   // opacity: 0;
+  //   // width: 8px;
+  //   display: none;
+  // }
+
+  // &.activeScrollbar::-webkit-scrollbar {
+  //   opacity: 1;
+  // }
+
+  // &.activeScrollbar.lightTheme::-webkit-scrollbar-track {
+  //   background: #f0efef;
+  // }
+
+  // &.activeScrollbar.darkTheme::-webkit-scrollbar-track {
+  //   background: #1c1c1c;
+  // }
+
+  // &.activeScrollbar::-webkit-scrollbar-thumb {
+  //   border-radius: 10px;
+  // }
+
+  // &.activeScrollbar.lightTheme::-webkit-scrollbar-thumb {
+  //   background: #8a8a8a;
+  // }
+
+  // &.activeScrollbar.darkTheme::-webkit-scrollbar-thumb {
+  //   background: #545454;
+  // }
+}
 
 .menuLists {
   margin-top: 2px;
   position: relative;
-  // overflow-x: hidden;
 
   & ul {
     margin: 0 !important;
@@ -84,7 +110,7 @@
 }
 
 // media queries
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 992px) {
   .menuListContainer {
     display: none;
   }

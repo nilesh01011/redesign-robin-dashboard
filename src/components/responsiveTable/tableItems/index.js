@@ -2,19 +2,33 @@ import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
-function TableItems({ items }) {
-  console.log(items)
+function TableItems({ items, setDrawerData, setDrawerType, setIsDrawerOpen }) {
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="tableItems" style={{borderColor:theme === "light" ? "#e6e6e6" : "#232324"}}>
+    <div
+      className="tableItems"
+      style={{ borderColor: theme === "light" ? "#e6e6e6" : "#232324" }}
+    >
       {/* left side */}
       <div className="leftSideData">
-        <p><span style={{color:"#8C8C8C"}}>Customer Name:</span> <span>{items.two}</span></p>
+        <p>
+          <span style={{ color: "#8C8C8C" }}>Customer Name:</span>{" "}
+          <span>{items.two}</span>
+        </p>
         <p>{items.one}</p>
-        <p><span style={{color:"#8C8C8C"}}>Mobile No.:</span> <span>{items.four}</span></p>
+        <p>
+          <span style={{ color: "#8C8C8C" }}>Mobile No.:</span>{" "}
+          <span>{items.four}</span>
+        </p>
       </div>
       {/* right */}
-      <div>
+      <div
+        onClick={() => {
+          setDrawerData(items);
+          setDrawerType("view");
+          setIsDrawerOpen(true);
+        }}
+      >
         {/* view data */}
         <span
           style={{ cursor: "pointer" }}

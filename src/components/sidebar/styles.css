@@ -1,10 +1,23 @@
 .sidebar {
   min-height: 100vh;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 9998;
-  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.sidebar.desktopStrip {
+  width: 60px;
+  min-width: 60px;
+}
+.sidebar.desktopCollapse {
+  width: 282px;
+  min-width: 282px;
 }
 .sidebar .sidebarBtn {
   display: flex;
@@ -29,9 +42,12 @@
 .sidebar .sidebarContainer {
   padding: 14px;
   padding-top: 0;
-  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   z-index: 5;
   height: 100%;
+  width: 100%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sidebar .sidebarContainer.desktopStrip {
   width: 60px;
@@ -49,6 +65,25 @@
 .sidebar .sidebarContainer .sidebarMenuItemsContainer {
   position: sticky;
   top: 108px;
+  overflow-x: hidden;
+  max-height: 630px;
+  margin-bottom: 58px;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
+  opacity: 0;
+  width: 8px;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar {
+  opacity: 1;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.lightTheme::-webkit-scrollbar-thumb {
+  background: #b5b5b6;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.darkTheme::-webkit-scrollbar-thumb {
+  background: #545454;
 }
 .sidebar .themeContainer {
   width: 100%;
@@ -91,7 +126,7 @@
   line-height: 2px;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 992px) {
   #overlay {
     width: 100%;
     height: 100%;
@@ -114,8 +149,14 @@
     transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
   }
+  .sidebar.desktopCollapse, .sidebar.desktopStrip {
+    width: 100%;
+  }
   .sidebar .desktopViewBtn {
     display: none;
+  }
+  .sidebar .sidebarBtn {
+    position: relative;
   }
   .sidebar .sidebarBtn.mobileViewBtn {
     display: flex;
@@ -130,7 +171,9 @@
     transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
     width: 100% !important;
-    overflow-y: scroll;
+  }
+  .sidebar .sidebarContainer.desktopCollapse, .sidebar .sidebarContainer.desktopStrip {
+    width: 100%;
   }
   .sidebar .sidebarContainer .searchInputContainer.desktopView, .sidebar .sidebarContainer .searchInputContainer .searchIcons {
     display: none !important;

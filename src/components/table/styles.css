@@ -61,4 +61,15 @@ table tbody tr td .status.Invoiced {
   border-color: #9747FF;
   background: #F3EAFF;
   color: #9747FF;
+}
+
+@media screen and (max-width: 1058px) {
+  table tr td, table tr th {
+    padding: 13px 18px;
+  }
+}
+@media screen and (max-width: 1038px) {
+  table tr td, table tr th {
+    padding: 13px 16px;
+  }
 }/*# sourceMappingURL=styles.css.map */

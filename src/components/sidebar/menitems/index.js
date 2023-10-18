@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 import { menuItems } from "../../../data";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,9 @@ function MenuItems({ collapsed, setCollapsed }) {
   const [expanded, setExpanded] = useState({});
   const [tooltip, setTooltip] = useState(false);
   const theme = useSelector((state) => state.theme);
+
+  // Scrollbar
+  // const [sidebarScrollBar, setSidebarScrollBar] = useState(false);
 
   const router = useNavigate();
 
@@ -298,7 +301,14 @@ function MenuItems({ collapsed, setCollapsed }) {
 
   return (
     <>
-      <div className="menuListContainer">{menuItems.map(renderItem)}</div>
+      <div
+        className={`menuListContainer`}
+        // ${sidebarScrollBar && "activeScrollbar"}
+        // onMouseEnter={() => collapsed === false && setSidebarScrollBar(true)}
+        // onMouseLeave={() => collapsed === false && setSidebarScrollBar(false)}
+      >
+        {menuItems.map(renderItem)}
+      </div>
     </>
   );
 }

@@ -4,11 +4,11 @@ import "./styles.scss";
 import TableItems from "./tableItems/index";
 
 function ResponsiveTable({
-  tableHead,
+  // tableHead,
   tableBody,
   inputFields,
   // searchDropdownText,
-  emptyTableData,
+  // emptyTableData,
   setDrawerData,
   setDrawerType,
   setIsDrawerOpen,
@@ -36,7 +36,7 @@ function ResponsiveTable({
       {/* contents */}
       <div className="responsiveTableContents">
         {tableBody.map((ele) => (
-          <TableItems key={ele.key} items={ele} />
+          <TableItems key={ele.key} items={ele} setDrawerData={setDrawerData} setDrawerType={setDrawerType} setIsDrawerOpen={setIsDrawerOpen} />
         ))}
       </div>
     </div>

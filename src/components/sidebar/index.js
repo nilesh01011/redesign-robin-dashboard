@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./styles.scss";
 import { toggleTheme } from "../../store/slices/themeSlices";
@@ -17,6 +17,10 @@ function Sidebar() {
   const [collapsed, setCollapsed] = useState(true);
   const [inputFields, setInputFields] = useState("");
   const [searchMenuItems, setSearchMenuItems] = useState("");
+
+  // Scrollbar
+  const [sidebarScrollBar, setSidebarScrollBar] = useState(false);
+
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
   const router = useNavigate();
@@ -47,9 +51,8 @@ function Sidebar() {
   return (
     <>
       <aside
-        className="sidebar"
+        className={`sidebar ${collapsed ? "desktopStrip" : "desktopCollapse"}`}
         style={{
-          // position: collapsed === true ? "fixed" : "relative",
           background: theme === "light" ? "white" : "#1C1C1C",
           boxShadow:
             theme === "light"
@@ -201,7 +204,19 @@ function Sidebar() {
             />
           </div>
           {/* =================== menu items ================== */}
-          <div className="sidebarMenuItemsContainer">
+          <div
+          // ref={sidebarMenuItemsContainerRef}
+            className={`sidebarMenuItemsContainer ${
+              theme === "light" ? "lightTheme" : "darkTheme"
+            } ${sidebarScrollBar && "activeScrollbar"}`}
+            onMouseEnter={() =>
+              collapsed === false ? setSidebarScrollBar(true) : null
+            }
+            onMouseLeave={() =>
+              collapsed === false ? setSidebarScrollBar(false) : null
+            }
+            style={{ overflowY: collapsed ? "" : "scroll" }}
+          >
             {/* Desktop View */}
             <MenuItems collapsed={collapsed} setCollapsed={setCollapsed} />
             {/* Mobile View */}

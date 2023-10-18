@@ -406,7 +406,7 @@ function CustomerMaster() {
           </div>
         </div>
         {/* Paginations */}
-        <div className="paginations">
+        <div className="paginations" style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}>
           {/* left side */}
           <div className="leftSide">
             {/* total length of table data */}
