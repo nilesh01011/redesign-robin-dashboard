@@ -1,6 +1,5 @@
 .responsiveTable {
-  max-height: 600px;
-  overflow-y: scroll;
+  height: 100%;
 
   & .responsiveTableHeaders {
     width: 100%;
@@ -19,16 +18,49 @@
       font-weight: 500;
     }
   }
+
+  // responsiveTableContents
+  & .responsiveTableContents {
+    overflow-y: scroll;
+    max-height: 600px;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      opacity: 0;
+    }
+
+    &.active::-webkit-scrollbar {
+      opacity: 1;
+    }
+
+    // &.active::-webkit-scrollbar-track {
+    //   background: #f0efef;
+    // }
+    
+    // &.active::-webkit-scrollbar-track {
+    //   background: #1c1c1c;
+    // }
+    
+    &.active::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+    }
+    
+    &.active.light::-webkit-scrollbar-thumb {
+      background: #B5B5B6;
+    }
+    
+    &.active.dark::-webkit-scrollbar-thumb {
+      background: #545454;
+    }
+  }
 }
 
 // media queries
-
 // @media screen and (max-width: 756px) {
 //   .responsiveTable {
 //     max-height: 800px;
 //   }
 // }
-
 
 // @media screen and (max-width: 576px) {
 //   .responsiveTable {

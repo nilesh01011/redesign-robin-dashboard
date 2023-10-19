@@ -86,7 +86,7 @@ function Popup() {
           <div
             className="notificationContainer"
             style={{
-              backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
+              backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C",
               color: theme === "light" ? "#000000" : "#ffffff",
               border: `1px solid ${theme === "light" ? "#E6E6E6" : "#545454"}`,
             }}
@@ -107,7 +107,7 @@ function Popup() {
             <span className="arrowIcons" style={{ zIndex: 10 }}>
               <svg
                 style={{
-                  color: theme === "light" ? "#FFFFFF" : "#232324",
+                  color: theme === "light" ? "#FFFFFF" : "#0B0B0C",
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"

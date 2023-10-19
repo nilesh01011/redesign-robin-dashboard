@@ -59,34 +59,6 @@
     min-width: fit-content;
     transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
-    // &::-webkit-scrollbar {
-    //   opacity: 0;
-    // }
-
-    // &.activeScrollbar::-webkit-scrollbar {
-    //   opacity: 1;
-    // }
-
-    // &.activeScrollbar.lightTheme::-webkit-scrollbar-track {
-    //   background: #f0efef;
-    // }
-
-    // &.activeScrollbar.darkTheme::-webkit-scrollbar-track {
-    //   background: #1c1c1c;
-    // }
-
-    // &.activeScrollbar::-webkit-scrollbar-thumb {
-    //   border-radius: 10px;
-    // }
-
-    // &.activeScrollbar.lightTheme::-webkit-scrollbar-thumb {
-    //   background: #8a8a8a;
-    // }
-
-    // &.activeScrollbar.darkTheme::-webkit-scrollbar-thumb {
-    //   background: #545454;
-    // }
-
     &.desktopStrip {
       width: 60px;
     }
@@ -109,9 +81,10 @@
     & .sidebarMenuItemsContainer {
       position: sticky;
       top: 108px;
-      overflow-x: hidden;
+      // overflow-x: hidden;
       // overflow-y: scroll;
-      max-height: 630px;
+      max-height: 580px;
+      // max-height: 630px;
       margin-bottom: 58px;
 
       &::-webkit-scrollbar {
@@ -156,6 +129,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
 
       // theme unCollapsed Btn
       & .themeBtn {
@@ -213,7 +187,7 @@
 
     &.desktopCollapse,
     &.desktopStrip {
-      width: 100%;
+      width: 84%;
     }
 
     .desktopViewBtn {
@@ -240,7 +214,6 @@
     & .sidebarContainer {
       transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       height: 100%;
-      width: 100% !important;
 
       &.desktopCollapse,
       &.desktopStrip {
@@ -255,9 +228,13 @@
 
         &.mobileViewSearch {
           display: block;
-          position: sticky;
-          top: 54px;
+          position: static;
+          // top: 54px;
         }
+      }
+
+      & .sidebarMenuItemsContainer {
+        position: static;
       }
     }
 
@@ -279,17 +256,13 @@
   }
 }
 
-// @media screen and (max-width: 880px) {
-//   .sidebar {
-//     & .sidebarContainer {
-//       width: 100% !important;
-//     }
-//     // &.desktopStrip {
-//     //   width: 60px;
-//     //   min-width: 60px;
-//     // }
+@media screen and (max-width: 360px) {
+  .sidebar {
+    width: 100%;
 
-//     // &.desktopCollapse {
-//     // }
-//   }
-// }
+    &.desktopCollapse,
+    &.desktopStrip {
+      width: 100%;
+    }
+  }
+}

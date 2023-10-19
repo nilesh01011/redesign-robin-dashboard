@@ -41,7 +41,7 @@ function NotificationItems({ data, readMarkAll }) {
   };
 
   return (
-    <div ref={domNode} className="notificationItems">
+    <div ref={domNode} className={`notificationItems ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
       {readMarkAll || (markAsRead && <span className="status"></span>)}
       {/* content */}
       <div className="content">
@@ -117,6 +117,7 @@ function NotificationItems({ data, readMarkAll }) {
           style={{
             borderColor: theme === "light" ? "#0B0B0C" : "#f2f2f2",
             backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
+            boxShadow:theme === "light" ? "0px 2px 4px 0px rgba(0, 0, 0, 0.15)" : "0px 2px 4px 0px rgba(255, 255, 255, 0.15"
           }}
         >
           <span className={`${theme === "light" ? "light" : "dark"}`}>

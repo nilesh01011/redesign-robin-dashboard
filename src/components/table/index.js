@@ -70,7 +70,7 @@ function Index({
         </tr>
       </thead>
       {/* table body */}
-      {filterData.length === 0 ? (
+      {filterData.length === 0 || !filterData ? (
         emptyTableData()
       ) : (
         <tbody>
@@ -122,7 +122,11 @@ function Index({
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
-                {ele.status ? <span className={`${ele.five} status`}>{ele.five}</span> : ele.five}
+                {ele.status ? (
+                  <span className={`${ele.five} status`}>{ele.five}</span>
+                ) : (
+                  ele.five
+                )}
               </td>
               {ele.six && (
                 <td

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
 import TableItems from "./tableItems/index";
@@ -14,6 +14,7 @@ function ResponsiveTable({
   setIsDrawerOpen,
 }) {
   const theme = useSelector((state) => state.theme);
+  const [tableScrollBar, setTableScrollBar] = useState(false);
   const filterData = tableBody.filter((item) => {
     return inputFields.toLowerCase() === ""
       ? item
@@ -34,9 +35,21 @@ function ResponsiveTable({
         <p>Actions</p>
       </div>
       {/* contents */}
-      <div className="responsiveTableContents">
+      <div
+        className={`responsiveTableContents ${
+          theme === "light" ? "light" : "dark"
+        } ${tableScrollBar && "active"}`}
+        onMouseEnter={() => setTableScrollBar(true)}
+        onMouseLeave={() => setTableScrollBar(false)}
+      >
         {tableBody.map((ele) => (
-          <TableItems key={ele.key} items={ele} setDrawerData={setDrawerData} setDrawerType={setDrawerType} setIsDrawerOpen={setIsDrawerOpen} />
+          <TableItems
+            key={ele.key}
+            items={ele}
+            setDrawerData={setDrawerData}
+            setDrawerType={setDrawerType}
+            setIsDrawerOpen={setIsDrawerOpen}
+          />
         ))}
       </div>
     </div>

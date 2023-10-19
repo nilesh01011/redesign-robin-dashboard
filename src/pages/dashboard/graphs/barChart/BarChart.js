@@ -91,7 +91,12 @@ function BarChart({ title, dataItems }) {
       }}
     >
       {/* title */}
-      <h2 style={{ borderColor: borderColor }}>{title}</h2>
+      <h2>{title}</h2>
+      {/* divider */}
+      <div
+        className="divider"
+        style={{ backgroundColor: theme === "light" ? "#E6E6E6" : "#232324" }}
+      ></div>
       {/* graphs */}
       <div className="graphsWrapper">
         <div className="leftSide">
@@ -101,16 +106,14 @@ function BarChart({ title, dataItems }) {
               <p
                 key={ele.key}
                 style={{
-                  width:"100%",
+                  width: "100%",
                   color: theme === "light" ? "#545454" : "#858585",
                   display: "flex",
                   justifyContent: "space-between",
                 }}
               >
                 {/* name and color */}
-                <span
-                style={{ display: "flex", gap:4,alignItems:"center" }}
-                >
+                <span style={{ display: "flex", gap: 4, alignItems: "center" }}>
                   <span
                     style={{
                       width: 8,
@@ -132,7 +135,8 @@ function BarChart({ title, dataItems }) {
         {/* graphs */}
         <div className="rightSide">
           <div className="graphs">
-            <Bar options={options} data={data} height={180} />
+            <Bar options={options} data={data} height="242px" />
+            {/* <Bar options={options} data={data} height="252px" /> */}
           </div>
         </div>
       </div>

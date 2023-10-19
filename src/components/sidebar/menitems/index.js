@@ -277,7 +277,7 @@ function MenuItems({ collapsed, setCollapsed }) {
           </div>
 
           {/* tooltips */}
-          {collapsed === true && tooltip === true && IsExpand && (
+          {collapsed === true && tooltip && IsExpand && (
             <div
               className={`tooltip ${
                 theme === "light" ? "lightTheme" : "darkTheme"

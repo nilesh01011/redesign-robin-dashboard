@@ -21,36 +21,16 @@ function CustomerMaster() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [drawerData, setDrawerData] = useState([]);
   const [drawerType, setDrawerType] = useState("");
-  // const [editDrawerData, setEditDrawerData] = useState([]);
-  // const [viewDrawerData, setViewDrawerData] = useState([]);
 
   const handleDrawerClosed = () => {
-    // setDrawerData([]);
-    // setDrawerType("");
     setIsDrawerOpen(!isDrawerOpen);
   };
 
   // select dropdown text
   const [selected, setSelected] = useState("");
-  // active page
-  const [currentPage, setCurrentPage] = useState(1);
 
   // middle button
   const [middleButton, setMiddleButton] = useState([4, 5, 6, 7, 8]);
-
-  const perPage = selected.split(" ");
-  const pageNumber = Number(perPage[0]);
-
-  const numOfTotalPages = Math.ceil(tableData?.length / pageNumber);
-
-  // const pages = [...Array(numOfTotalPages + 1).keys()].slice(1); // starting from 1 not to 0
-
-  // const indexOfLastTodo = currentPage * pageNumber; // 1 * 10 = 10
-  // const indexOfFirstTodo = indexOfLastTodo - pageNumber; // 10 - 10 = 0
-
-  // const visibleTableData = tableData.slice(indexOfFirstTodo, indexOfLastTodo); // 200 slices 10, 0 = 190
-
-  // console.log(visibleTableData)
 
   const tabs = [
     {
@@ -112,70 +92,6 @@ function CustomerMaster() {
     });
   }, [isActiveTabs]);
 
-  // empty table data
-  const emptyTableData = () => {
-    return (
-      <div className="emptyDataTable" style={{ color: "#545454" }}>
-        {/* icons */}
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="80"
-            height="80"
-            viewBox="0 0 80 80"
-            fill="none"
-          >
-            <path
-              d="M73.3337 39.9999H53.3337L46.667 49.9999H33.3337L26.667 39.9999H6.66699"
-              stroke="#B5B5B6"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M18.167 17.0333L6.66699 40V60C6.66699 61.7681 7.36937 63.4638 8.61961 64.714C9.86986 65.9643 11.5655 66.6666 13.3337 66.6666H66.667C68.4351 66.6666 70.1308 65.9643 71.381 64.714C72.6313 63.4638 73.3337 61.7681 73.3337 60V40L61.8337 17.0333C61.2817 15.9226 60.4309 14.9879 59.3768 14.3342C58.3228 13.6806 57.1073 13.334 55.867 13.3333H24.1337C22.8934 13.334 21.6779 13.6806 20.6238 14.3342C19.5697 14.9879 18.7189 15.9226 18.167 17.0333V17.0333Z"
-              stroke="#B5B5B6"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
-        {/* text */}
-        <span>No Record Found</span>
-        {/* description */}
-        <p>
-          Please{" "}
-          <span style={{ color: theme === "light" ? "black" : "white" }}>
-            “Add New Customer”
-          </span>{" "}
-          using below button.
-        </p>
-
-        {/* button */}
-        <button type="button" className="addbutton">
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M7 1.75C7.18122 1.75 7.32813 1.89691 7.32813 2.07812V6.67188H11.9219C12.1031 6.67188 12.25 6.81878 12.25 7C12.25 7.18122 12.1031 7.32813 11.9219 7.32813H7.32813V11.9219C7.32813 12.1031 7.18122 12.25 7 12.25C6.81878 12.25 6.67188 12.1031 6.67188 11.9219L6.67188 7.32813H2.07812C1.89691 7.32813 1.75 7.18122 1.75 7C1.75 6.81878 1.89691 6.67188 2.07812 6.67188H6.67188L6.67188 2.07812C6.67188 1.89691 6.81878 1.75 7 1.75Z"
-                fill="white"
-              />
-            </svg>
-          </span>
-          Add
-        </button>
-      </div>
-    );
-  };
-
   // paginations items
   const paginationItems = [
     {
@@ -192,10 +108,67 @@ function CustomerMaster() {
     },
   ];
 
-  // useEffect(() => {
-  //   if (!selected) return setSelected(paginationItems[0].name);
-  //   setSelected(selected);
-  // }, [selected]);
+  // empty table data
+  const emptyTableData = () => (
+    <div className="emptyDataTable" style={{ color: "#545454" }}>
+      {/* icons */}
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="80"
+          height="80"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <path
+            d="M73.3337 39.9999H53.3337L46.667 49.9999H33.3337L26.667 39.9999H6.66699"
+            stroke="#B5B5B6"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M18.167 17.0333L6.66699 40V60C6.66699 61.7681 7.36937 63.4638 8.61961 64.714C9.86986 65.9643 11.5655 66.6666 13.3337 66.6666H66.667C68.4351 66.6666 70.1308 65.9643 71.381 64.714C72.6313 63.4638 73.3337 61.7681 73.3337 60V40L61.8337 17.0333C61.2817 15.9226 60.4309 14.9879 59.3768 14.3342C58.3228 13.6806 57.1073 13.334 55.867 13.3333H24.1337C22.8934 13.334 21.6779 13.6806 20.6238 14.3342C19.5697 14.9879 18.7189 15.9226 18.167 17.0333V17.0333Z"
+            stroke="#B5B5B6"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+      {/* text */}
+      <span>No Record Found</span>
+      {/* description */}
+      <p>
+        Please{" "}
+        <span style={{ color: theme === "light" ? "black" : "white" }}>
+          “Add New Customer”
+        </span>{" "}
+        using below button.
+      </p>
+
+      {/* button */}
+      <button type="button" className="addbutton">
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7 1.75C7.18122 1.75 7.32813 1.89691 7.32813 2.07812V6.67188H11.9219C12.1031 6.67188 12.25 6.81878 12.25 7C12.25 7.18122 12.1031 7.32813 11.9219 7.32813H7.32813V11.9219C7.32813 12.1031 7.18122 12.25 7 12.25C6.81878 12.25 6.67188 12.1031 6.67188 11.9219L6.67188 7.32813H2.07812C1.89691 7.32813 1.75 7.18122 1.75 7C1.75 6.81878 1.89691 6.67188 2.07812 6.67188H6.67188L6.67188 2.07812C6.67188 1.89691 6.81878 1.75 7 1.75Z"
+              fill="white"
+            />
+          </svg>
+        </span>
+        Add
+      </button>
+    </div>
+  );
 
   return (
     <>
@@ -388,7 +361,7 @@ function CustomerMaster() {
             className="tableMobileView"
             style={{
               border: `1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,
-              borderRadius:4
+              borderRadius: 4,
             }}
           >
             <ResponsiveTable
@@ -406,7 +379,10 @@ function CustomerMaster() {
           </div>
         </div>
         {/* Paginations */}
-        <div className="paginations" style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}>
+        <div
+          className={`paginations ${theme === "light" ? "light" : "dark"}`}
+          style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}
+        >
           {/* left side */}
           <div className="leftSide">
             {/* total length of table data */}

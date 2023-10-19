@@ -6,16 +6,20 @@
   gap: 10px;
   padding: 10px 16px;
   position: relative;
+  cursor: pointer;
 
-  // &:hover {
-  //   background-color: #E6E6E6;
-  //   background-color: #1C1C1C;
-  // }
+  &.lightTheme:hover {
+    background-color: #E6E6E6;
+  }
+  
+  &.darkTheme:hover {
+    background-color: #1C1C1C;
+  }
 
   & .status {
     position: absolute;
     left: 18px;
-    top: 14px;
+    top: 16px;
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -30,17 +34,6 @@
       font-size: 14px;
       font-weight: 400;
       position: relative;
-
-      // &.active::after {
-      //   content: "";
-      //   position: absolute;
-      //   left: -18px;
-      //   top: 3px;
-      //   width: 8px;
-      //   height: 8px;
-      //   border-radius: 50%;
-      //   background-color: #ff3e5b;
-      // }
     }
 
     & p {
@@ -110,7 +103,7 @@
       }
 
       &.dark:hover {
-        // background: #F2F2F2;
+        background: #232324;
         color: #ff3e5b;
       }
     }

@@ -5,6 +5,7 @@ import Title from "../../components/title";
 import {
   actionItems,
   billingBarGraphs,
+  ibndstock,
   keyHighlights,
   latestNews,
   retailBarGraphs,
@@ -248,7 +249,7 @@ function DashboardPage() {
             >
               <BarChart title="Retail" dataItems={retailBarGraphs} />
               <BarChart title="Billing" dataItems={billingBarGraphs} />
-              <DoughnutChart title="Retail" dataItems={retailBarGraphs} />
+              <DoughnutChart title="IBND Stock" dataItems={ibndstock} />
             </div>
           </div>
           {/* news and birthdays */}

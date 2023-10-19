@@ -8,7 +8,62 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
 
-  const [seeMoreData, setSeeMoreData] = useState(true);
+  // const [seeMoreData, setSeeMoreData] = useState(true);
+  const [textTrucat, setTextTrucat] = useState(false);
+
+  const wordSlice = (word) => {
+    if (word === undefined) {
+      return;
+    }
+    if (word.length > 22) {
+      return word.slice(0, 22) + "...";
+    } else {
+      return word;
+    }
+  };
+
+  const tabsList = [
+    {
+      key: 1,
+      name: "Customer Details",
+      contents: [
+        {
+          number: data.four,
+          customerType: data.three,
+          customer: null,
+          companyName: "Company Name",
+          parentCompanyCode: `M${data.one}`,
+          parentCompanyName: "Parent Company",
+          coporateType: "Listed",
+          coporateName: "XYZ Corporate Name",
+          coporateCode: "222",
+          coporateCategory: "C1",
+          membershipType: data.six,
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: "Customer Profile",
+    },
+    {
+      key: 3,
+      name: "Address",
+    },
+    {
+      key: 4,
+      name: "Contacts",
+    },
+    {
+      key: 5,
+      name: "Accounts Related",
+    },
+    {
+      key: 6,
+      name: "Supporting Documents",
+    },
+  ];
+
   return (
     <div
       className="customerMasterDrawerContainer"
@@ -93,7 +148,31 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               </div>
               {/* user name and Id */}
               <div className="userName_id">
-                <h3>{data.two}</h3>
+                <h3
+                  onMouseEnter={() => setTextTrucat(true)}
+                  onMouseLeave={() => setTextTrucat(false)}
+                  style={{}}
+                >
+                  {/* {data.two} */}
+
+                  <span style={{ opacity: textTrucat ? "0" : "1" }}>
+                    {wordSlice(data.two)}
+                  </span>
+
+                  <span
+                    className="userNameSpan"
+                    style={{
+                      opacity: textTrucat ? "1" : "0",
+                      backgroundColor: textTrucat
+                        ? theme === "light"
+                          ? "#ffffff"
+                          : "#0B0B0C"
+                        : "",
+                    }}
+                  >
+                    {data.two}
+                  </span>
+                </h3>
                 <p>C{data.one}</p>
               </div>
             </div>
@@ -116,9 +195,23 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 {data.three}
               </p>
             </div>
+
+            {/* More data */}
+            <p
+              style={{
+                width: "100%",
+                fontSize: 12,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <span>Mobile no.:</span>
+              <span style={{ fontWeight: 700 }}>{data.four}</span>
+            </p>
             {/* see more */}
             <div className="moreDataShow">
-              <p
+              {/* <p
                 style={{
                   fontWeight: 700,
                   fontSize: 12,
@@ -157,10 +250,10 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     />
                   </svg>
                 </span>
-              </p>
-              {seeMoreData && (
+              </p> */}
+              {/* {seeMoreData && (
                 <>
-                  {/* divider */}
+                  divider
                   <div
                     className="divider"
                     style={{
@@ -169,7 +262,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     }}
                   ></div>
 
-                  {/* More data */}
+                  More data
                   <p
                     style={{
                       width: "100%",
@@ -183,7 +276,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     <span style={{ fontWeight: 700 }}>{data.four}</span>
                   </p>
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -192,7 +285,13 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           <div className="contents">
             <h2>Customer Details</h2>
             {/* user data details */}
-            <div className="customerDetails" style={{backgroundColor:theme === "light" ? "#F2F2F2" : "#1C1C1C",borderColor:theme === "light" ? "#E6E6E6" : "#232324"}}></div>
+            <div
+              className="customerDetails"
+              style={{
+                backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                borderColor: theme === "light" ? "#E6E6E6" : "#232324",
+              }}
+            ></div>
           </div>
           {/* footer side */}
           <div
@@ -202,15 +301,33 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 theme === "light"
                   ? "1px 0px 0px 1px rgba(0, 0, 0, 0.15)"
                   : "1px 0px 0px 1px rgba(255, 255, 255, 0.15)",
-                  backgroundColor: theme === "light" ? "#fff" : "#0B0B0C",
+              backgroundColor: theme === "light" ? "#fff" : "#0B0B0C",
             }}
           >
             {/* left close btn */}
-            <button type="button" className="buttons" style={{color:"#FF3E5B"}}>Close</button>
+            <button
+              type="button"
+              className="buttons"
+              style={{ color: "#FF3E5B" }}
+            >
+              Close
+            </button>
             {/* right side button */}
             <div className="rightSideBtn">
-            <button type="button" className="buttons" style={{color:"#FF3E5B"}}>Edit</button>
-              <button type="button" className="buttons" style={{color:"#fff",backgroundColor:"#FF3E5B"}}>Next</button>
+              <button
+                type="button"
+                className="buttons"
+                style={{ color: "#FF3E5B" }}
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                className="buttons"
+                style={{ color: "#fff", backgroundColor: "#FF3E5B" }}
+              >
+                Next
+              </button>
             </div>
           </div>
         </div>

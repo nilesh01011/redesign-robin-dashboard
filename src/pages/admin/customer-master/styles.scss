@@ -152,6 +152,17 @@
       position: fixed;
       bottom: 0;
       left: 0;
+
+      &.light {
+        box-shadow: rgb(0 0 0 / 15%) 1px 0px 0px 1px;
+      }
+
+      &.dark {
+        box-shadow: rgb(255 255 255 / 15%) 1px 0px 0px 1px;
+      }
+    }
+    & .customerMasterContainer {
+      margin-bottom: 80px;
     }
   }
 }
@@ -166,6 +177,10 @@
       & .rightSide {
         flex-wrap: wrap;
       }
+    }
+
+    & .customerMasterContainer {
+      margin-bottom: 120px;
     }
   }
 }

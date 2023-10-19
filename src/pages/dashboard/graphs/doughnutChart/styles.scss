@@ -9,8 +9,14 @@
 
   & h2 {
     font-size: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid;
+  }
+
+  // divider
+  & .divider {
+    width: 100%;
+    height: 1px;
+    display: block;
+    margin: 16px 0;
   }
 
   & .graphsWrapper {
@@ -19,14 +25,43 @@
     height: 100%;
     max-height: max-content;
     display: flex;
-    padding-top: 20px;
+    flex-direction: column;
 
+    // graphs
     & .graphs {
       width: 100%;
-      height: 100%;
+      height: max-content;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       & canvas {
-          max-height: 150px;
+        max-height: 164px;
+      }
+
+      // graphMiddeltext
+      & .graphMiddeltext {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+
+    // contents
+    & .graphsContents {
+      width: 100%;
+      display: grid;
+
+      & p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-size: 12px;
       }
     }
   }

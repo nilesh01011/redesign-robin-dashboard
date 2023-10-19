@@ -205,7 +205,7 @@ function Sidebar() {
           </div>
           {/* =================== menu items ================== */}
           <div
-          // ref={sidebarMenuItemsContainerRef}
+            // ref={sidebarMenuItemsContainerRef}
             className={`sidebarMenuItemsContainer ${
               theme === "light" ? "lightTheme" : "darkTheme"
             } ${sidebarScrollBar && "activeScrollbar"}`}
@@ -215,7 +215,10 @@ function Sidebar() {
             onMouseLeave={() =>
               collapsed === false ? setSidebarScrollBar(false) : null
             }
-            style={{ overflowY: collapsed ? "" : "scroll" }}
+            style={{
+              overflowY: collapsed ? "" : "scroll",
+              overflowX: collapsed ? "" : "hidden",
+            }}
           >
             {/* Desktop View */}
             <MenuItems collapsed={collapsed} setCollapsed={setCollapsed} />
@@ -384,7 +387,8 @@ function Sidebar() {
             )}
           </div>
         </div>
-        {/* mobile view theme */}
+        {/* ================================================= */}
+        {/* =============== mobile view theme ================ */}
         <div
           className="themeContainer mobileViewThemeWrapper"
           style={{
