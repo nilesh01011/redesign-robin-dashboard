@@ -19,9 +19,11 @@ table {
     position: sticky;
     top: 0;
     overflow: hidden;
+    z-index: 4;
 
-    & tr {
+    & .table {
       & th {
+        border-bottom: 1px solid;
         & span {
           position: relative;
 
@@ -63,29 +65,37 @@ table {
           }
 
           &.Cancelled {
-            border-color: #ED302D;
-            background: #FEE3D4;
-            color: #ED302D;
+            border-color: #ed302d;
+            background: #fee3d4;
+            color: #ed302d;
           }
 
           &.Cancellation {
-            border-color: #F99C22;
-            background: #FEF3D2;
-            color: #F99C22;
+            border-color: #f99c22;
+            background: #fef3d2;
+            color: #f99c22;
           }
 
           &.Transferred {
-            border-color: #2782F9;
-            background: #D3EDFE;
-            color: #2782F9;
+            border-color: #2782f9;
+            background: #d3edfe;
+            color: #2782f9;
           }
 
           &.Invoiced {
-            border-color: #9747FF;
-            background: #F3EAFF;
-            color: #9747FF;
+            border-color: #9747ff;
+            background: #f3eaff;
+            color: #9747ff;
           }
         }
+      }
+
+      &.lightHover:hover {
+        background: #f2f2f2;
+      }
+
+      &.darkHover:hover {
+        background: #1c1c1c;
       }
     }
   }

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
@@ -7,6 +9,87 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const userNameSplit = data.two ? data.two?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
+
+  console.log(data)
+
+  const [currentTabsTitle, setCurrentTabsTitle] = useState("");
+
+  const tabsList = [
+    {
+      key: 1,
+      name: "Customer Details",
+      contents: [
+        {
+          // number: data.four,
+          // customerType: data.three,
+          // customer: null,
+          // companyName: "Company Name",
+          // parentCompanyCode: `M${data.one}`,
+          // parentCompanyName: "Parent Company",
+          // coporateType: "Listed",
+          // coporateName: "XYZ Corporate Name",
+          // coporateCode: "222",
+          // coporateCategory: "C1",
+          // membershipType: data.six,
+          title: "Mobile Number",
+          text: data.four,
+        },
+        {
+          title: "Customer Type",
+          text: data.three,
+        },
+        {
+          title: "",
+          text: "",
+        },
+        {
+          title: "Company Name",
+          text: "Company Name",
+        },
+        {
+          title: "Parent Company Code",
+          text: `M${data.one}`,
+        },
+        {
+          title: "Parent Company Name",
+          text: "Parent Company Name",
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: "Customer Profile",
+      contents: [],
+    },
+    {
+      key: 3,
+      name: "Address",
+      contents: [],
+    },
+    {
+      key: 4,
+      name: "Contacts",
+      contents: [],
+    },
+    {
+      key: 5,
+      name: "Accounts Related",
+      contents: [],
+    },
+    {
+      key: 6,
+      name: "Supporting Documents",
+      contents: [],
+    },
+  ];
+
+  useEffect(() => {
+    if (!currentTabsTitle) {
+      setCurrentTabsTitle(tabsList[0].name);
+    } else {
+      setCurrentTabsTitle(currentTabsTitle);
+    }
+  }, []);
 
   // const [seeMoreData, setSeeMoreData] = useState(true);
   const [textTrucat, setTextTrucat] = useState(false);
@@ -22,51 +105,9 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
     }
   };
 
-  const tabsList = [
-    {
-      key: 1,
-      name: "Customer Details",
-      contents: [
-        {
-          number: data.four,
-          customerType: data.three,
-          customer: null,
-          companyName: "Company Name",
-          parentCompanyCode: `M${data.one}`,
-          parentCompanyName: "Parent Company",
-          coporateType: "Listed",
-          coporateName: "XYZ Corporate Name",
-          coporateCode: "222",
-          coporateCategory: "C1",
-          membershipType: data.six,
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: "Customer Profile",
-    },
-    {
-      key: 3,
-      name: "Address",
-    },
-    {
-      key: 4,
-      name: "Contacts",
-    },
-    {
-      key: 5,
-      name: "Accounts Related",
-    },
-    {
-      key: 6,
-      name: "Supporting Documents",
-    },
-  ];
-
   return (
     <div
-      className="customerMasterDrawerContainer"
+      className="tableDrawerContainer"
       style={{
         right: isDrawerOpen ? "0" : "-150%",
         backgroundColor: theme === "light" ? "#fff" : "#0B0B0C",
@@ -111,7 +152,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
             boxShadow:
               theme === "light"
-                ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
+                ? "1px 0px 1px 0px rgba(0, 0, 0, 0.15)"
                 : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
           }}
         >
@@ -149,9 +190,12 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {/* user name and Id */}
               <div className="userName_id">
                 <h3
-                  onMouseEnter={() => setTextTrucat(true)}
-                  onMouseLeave={() => setTextTrucat(false)}
-                  style={{}}
+                  onMouseEnter={() =>
+                    data.two.length > 22 && setTextTrucat(true)
+                  }
+                  onMouseLeave={() =>
+                    data.two.length > 22 && setTextTrucat(false)
+                  }
                 >
                   {/* {data.two} */}
 
@@ -279,11 +323,57 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               )} */}
             </div>
           </div>
+          {/* tabs steps */}
+          <div className="tabsSteps">
+            {tabsList.map((ele, index) => (
+              <div key={index} className="tabsItems">
+                {/* left side */}
+                <span className={`icons ${tabsList.length - 1 === index ? "" : "lines"}`}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <circle cx="12" cy="12" r="12" fill="#70C922" />
+                    <path
+                      d="M17.3333 8L10 15.3333L6.66667 12"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                {/* right side */}
+                <div
+                  onClick={() => setCurrentTabsTitle(ele.name)}
+                  className="tabsText"
+                >
+                  <span
+                    style={{
+                      color:
+                        currentTabsTitle === ele.name
+                          ? theme === "light"
+                            ? "#0B0B0C"
+                            : "#ffffff"
+                          : "#858585",
+                          fontWeight:currentTabsTitle === ele.name ? "500" : "400"
+                    }}
+                  >
+                    {ele.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         {/* right side */}
         <div className="rightSide">
+          {/* contents */}
           <div className="contents">
-            <h2>Customer Details</h2>
+            <h2>{currentTabsTitle}</h2>
             {/* user data details */}
             <div
               className="customerDetails"
@@ -291,7 +381,19 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
                 borderColor: theme === "light" ? "#E6E6E6" : "#232324",
               }}
-            ></div>
+            >
+              {tabsList.map((ele, index) => {
+                if (ele.name === currentTabsTitle) {
+                  return (
+                    <div key={index} className="detailsContainer">
+                      {ele.contents.map((el) => {
+                        // console.log(el);
+                      })}
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
           {/* footer side */}
           <div

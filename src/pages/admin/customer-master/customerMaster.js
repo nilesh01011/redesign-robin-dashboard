@@ -7,8 +7,9 @@ import { customerMasterData, tableHead } from "../../../data";
 import Table from "../../../components/table";
 import Header from "../../../components/header";
 import Dropdown from "../../../components/dropdown";
-import Drawer from "./drawer/Drawer";
+// import Drawer from "./drawer/Drawer";
 import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
+import Drawer from "../../../components/drawer/Drawer";
 
 function CustomerMaster() {
   const theme = useSelector((state) => state.theme);

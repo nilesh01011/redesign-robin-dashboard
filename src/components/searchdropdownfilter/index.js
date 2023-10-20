@@ -75,16 +75,16 @@ function Index({
   });
 
   const wordSlice = (word) => {
-    if (word.length > 20) {
-      return word.slice(0, 20) + "...";
+    if (word.length > 10) {
+      return word.slice(0, 10) + "...";
     } else {
       return word;
     }
   };
 
   const wordSlice_2 = (word) => {
-    if (word.length > 10) {
-      return word.slice(0, 10) + "...";
+    if (word.length > 8) {
+      return word.slice(0, 8) + "...";
     } else {
       return word;
     }
@@ -188,7 +188,7 @@ function Index({
             placeholder="Search"
             // type={selected === "Customer Name" ? "text" : "number"}
             type="search"
-            paddingLeft="175px"
+            paddingLeft="125px"
             paddingRight="25px"
             setInputFields={setInputFields}
             inputFields={inputFields}

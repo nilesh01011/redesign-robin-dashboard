@@ -75,9 +75,9 @@ function DashboardPage() {
               style={{ display: "none" }}
             >
               {/* keyhightlight title */}
-              <div className="title_heads">
-                <h4>Key Highlights</h4>
-                {/* <p>
+              {/* <div className="title_heads"> */}
+              {/* <h4>Key Highlights</h4> */}
+              {/* <p>
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ function DashboardPage() {
                     </svg>
                   </span>
                 </p> */}
-              </div>
+              {/* </div> */}
               {/* divide */}
               <div
                 className="divider"
@@ -119,11 +119,11 @@ function DashboardPage() {
                   backgroundColor: theme === "light" ? "#B5B5B6" : "#635d5d",
                 }}
               ></div>
-              {/* contents */}
+              {/* contents
               <div className="heads one">
-                {/* label */}
+                label
                 <span className="label_name">GST Update</span>
-                {/* text */}
+                text
                 <p className="text" style={{ color: "#FF3E5B" }}>
                   Lorem Ipsum is simply dummy text of the printing Lorem Ipsum
                   is simply dummy text of the printing
@@ -143,18 +143,18 @@ function DashboardPage() {
                     justifyContent: "space-between",
                   }}
                 >
-                  {/* label */}
+                  label
                   <span className="label_name">GST Update</span>
                   <span style={{ color: "#858585", marginLeft: 4 }}>
                     5min ago
                   </span>
                 </div>
-                {/* text */}
+                text
                 <p className="text" style={{ color: "#FF3E5B" }}>
                   Lorem Ipsum is simply dummy text of the printing Lorem Ipsum
                   is simply dummy text of the printing
                 </p>
-              </div>
+              </div> */}
             </div>
 
             {/* Carousel Sections */}

@@ -85,33 +85,6 @@
         }
       }
     }
-
-    & .emptyDataTable {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-      height: 100%;
-      min-height: 465px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-
-      & .addbutton {
-        padding: 8px 1rem;
-        background-color: #ff3e5b;
-        color: white;
-        text-transform: capitalize;
-        border-radius: 4px;
-        margin-top: 20px;
-      }
-    }
   }
 }
 

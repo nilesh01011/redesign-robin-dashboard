@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import SelectDropdownFilter from "../../components/searchdropdownfilter/index";
 import Table from "../../components/table/index";
 import { bookingTableData, bookingTableHead } from "../../data";
+import Drawer from "./drawer/Drawer";
 
 function OTF() {
   const theme = useSelector((state) => state.theme);
@@ -14,6 +15,14 @@ function OTF() {
   // const [tableData, setTableData] = useState([]);
   const [selectDropdownFilterText, setSelectedDropdownFilterText] =
     useState("");
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerData, setDrawerData] = useState([]);
+  const [drawerType, setDrawerType] = useState("");
+
+  const handleDrawerClosed = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
 
   const customersList = [
     {
@@ -63,36 +72,10 @@ function OTF() {
           </svg>
         </span>
         {/* text */}
-        <span>No Record Found</span>
-        {/* description */}
-        <p>
-          Please{" "}
-          <span style={{ color: theme === "light" ? "black" : "white" }}>
-            “Add New Customer”
-          </span>{" "}
-          using below button.
+        <p style={{ textAlign: "center", width: "90%", margin: "0 auto" }}>
+          Use “Search” at top to find customer and select the same to update
+          customer details.
         </p>
-
-        {/* button */}
-        <button type="button" className="addbutton">
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M7 1.75C7.18122 1.75 7.32813 1.89691 7.32813 2.07812V6.67188H11.9219C12.1031 6.67188 12.25 6.81878 12.25 7C12.25 7.18122 12.1031 7.32813 11.9219 7.32813H7.32813V11.9219C7.32813 12.1031 7.18122 12.25 7 12.25C6.81878 12.25 6.67188 12.1031 6.67188 11.9219L6.67188 7.32813H2.07812C1.89691 7.32813 1.75 7.18122 1.75 7C1.75 6.81878 1.89691 6.67188 2.07812 6.67188H6.67188L6.67188 2.07812C6.67188 1.89691 6.81878 1.75 7 1.75Z"
-                fill="white"
-              />
-            </svg>
-          </span>
-          Add
-        </button>
       </div>
     );
   };
@@ -253,9 +236,9 @@ function OTF() {
             searchDropdownText={selectDropdownFilterText}
             inputFields={inputFields}
             emptyTableData={emptyTableData}
-            // setDrawerData={setDrawerData}
-            // setDrawerType={setDrawerType}
-            // setIsDrawerOpen={setIsDrawerOpen}
+            setDrawerData={setDrawerData}
+            setDrawerType={setDrawerType}
+            setIsDrawerOpen={setIsDrawerOpen}
           />
         </div>
       </div>
@@ -276,6 +259,21 @@ function OTF() {
       >
         <span>Copyright © 2023 ROBIN.</span>
       </div>
+
+      {/* Drawer */}
+      <Drawer
+        data={drawerData}
+        drawerType={drawerType}
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
+
+      {/* overlay */}
+      <div
+        id="newsDrawerOverlay"
+        style={{ display: isDrawerOpen ? "block" : "none" }}
+        onClick={() => handleDrawerClosed()}
+      ></div>
     </div>
   );
 }

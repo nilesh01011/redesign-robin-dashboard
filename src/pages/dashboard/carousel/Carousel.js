@@ -34,16 +34,17 @@ function Carousel({ children }) {
 
   useLayoutEffect(() => {
     if (itemRef.current.offsetWidth) {
-      console.log(itemRef.current.offsetWidth);
+      // console.log(itemRef.current.offsetWidth);
       setItemWidth(() => itemRef.current.offsetWidth);
     }
   }, []);
 
   useEffect(() => {
     if (currentIndex && itemWidth) {
+      console.log(window.innerWidth);
       setTranslateWidth(() => currentIndex * itemWidth);
     }
-  }, [currentIndex, itemWidth]);
+  }, [currentIndex, itemWidth, window.innerWidth]);
 
   return (
     <div className="carousel">

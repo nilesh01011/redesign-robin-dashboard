@@ -133,7 +133,7 @@ export const menuItems = [
         link: "/admin/customer-master",
       },
       {
-        name: "OTF",
+        name: "Booking Form",
         key: 4.2,
         link: "/admin/booking-form",
       },

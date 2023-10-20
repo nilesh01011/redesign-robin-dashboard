@@ -14,6 +14,7 @@ function Index({
 }) {
   const theme = useSelector((state) => state.theme);
   // const [tabelScrollbar, setTabelScrollbar] = useState(false);
+  const [textTrucat, setTextTrucat] = useState(false);
 
   const filterData = tableBody.filter((item) => {
     return inputFields.toLowerCase() === ""
@@ -23,6 +24,19 @@ function Index({
           item.three.includes(inputFields) ||
           item.four.includes(inputFields);
   });
+
+  const wordSlice = (word) => {
+    if (word === undefined) {
+      return;
+    }
+    if (word.length > 13) {
+      return word.slice(0, 13) + "...";
+    } else {
+      return word;
+    }
+  };
+
+  const borderColor = theme === "light" ? "#e6e6e6" : "#232324";
 
   return (
     <table>
@@ -35,7 +49,7 @@ function Index({
       >
         <tr className="table">
           {tableHead.map((ele) => (
-            <th key={ele.key}>
+            <th key={ele.key} style={{ borderColor: borderColor,}}>
               {ele.label}
               {/* icons */}
               <span
@@ -75,10 +89,13 @@ function Index({
       ) : (
         <tbody>
           {filterData.map((ele, index) => (
-            <tr key={ele.key}>
+            <tr
+              key={ele.key}
+              className={theme === "light" ? "lightHover" : "darkHover"}
+            >
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
@@ -86,7 +103,7 @@ function Index({
               </td>
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
@@ -94,15 +111,33 @@ function Index({
               </td>
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
+                  position: "relative",
                 }}
+                onMouseEnter={() => ele.two.length > 14 && setTextTrucat(true)}
+                onMouseLeave={() => ele.two.length > 14 && setTextTrucat(false)}
               >
-                {ele.two}
+                {wordSlice(ele.two)}
+                {/* {textTrucat && (
+                  <span
+                    className="textOverflow"
+                    style={{
+                      opacity: textTrucat ? "1" : "0",
+                      backgroundColor: textTrucat
+                        ? theme === "light"
+                          ? "#ffffff"
+                          : "#0B0B0C"
+                        : "",
+                    }}
+                  >
+                    {ele.two}
+                  </span>
+                )} */}
               </td>
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
@@ -110,7 +145,7 @@ function Index({
               </td>
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
@@ -118,7 +153,7 @@ function Index({
               </td>
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
@@ -131,7 +166,7 @@ function Index({
               {ele.six && (
                 <td
                   style={{
-                    borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                    borderColor: borderColor,
                     color: theme === "light" ? "#545454" : "#a3a3a3",
                   }}
                 >
@@ -141,13 +176,14 @@ function Index({
 
               <td
                 style={{
-                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  borderColor: borderColor,
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
                   {/* view data */}
                   <span
+                    title="View Details"
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                       setDrawerData(ele);
@@ -173,6 +209,7 @@ function Index({
                   {/* edit data */}
                   {!ele.notEdit && (
                     <span
+                      title="Edit Details"
                       style={{ cursor: "pointer" }}
                       onClick={() => {
                         setDrawerData(ele, "Edit");
