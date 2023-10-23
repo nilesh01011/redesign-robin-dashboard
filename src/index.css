@@ -5,6 +5,7 @@
   font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
 }
 
 .container {
@@ -85,7 +86,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body.light::-webkit-scrollbar-thumb {
-  background: #B5B5B6;
+  background: #b5b5b6;
 }
 
 body.dark::-webkit-scrollbar-thumb {
@@ -100,6 +101,7 @@ body.dark::-webkit-scrollbar-thumb {
   width: 100%;
   height: 100%;
   max-height: 500px;
+  min-height: 500px;
   overflow: scroll;
   border-radius: 4px;
   border: 1px solid;
@@ -119,7 +121,33 @@ body.dark::-webkit-scrollbar-thumb {
   width: 100%;
 }
 .searchFilterContainer .searchFilterDropdown {
-  width: 400px;
+  width: 330px;
+}
+
+.emptyDataTable {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  height: 100%;
+  min-height: 465px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.emptyDataTable .addbutton {
+  padding: 8px 1rem;
+  background-color: #ff3e5b;
+  color: white;
+  text-transform: capitalize;
+  border-radius: 4px;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 1038px) {
@@ -143,7 +171,6 @@ body.dark::-webkit-scrollbar-thumb {
   }
   .tableMobileView {
     display: block;
-    margin-bottom: 80px;
   }
   .searchFilterContainer .searchFilterDropdown {
     width: 100%;

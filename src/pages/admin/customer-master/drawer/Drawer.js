@@ -1,87 +1,229 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
+import GridContent from "./gridContent/GridContent";
+import Accordion from "./accordion/Accordion";
 
 function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const theme = useSelector((state) => state.theme);
   const userNameSplit = data.two ? data.two?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
-
-  console.log(data)
-
   const [currentTabsTitle, setCurrentTabsTitle] = useState("");
 
-  const tabsList = [
-    {
-      key: 1,
-      name: "Customer Details",
-      contents: [
-        {
-          // number: data.four,
-          // customerType: data.three,
-          // customer: null,
-          // companyName: "Company Name",
-          // parentCompanyCode: `M${data.one}`,
-          // parentCompanyName: "Parent Company",
-          // coporateType: "Listed",
-          // coporateName: "XYZ Corporate Name",
-          // coporateCode: "222",
-          // coporateCategory: "C1",
-          // membershipType: data.six,
-          title: "Mobile Number",
-          text: data.four,
-        },
-        {
-          title: "Customer Type",
-          text: data.three,
-        },
-        {
-          title: "",
-          text: "",
-        },
-        {
-          title: "Company Name",
-          text: "Company Name",
-        },
-        {
-          title: "Parent Company Code",
-          text: `M${data.one}`,
-        },
-        {
-          title: "Parent Company Name",
-          text: "Parent Company Name",
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: "Customer Profile",
-      contents: [],
-    },
-    {
-      key: 3,
-      name: "Address",
-      contents: [],
-    },
-    {
-      key: 4,
-      name: "Contacts",
-      contents: [],
-    },
-    {
-      key: 5,
-      name: "Accounts Related",
-      contents: [],
-    },
-    {
-      key: 6,
-      name: "Supporting Documents",
-      contents: [],
-    },
-  ];
+  const [contentsType, setContentsType] = useState("gridContents");
+
+  const tabsList = useMemo(() => {
+    return [
+      {
+        key: 1,
+        name: "Customer Details",
+        type: "gridContents",
+        contents: [
+          {
+            title: "Mobile Number",
+            text: data.four,
+          },
+          {
+            title: "Customer Type",
+            text: data.three,
+          },
+          {
+            title: "",
+            text: "",
+          },
+          {
+            title: "Company Name",
+            text: "Company Name",
+          },
+          {
+            title: "Parent Company Code",
+            text: `M${data.one}`,
+          },
+          {
+            title: "Parent Company Name",
+            text: "Parent Company Name",
+          },
+          {
+            title: "Corporate Type",
+            text: "Listed",
+          },
+          {
+            title: "Corporate Name",
+            text: "XYZ Corporate Name",
+          },
+          {
+            title: "Corporate Code",
+            text: "222",
+          },
+
+          {
+            title: "Corporate Category",
+            text: "C1",
+          },
+          {
+            title: "Membership Type",
+            text: data.six,
+          },
+          {
+            title: "",
+            text: "",
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: "Customer Profile",
+        type: "accordion",
+        contents: [
+          {
+            title: "Company Information",
+            type: "gridContents",
+            contents: [
+              {
+                title: "PAN",
+                text: "CFG46478" + data.length + 1,
+              },
+              {
+                title: "GSTIN",
+                text: "CFG4554564787",
+              },
+              {
+                title: "",
+                text: "",
+              },
+              {
+                title: "Usage/Application Categorization",
+                text: "Application category",
+              },
+              {
+                title: "Usage/Application Sub-Category",
+                text: "Sub Category",
+              },
+              {
+                title: "Customer Category",
+                text: "Common",
+              },
+            ],
+          },
+          {
+            title: "Social Profiles",
+            type: "gridContents",
+            contents: [
+              {
+                title: "M1-MMFSL",
+                text: "mmfl_id",
+              },
+              {
+                title: "Facebook link",
+                text: "CFG4554564787",
+              },
+              {
+                title: "",
+                text: "",
+              },
+              {
+                title: "Usage/Application Categorization",
+                text: "Application category",
+              },
+              {
+                title: "Usage/Application Sub-Category",
+                text: "Sub Category",
+              },
+              {
+                title: "Customer Category",
+                text: "Common",
+              },
+            ],
+          },
+          {
+            title: "Key Account Details",
+            type: "gridContents",
+            contents: [
+              {
+                title: "Account Code",
+                text: "CFG464787",
+              },
+              {
+                title: "Account Name",
+                text: "Koncept",
+              },
+              {
+                title: "Account Segment",
+                text: "Firm",
+              },
+
+              {
+                title: "Account Client Name",
+                text: "Pal Singh",
+              },
+              {
+                title: "Account Mapping Date",
+                text: "12 Apr 2023",
+              },
+            ],
+          },
+          {
+            title: "Authority Details (Who Knows Whom)",
+            type: "gridContents",
+            contents: [
+              {
+                title: "Name Of Person",
+                text: "Vimal Kumar",
+              },
+              {
+                title: "Position",
+                text: "Manager",
+              },
+              {
+                title: "Company Name",
+                text: "Koncept",
+              },
+              {
+                title: "Remarks",
+                text: "This is Remark Dummy text",
+              },
+            ],
+          },
+          {
+            title: "Upload Customer Form",
+            type: "form",
+            contents: [
+              {
+                title: "Customer Form.pdf",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        key: 3,
+        name: "Address",
+        type: "accordion",
+        contents: [],
+      },
+      {
+        key: 4,
+        name: "Contacts",
+        type: "accordion",
+        contents: [],
+      },
+      {
+        key: 5,
+        name: "Accounts Related",
+        type: "accordion",
+        contents: [],
+      },
+      {
+        key: 6,
+        name: "Supporting Documents",
+        type: "accordion",
+        contents: [],
+      },
+    ];
+  }, [data]);
 
   useEffect(() => {
     if (!currentTabsTitle) {
@@ -89,7 +231,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
     } else {
       setCurrentTabsTitle(currentTabsTitle);
     }
-  }, []);
+  }, [currentTabsTitle, tabsList]);
 
   // const [seeMoreData, setSeeMoreData] = useState(true);
   const [textTrucat, setTextTrucat] = useState(false);
@@ -328,7 +470,11 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             {tabsList.map((ele, index) => (
               <div key={index} className="tabsItems">
                 {/* left side */}
-                <span className={`icons ${tabsList.length - 1 === index ? "" : "lines"}`}>
+                <span
+                  className={`icons ${
+                    tabsList.length - 1 === index ? "" : "lines"
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -348,7 +494,10 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 </span>
                 {/* right side */}
                 <div
-                  onClick={() => setCurrentTabsTitle(ele.name)}
+                  onClick={() => {
+                    setCurrentTabsTitle(ele.name);
+                    setContentsType(ele.type);
+                  }}
                   className="tabsText"
                 >
                   <span
@@ -359,7 +508,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                             ? "#0B0B0C"
                             : "#ffffff"
                           : "#858585",
-                          fontWeight:currentTabsTitle === ele.name ? "500" : "400"
+                      fontWeight: currentTabsTitle === ele.name ? "500" : "400",
                     }}
                   >
                     {ele.name}
@@ -372,23 +521,46 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         {/* right side */}
         <div className="rightSide">
           {/* contents */}
-          <div className="contents">
+          <div
+            className={`contents ${
+              theme === "light" ? "lightTheme" : "darkTheme"
+            }`}
+          >
             <h2>{currentTabsTitle}</h2>
             {/* user data details */}
             <div
               className="customerDetails"
               style={{
-                backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-                borderColor: theme === "light" ? "#E6E6E6" : "#232324",
+                backgroundColor:
+                  contentsType === "gridContents"
+                    ? theme === "light"
+                      ? "#F2F2F2"
+                      : "#1C1C1C"
+                    : "",
+                border:
+                  contentsType === "gridContents"
+                    ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
+                    : "",
+                padding: contentsType === "gridContents" ? "20px 30px" : "",
               }}
             >
-              {tabsList.map((ele, index) => {
+              {tabsList?.map((ele, index) => {
                 if (ele.name === currentTabsTitle) {
                   return (
-                    <div key={index} className="detailsContainer">
-                      {ele.contents.map((el) => {
-                        // console.log(el);
-                      })}
+                    <div
+                      key={index}
+                      className={`detailsContainer ${ele.type}`}
+                      style={{ paddingBottom: ele.type === "accordion" && 120 }}
+                    >
+                      {ele.type === "gridContents" &&
+                        ele.contents.map((el, index) => {
+                          return <GridContent key={index} data={el} />;
+                        })}
+
+                      {ele.type === "accordion" &&
+                        ele.contents.map((el, index) => (
+                          <Accordion key={index} data={el} />
+                        ))}
                     </div>
                   );
                 }
@@ -402,8 +574,9 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               boxShadow:
                 theme === "light"
                   ? "1px 0px 0px 1px rgba(0, 0, 0, 0.15)"
-                  : "1px 0px 0px 1px rgba(255, 255, 255, 0.15)",
-              backgroundColor: theme === "light" ? "#fff" : "#0B0B0C",
+                  : "0px -1px 1px 0px rgba(255, 255, 255, 0.15)",
+              backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
+              marginLeft: theme === "light" ? "1px" : "0px",
             }}
           >
             {/* left close btn */}
@@ -411,6 +584,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               type="button"
               className="buttons"
               style={{ color: "#FF3E5B" }}
+              onClick={() => setIsDrawerOpen(false)}
             >
               Close
             </button>

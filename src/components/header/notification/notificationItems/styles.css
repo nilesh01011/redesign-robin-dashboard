@@ -6,11 +6,18 @@
   gap: 10px;
   padding: 10px 16px;
   position: relative;
+  cursor: pointer;
+}
+.notificationItems.lightTheme:hover {
+  background-color: #E6E6E6;
+}
+.notificationItems.darkTheme:hover {
+  background-color: #1C1C1C;
 }
 .notificationItems .status {
   position: absolute;
   left: 18px;
-  top: 14px;
+  top: 16px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -82,5 +89,6 @@
   color: #ff3e5b;
 }
 .notificationItems .editMails span.dark:hover {
+  background: #232324;
   color: #ff3e5b;
 }/*# sourceMappingURL=styles.css.map */

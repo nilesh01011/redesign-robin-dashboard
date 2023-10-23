@@ -1,0 +1,255 @@
+.tableDrawerContainer {
+  width: 93%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  transition: 0.7s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.tableDrawerContainer .drawerTypeText {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.tableDrawerContainer .drawerTypeText h3 {
+  text-transform: capitalize;
+  font-size: 18px;
+}
+.tableDrawerContainer .drawerTypeText span {
+  cursor: pointer;
+}
+.tableDrawerContainer .drawerData {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.tableDrawerContainer .drawerData .leftSide {
+  width: 23%;
+  height: 100%;
+  padding: 20px;
+  margin-top: 1px;
+  z-index: 4;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile {
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userImg span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff3e5b;
+  position: relative;
+  cursor: pointer;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id h3 .userNameSpan {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  bottom: 0;
+  padding: 5px;
+  white-space: nowrap;
+  z-index: 4;
+  border-radius: 4px;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id p {
+  font-size: 14px;
+  font-weight: 400;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .divider {
+  width: 100%;
+  height: 1px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+.tableDrawerContainer .drawerData .leftSide .userProfile .customerType {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons.lines::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background-color: #70c922;
+  display: block;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+.tableDrawerContainer .drawerData .rightSide {
+  width: 77%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.tableDrawerContainer .drawerData .rightSide .contents {
+  width: 100%;
+  height: 100%;
+  padding: 30px 40px;
+  overflow-y: scroll;
+}
+.tableDrawerContainer .drawerData .rightSide .contents::-webkit-scrollbar {
+  width: 5px;
+}
+.tableDrawerContainer .drawerData .rightSide .contents.lightTheme::-webkit-scrollbar-track {
+  background: #f0efef;
+}
+.tableDrawerContainer .drawerData .rightSide .contents.darkTheme::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+.tableDrawerContainer .drawerData .rightSide .contents::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.tableDrawerContainer .drawerData .rightSide .contents.lightTheme::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+}
+.tableDrawerContainer .drawerData .rightSide .contents.darkTheme::-webkit-scrollbar-thumb {
+  background: #545454;
+}
+.tableDrawerContainer .drawerData .rightSide .contents h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails {
+  border-radius: 4px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer {
+  width: 100%;
+  height: 100%;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer .detailsContents {
+  min-height: 47px;
+  display: flex;
+  flex-direction: column;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .gridContents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 20px;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .form {
+  display: flex;
+  flex-direction: column;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide {
+  position: absolute;
+  bottom: 56.2px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  z-index: 5;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide .buttons {
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #ff3e5b;
+  text-transform: capitalize;
+  border-radius: 4px;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide .rightSideBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 880px) {
+  .tableDrawerContainer .drawerTypeText h3 {
+    font-size: 16px;
+  }
+  .tableDrawerContainer .drawerData .leftSide {
+    display: none;
+  }
+  .tableDrawerContainer .drawerData .rightSide {
+    width: 100%;
+  }
+  .tableDrawerContainer .drawerData .rightSide .contents {
+    padding: 20px;
+  }
+  .tableDrawerContainer .drawerData .rightSide .contents h2 {
+    font-size: 16px;
+  }
+  .tableDrawerContainer .rightSide .footerSide {
+    margin-left: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */

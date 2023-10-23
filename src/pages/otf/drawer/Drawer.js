@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
@@ -10,78 +10,78 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
 
-  console.log(data)
-
   const [currentTabsTitle, setCurrentTabsTitle] = useState("");
 
-  const tabsList = [
-    {
-      key: 1,
-      name: "Customer Details",
-      contents: [
-        {
-          // number: data.four,
-          // customerType: data.three,
-          // customer: null,
-          // companyName: "Company Name",
-          // parentCompanyCode: `M${data.one}`,
-          // parentCompanyName: "Parent Company",
-          // coporateType: "Listed",
-          // coporateName: "XYZ Corporate Name",
-          // coporateCode: "222",
-          // coporateCategory: "C1",
-          // membershipType: data.six,
-          title: "Mobile Number",
-          text: data.four,
-        },
-        {
-          title: "Customer Type",
-          text: data.three,
-        },
-        {
-          title: "",
-          text: "",
-        },
-        {
-          title: "Company Name",
-          text: "Company Name",
-        },
-        {
-          title: "Parent Company Code",
-          text: `M${data.one}`,
-        },
-        {
-          title: "Parent Company Name",
-          text: "Parent Company Name",
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: "Customer Profile",
-      contents: [],
-    },
-    {
-      key: 3,
-      name: "Address",
-      contents: [],
-    },
-    {
-      key: 4,
-      name: "Contacts",
-      contents: [],
-    },
-    {
-      key: 5,
-      name: "Accounts Related",
-      contents: [],
-    },
-    {
-      key: 6,
-      name: "Supporting Documents",
-      contents: [],
-    },
-  ];
+  const tabsList = useMemo(() => {
+    return [
+      {
+        key: 1,
+        name: "Customer Details",
+        contents: [
+          {
+            // number: data.four,
+            // customerType: data.three,
+            // customer: null,
+            // companyName: "Company Name",
+            // parentCompanyCode: `M${data.one}`,
+            // parentCompanyName: "Parent Company",
+            // coporateType: "Listed",
+            // coporateName: "XYZ Corporate Name",
+            // coporateCode: "222",
+            // coporateCategory: "C1",
+            // membershipType: data.six,
+            title: "Mobile Number",
+            text: data.four,
+          },
+          {
+            title: "Customer Type",
+            text: data.three,
+          },
+          {
+            title: "",
+            text: "",
+          },
+          {
+            title: "Company Name",
+            text: "Company Name",
+          },
+          {
+            title: "Parent Company Code",
+            text: `M${data.one}`,
+          },
+          {
+            title: "Parent Company Name",
+            text: "Parent Company Name",
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: "Customer Profile",
+        contents: [],
+      },
+      {
+        key: 3,
+        name: "Address",
+        contents: [],
+      },
+      {
+        key: 4,
+        name: "Contacts",
+        contents: [],
+      },
+      {
+        key: 5,
+        name: "Accounts Related",
+        contents: [],
+      },
+      {
+        key: 6,
+        name: "Supporting Documents",
+        contents: [],
+      },
+    ];
+  }, [data]);
 
   useEffect(() => {
     if (!currentTabsTitle) {
@@ -89,7 +89,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
     } else {
       setCurrentTabsTitle(currentTabsTitle);
     }
-  }, []);
+  }, [currentTabsTitle, tabsList]);
 
   // const [seeMoreData, setSeeMoreData] = useState(true);
   const [textTrucat, setTextTrucat] = useState(false);
@@ -251,9 +251,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               }}
             >
               <span>Mobile no.:</span>
-              <span style={{ fontWeight: 700 }}>
-              {/* {data.four} */}
-              </span>
+              <span style={{ fontWeight: 700 }}>{/* {data.four} */}</span>
             </p>
             {/* see more */}
             <div className="moreDataShow">
@@ -327,10 +325,14 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           </div>
           {/* tabs steps */}
           <div className="tabsSteps">
-            {tabsList.map((ele, index) => (
+            {tabsList?.map((ele, index) => (
               <div key={index} className="tabsItems">
                 {/* left side */}
-                <span className={`icons ${tabsList.length - 1 === index ? "" : "lines"}`}>
+                <span
+                  className={`icons ${
+                    tabsList?.length - 1 === index ? "" : "lines"
+                  }`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -361,7 +363,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                             ? "#0B0B0C"
                             : "#ffffff"
                           : "#858585",
-                          fontWeight:currentTabsTitle === ele.name ? "500" : "400"
+                      fontWeight: currentTabsTitle === ele.name ? "500" : "400",
                     }}
                   >
                     {ele.name}
@@ -405,7 +407,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 theme === "light"
                   ? "1px 0px 0px 1px rgba(0, 0, 0, 0.15)"
                   : "1px 0px 0px 1px rgba(255, 255, 255, 0.15)",
-              backgroundColor: theme === "light" ? "#fff" : "#0B0B0C",
+              backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
             }}
           >
             {/* left close btn */}

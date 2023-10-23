@@ -13,19 +13,23 @@ table .tableHeads {
   position: sticky;
   top: 0;
   overflow: hidden;
+  z-index: 4;
 }
-table .tableHeads tr th span {
+table .tableHeads .table th {
+  border-bottom: 1px solid;
+}
+table .tableHeads .table th span {
   position: relative;
 }
-table .tableHeads tr th span svg {
+table .tableHeads .table th span svg {
   position: absolute;
   right: -25px;
   top: 1px;
 }
-table .tableHeads tr th:first-child {
+table .tableHeads .table th:first-child {
   border-top-left-radius: 4px;
 }
-table .tableHeads tr th:last-child {
+table .tableHeads .table th:last-child {
   border-top-right-radius: 4px;
 }
 table tbody tr td {
@@ -43,24 +47,30 @@ table tbody tr td .status.Alloted, table tbody tr td .status.Delivered, table tb
   color: #70c922;
 }
 table tbody tr td .status.Cancelled {
-  border-color: #ED302D;
-  background: #FEE3D4;
-  color: #ED302D;
+  border-color: #ed302d;
+  background: #fee3d4;
+  color: #ed302d;
 }
 table tbody tr td .status.Cancellation {
-  border-color: #F99C22;
-  background: #FEF3D2;
-  color: #F99C22;
+  border-color: #f99c22;
+  background: #fef3d2;
+  color: #f99c22;
 }
 table tbody tr td .status.Transferred {
-  border-color: #2782F9;
-  background: #D3EDFE;
-  color: #2782F9;
+  border-color: #2782f9;
+  background: #d3edfe;
+  color: #2782f9;
 }
 table tbody tr td .status.Invoiced {
-  border-color: #9747FF;
-  background: #F3EAFF;
-  color: #9747FF;
+  border-color: #9747ff;
+  background: #f3eaff;
+  color: #9747ff;
+}
+table tbody tr.lightHover:hover {
+  background: #f2f2f2;
+}
+table tbody tr.darkHover:hover {
+  background: #1c1c1c;
 }
 
 @media screen and (max-width: 1058px) {

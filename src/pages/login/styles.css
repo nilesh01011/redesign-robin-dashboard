@@ -105,7 +105,7 @@
   bottom: 9.5px;
 }
 .loginPage .loginForm .formContainer form .errors {
-  color: #ED302D;
+  color: #ed302d;
   font-size: 12px;
   width: 100%;
   text-align: left;
@@ -114,7 +114,7 @@
 .loginPage .loginForm .formContainer .forgetPassword {
   text-align: right;
   font-weight: 700;
-  color: #FF3E5B;
+  color: #ff3e5b;
   margin-top: 5px;
   margin-left: auto;
 }
@@ -125,14 +125,14 @@
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: 700;
-  background-color: #FF3E5B;
+  background-color: #ff3e5b;
   color: white;
   letter-spacing: 0.6px;
   cursor: pointer;
   margin: 21px 0;
 }
 .loginPage .loginForm .formContainer .m_login {
-  color: #FF3E5B;
+  color: #ff3e5b;
   font-size: 14px;
   font-weight: 700;
 }
@@ -145,6 +145,11 @@
   white-space: nowrap;
 }
 
+@media screen and (max-width: 1280px) {
+  .loginPage .loginPage_footer {
+    margin-top: 14px;
+  }
+}
 @media screen and (max-width: 768px) {
   .loginPage .loginForm .formContainer .title {
     font-size: 22px;

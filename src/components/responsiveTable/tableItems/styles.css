@@ -12,4 +12,9 @@
 }
 .tableItems .leftSideData p span {
   font-size: 12px;
+}
+.tableItems .rightSideData {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }/*# sourceMappingURL=styles.css.map */

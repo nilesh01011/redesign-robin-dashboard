@@ -163,7 +163,7 @@ function Index() {
                   gradientUnits="userSpaceOnUse"
                   gradientTransform="translate(153.824 9.352) scale(134.763 2921.3)"
                 >
-                  <stop stop-color="#E31837" />
+                  <stop stopColor="#E31837" />
                   <stop offset="1" stopColor="#E31837" stopOpacity="0" />
                 </radialGradient>
               </defs>
