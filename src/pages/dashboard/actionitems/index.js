@@ -17,6 +17,7 @@ function ActionItemsCollapsed({
     setDrawerSliderID(items.id);
     setDrawerType("Action Items");
     document.body.style.overflow = "hidden";
+    // document.body.classList.add("overflow-hidden");
   };
 
   return (

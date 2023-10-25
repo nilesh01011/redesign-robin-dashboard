@@ -242,15 +242,17 @@
   gap: 10px;
 }
 
-@media screen and (max-width: 880px) {
-  .tableDrawerContainer .drawerTypeText h3 {
-    font-size: 16px;
-  }
+@media screen and (max-width: 992px) {
   .tableDrawerContainer .drawerData .leftSide {
     display: none;
   }
   .tableDrawerContainer .drawerData .rightSide {
-    width: 100%;
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 880px) {
+  .tableDrawerContainer .drawerTypeText h3 {
+    font-size: 16px;
   }
   .tableDrawerContainer .drawerData .rightSide .contents {
     padding: 20px;

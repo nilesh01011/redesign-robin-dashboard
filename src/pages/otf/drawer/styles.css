@@ -185,25 +185,4 @@
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-@media screen and (max-width: 880px) {
-  .tableDrawerContainer .drawerTypeText h3 {
-    font-size: 16px;
-  }
-  .tableDrawerContainer .drawerData .leftSide {
-    display: none;
-  }
-  .tableDrawerContainer .drawerData .rightSide {
-    width: 100%;
-  }
-  .tableDrawerContainer .drawerData .rightSide .contents {
-    padding: 20px;
-  }
-  .tableDrawerContainer .drawerData .rightSide .contents h2 {
-    font-size: 16px;
-  }
-  .tableDrawerContainer .rightSide .footerSide {
-    margin-left: 0;
-  }
 }/*# sourceMappingURL=styles.css.map */

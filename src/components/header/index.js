@@ -70,6 +70,7 @@ function Header({ handleClosed, setModelListDetails }) {
     setUserProfileDropdown(false);
     document.querySelector("body").classList.add("removeScrollbar");
     document.querySelector("body").style.overflow = "hidden";
+    window.scrollTo(0, 0);
   };
 
   // user logout details

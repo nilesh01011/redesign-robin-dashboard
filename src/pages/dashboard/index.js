@@ -37,6 +37,7 @@ function DashboardPage() {
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
     document.body.style.overflow = "auto";
+    // document.body.classList.remove("overflow-hidden");
   };
 
   const borderColor = theme === "light" ? "#E6E6E6" : "#232324";

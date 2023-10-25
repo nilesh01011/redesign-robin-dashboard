@@ -288,6 +288,19 @@
 }
 
 // media queries
+@media screen and (max-width: 992px) {
+  .tableDrawerContainer {
+    & .drawerData {
+      & .leftSide {
+        display: none;
+      }
+
+      & .rightSide {
+        width: 100% !important;
+      }
+    }
+  }
+}
 @media screen and (max-width: 880px) {
   .tableDrawerContainer {
     & .drawerTypeText {
@@ -297,13 +310,7 @@
     }
 
     & .drawerData {
-      & .leftSide {
-        display: none;
-      }
-
       & .rightSide {
-        width: 100%;
-
         & .contents {
           padding: 20px;
 
