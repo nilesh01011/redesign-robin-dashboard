@@ -29,6 +29,10 @@ import NEWSCARIMAGES from "./images/newsCarImg.png";
 import AVATAR from "./images/avatar.png";
 import AVATAR2 from "./images/avatar2.png";
 
+import USERIMG from "./images/userImg.png"
+
+import ADDS from "./images/adds.png"
+
 export {
   sideBarHeaderArrow,
   R_IMG,
@@ -52,5 +56,8 @@ export {
   MAHINDRA_SPONSOR_BANNER,
   NEWSCARIMAGES,
   AVATAR,
-  AVATAR2
+  AVATAR2,
+
+  USERIMG,
+  ADDS
 };

@@ -16,14 +16,14 @@
   border: 1px solid;
 }
 .dashboard .boxContainer .actionItems_container {
-  margin-top: 10px;
-  display: flex;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side {
-  width: 72%;
-  padding: 16px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -40,7 +40,7 @@
   gap: 4px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
   opacity: 0;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active::-webkit-scrollbar {
@@ -50,7 +50,7 @@
   background: transparent;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active.light::-webkit-scrollbar-thumb {
   background: #b5b5b6;
@@ -59,27 +59,24 @@
   background: #242424;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_right_side {
-  width: 35%;
+  width: 100%;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_right_side .images {
   width: 100%;
   height: 100%;
-  max-height: 268px;
+  min-height: 234px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_right_side .images img {
   width: 100%;
   height: 100%;
-  max-height: 268px;
+  max-height: 234px;
+  min-height: 234px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 4px;
-  -o-object-position: left;
-     object-position: left;
-}
-.dashboard .boxContainer .actionItems_container .box_Contents {
-  border: 1px solid;
   border-radius: 4px;
 }
 .dashboard .boxContainer .dashboard_api {
@@ -92,7 +89,8 @@
   justify-content: space-between;
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title h2 {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 700;
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title .addWidgetBtn {
   display: flex;
@@ -131,7 +129,6 @@
   overflow: hidden;
 }
 .dashboard .boxContainer .news_birthday .boxs {
-  border: 1px solid;
   border-radius: 4px;
   width: 100%;
   display: flex;
@@ -139,14 +136,12 @@
   max-height: 367px;
   min-height: 367px;
 }
-.dashboard .boxContainer .news_birthday .boxs.birthdaySection {
-  gap: 16px;
-}
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper, .dashboard .boxContainer .news_birthday .boxs .newsWrapper {
   overflow-y: scroll;
+  padding: 16px;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper::-webkit-scrollbar, .dashboard .boxContainer .news_birthday .boxs .newsWrapper::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
   opacity: 0;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.active::-webkit-scrollbar, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.active::-webkit-scrollbar {
@@ -156,7 +151,7 @@
   background: transparent;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.active::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.active::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.active.light::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.active.light::-webkit-scrollbar-thumb {
   background: #b5b5b6;
@@ -164,19 +159,15 @@
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.active.dark::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.active.dark::-webkit-scrollbar-thumb {
   background: #242424;
 }
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .dashboard .boxContainer .news_birthday .boxs h4 {
-  padding: 16px;
-  padding-bottom: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 3;
-}
-.dashboard .boxContainer .news_birthday .newsWrapper {
-  padding: 10px 16px;
-}
-.dashboard .boxContainer .news_birthday .birthdaySection .birthdayListContainer {
-  padding: 16px;
-  padding-top: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 .dashboard .boxContainer .news_birthday .birthdaySection .birthdayListContainer h5 {
   font-size: 14px;
@@ -279,11 +270,6 @@
 @media screen and (max-width: 756px) {
   .dashboard .boxContainer {
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-@media screen and (max-width: 660px) {
-  .dashboard .boxContainer .dashboard_api .dashboard_api_title h2 {
-    font-size: 16px;
   }
 }
 @media screen and (max-width: 576px) {

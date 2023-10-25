@@ -4,21 +4,26 @@ import { useSelector } from "react-redux";
 
 function GridContent({ data, type }) {
   const theme = useSelector((state) => state.theme);
-
-  console.log(type);
   return (
     <div
       className="detailsContents"
-      style={
-        {
-          // borderBottom: `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
-          // paddingBottom:20
-        }
-      }
+      // style={
+      //   {
+      //     borderBottom: `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
+      //     paddingBottom:20
+      //   }
+      // }
     >
       <span
         style={{
-          color: type === "form" ? theme === "light" ? "#0B0B0C" : "#ffffff" : theme === "light" ? "#545454" : "#858585",
+          color:
+            type === "form"
+              ? theme === "light"
+                ? "#0B0B0C"
+                : "#ffffff"
+              : theme === "light"
+              ? "#545454"
+              : "#858585",
           textTransform: type === "form" ? "" : "capitalize",
           fontWeight: type === "form" ? 500 : 400,
           fontSize: 14,
@@ -33,12 +38,14 @@ function GridContent({ data, type }) {
           justifyContent: type === "form" && "space-between",
           marginBottom: type === "form" && 20,
           borderRadius: 4,
-          border:type === "form" && `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
+          border:
+            type === "form" &&
+            `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
         }}
       >
         <span>{data.title}</span>
         {type === "form" && (
-          <span>
+          <span style={{ cursor: "pointer" }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

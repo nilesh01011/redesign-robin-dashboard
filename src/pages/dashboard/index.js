@@ -21,6 +21,7 @@ import BarChart from "./graphs/barChart/BarChart";
 // Carousel
 import Carousel from "./carousel/Carousel";
 import Items from "./carousel/items/Items";
+import { ADDS } from "../../assets";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -173,10 +174,10 @@ function DashboardPage() {
             {/* left side */}
             <div
               className="actionItems_left_side box_Contents"
-              style={{ borderColor: borderColor }}
+              // style={{ borderColor: borderColor }}
             >
               {/* title */}
-              <h4>Action Items</h4>
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>Action Items</h4>
               {/* contents */}
               <div
                 className={`actionItems_contents ${
@@ -206,10 +207,13 @@ function DashboardPage() {
               className="actionItems_right_side box_Contents"
               style={{ borderColor: borderColor }}
             >
+              {/* title */}
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>Action Items</h4>
               {/* images */}
               <div className="images">
                 <img
                   src="https://auto.mahindra.com//-/media/project/mahindra/dotcom/mahindra/in-news---home/pr/neo-ambulance/bolero-neo-ambulancefor-website.jpg?rev=cab8637b0f6f4a80a53cd2a23006e0d6&extension=webp"
+                  // src={ADDS}
                   alt="Mahindra Ads"
                 />
               </div>
@@ -257,7 +261,7 @@ function DashboardPage() {
             {/* news */}
             <div
               className={`newsContainer boxs`}
-              style={{ borderColor: borderColor }}
+              // style={{ borderColor: borderColor }}
             >
               {/* title */}
               <h4
@@ -273,6 +277,7 @@ function DashboardPage() {
                 } ${latestNewsScrollBar && "active"}`}
                 onMouseEnter={() => setLatestNewsScrollBar(true)}
                 onMouseLeave={() => setLatestNewsScrollBar(false)}
+                style={{ border: `1px solid ${borderColor}`, borderRadius: 4 }}
               >
                 {latestNews.map((ele) => (
                   <LatestNews
@@ -290,16 +295,20 @@ function DashboardPage() {
             {/* birthday */}
             <div
               className={`birthdaySection boxs`}
-              style={{ borderColor: borderColor }}
+              // style={{ borderColor: borderColor }}
             >
               {/* title */}
               <h4
-                style={{
-                  position: "sticky",
-                  top: 0,
-                  backgroundColor: theme === "light" ? "white" : "#0B0B0C",
-                  zIndex: 3,
-                }}
+                style={
+                  {
+                    // position: "sticky",
+                    // top: 0,
+                    // backgroundColor: theme === "light" ? "white" : "#0B0B0C",
+                    // zIndex: 3,
+                    // fontSize: 16,
+                    // fontWeight: 700,
+                  }
+                }
               >
                 Birthday Calendar
               </h4>
@@ -311,10 +320,22 @@ function DashboardPage() {
                 } ${birthdayListScrollBar && "active"}`}
                 onMouseEnter={() => setBirthdayListScrollBar(true)}
                 onMouseLeave={() => setBirthdayListScrollBar(false)}
+                style={{ border: `1px solid ${borderColor}`, borderRadius: 4 }}
               >
-                <div className="birthdayListContainer">
+                <div
+                  className="birthdayListContainer"
+                  style={{
+                    backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                    padding: "12px 16px",
+                    borderRadius: 4,
+                  }}
+                >
                   {/* title */}
-                  <h5 style={{ marginBottom: 20 }}>Today’s Birthday</h5>
+                  <h5
+                    style={{ marginBottom: 20, fontSize: 16, fontWeight: 700 }}
+                  >
+                    Today’s Birthday
+                  </h5>
 
                   {/* birthday username */}
                   <div className="birthdayList">
@@ -326,7 +347,11 @@ function DashboardPage() {
 
                 <div className="birthdayListContainer">
                   {/* title */}
-                  <h5 style={{ marginBottom: 20 }}>Upcoming Birthday</h5>
+                  <h5
+                    style={{ marginBottom: 20, fontSize: 16, fontWeight: 700 }}
+                  >
+                    Upcoming Birthday
+                  </h5>
 
                   {/* birthday username */}
                   <div className="birthdayList">

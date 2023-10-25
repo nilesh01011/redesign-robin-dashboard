@@ -5,6 +5,8 @@ import "./styles.scss";
 import { useSelector } from "react-redux";
 import GridContent from "./gridContent/GridContent";
 import Accordion from "./accordion/Accordion";
+import { AVATAR, USERIMG } from "../../../../assets";
+import AccordionGridForm from "./accordionGridForm/AccordionGridForm";
 
 function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const theme = useSelector((state) => state.theme);
@@ -77,6 +79,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         key: 2,
         name: "Customer Profile",
         type: "accordion",
+        default: "accordion",
         contents: [
           {
             title: "Company Information",
@@ -202,19 +205,294 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         key: 3,
         name: "Address",
         type: "accordion",
-        contents: [],
+        title: "Company Address",
+        default: "accordionTwo",
+        contents: [
+          {
+            title: "Office",
+            type: "gridContents",
+            addressType: "Office",
+            contents: [
+              {
+                title: "Address Type",
+                text: "Office",
+              },
+              {
+                title: "Address Line 1",
+                text: "A-463,15th Cross Street",
+              },
+              {
+                title: "Address Line 2",
+                text: "A-463,15th Cross Street",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+              },
+              {
+                title: "Pin Code",
+                text: "400001",
+              },
+              {
+                title: "City",
+                text: "Noida",
+              },
+
+              {
+                title: "District",
+                text: "Gautam Budh Nagar",
+              },
+              {
+                title: "State",
+                text: "Uttar Pradesh",
+              },
+              {
+                title: "Contact Name",
+                text: "Arvind Kumar",
+              },
+              {
+                title: "Contact Mobile No.",
+                text: "+91-9893473843",
+              },
+            ],
+            checked: true,
+          },
+          {
+            title: "Joe’s Home",
+            type: "gridContents",
+            addressType: "Other",
+            contents: [
+              {
+                title: "Address Type",
+                text: "Office",
+              },
+              {
+                title: "Address Line 1",
+                text: "A-463,15th Cross Street",
+              },
+              {
+                title: "Address Line 2",
+                text: "A-463,15th Cross Street",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+              },
+              {
+                title: "Pin Code",
+                text: "400001",
+              },
+              {
+                title: "City",
+                text: "Noida",
+              },
+
+              {
+                title: "District",
+                text: "Gautam Budh Nagar",
+              },
+              {
+                title: "State",
+                text: "Uttar Pradesh",
+              },
+              {
+                title: "Contact Name",
+                text: "Arvind Kumar",
+              },
+              {
+                title: "Contact Mobile No.",
+                text: "+91-9893473843",
+              },
+            ],
+            checked: false,
+          },
+        ],
       },
       {
         key: 4,
         name: "Contacts",
         type: "accordion",
-        contents: [],
+        title: "Company Contacts",
+        default: "accordionTwo",
+        contents: [
+          {
+            title: "Vimal Pal Kumar",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            contents: [
+              {
+                type: "form",
+                contents: [
+                  {
+                    userImg: USERIMG,
+                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
+                  },
+                ],
+              },
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Purpose of Contact",
+                    text: "Payment",
+                  },
+                  {
+                    title: "Mobile Number",
+                    text: "9813241244",
+                  },
+                  {
+                    title: "Alternate Mobile Number",
+                    text: "9485784596",
+                  },
+                  {
+                    title: "Designation",
+                    text: "Manager",
+                  },
+                  {
+                    title: "Gender",
+                    text: "Male",
+                  },
+                  {
+                    title: "Title",
+                    text: "Mr.",
+                  },
+
+                  {
+                    title: "First Name",
+                    text: "Vimal",
+                  },
+                  {
+                    title: "Middle Name",
+                    text: "Pal",
+                  },
+                  {
+                    title: "Last/Surname",
+                    text: "Kumar",
+                  },
+                  {
+                    title: "E-Mail",
+                    text: "vimal@gmail.com",
+                  },
+                  {
+                    title: "Facebook Link",
+                    text: "http://www.facebook.com",
+                  },
+                  {
+                    title: "Twitter Link",
+                    text: "http://www.twitter.com",
+                  },
+                  {
+                    title: "Instagram Link",
+                    text: "http://www.instagram.com",
+                  },
+                  {
+                    title: "Youtube Channel",
+                    text: "http://www.youtube.com",
+                  },
+                  {
+                    title: "Team BHP Link",
+                    text: "http://www.bhp.com",
+                  },
+                ],
+              },
+            ],
+            checked: true,
+          },
+          {
+            title: "Vimal Pal Kumar 2",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            contents: [
+              {
+                type: "form",
+                contents: [
+                  {
+                    userImg: AVATAR,
+                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
+                  },
+                ],
+              },
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Purpose of Contact",
+                    text: "Payment",
+                  },
+                  {
+                    title: "Mobile Number",
+                    text: "9813241244",
+                  },
+                  {
+                    title: "Alternate Mobile Number",
+                    text: "9485784596",
+                  },
+                  {
+                    title: "Designation",
+                    text: "Manager",
+                  },
+                  {
+                    title: "Gender",
+                    text: "Male",
+                  },
+                  {
+                    title: "Title",
+                    text: "Mr.",
+                  },
+
+                  {
+                    title: "First Name",
+                    text: "Vimal",
+                  },
+                  {
+                    title: "Middle Name",
+                    text: "Pal",
+                  },
+                  {
+                    title: "Last/Surname",
+                    text: "Kumar",
+                  },
+                  {
+                    title: "E-Mail",
+                    text: "vimal@gmail.com",
+                  },
+                  {
+                    title: "Facebook Link",
+                    text: "http://www.facebook.com",
+                  },
+                  {
+                    title: "Twitter Link",
+                    text: "http://www.twitter.com",
+                  },
+                  {
+                    title: "Instagram Link",
+                    text: "http://www.instagram.com",
+                  },
+                  {
+                    title: "Youtube Channel",
+                    text: "http://www.youtube.com",
+                  },
+                  {
+                    title: "Team BHP Link",
+                    text: "http://www.bhp.com",
+                  },
+                ],
+              },
+            ],
+            checked: false,
+          },
+        ],
       },
       {
         key: 5,
         name: "Accounts Related",
         type: "accordion",
-        contents: [],
+        default: "accordion",
+        contents: [
+          {
+
+          }
+        ],
       },
       {
         key: 6,
@@ -246,6 +524,8 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       return word;
     }
   };
+
+  const [indicator, setIndicator] = useState(0);
 
   return (
     <div
@@ -549,18 +829,85 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   return (
                     <div
                       key={index}
-                      className={`detailsContainer ${ele.type}`}
-                      style={{ paddingBottom: ele.type === "accordion" && 120 }}
+                      className={`detailsContainer ${ele.type} ${ele.default}`}
+                      style={{
+                        paddingBottom: ele.type === "accordion" && 120,
+                        paddingBottom: ele.default === "accordionTwo" && 0,
+                        backgroundColor:
+                          ele.default === "accordionTwo"
+                            ? theme === "light"
+                              ? "#F2F2F2"
+                              : "#1C1C1C"
+                            : "",
+                      }}
                     >
                       {ele.type === "gridContents" &&
                         ele.contents.map((el, index) => {
                           return <GridContent key={index} data={el} />;
                         })}
 
+                      {ele.default === "accordionTwo" && (
+                        <div className="headerAccordion">
+                          <h3 style={{ fontSize: 16, fontWeight: 700 }}>
+                            {ele.title}
+                          </h3>
+                          <div
+                            className="divider"
+                            style={{
+                              backgroundColor:
+                                theme === "light" ? "#E6E6E6" : "#232324",
+                              marginTop: 20,
+                            }}
+                          ></div>
+                        </div>
+                      )}
+
                       {ele.type === "accordion" &&
-                        ele.contents.map((el, index) => (
-                          <Accordion key={index} data={el} />
-                        ))}
+                        ele.contents.map((el, index) => {
+                          if (el.type === "accordionGridForm") {
+                            return (
+                              <AccordionGridForm
+                                key={index}
+                                data={el}
+                                type={ele.default}
+                                addressType={el.addressType}
+                                drawerType={drawerType}
+                                checked={el.checked}
+                                id={index}
+                                indicator={indicator}
+                                setIndicator={setIndicator}
+                              />
+                            );
+                          } else {
+                            return (
+                              <Accordion
+                                key={index}
+                                addressType={el.addressType}
+                                checked={el.checked}
+                                id={index}
+                                drawerType={drawerType}
+                                indicator={indicator}
+                                setIndicator={setIndicator}
+                                data={el}
+                                type={ele.default}
+                              />
+                            );
+                          }
+
+                          // return (
+                          //   <Accordion
+                          //     key={index}
+                          //     addressType={el.addressType}
+                          //     checked={el.checked}
+                          //     id={index}
+                          //     drawerType={drawerType}
+                          //     indicator={indicator}
+                          //     setIndicator={setIndicator}
+                          //     data={el}
+                          //     type={ele.default}
+                          //   />
+                          // );
+                        })}
                     </div>
                   );
                 }

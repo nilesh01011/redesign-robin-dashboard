@@ -9,7 +9,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 30px;
-  cursor: pointer;
+}
+.accordionContainer .accordionHeader .markDefault {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.accordionContainer .accordionHeader .markDefault .divider {
+  width: 1px;
+  height: 20px;
+  display: block;
 }
 .accordionContainer .accordionContents {
   padding: 0 30px;

@@ -149,6 +149,7 @@
   width: 100%;
   height: 100%;
   padding: 30px 40px;
+  padding-bottom: 130px !important;
   overflow-y: scroll;
 }
 .tableDrawerContainer .drawerData .rightSide .contents::-webkit-scrollbar {
@@ -176,8 +177,8 @@
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails {
   border-radius: 4px;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer {
   width: 100%;
@@ -187,6 +188,14 @@
   min-height: 47px;
   display: flex;
   flex-direction: column;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer.accordionTwo {
+  padding: 20px 30px !important;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer.accordionTwo .headerAccordion .divider {
+  width: 100%;
+  height: 1px;
+  display: block;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .gridContents {
   display: grid;
