@@ -7,7 +7,7 @@ function LatestNews({
   setDrawerSliderID,
   setIsDrawerOpen,
   isDrawerOpen,
-  setDrawerType
+  setDrawerType,
 }) {
   const theme = useSelector((state) => state.theme);
 
@@ -15,12 +15,12 @@ function LatestNews({
     setDrawerSliderID(id);
     setIsDrawerOpen(!isDrawerOpen);
     document.body.style.overflow = "hidden";
-    setDrawerType("Latest News")
+    setDrawerType("Latest News");
   };
 
   return (
     <div
-      className="latestNews"
+      className={`latestNews ${theme === "light" ? "lightHover" : "darkHover"}`}
       style={{ borderColor: theme === "light" ? "#E6E6E6" : "#232324" }}
       onClick={() => handleDrawer(items.id)}
     >

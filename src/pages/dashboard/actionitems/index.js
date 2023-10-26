@@ -23,7 +23,7 @@ function ActionItemsCollapsed({
   return (
     <div
       key={items.id}
-      className="actionItems"
+      className={`actionItems`}
       style={{ borderColor: borderColor }}
     >
       {/* heading */}

@@ -168,7 +168,6 @@
       overflow: hidden;
 
       & .boxs {
-        // border: 1px solid;
         border-radius: 4px;
         width: 100%;
         display: flex;
@@ -176,14 +175,13 @@
         max-height: 367px;
         min-height: 367px;
 
-        // &.birthdaySection {
-        //   gap: 16px;
-        // }
+        & .birthdatListWapper {
+          padding: 16px;
+        }
 
         & .birthdatListWapper,
         & .newsWrapper {
           overflow-y: scroll;
-          padding: 16px;
 
           // scrollbar
           &::-webkit-scrollbar {

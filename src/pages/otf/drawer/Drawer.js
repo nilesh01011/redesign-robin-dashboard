@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
@@ -9,6 +9,9 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const userNameSplit = data.three ? data.three?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
+
+  const leftSideDrawerRef = useRef();
+  const rightSideDrawerRef = useRef();
 
   const [currentTabsTitle, setCurrentTabsTitle] = useState("");
 
@@ -147,6 +150,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       <div className="drawerData">
         {/* left side */}
         <div
+          ref={leftSideDrawerRef}
           className="leftSide"
           style={{
             backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
@@ -374,7 +378,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           </div>
         </div>
         {/* right side */}
-        <div className="rightSide">
+        <div ref={rightSideDrawerRef} className="rightSide">
           {/* contents */}
           <div className="contents">
             <h2>{currentTabsTitle}</h2>

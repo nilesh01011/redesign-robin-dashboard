@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
-function Checkbox({ label,drawerType,handleChecked,checked }) {
+function Checkbox({
+  label,
+  indicator,
+  id,
+  handleChecked,
+  drawerType,
+}) {
   const theme = useSelector((state) => state.theme);
 
   return (
     <div
-      className="checkboxContainer"
+      className="checkboxLabel"
       style={{ cursor: drawerType === "view" ? "not-allowed" : "pointer" }}
-      onClick={() => drawerType === "edit" && handleChecked()}
+      onClick={() => drawerType === "edit" && handleChecked(id)}
     >
       <span style={{ borderColor: theme === "light" ? "#B5B5B6" : "#545454" }}>
-        {checked ? (
+        {indicator === id ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="10"

@@ -51,6 +51,7 @@ function Index({
           viewBox="0 0 12 12"
           fill="none"
           onClick={handleCancle}
+          className="movileViewChanged"
         >
           <circle cx="6" cy="6.00098" r="6" fill="#0B0B0C" />
           <path

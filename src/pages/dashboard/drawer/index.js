@@ -15,7 +15,7 @@ function NewsDrawer({
 
   useEffect(() => {
     if (drawerType) {
-      console.log(drawerType);
+      // console.log(drawerType);
     }
   }, [drawerType]);
 

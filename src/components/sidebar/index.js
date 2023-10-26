@@ -35,7 +35,7 @@ function Sidebar() {
 
   // search inputs
   const onSearch = (searchQuery) => {
-    console.log(searchMenuItems);
+    // console.log(searchMenuItems);
   };
 
   const handleSidebar = () => {

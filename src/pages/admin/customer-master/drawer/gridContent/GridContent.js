@@ -7,12 +7,6 @@ function GridContent({ data, type }) {
   return (
     <div
       className="detailsContents"
-      // style={
-      //   {
-      //     borderBottom: `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
-      //     paddingBottom:20
-      //   }
-      // }
     >
       <span
         style={{

@@ -113,6 +113,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons {
   display: flex;
@@ -136,6 +137,16 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+  color: #858585;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText .activeTabsLightTheme {
+  color: #0b0b0c;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText .activeTabsDarkTheme {
+  color: #ffffff;
+}
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .mobileViewIcons {
+  display: none;
 }
 .tableDrawerContainer .drawerData .rightSide {
   width: 77%;
@@ -197,6 +208,13 @@
   height: 1px;
   display: block;
 }
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer .formContainer {
+  padding: 20px 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .gridContents {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -242,12 +260,38 @@
   gap: 10px;
 }
 
-@media screen and (max-width: 992px) {
-  .tableDrawerContainer .drawerData .leftSide {
+@media screen and (max-width: 1024px) {
+  .tableDrawerContainer {
+    width: 100% !important;
     display: none;
   }
-  .tableDrawerContainer .drawerData .rightSide {
+  .tableDrawerContainer .drawerData .leftSide, .tableDrawerContainer .drawerData .rightSide {
     width: 100% !important;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems {
+    padding: 10px;
+    border-radius: 6px;
+    justify-content: space-between;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons {
+    display: none !important;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems.lightTheme {
+    background-color: #f2f2f2;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems.darkTheme {
+    background-color: #1c1c1c;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText .lightTheme {
+    color: #0b0b0c !important;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText .darkTheme {
+    color: #ffffff !important;
+  }
+  .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .mobileViewIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 880px) {

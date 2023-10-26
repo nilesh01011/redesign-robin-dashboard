@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import Checkbox from "../../../../../components/checkbox/Checkbox";
+import Checkbox from "../../checkboxCustomerMaster/Checkbox";
 import GridContent from "../gridContent/GridContent";
 
 function AccordionGridForm({

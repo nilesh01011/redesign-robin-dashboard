@@ -22,22 +22,15 @@ function TableItems({ items, setDrawerData, setDrawerType, setIsDrawerOpen }) {
         </p>
       </div>
       {/* right */}
-      <div
-        className="rightSideData"
-        onClick={() => {
-          setDrawerData(items);
-          setDrawerType("view");
-          setIsDrawerOpen(true);
-        }}
-      >
+      <div className="rightSideData">
         {/* view data */}
         <span
+          onClick={() => {
+            setDrawerData(items);
+            setDrawerType("view");
+            setIsDrawerOpen(true);
+          }}
           style={{ cursor: "pointer" }}
-          // onClick={() => {
-          //   setDrawerData(ele);
-          //   setDrawerType("view");
-          //   setIsDrawerOpen(true);
-          // }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -55,15 +48,14 @@ function TableItems({ items, setDrawerData, setDrawerType, setIsDrawerOpen }) {
           </svg>
         </span>
         {/* edit data */}
-        {/* edit data */}
         {!items.notEdit && (
           <span
             style={{ cursor: "pointer" }}
-            // onClick={() => {
-            //   setDrawerData(ele, "Edit");
-            //   setDrawerType("edit");
-            //   setIsDrawerOpen(true);
-            // }}
+            onClick={() => {
+              setDrawerData(items);
+              setDrawerType("edit");
+              setIsDrawerOpen(true);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

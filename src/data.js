@@ -174,8 +174,8 @@ export const menuItems = [
         name: "components",
         isFolder: true,
         items: [
-          { name: "Sales 6.1", key: "6.1.1", link: "/sales-1" },
-          { name: "Sales 6.2", key: "6.1.2", link: "/sales-2" },
+          { name: "Sales 6.1", key: "6.1.1", link: "/components/sales-1" },
+          { name: "Sales 6.2", key: "6.1.2", link: "/components/sales-2" },
         ],
         key: 6.1,
       },
@@ -325,7 +325,7 @@ export const menuItems = [
   {
     name: "Common",
     isFolder: true,
-    items: [{ key: 9.1, name: "Common 9.1", link: "/common" }],
+    items: [{ key: 9.1, name: "Common 1", link: "/common" }],
     key: 9,
     icon: (
       <svg

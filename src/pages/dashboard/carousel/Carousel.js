@@ -18,7 +18,7 @@ function Carousel({ children }) {
 
   //   prev button
   const prevHandler = (e) => {
-    console.log(e);
+    // console.log(e);
     if (currentIndex > 0) {
       setCurrentIndex((prev) => prev - 1);
     }
@@ -26,7 +26,7 @@ function Carousel({ children }) {
 
   //   next button
   const nextHandler = (e) => {
-    console.log(e);
+    // console.log(e);
     if (currentIndex < children.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     }
@@ -41,7 +41,7 @@ function Carousel({ children }) {
 
   useEffect(() => {
     if (currentIndex && itemWidth) {
-      console.log(window.innerWidth);
+      // console.log(window.innerWidth);
       setTranslateWidth(() => currentIndex * itemWidth);
     }
   }, [currentIndex, itemWidth, window.innerWidth]);

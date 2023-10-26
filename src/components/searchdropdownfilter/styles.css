@@ -15,20 +15,48 @@
   align-items: center;
   justify-content: space-between;
 }
+.selectDropdownFilter .selectDropdownFilterContainer.lightTheme {
+  background-color: #ffffff;
+}
+.selectDropdownFilter .selectDropdownFilterContainer.darkTheme {
+  background-color: #0b0b0c;
+}
+.selectDropdownFilter .selectDropdownFilterContainer.isDropdownOpenLightTheme {
+  border-color: #0b0b0c;
+}
+.selectDropdownFilter .selectDropdownFilterContainer.isDropdownOpenDarkTheme {
+  border-color: #ffffff;
+}
+.selectDropdownFilter .selectDropdownFilterContainer.isDropdowncloseLightTheme {
+  border-color: #b5b5b6;
+}
+.selectDropdownFilter .selectDropdownFilterContainer.isDropdowncloseDarkTheme {
+  border-color: #232324;
+}
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption {
   position: relative;
   display: flex;
   justify-content: center;
   height: 100%;
+  width: 100%;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer {
   width: 100%;
   height: 100%;
+  border: 1px solid transparent;
   border-radius: 3px;
   color: #635d5d;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer.lightTheme {
+  background-color: #e6e6e6;
+  border-color: #dedede;
+}
+.selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer.darkTheme {
+  background-color: #232324;
+  border-color: #232324;
 }
 .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields {
   width: 100%;
@@ -64,6 +92,19 @@
   justify-content: center;
   transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   color: #ed302d;
+}
+.selectDropdownFilter .dropdownContainers {
+  width: auto;
+  position: absolute;
+  top: 6px;
+  left: 80x;
+  bottom: 6px;
+}
+.selectDropdownFilter .dropdownContainers.lightTheme {
+  background-color: #ffffff;
+}
+.selectDropdownFilter .dropdownContainers.darkTheme {
+  background-color: #1c1c1c;
 }
 .selectDropdownFilter .dropdownFieldContainer {
   width: 100%;
@@ -106,6 +147,16 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+}
+.selectDropdownFilter .allListItems.lightTheme {
+  background-color: #ffffff;
+}
+.selectDropdownFilter .allListItems.darkTheme {
+  background-color: #1c1c1c;
 }
 .selectDropdownFilter .allListItems .allListItemsChild {
   padding: 5px 10px;
@@ -135,19 +186,67 @@
   color: #0b0b0c;
 }
 
-@media screen and (max-width: 660px) {
-  .selectDropdownFilter .selectDropdownFilterContainer .inputFieldsContainer input {
-    padding-left: 115px !important;
-    padding-right: 15px !important;
+@media screen and (max-width: 880px) {
+  .selectDropdownFilter {
+    height: 100%;
   }
-  .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields {
-    min-width: 100px;
-    max-width: 100px;
+  .selectDropdownFilter .selectDropdownFilterContainer {
+    flex-direction: column;
+    padding: 0;
+    border: 0;
   }
-  .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields.mobileView {
+  .selectDropdownFilter .selectDropdownFilterContainer.darkTheme, .selectDropdownFilter .selectDropdownFilterContainer.lightTheme {
+    background-color: transparent !important;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer.isDropdownopenDarkTheme .dropdownContainers .selectOption .selectOptionContainer {
+    border-color: white !important;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer.isDropdownOpenLightTheme .dropdownContainers .selectOption .selectOptionContainer {
+    border-color: #0B0B0C !important;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .dropdownContainers {
+    width: 100%;
+    position: relative;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .dropdownContainers .selectOption .selectOptionContainer {
+    padding: 10px;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .dropdownContainers .selectOption .selectOptionContainer .selectOptionFields {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .dropdownContainers .selectOption .selectOptionContainer .selectOptionFields .selectFields {
+    font-size: 14px !important;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .dropdownContainers .selectOption .selectOptionContainer .selectOptionFields .selectFields.mobileView {
     display: block;
   }
-  .selectDropdownFilter .selectDropdownFilterContainer .selectOption .selectOptionContainer .selectOptionFields .selectFields.desktopView {
+  .selectDropdownFilter .selectDropdownFilterContainer .dropdownContainers .selectOption .selectOptionContainer .selectOptionFields .selectFields.desktopView {
     display: none;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .inputFieldsContainer {
+    border: 1px solid;
+    margin-top: 14px;
+    display: block;
+    border-radius: 4px;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .inputFieldsContainer.lightTheme {
+    border-color: #b5b5b6;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .inputFieldsContainer.darkTheme {
+    border-color: #b5b5b6;
+  }
+  .selectDropdownFilter .selectDropdownFilterContainer .inputFieldsContainer .inputFields {
+    padding-left: 10px !important;
+    padding: 10px;
+  }
+  .selectDropdownFilter .allListItems {
+    top: calc(100% - 39px);
+  }
+  .selectDropdownFilter .btn {
+    position: absolute;
+    right: 14px;
+    bottom: 10px;
   }
 }/*# sourceMappingURL=styles.css.map */

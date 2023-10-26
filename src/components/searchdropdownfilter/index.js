@@ -99,38 +99,51 @@ function Index({
       ref={domNode}
     >
       <div
-        className="selectDropdownFilterContainer"
-        style={{
-          backgroundColor: theme === "light" ? "white" : "#0B0B0C",
-          borderColor: isDropdownOpen
+        className={`selectDropdownFilterContainer ${
+          theme === "light" ? "lightTheme" : "darkTheme"
+        } ${
+          isDropdownOpen === true
             ? theme === "light"
-              ? "black"
-              : "white"
-            : error
-            ? "#ED302D"
+              ? "isDropdownOpenLightTheme"
+              : "isDropdownopenDarkTheme"
             : theme === "light"
-            ? "#B5B5B6"
-            : "#232324",
-        }}
+            ? "isDropdowncloseLightTheme"
+            : "isDropdowncloseDarkTheme"
+        }`}
+        style={
+          {
+            // backgroundColor: theme === "light" ? "white" : "#0B0B0C",
+            // borderColor: isDropdownOpen
+            //   ? theme === "light"
+            //     ? "black"
+            //     : "white"
+            //   : error
+            //   ? "#ED302D"
+            //   : theme === "light"
+            //   ? "#B5B5B6"
+            //   : "#232324",
+          }
+        }
       >
         {/* dropdown list */}
         <div
-          style={{
-            width: "auto",
-            position: "absolute",
-            left: 8,
-            top: 6,
-            bottom: 6,
-          }}
+          // style={{
+          //   width: "auto",
+          //   position: "absolute",
+          //   left: 8,
+          //   top: 6,
+          //   bottom: 6,
+          // }}
+          className="dropdownContainers"
         >
           <div className="selectOption">
             <div
-              style={{
-                height: "100%",
-                borderColor: theme === "light" ? "#DEDEDE" : "#232324",
-                backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-              }}
-              className="selectOptionContainer"
+              // style={{
+              //   height: "100%",
+              //   borderColor: theme === "light" ? "#DEDEDE" : "#232324",
+              //   backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
+              // }}
+              className={`selectOptionContainer ${theme === "light" ? "lightTheme" : "darkTheme"}`}
             >
               {/* select fields */}
               <div
@@ -150,9 +163,10 @@ function Index({
                   style={{ color: theme === "light" ? "black" : "#A3A3A3" }}
                   className="selectFields mobileView"
                 >
-                  {!selected
+                  {/* {!selected
                     ? wordSlice_2(customersList[0].name)
-                    : wordSlice_2(selected)}
+                    : wordSlice_2(selected)} */}
+                    {selected}
                 </p>
 
                 {/* icons */}
@@ -183,7 +197,9 @@ function Index({
         </div>
 
         {/* inputs */}
-        <div className="inputFieldsContainer">
+        <div className={`inputFieldsContainer ${theme === "light" ? "lightTheme" : "darkTheme"}`} 
+        // style={{backgroundColor:theme === "light" ? "#ffffff" : "#1c1c1c"}}
+        >
           <InputField
             placeholder="Search"
             // type={selected === "Customer Name" ? "text" : "number"}
@@ -219,14 +235,14 @@ function Index({
       {/* all lists items */}
       {isDropdownOpen && (
         <ul
-          style={{
-            position: "absolute",
-            top: "calc(100% + 10px)",
-            left: 0,
-            right: 0,
-            backgroundColor: theme === "light" ? "white" : "#1C1C1C",
-          }}
-          className="allListItems"
+          // style={{
+          //   position: "absolute",
+          //   top: "calc(100% + 10px)",
+          //   left: 0,
+          //   right: 0,
+          //   backgroundColor: theme === "light" ? "white" : "#1C1C1C",
+          // }}
+          className={`allListItems ${theme === "light" ? "lightTheme" : "darkTheme"}`}
         >
           {customersList.map((ele, id) => {
             return (

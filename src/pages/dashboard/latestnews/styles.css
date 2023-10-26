@@ -3,8 +3,12 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding-left: 14px;
+  padding: 16px;
+  padding-left: 28px;
   cursor: pointer;
+}
+.latestNews.lightHover:hover {
+  background-color: #F2F2F2;
 }
 .latestNews .text {
   position: relative;

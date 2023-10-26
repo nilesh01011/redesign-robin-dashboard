@@ -35,7 +35,7 @@ function MenuItems({ collapsed, setCollapsed }) {
   };
 
   const handleTooltip = (item) => {
-    console.log(item);
+    // console.log(item);
     setTooltip(!tooltip);
     if (!item) return setExpanded({});
     toggleExpanded(item);

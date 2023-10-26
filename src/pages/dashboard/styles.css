@@ -136,9 +136,11 @@
   max-height: 367px;
   min-height: 367px;
 }
+.dashboard .boxContainer .news_birthday .boxs .birthdatListWapper {
+  padding: 16px;
+}
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper, .dashboard .boxContainer .news_birthday .boxs .newsWrapper {
   overflow-y: scroll;
-  padding: 16px;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper::-webkit-scrollbar, .dashboard .boxContainer .news_birthday .boxs .newsWrapper::-webkit-scrollbar {
   width: 4px;

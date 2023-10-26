@@ -24,7 +24,7 @@ function ChangePassword({ handleCloseModel }) {
       validationSchema: changePassword,
       initialValues: initialValues,
       onSubmit: async (values, action) => {
-        console.log(values);
+        // console.log(values);
         action.resetForm();
         setPasswordChanged(true);
       },

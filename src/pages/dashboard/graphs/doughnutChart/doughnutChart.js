@@ -60,7 +60,7 @@ function DoughnutChart({ title, dataItems }) {
         align: "end",
         anchor: "end",
         formatter: function (value, context) {
-          console.log(context.chart.data.labels[context.dataIndex]);
+          // console.log(context.chart.data.labels[context.dataIndex]);
           // return context.chart.data.labels[context.dataIndex];
         },
         font: {

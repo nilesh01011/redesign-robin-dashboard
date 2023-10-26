@@ -9,6 +9,7 @@ import Dropdown from "../../../components/dropdown";
 // import Drawer from "./drawer/Drawer";
 import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
 import Drawer from "./drawer/Drawer";
+import MobileViewDrawer from "./mobileViewDrawer/MobileViewDrawer";
 
 function CustomerMaster() {
   const theme = useSelector((state) => state.theme);
@@ -555,8 +556,16 @@ function CustomerMaster() {
         ""
       )}
 
-      {/* Drawer */}
+      {/* Desktop Drawer */}
       <Drawer
+        data={drawerData}
+        drawerType={drawerType}
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
+
+      {/* Movile View Drawer */}
+      <MobileViewDrawer
         data={drawerData}
         drawerType={drawerType}
         isDrawerOpen={isDrawerOpen}

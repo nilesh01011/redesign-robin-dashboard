@@ -30,7 +30,7 @@ function Index() {
       validationSchema: loginSchema,
       initialValues: initialValues,
       onSubmit: async (values, action) => {
-        console.log(values);
+        // console.log(values);
         navigate("/dashboard");
         action.resetForm();
       },

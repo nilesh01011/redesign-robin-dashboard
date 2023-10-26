@@ -115,7 +115,6 @@
       }
 
       // tabsSteps
-
       & .tabsSteps {
         width: 100%;
         display: flex;
@@ -127,6 +126,7 @@
           display: flex;
           align-items: center;
           gap: 10px;
+          cursor: pointer;
 
           & .icons {
             // width: 35px;
@@ -154,6 +154,19 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
+            color: #858585;
+
+            & .activeTabsLightTheme {
+              color: #0b0b0c;
+            }
+
+            & .activeTabsDarkTheme {
+              color: #ffffff;
+            }
+          }
+
+          & .mobileViewIcons {
+            display: none;
           }
         }
       }
@@ -230,6 +243,14 @@
                 }
               }
             }
+
+            & .formContainer {
+              padding: 20px 30px;
+              border-radius: 8px;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            }
           }
 
           & .gridContents {
@@ -288,19 +309,58 @@
 }
 
 // media queries
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
   .tableDrawerContainer {
-    & .drawerData {
-      & .leftSide {
-        display: none;
-      }
+    width: 100% !important;
+    display: none;
 
+    & .drawerData {
+      & .leftSide,
       & .rightSide {
         width: 100% !important;
+      }
+
+      & .leftSide {
+        & .tabsSteps {
+          & .tabsItems {
+            padding: 10px;
+            border-radius: 6px;
+            justify-content: space-between;
+
+            & .icons {
+              display: none !important;
+            }
+
+            &.lightTheme {
+              background-color: #f2f2f2;
+            }
+
+            &.darkTheme {
+              background-color: #1c1c1c;
+            }
+
+            & .tabsText {
+              & .lightTheme {
+                color: #0b0b0c !important;
+              }
+
+              & .darkTheme {
+                color: #ffffff !important;
+              }
+            }
+
+            & .mobileViewIcons {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
       }
     }
   }
 }
+
 @media screen and (max-width: 880px) {
   .tableDrawerContainer {
     & .drawerTypeText {

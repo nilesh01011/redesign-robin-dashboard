@@ -34,3 +34,12 @@
     -webkit-appearance: none;
   }
 }
+
+
+@media screen and (max-width: 880px) {
+  .inputFields {
+    & + svg {
+      margin-left: -55px;
+    }
+  }
+}
