@@ -206,7 +206,7 @@
   right: 0;
   bottom: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.8);
   display: none;
   z-index: 99997;
   cursor: pointer;

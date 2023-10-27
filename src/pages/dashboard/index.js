@@ -22,6 +22,8 @@ import BarChart from "./graphs/barChart/BarChart";
 import Carousel from "./carousel/Carousel";
 import Items from "./carousel/items/Items";
 import { ADDS } from "../../assets";
+import TrendingNewsCarousel from "./trendingNewsCarousel/TrendingNewsCarousel";
+import KeyhightlightCarousel from "./keyhightlightCarousel/KeyhightlightCarousel";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -69,6 +71,7 @@ function DashboardPage() {
               color: theme === "light" ? "black" : "white",
               backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
               borderColor: borderColor,
+              overflowX: "hidden",
             }}
           >
             {/* left sides */}
@@ -160,12 +163,15 @@ function DashboardPage() {
             </div>
 
             {/* Carousel Sections */}
-            <Carousel>
+            {/* <Carousel>
               {keyHighlights.map((ele) => (
                 <Items key={ele.key} data={ele} />
               ))}
-            </Carousel>
+            </Carousel> */}
             {/* Carousel Sections End */}
+            <div style={{ width: "100%", overflow: "hidden" }}>
+              <KeyhightlightCarousel />
+            </div>
           </div>
           {/* action items contents */}
           <div
@@ -209,15 +215,34 @@ function DashboardPage() {
               style={{ borderColor: borderColor }}
             >
               {/* title */}
-              <h4 style={{ fontSize: 18, fontWeight: 700 }}>Action Items</h4>
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>
+                Trending in News
+              </h4>
               {/* images */}
-              <div className="images">
+              {/* <div
+                className="images"
+                // style={{
+                //   backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                // }}
+              >
                 <img
-                  src="https://auto.mahindra.com//-/media/project/mahindra/dotcom/mahindra/in-news---home/pr/neo-ambulance/bolero-neo-ambulancefor-website.jpg?rev=cab8637b0f6f4a80a53cd2a23006e0d6&extension=webp"
+                  loading="lazy"
+                  decoding="async"
+                  quality={50}
+                  importance="high"
+                  rel="none"
+                  // src="https://auto.mahindra.com//-/media/project/mahindra/dotcom/mahindra/in-news---home/pr/neo-ambulance/bolero-neo-ambulancefor-website.jpg?rev=cab8637b0f6f4a80a53cd2a23006e0d6&extension=webp"
                   // src={ADDS}
-                  alt="Mahindra Ads"
+                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/tech-that-spoil/web-banner-master.jpg?rev=1c658c8dd1d0444c814a626e86b1921a&extension=webp"
+                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/all-vehicles/pick-ups/maxx-hd-new/1920x829.jpg?rev=39eddff21de044e3bbef2cc30ec38103&extension=webp"
+                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/all-vehicles/suv/teaser-banner/web-1920x829-new.jpg?rev=20bc8b8198b34f79b689e8110b59ddb4&extension=webp"
+                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/amc-hero/cng-petrol/desktop.jpg?rev=c4cf3de2f8a04924a9883cb211d6e119&extension=webp"
+                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/dark-theme-mahindra-images/thar_optimized/desktop/brand-page-banner-desktop_1920x829---copy-new.jpg?rev=7074046a9b124c33853be61e3ce52021&extension=webp"
+                  src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/amc-hero/scorpio-n---9-lakh/desktop.png?rev=c6c08b8bcc444836b709896fcfd25d5c&extension=webp"
+                  alt="Trending in News"
                 />
-              </div>
+              </div> */}
+              <TrendingNewsCarousel />
             </div>
           </div>
           {/* dashboard API */}

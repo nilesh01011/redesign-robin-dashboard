@@ -10,6 +10,9 @@
 .latestNews.lightHover:hover {
   background-color: #F2F2F2;
 }
+.latestNews.darkHover:hover {
+  background-color: #1C1C1C;
+}
 .latestNews .text {
   position: relative;
 }

@@ -19,6 +19,10 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
 
   const [contentsType, setContentsType] = useState("gridContents");
 
+  const [tabsStatus, setTabsStatus] = useState(1);
+
+  const [tabsData, setTabsData] = useState([]);
+
   const tabsList = useMemo(() => {
     return [
       {
@@ -573,6 +577,38 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
 
   const [indicator, setIndicator] = useState(0);
 
+  const handleTabsActiveNext = (value) => {
+    setTabsData(value);
+
+    if (typeof value === "number") {
+      tabsList.map((ele) => {
+        if (tabsStatus + 1 === ele.key) {
+          setCurrentTabsTitle(ele.name);
+          setContentsType(ele.type);
+          setTabsStatus(ele.key);
+        }
+      });
+    } else {
+      setCurrentTabsTitle(value.name);
+      setContentsType(value.type);
+      setTabsStatus(value.key);
+    }
+  };
+
+  const handleTabsActiveBack = (value) => {
+    setTabsData(value);
+
+    if (typeof value === "number") {
+      tabsList.map((ele) => {
+        if (tabsStatus - 1 === ele.key) {
+          setCurrentTabsTitle(ele.name);
+          setContentsType(ele.type);
+          setTabsStatus(ele.key);
+        }
+      });
+    }
+  };
+
   return (
     <div
       className="tableDrawerContainer"
@@ -802,8 +838,10 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   theme === "light" ? "lightTheme" : "darkTheme"
                 }`}
                 onClick={() => {
-                  setCurrentTabsTitle(ele.name);
-                  setContentsType(ele.type);
+                  // setCurrentTabsTitle(ele.name);
+                  // setContentsType(ele.type);
+                  // setTabsStatus(ele.key);
+                  handleTabsActiveNext(ele);
                 }}
               >
                 {/* left side */}
@@ -904,7 +942,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
                     : "",
                 padding: contentsType === "gridContents" ? "20px 30px" : "",
-                borderRadius:6
+                borderRadius: 6,
               }}
             >
               {tabsList?.map((ele, index) => {
@@ -1043,9 +1081,11 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               type="button"
               className="buttons"
               style={{ color: "#FF3E5B" }}
-              onClick={() => setIsDrawerOpen(false)}
+              // onClick={() => setIsDrawerOpen(false)}
+              onClick={() => handleTabsActiveBack(1)}
             >
-              Close
+              {/* Close */}
+              Back
             </button>
             {/* right side button */}
             <div className="rightSideBtn">
@@ -1060,6 +1100,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 type="button"
                 className="buttons"
                 style={{ color: "#fff", backgroundColor: "#FF3E5B" }}
+                onClick={() => handleTabsActiveNext(1)}
               >
                 Next
               </button>

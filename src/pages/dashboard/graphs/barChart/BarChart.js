@@ -82,6 +82,15 @@ function BarChart({ title, dataItems }) {
       },
     ],
   };
+
+  const wordSlice = (word) => {
+    if (word.length > 12) {
+      return word.slice(0, 12) + "...";
+    } else {
+      return word;
+    }
+  };
+
   return (
     <div
       className="graphsBarContainer"
@@ -123,7 +132,7 @@ function BarChart({ title, dataItems }) {
                       backgroundColor: ele.bgColor,
                     }}
                   ></span>
-                  <span style={{ fontSize: 12 }}>{ele.name}</span>
+                  <span style={{ fontSize: 12 }}>{wordSlice(ele.name)}</span>
                 </span>
                 {/* count */}
                 <span>{ele.count}</span>

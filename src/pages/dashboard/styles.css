@@ -1,19 +1,24 @@
 .dashboard {
+  width: 100%;
   position: relative;
   max-height: -moz-max-content;
   max-height: max-content;
+  box-sizing: border-box;
 }
 .dashboard .boxContainer {
   width: 100%;
+  overflow-x: hidden;
   margin-top: 20px;
   padding-bottom: 48px;
 }
 .dashboard .boxContainer .key_highlights_heading {
+  width: 100%;
   border-radius: 4px;
   padding: 12px 16px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
   border: 1px solid;
+  box-sizing: border-box;
 }
 .dashboard .boxContainer .actionItems_container {
   margin-top: 20px;
@@ -21,23 +26,27 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
+  height: 100%;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-height: 268px;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 313px;
   overflow: hidden;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents {
   border: 1px solid;
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  border-radius: 4px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents::-webkit-scrollbar {
   width: 5px;
@@ -60,23 +69,13 @@
 }
 .dashboard .boxContainer .actionItems_container .actionItems_right_side {
   width: 100%;
+  overflow: hidden;
+  max-height: 313px;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-.dashboard .boxContainer .actionItems_container .actionItems_right_side .images {
-  width: 100%;
-  height: 100%;
-  min-height: 234px;
-}
-.dashboard .boxContainer .actionItems_container .actionItems_right_side .images img {
-  width: 100%;
-  height: 100%;
-  max-height: 234px;
-  min-height: 234px;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 4px;
 }
 .dashboard .boxContainer .dashboard_api {
@@ -246,6 +245,9 @@
   .dashboard .boxContainer .key_highlights_container .key_highlights_right_side .key_highlights_right_content_box span {
     font-size: 12px;
   }
+  .dashboard .boxContainer .actionItems_container {
+    grid-template-columns: 1fr;
+  }
   .dashboard .boxContainer .dashboard_api .graphs_container {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -261,9 +263,6 @@
   }
   .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads.two {
     display: flex;
-  }
-  .dashboard .boxContainer .actionItems_container {
-    flex-direction: column;
   }
   .dashboard .boxContainer .actionItems_container .actionItems_left_side, .dashboard .boxContainer .actionItems_container .actionItems_right_side {
     width: 100%;

@@ -13,10 +13,34 @@ import MenuItems from "./menitems";
 import MobileView from "./mobileView/MobileView";
 import { useNavigate } from "react-router-dom";
 
+let useClickOutSide = (handler) => {
+  let domNode = useRef();
+
+  useEffect(() => {
+    const handlerEvent = (e) => {
+      if (!domNode.current.contains(e.target)) {
+        handler();
+      }
+    };
+
+    document.addEventListener("mousedown", handlerEvent);
+
+    return () => {
+      document.removeEventListener("mousedown", handlerEvent);
+    };
+  }, [handler]);
+
+  return domNode;
+};
+
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(true);
   const [inputFields, setInputFields] = useState("");
   const [searchMenuItems, setSearchMenuItems] = useState("");
+
+  let domNode = useClickOutSide(() => {
+    setCollapsed(true);
+  });
 
   // Scrollbar
   const [sidebarScrollBar, setSidebarScrollBar] = useState(false);
@@ -51,6 +75,7 @@ function Sidebar() {
   return (
     <>
       <aside
+        ref={domNode}
         className={`sidebar ${collapsed ? "desktopStrip" : "desktopCollapse"}`}
         style={{
           background: theme === "light" ? "white" : "#1C1C1C",

@@ -41,29 +41,54 @@ table tbody tr td .status {
   border: 1px solid;
   font-size: 12px;
 }
-table tbody tr td .status.Alloted, table tbody tr td .status.Delivered, table tbody tr td .status.Booked {
+table tbody tr td .status.Alloted.lightTheme, table tbody tr td .status.Delivered.lightTheme, table tbody tr td .status.Booked.lightTheme {
   border-color: #70c922;
   background: #eefcd2;
   color: #70c922;
 }
-table tbody tr td .status.Cancelled {
+table tbody tr td .status.Alloted.darkTheme, table tbody tr td .status.Delivered.darkTheme, table tbody tr td .status.Booked.darkTheme {
+  border-color: #70c922;
+  background: #222921;
+  color: #70c922;
+}
+table tbody tr td .status.Cancelled.lightTheme {
   border-color: #ed302d;
   background: #fee3d4;
   color: #ed302d;
 }
-table tbody tr td .status.Cancellation {
+table tbody tr td .status.Cancelled.darkTheme {
+  border-color: #ed302d;
+  background: #2b2025;
+  color: #ed302d;
+}
+table tbody tr td .status.Cancellation.lightTheme {
   border-color: #f99c22;
   background: #fef3d2;
   color: #f99c22;
 }
-table tbody tr td .status.Transferred {
+table tbody tr td .status.Cancellation.darkTheme {
+  border-color: #f99c22;
+  background: #2b2521;
+  color: #f99c22;
+}
+table tbody tr td .status.Transferred.lightTheme {
   border-color: #2782f9;
   background: #d3edfe;
   color: #2782f9;
 }
-table tbody tr td .status.Invoiced {
+table tbody tr td .status.Transferred.darkTheme {
+  border-color: #2782f9;
+  background: #20232c;
+  color: #2782f9;
+}
+table tbody tr td .status.Invoiced.lightTheme {
   border-color: #9747ff;
   background: #f3eaff;
+  color: #9747ff;
+}
+table tbody tr td .status.Invoiced.darkTheme {
+  border-color: #9747ff;
+  background: #20232C;
   color: #9747ff;
 }
 table tbody tr.lightHover:hover {

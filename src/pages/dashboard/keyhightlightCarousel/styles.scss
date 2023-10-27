@@ -1,0 +1,81 @@
+.keyhightlightCrousel {
+  //   max-height: 24px;
+  height: max-content;
+  width: 100%;
+  //   max-width: calc(100% - 282px);
+  // width: calc(100% - 282px);
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & .title_heads {
+    width: max-content;
+    white-space: nowrap;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    & h4 {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    & .mobileViewBtnShow {
+      display: none;
+    }
+  }
+
+  & .divider {
+    width: 1px;
+    height: 24px;
+    margin: 0 10px;
+  }
+
+  & .swiper {
+    width: 100%;
+    height: 100%;
+
+    & .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  & .carouselBtn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+  }
+}
+
+// media queries
+@media screen and (max-width: 992px) {
+  .keyhightlightCrousel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    & .divider {
+      display: none;
+    }
+
+    & .title_heads {
+      width: 100%;
+      & .mobileViewBtnShow {
+        display: flex;
+      }
+    }
+
+    & .swiper {
+      & .mobileViewBtnHidden {
+        display: none;
+      }
+    }
+  }
+}

@@ -47,7 +47,7 @@ function ActionItemsCollapsed({
               viewBox="0 0 20 20"
               fill="none"
             >
-              <g clip-path="url(#clip0_19561_3426)">
+              <g clipPath="url(#clip0_19561_3426)">
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"

@@ -158,7 +158,7 @@ function Index({
                 }}
               >
                 {ele.status ? (
-                  <span className={`${ele.five} status`}>{ele.five}</span>
+                  <span className={`${ele.five} ${theme === "light" ? "lightTheme" : "darkTheme"} status`}>{ele.five}</span>
                 ) : (
                   ele.five
                 )}
