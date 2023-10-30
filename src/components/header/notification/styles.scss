@@ -105,23 +105,32 @@
       &.light::-webkit-scrollbar-track {
         background: #f0efef;
       }
-      
+
       &.dark::-webkit-scrollbar-track {
         background: #1c1c1c;
       }
-      
+
       &::-webkit-scrollbar-thumb {
         border-radius: 10px;
       }
-      
+
       &.light::-webkit-scrollbar-thumb {
         background: #8a8a8a;
       }
-      
+
       &.dark::-webkit-scrollbar-thumb {
         background: #545454;
       }
-      
+    }
+  }
+}
+
+// media queries
+@media screen and (max-width: 480px) {
+  .notification {
+    & .notificationContainer {
+      width: 330px;
+      right: -15px;
     }
   }
 }

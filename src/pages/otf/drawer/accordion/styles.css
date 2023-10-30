@@ -1,0 +1,28 @@
+.accordionContainer {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.accordionContainer .accordionHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+.accordionContainer .accordionHeader .markDefault {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.accordionContainer .accordionHeader .markDefault .divider {
+  width: 1px;
+  height: 20px;
+  display: block;
+}
+.accordionContainer .accordionContents {
+  padding: 0 30px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}/*# sourceMappingURL=styles.css.map */

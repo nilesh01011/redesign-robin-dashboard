@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
 import { Route, Routes } from "react-router-dom";
 import "./index.scss";
@@ -103,7 +103,10 @@ function App() {
             element={<CustomerMaster />}
           ></Route>
 
-          <Route path="/admin/booking-form" element={<OTF />}></Route>
+          <Route
+            path="/sales/order-to-delivery/booking-form"
+            element={<OTF />}
+          ></Route>
         </Routes>
         {/* Footer */}
         {/* <div

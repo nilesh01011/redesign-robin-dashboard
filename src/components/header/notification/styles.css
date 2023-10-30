@@ -104,4 +104,11 @@
 }
 .notification .notificationBody .notificationTabsContent.dark::-webkit-scrollbar-thumb {
   background: #545454;
+}
+
+@media screen and (max-width: 480px) {
+  .notification .notificationContainer {
+    width: 330px;
+    right: -15px;
+  }
 }/*# sourceMappingURL=styles.css.map */

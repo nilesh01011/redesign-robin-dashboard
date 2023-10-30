@@ -110,6 +110,14 @@ function MenuItems({ collapsed, setCollapsed }) {
     return <div key={item.id}>{item.name}</div>;
   };
 
+  const wordSlice = (word) => {
+    if (word.length > 27) {
+      return word.slice(0, 27) + "...";
+    } else {
+      return word;
+    }
+  };
+
   // desktop view menuitems
   function renderItem(item) {
     const IsExpand = expanded[item.name];
@@ -141,10 +149,10 @@ function MenuItems({ collapsed, setCollapsed }) {
                   (IsExpand && "#FF3E5B") ||
                   (pathname === item.link && "#FF3E5B"),
                 margin: "0",
-                lineHeight: collapsed === false && "2px",
+                lineHeight: collapsed === false && "3px",
                 justifyContent: collapsed && "center",
               }}
-              // title={collapsed ? item.name : ""}
+              title={collapsed ? "" : item.name}
               onMouseOver={() => collapsed === true && handleTooltip(item.name)}
               onMouseLeave={() => collapsed === true && handleTooltip()}
             >
@@ -171,7 +179,8 @@ function MenuItems({ collapsed, setCollapsed }) {
                   onClick={() => handleRedirect(item.link)}
                   className="menuText"
                 >
-                  {item.name}
+                  {/* {item.name} */}
+                  {wordSlice(item.name)}
                 </div>
               )}
             </div>
@@ -252,7 +261,7 @@ function MenuItems({ collapsed, setCollapsed }) {
               lineHeight: collapsed === false && "2px",
               justifyContent: collapsed && "center",
             }}
-            // title={collapsed ? item.name : ""}
+            title={collapsed ? "" : item.name}
             onMouseOver={() => collapsed === true && handleTooltip(item.name)}
             onMouseLeave={() => collapsed === true && handleTooltip()}
           >
@@ -271,7 +280,8 @@ function MenuItems({ collapsed, setCollapsed }) {
                 onClick={() => handleRedirect(item.link)}
                 className="menuText"
               >
-                {item.name}
+                {/* {item.name} */}
+                {wordSlice(item.name)}
               </div>
             )}
           </div>

@@ -21,6 +21,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   //   console.log(drawerType)
 
   const [contentsType, setContentsType] = useState("gridContents");
+  const [tabsStatus, setTabsStatus] = useState(1);
 
   const tabsList = useMemo(() => {
     return [
@@ -36,6 +37,10 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Customer Type",
             text: data.three,
+          },
+          {
+            title: "Email Address",
+            text: data.five,
           },
           {
             title: "Company Name",
@@ -551,6 +556,38 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
     setContentsType(ele.type);
   };
 
+  const handleTabsActiveNext = (value) => {
+    if (typeof value === "number") {
+      tabsList.map((value) => {
+        if (tabsStatus + 1 === value.key) {
+          setCurrentTabsTitle(value.name);
+          setContentsType(value.type);
+          setTabsStatus(value.key);
+        }
+      });
+    } else {
+      // setCurrentTabsTitle(value.name);
+      // setContentsType(value.type);
+      // setTabsStatus(value.key);
+      // setRightSideDrawer(true);
+      setCurrentTabsTitle(value.name);
+      setContentsType(value.type);
+      setTabsStatus(value.key);
+    }
+  };
+
+  const handleTabsActiveBack = (value) => {
+    if (typeof value === "number") {
+      tabsList.map((value) => {
+        if (tabsStatus - 1 === value.key) {
+          setCurrentTabsTitle(value.name);
+          setContentsType(value.type);
+          setTabsStatus(value.key);
+        }
+      });
+    }
+  };
+
   return (
     <>
       <div
@@ -810,8 +847,8 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     contentsType === "gridContents"
                       ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
                       : "",
-                    padding: contentsType === "gridContents" ? "10px" : "",
-                    borderRadius:6
+                  padding: contentsType === "gridContents" ? "10px" : "",
+                  borderRadius: 6,
                 }}
               >
                 {tabsList?.map((ele, index) => {
@@ -950,11 +987,16 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             <button
               type="button"
               className="buttons"
-              style={{ color: "#FF3E5B" }}
-              //   onClick={() => setIsDrawerOpen(false)}
-              onClick={() => setRightSideDrawer(false)}
+              style={{
+                color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
+                borderColor:
+                  tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+              }}
+              disabled={tabsStatus === 1}
+              onClick={() => handleTabsActiveBack(1)}
             >
-              Close
+              Back
             </button>
             {/* right side button */}
             <div className="rightSideBtn">
@@ -968,7 +1010,24 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               <button
                 type="button"
                 className="buttons"
-                style={{ color: "#fff", backgroundColor: "#FF3E5B" }}
+                style={{
+                  color:
+                    tabsList.length === tabsStatus
+                      ? "rgba(255,255,255,0.6)"
+                      : "#ffffff",
+                  borderColor:
+                    tabsList.length === tabsStatus
+                      ? "rgba(255, 62, 91,0.5)"
+                      : "#ff3e5b",
+                  cursor:
+                    tabsList.length === tabsStatus ? "not-allowed" : "pointer",
+                  backgroundColor:
+                    tabsList.length === tabsStatus
+                      ? "rgba(255, 62, 91,0.5)"
+                      : "#FF3E5B",
+                }}
+                disabled={tabsList.length === tabsStatus}
+                onClick={() => handleTabsActiveNext(1)}
               >
                 Next
               </button>

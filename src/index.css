@@ -177,6 +177,10 @@ body.dark::-webkit-scrollbar-thumb {
   .searchFilterContainer .searchFilterDropdown {
     width: 100%;
   }
+  .emptyDataTable {
+    position: inherit;
+    min-height: 365px;
+  }
 }
 @media screen and (max-width: 576px) {
   .searchFilterContainer {

@@ -21,8 +21,6 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
 
   const [tabsStatus, setTabsStatus] = useState(1);
 
-  const [tabsData, setTabsData] = useState([]);
-
   const tabsList = useMemo(() => {
     return [
       {
@@ -39,8 +37,8 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             text: data.three,
           },
           {
-            title: "",
-            text: "",
+            title: "Email Address",
+            text: data.five,
           },
           {
             title: "Company Name",
@@ -578,7 +576,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const [indicator, setIndicator] = useState(0);
 
   const handleTabsActiveNext = (value) => {
-    setTabsData(value);
+    // setTabsData(value);
 
     if (typeof value === "number") {
       tabsList.map((ele) => {
@@ -596,7 +594,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   };
 
   const handleTabsActiveBack = (value) => {
-    setTabsData(value);
+    // setTabsData(value);
 
     if (typeof value === "number") {
       tabsList.map((ele) => {
@@ -1080,8 +1078,13 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             <button
               type="button"
               className="buttons"
-              style={{ color: "#FF3E5B" }}
-              // onClick={() => setIsDrawerOpen(false)}
+              style={{
+                color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
+                borderColor:
+                  tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+              }}
+              disabled={tabsStatus === 1}
               onClick={() => handleTabsActiveBack(1)}
             >
               {/* Close */}
@@ -1089,20 +1092,39 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             </button>
             {/* right side button */}
             <div className="rightSideBtn">
+              {drawerType === "view" && (
+                <button
+                  type="button"
+                  className="buttons"
+                  style={{ color: "#FF3E5B" }}
+                >
+                  Edit
+                </button>
+              )}
               <button
                 type="button"
                 className="buttons"
-                style={{ color: "#FF3E5B" }}
-              >
-                Edit
-              </button>
-              <button
-                type="button"
-                className="buttons"
-                style={{ color: "#fff", backgroundColor: "#FF3E5B" }}
+                // style={{ color: "#fff", backgroundColor: "#FF3E5B" }}
+                style={{
+                  color:
+                    tabsList.length === tabsStatus
+                      ? "rgba(255,255,255,0.6)"
+                      : "#ffffff",
+                  borderColor:
+                    tabsList.length === tabsStatus
+                      ? "rgba(255, 62, 91,0.5)"
+                      : "#ff3e5b",
+                  cursor:
+                    tabsList.length === tabsStatus ? "not-allowed" : "pointer",
+                  backgroundColor:
+                    tabsList.length === tabsStatus
+                      ? "rgba(255, 62, 91,0.5)"
+                      : "#FF3E5B",
+                }}
+                disabled={tabsList.length === tabsStatus}
                 onClick={() => handleTabsActiveNext(1)}
               >
-                Next
+                {drawerType === "edit" ? "Save & Next" : "Next"}
               </button>
             </div>
           </div>

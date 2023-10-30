@@ -24,33 +24,34 @@
   }
 }
 
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 18px;
+}
+
 .swiper-pagination-bullet {
   width: 31px;
-  height: 4px;
+  height: 5px;
   border-radius: 20px;
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   background: rgba(255, 255, 255, 0.4);
-// background: rgba(255, 62, 91,0.2);
   box-shadow: 1px 0px 1px 0px rgba(0, 0, 0, 0.15);
 }
 
 .swiper-pagination-bullet-active {
   color: #fff;
   background: #ffffff;
-// background: #FF3E5B;
 }
 
 // media queries
 @media screen and (max-width: 660px) {
-    .swiper-pagination-bullets.swiper-pagination-horizontal {
-        bottom:32px;
-    }
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 32px;
+  }
 
-    .trendingNewsCarousel {
-        height: 100%;
-        min-height: 1005;
-        // min-height: 260px;
-    }
+  .trendingNewsCarousel {
+    height: 100%;
+    // min-height: 1005;
+  }
 }

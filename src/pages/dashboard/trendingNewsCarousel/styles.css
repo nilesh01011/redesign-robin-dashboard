@@ -21,9 +21,13 @@
   border-radius: 4px;
 }
 
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 18px;
+}
+
 .swiper-pagination-bullet {
   width: 31px;
-  height: 4px;
+  height: 5px;
   border-radius: 20px;
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
@@ -43,6 +47,5 @@
   }
   .trendingNewsCarousel {
     height: 100%;
-    min-height: 1005;
   }
 }/*# sourceMappingURL=styles.css.map */

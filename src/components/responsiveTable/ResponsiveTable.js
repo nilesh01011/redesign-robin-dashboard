@@ -8,7 +8,7 @@ function ResponsiveTable({
   tableBody,
   inputFields,
   // searchDropdownText,
-  // emptyTableData,
+  emptyTableData,
   setDrawerData,
   setDrawerType,
   setIsDrawerOpen,
@@ -35,23 +35,27 @@ function ResponsiveTable({
         <p>Actions</p>
       </div>
       {/* contents */}
-      <div
-        className={`responsiveTableContents ${
-          theme === "light" ? "light" : "dark"
-        } ${tableScrollBar && "active"}`}
-        onMouseEnter={() => setTableScrollBar(true)}
-        onMouseLeave={() => setTableScrollBar(false)}
-      >
-        {tableBody.map((ele) => (
-          <TableItems
-            key={ele.key}
-            items={ele}
-            setDrawerData={setDrawerData}
-            setDrawerType={setDrawerType}
-            setIsDrawerOpen={setIsDrawerOpen}
-          />
-        ))}
-      </div>
+      {
+        filterData.length === 0 || !filterData ? (emptyTableData()) : (
+          <div
+            className={`responsiveTableContents ${
+              theme === "light" ? "light" : "dark"
+            } ${tableScrollBar && "active"}`}
+            onMouseEnter={() => setTableScrollBar(true)}
+            onMouseLeave={() => setTableScrollBar(false)}
+          >
+            {filterData.map((ele,index) => (
+              <TableItems
+                key={index}
+                items={ele}
+                setDrawerData={setDrawerData}
+                setDrawerType={setDrawerType}
+                setIsDrawerOpen={setIsDrawerOpen}
+              />
+            ))}
+          </div>
+        )
+      }
     </div>
   );
 }
