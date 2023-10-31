@@ -1501,9 +1501,10 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           >
             <button
               type="button"
-              className="buttons"
+              // className="buttons"
+              className="secondaryBtn"
               style={{
-                color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
+                // color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
                 borderColor:
                   tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
                 cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
