@@ -34,17 +34,24 @@
   margin-top: 1px;
   z-index: 4;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders {
+  padding: 20px;
+  padding-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile {
   border-radius: 4px;
   padding: 12px 16px;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userImg {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId .userImg {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -52,24 +59,24 @@
   align-items: center;
   justify-content: center;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userImg span {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId .userImg span {
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId .userName_id {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id h3 {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId .userName_id h3 {
   font-size: 16px;
   font-weight: 700;
   color: #ff3e5b;
   position: relative;
   cursor: pointer;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id h3 .userNameSpan {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId .userName_id h3 .userNameSpan {
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
@@ -83,18 +90,18 @@
   z-index: 4;
   border-radius: 4px;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .userImgNameId .userName_id p {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .userImgNameId .userName_id p {
   font-size: 14px;
   font-weight: 400;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .divider {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .divider {
   width: 100%;
   height: 1px;
   display: block;
   margin-top: 10px;
   margin-bottom: 6px;
 }
-.tableDrawerContainer .drawerData .leftSide .userProfile .customerType {
+.tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile .customerType {
   width: 100%;
   display: flex;
   align-items: center;
@@ -242,6 +249,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide .secondaryBtn {
+  border: 1px solid;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+  border-radius: 4px;
+  color: #ff3e5b;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide .secondaryBtn:hover {
+  background-color: #ff3e5b;
+  color: #ffffff;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide .secondaryBtn:disabled {
+  background-color: transparent;
+  color: rgba(255, 62, 91, 0.5);
 }
 .tableDrawerContainer .drawerData .rightSide .footerSide .buttons {
   padding: 6px 16px;

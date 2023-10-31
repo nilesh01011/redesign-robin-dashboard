@@ -9,15 +9,13 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 9998;
-  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sidebar.desktopStrip {
   width: 60px;
-  min-width: 60px;
 }
 .sidebar.desktopCollapse {
   width: 282px;
-  min-width: 282px;
 }
 .sidebar .sidebarBtn {
   display: flex;
@@ -66,7 +64,6 @@
   position: sticky;
   top: 108px;
   max-height: 580px;
-  margin-bottom: 58px;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
   opacity: 0;

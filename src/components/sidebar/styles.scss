@@ -12,16 +12,16 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 9998;
-  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
   &.desktopStrip {
     width: 60px;
-    min-width: 60px;
+    // min-width: 60px;
   }
 
   &.desktopCollapse {
     width: 282px;
-    min-width: 282px;
+    // min-width: 282px;
   }
 
   // sidebar Header
@@ -85,7 +85,7 @@
       // overflow-y: scroll;
       max-height: 580px;
       // max-height: 630px;
-      margin-bottom: 58px;
+      // margin-bottom: 58px;
 
       &::-webkit-scrollbar {
         opacity: 0;

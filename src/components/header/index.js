@@ -586,7 +586,16 @@ function Header({ handleClosed, setModelListDetails }) {
                 style={{ cursor: "pointer" }}
               >
                 {/* icons */}
-                <span className="userAvatar">JD</span>
+                <span
+                  className="userAvatar"
+                  style={{
+                    backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
+                    color:theme === "light" ? "#0B0B0C" : "#ffffff",
+                    borderColor: theme === "light" ? "#B5B5B6" : "#545454"
+                  }}
+                >
+                  JD
+                </span>
                 {/* user details */}
                 <div className="userDetails">
                   {/* user name */}

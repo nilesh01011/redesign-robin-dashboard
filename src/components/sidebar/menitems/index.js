@@ -189,7 +189,7 @@ function MenuItems({ collapsed, setCollapsed }) {
               <span
                 style={{
                   transform: IsExpand && "rotate(180deg)",
-                  transition: "all 0.3s ease-in-out",
+                  transition: "transform 0.3s ease-in-out",
                   color: IsExpand && "#FF3E5B",
                   display: "flex",
                   alignItems: "center",

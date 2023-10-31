@@ -368,26 +368,26 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             type: "gridTable",
             contents: [
               {
-               tbody:[
-                {
-                  textOne:"1",
-                  textTwo:"CGST @18%",
-                  textOne:"18%",
-                  textOne:"90,0000",
-                },
-                {
-                  textOne:"2",
-                  textTwo:"CGST @18%",
-                  textOne:"18%",
-                  textOne:"80,0000",
-                },
-                {
-                  textOne:"3",
-                  textTwo:"CGST @18%",
-                  textOne:"14%",
-                  textOne:"50,0000",
-                }
-               ]
+                tbody: [
+                  {
+                    textOne: "1",
+                    textTwo: "CGST @18%",
+                    textOne: "18%",
+                    textOne: "90,0000",
+                  },
+                  {
+                    textOne: "2",
+                    textTwo: "CGST @18%",
+                    textOne: "18%",
+                    textOne: "80,0000",
+                  },
+                  {
+                    textOne: "3",
+                    textTwo: "CGST @18%",
+                    textOne: "14%",
+                    textOne: "50,0000",
+                  },
+                ],
               },
             ],
           },
@@ -845,8 +845,6 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const [indicator, setIndicator] = useState(0);
 
   const handleTabsActiveNext = (value) => {
-    // setTabsData(value);
-
     if (typeof value === "number") {
       tabsList.map((ele) => {
         if (tabsStatus + 1 === ele.key) {
@@ -877,6 +875,8 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   };
 
   const [leftSideScrollBar, setLeftSideScrollBar] = useState(false);
+
+  const [expandButtons, setExpandButtons] = useState(false);
 
   return (
     <div
@@ -935,287 +935,300 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         >
           {/* user profile */}
           <div
-            className={`userProfile ${
-              theme === "light" ? "lightTheme" : "darkTheme"
-            }`}
+            className="leftSideTopHeaders"
             style={{
-              border: `1px solid ${theme === "light" ? "#B5B5B6" : "#545454"}`,
               backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
             }}
           >
-            {/* user header section */}
-            <div className="userImgNameId">
-              {/* user images */}
-              <div
-                className="userImg"
-                style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
-                  border: `1px solid ${
-                    theme === "light" ? "#B5B5B6" : "#545454"
-                  }`,
-                }}
-              >
-                {data.userImg ? (
-                  <img src={data.userImg} alt={data.username} />
-                ) : (
-                  <span
-                    style={{
-                      borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
-                    }}
-                  >
-                    {firstLetter + "" + lastLetter}
-                  </span>
-                )}
-              </div>
-              {/* user name and Id */}
-              <div className="userName_id">
-                <h3
-                  onMouseEnter={() =>
-                    data.three.length > 22 && setTextTrucat(true)
-                  }
-                  onMouseLeave={() =>
-                    data.three.length > 22 && setTextTrucat(false)
-                  }
-                >
-                  {/* {data.two} */}
-
-                  <span style={{ opacity: textTrucat ? "0" : "1" }}>
-                    {wordSlice(data.three)}
-                  </span>
-
-                  <span
-                    className="userNameSpan"
-                    style={{
-                      opacity: textTrucat ? "1" : "0",
-                      backgroundColor: textTrucat
-                        ? theme === "light"
-                          ? "#ffffff"
-                          : "#0B0B0C"
-                        : "",
-                    }}
-                  >
-                    {data.three}
-                  </span>
-                </h3>
-                <p>C{data.one}</p>
-              </div>
-            </div>
-            <button
-              type="button"
+            <div
+              className={`userProfile ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
               style={{
-                color: theme === "light" ? "#0B0B0C" : "#ffffff",
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                fontSize: 14,
-                fontWeight: 500,
-                color: "#FF3E5B",
-                marginTop: 10,
+                border: `1px solid ${
+                  theme === "light" ? "#B5B5B6" : "#545454"
+                }`,
+                // backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
               }}
-              onClick={() => setSeeMoreData(!seeMoreData)}
             >
-              See {seeMoreData ? "Less" : "More"}
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transform: seeMoreData && "rotate(180deg)",
-                  transition: "transform 0.3s ease-in-out",
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="13"
-                  viewBox="0 0 12 13"
-                  fill="none"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M10.7052 9.11881C10.8261 9.00549 10.8322 8.81564 10.7189 8.69477L6.21891 3.89477C6.16219 3.83427 6.08297 3.79995 6.00005 3.79995C5.91712 3.79995 5.8379 3.83427 5.78119 3.89477L1.28119 8.69477C1.16787 8.81564 1.17399 9.00549 1.29486 9.11881C1.41574 9.23213 1.60559 9.22601 1.71891 9.10513L6.00005 4.53858L10.2812 9.10513C10.3945 9.22601 10.5844 9.23213 10.7052 9.11881Z"
-                    fill="#FF3E5B"
-                  />
-                </svg>
-              </span>
-            </button>
-            {seeMoreData && (
-              <div
-                className="divider"
-                style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  margin: "10px 0",
-                }}
-              ></div>
-            )}
-            {/* customer types */}
-            {seeMoreData && (
-              <div className="customerType">
-                <p
+              {/* user header section */}
+              <div className="userImgNameId">
+                {/* user images */}
+                <div
+                  className="userImg"
                   style={{
-                    width: "100%",
-                    fontSize: 12,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
+                    backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
+                    border: `1px solid ${
+                      theme === "light" ? "#B5B5B6" : "#545454"
+                    }`,
                   }}
                 >
-                  <span
-                    style={{
-                      fontWeight: 500,
-                      color: theme === "light" ? "#545454" : "#B5B5B6",
-                    }}
-                  >
-                    Customer Type:
-                  </span>
-                  <span style={{ fontWeight: 400 }}>Corporate</span>
-                </p>
-
-                {/* <div
-                className="divider"
-                style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  margin: "4px 0",
-                }}
-              ></div> */}
-
-                <p
-                  style={{
-                    width: "100%",
-                    fontSize: 12,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontWeight: 400,
-                      color: theme === "light" ? "#545454" : "#B5B5B6",
-                    }}
-                  >
-                    Mobile no.:
-                  </span>
-                  <span style={{ fontWeight: 500 }}>+91-9893473843</span>
-                </p>
-
-                {/* <div
-                className="divider"
-                style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  margin: "4px 0",
-                }}
-              ></div> */}
-
-                <p
-                  style={{
-                    width: "100%",
-                    fontSize: 12,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontWeight: 400,
-                      color: theme === "light" ? "#545454" : "#B5B5B6",
-                    }}
-                  >
-                    Booking Date:
-                  </span>
-                  <span style={{ fontWeight: 500 }}>02 Dec 2023</span>
-                </p>
-                {/* 
-              <div
-                className="divider"
-                style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  margin: "4px 0",
-                }}
-              ></div> */}
-
-                <p
-                  style={{
-                    width: "100%",
-                    fontSize: 12,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontWeight: 400,
-                      color: theme === "light" ? "#545454" : "#B5B5B6",
-                    }}
-                  >
-                    Model:
-                  </span>
-                  <span
-                    style={{
-                      fontWeight: 500,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 4,
-                    }}
-                  >
-                    SCORPIO
+                  {data.userImg ? (
+                    <img src={data.userImg} alt={data.username} />
+                  ) : (
                     <span
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
                       }}
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M7.00002 2.10002C4.29383 2.10002 2.10002 4.29383 2.10002 7.00002C2.10002 9.70622 4.29383 11.9 7.00002 11.9C9.70622 11.9 11.9 9.70622 11.9 7.00002C11.9 4.29383 9.70622 2.10002 7.00002 2.10002ZM1.40002 7.00002C1.40002 3.90723 3.90723 1.40002 7.00002 1.40002C10.0928 1.40002 12.6 3.90723 12.6 7.00002C12.6 10.0928 10.0928 12.6 7.00002 12.6C3.90723 12.6 1.40002 10.0928 1.40002 7.00002ZM7.00002 3.97593C7.19332 3.97593 7.35002 4.13264 7.35002 4.32593V4.37502C7.35002 4.56832 7.19332 4.72502 7.00002 4.72502C6.80673 4.72502 6.65002 4.56832 6.65002 4.37502V4.32593C6.65002 4.13264 6.80673 3.97593 7.00002 3.97593ZM7.00002 5.48336C7.19332 5.48336 7.35002 5.64006 7.35002 5.83336V9.91669C7.35002 10.11 7.19332 10.2667 7.00002 10.2667C6.80673 10.2667 6.65002 10.11 6.65002 9.91669V5.83336C6.65002 5.64006 6.80673 5.48336 7.00002 5.48336Z"
-                          fill="#2782F9"
-                        />
-                      </svg>
+                      {firstLetter + "" + lastLetter}
                     </span>
-                  </span>
-                </p>
+                  )}
+                </div>
+                {/* user name and Id */}
+                <div className="userName_id">
+                  <h3
+                    onMouseEnter={() =>
+                      data.three.length > 22 && setTextTrucat(true)
+                    }
+                    onMouseLeave={() =>
+                      data.three.length > 22 && setTextTrucat(false)
+                    }
+                  >
+                    {/* {data.two} */}
 
-                {/* <div
-                className="divider"
+                    <span style={{ opacity: textTrucat ? "0" : "1" }}>
+                      {wordSlice(data.three)}
+                    </span>
+
+                    <span
+                      className="userNameSpan"
+                      style={{
+                        opacity: textTrucat ? "1" : "0",
+                        backgroundColor: textTrucat
+                          ? theme === "light"
+                            ? "#ffffff"
+                            : "#0B0B0C"
+                          : "",
+                      }}
+                    >
+                      {data.three}
+                    </span>
+                  </h3>
+                  <p>C{data.one}</p>
+                </div>
+              </div>
+              <button
+                type="button"
                 style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  margin: "4px 0",
+                  color: theme === "light" ? "#0B0B0C" : "#ffffff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  fontSize: 14,
+                  fontWeight: 500,
+                  color: "#FF3E5B",
+                  marginTop: 10,
                 }}
-              ></div> */}
-
-                <p
+                onClick={() => setSeeMoreData(!seeMoreData)}
+              >
+                See {seeMoreData ? "Less" : "More"}
+                <span
                   style={{
-                    width: "100%",
-                    fontSize: 12,
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between",
+                    justifyContent: "center",
+                    transform: seeMoreData && "rotate(180deg)",
+                    transition: "transform 0.3s ease-in-out",
                   }}
                 >
-                  <span
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="13"
+                    viewBox="0 0 12 13"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M10.7052 9.11881C10.8261 9.00549 10.8322 8.81564 10.7189 8.69477L6.21891 3.89477C6.16219 3.83427 6.08297 3.79995 6.00005 3.79995C5.91712 3.79995 5.8379 3.83427 5.78119 3.89477L1.28119 8.69477C1.16787 8.81564 1.17399 9.00549 1.29486 9.11881C1.41574 9.23213 1.60559 9.22601 1.71891 9.10513L6.00005 4.53858L10.2812 9.10513C10.3945 9.22601 10.5844 9.23213 10.7052 9.11881Z"
+                      fill="#FF3E5B"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {seeMoreData && (
+                <div
+                  className="divider"
+                  style={{
+                    backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
+                    margin: "10px 0",
+                  }}
+                ></div>
+              )}
+              {/* customer types */}
+              {seeMoreData && (
+                <div className="customerType">
+                  <p
                     style={{
-                      fontWeight: 400,
-                      color: theme === "light" ? "#545454" : "#B5B5B6",
+                      width: "100%",
+                      fontSize: 12,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                     }}
                   >
-                    CPD:
-                  </span>
-                  <span style={{ fontWeight: 500 }}>12 Apr 2023</span>
-                </p>
-              </div>
-            )}
+                    <span
+                      style={{
+                        fontWeight: 500,
+                        color: theme === "light" ? "#545454" : "#B5B5B6",
+                      }}
+                    >
+                      Customer Type:
+                    </span>
+                    <span style={{ fontWeight: 400 }}>Corporate</span>
+                  </p>
+
+                  <div
+                    className="divider"
+                    style={{
+                      backgroundColor:
+                        theme === "light" ? "#E6E6E6" : "#232324",
+                      margin: "4px 0",
+                    }}
+                  ></div>
+
+                  <p
+                    style={{
+                      width: "100%",
+                      fontSize: 12,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 400,
+                        color: theme === "light" ? "#545454" : "#B5B5B6",
+                      }}
+                    >
+                      Mobile no.:
+                    </span>
+                    <span style={{ fontWeight: 500 }}>+91-9893473843</span>
+                  </p>
+
+                  <div
+                    className="divider"
+                    style={{
+                      backgroundColor:
+                        theme === "light" ? "#E6E6E6" : "#232324",
+                      margin: "4px 0",
+                    }}
+                  ></div>
+
+                  <p
+                    style={{
+                      width: "100%",
+                      fontSize: 12,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 400,
+                        color: theme === "light" ? "#545454" : "#B5B5B6",
+                      }}
+                    >
+                      Booking Date:
+                    </span>
+                    <span style={{ fontWeight: 500 }}>02 Dec 2023</span>
+                  </p>
+
+                  <div
+                    className="divider"
+                    style={{
+                      backgroundColor:
+                        theme === "light" ? "#E6E6E6" : "#232324",
+                      margin: "4px 0",
+                    }}
+                  ></div>
+
+                  <p
+                    style={{
+                      width: "100%",
+                      fontSize: 12,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 400,
+                        color: theme === "light" ? "#545454" : "#B5B5B6",
+                      }}
+                    >
+                      Model:
+                    </span>
+                    <span
+                      style={{
+                        fontWeight: 500,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 4,
+                      }}
+                    >
+                      SCORPIO
+                      <span
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M7.00002 2.10002C4.29383 2.10002 2.10002 4.29383 2.10002 7.00002C2.10002 9.70622 4.29383 11.9 7.00002 11.9C9.70622 11.9 11.9 9.70622 11.9 7.00002C11.9 4.29383 9.70622 2.10002 7.00002 2.10002ZM1.40002 7.00002C1.40002 3.90723 3.90723 1.40002 7.00002 1.40002C10.0928 1.40002 12.6 3.90723 12.6 7.00002C12.6 10.0928 10.0928 12.6 7.00002 12.6C3.90723 12.6 1.40002 10.0928 1.40002 7.00002ZM7.00002 3.97593C7.19332 3.97593 7.35002 4.13264 7.35002 4.32593V4.37502C7.35002 4.56832 7.19332 4.72502 7.00002 4.72502C6.80673 4.72502 6.65002 4.56832 6.65002 4.37502V4.32593C6.65002 4.13264 6.80673 3.97593 7.00002 3.97593ZM7.00002 5.48336C7.19332 5.48336 7.35002 5.64006 7.35002 5.83336V9.91669C7.35002 10.11 7.19332 10.2667 7.00002 10.2667C6.80673 10.2667 6.65002 10.11 6.65002 9.91669V5.83336C6.65002 5.64006 6.80673 5.48336 7.00002 5.48336Z"
+                            fill="#2782F9"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </p>
+
+                  <div
+                    className="divider"
+                    style={{
+                      backgroundColor:
+                        theme === "light" ? "#E6E6E6" : "#232324",
+                      margin: "4px 0",
+                    }}
+                  ></div>
+
+                  <p
+                    style={{
+                      width: "100%",
+                      fontSize: 12,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 400,
+                        color: theme === "light" ? "#545454" : "#B5B5B6",
+                      }}
+                    >
+                      CPD:
+                    </span>
+                    <span style={{ fontWeight: 500 }}>12 Apr 2023</span>
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
           {/* tabs steps */}
           <div className="tabsSteps">
@@ -1486,7 +1499,6 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               marginLeft: theme === "light" ? "1px" : "0px",
             }}
           >
-            {/* left close btn */}
             <button
               type="button"
               className="buttons"
@@ -1499,11 +1511,41 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               disabled={tabsStatus === 1}
               onClick={() => handleTabsActiveBack(1)}
             >
-              {/* Close */}
               Back
             </button>
+            {/* middel buttons */}
+            {/* <div className="leftsideBtn">
+              <button type="button" className="btns">
+                Edit
+              </button>
+
+              <button type="button" className="btns">
+                Generate SO
+              </button>
+
+              <button type="button" className="btns">
+                Transfer
+              </button>
+              <button type="button" className="btns">
+                Allot
+              </button>
+              <button type="button" className="btns">
+                Invoice
+              </button>
+
+              <button type="button" className="btns">
+                Delivery Note
+              </button>
+
+              <button type="button" className="btns">
+                Cancel Booking
+              </button>
+            </div> */}
             {/* right side button */}
-            <div className="rightSideBtn">
+            <div
+              className="rightSideBtn"
+              // style={{justifyContent:drawerType === "edit" ? "flex-end" : "space-between"}}
+            >
               {/* {drawerType === "view" && (
                 <button
                   type="button"
@@ -1537,48 +1579,88 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               >
                 {drawerType === "edit" ? "Save & Next" : "Next"}
               </button> */}
-              {/* More button */}
-              <button type="button" className="btns">
-                Generate SO
-              </button>
-              <button type="button" className="btns">
-                Edit
-              </button>
 
-              <button type="button" className="btns">
-                Transfer
-              </button>
-              <button type="button" className="btns">
-                Allot
-              </button>
+              {/* {expandButtons && ( */}
+                <div className="leftsideBtn">
+                  <button type="button" className="btns">
+                    Edit
+                  </button>
 
-              <button type="button" className="btns">
+                  <button type="button" className="btns">
+                    Generate SO
+                  </button>
+
+                  <button type="button" className="btns">
+                    Transfer
+                  </button>
+                  <button type="button" className="btns">
+                    Allot
+                  </button>
+
+                  {/* <button type="button" className="btns">
                 Un-Allot
-              </button>
-              <button type="button" className="btns">
-                Invoice
-              </button>
+              </button> */}
+                  <button type="button" className="btns">
+                    Invoice
+                  </button>
 
-              <button type="button" className="btns">
-                Delivery Note
-              </button>
+                  <button type="button" className="btns">
+                    Delivery Note
+                  </button>
 
-              <button type="button" className="btns">
-                Cancel Booking
-              </button>
+                  <button type="button" className="btns">
+                    Cancel Booking
+                  </button>
+                </div>
+              {/* )} */}
+
+              {/* More button */}
+              <div
+                style={{
+                  backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
+                  width: 1,
+                  height: "30px",
+                  display: "block",
+                  // cursor:"pointer"
+                }}
+                // onClick={() => setExpandButtons(!expandButtons)}
+              />
 
               <button
                 type="button"
-                className="btns"
+                className="secondaryBtn"
                 style={{
-                  cursor:
-                    tabsList.length === tabsStatus ? "not-allowed" : "pointer",
-                  backgroundColor:
+                  border: "1px solid",
+                  borderColor:
                     tabsList.length === tabsStatus
                       ? "rgba(255, 62, 91,0.5)"
-                      : "#FF3E5B",
+                      : "#ff3e5b",
+                  cursor:
+                    tabsList.length - 1 === tabsStatus
+                      ? "not-allowed"
+                      : "pointer",
                 }}
-                disabled={tabsList.length === tabsStatus}
+                // style={{
+                //   cursor:
+                //     tabsList.length - 1 === tabsStatus
+                //       ? "not-allowed"
+                //       : "pointer",
+                //   border: `1px solid ${
+                //     tabsList.length === tabsStatus
+                //       ? "rgba(255, 62, 91,0.5)"
+                //       : "#ff3e5b"
+                //   }
+                //      `,
+                //   padding: "6px 16px",
+                //   borderRadius: 4,
+                //   fontWeight: 700,
+                //   fontSize: 14,
+                //   color:
+                //     tabsList.length - 1 === tabsStatus
+                //       ? "rgba(255, 62, 91,0.5)"
+                //       : "#ff3e5b",
+                // }}
+                disabled={tabsList.length - 1 === tabsStatus}
                 onClick={() => handleTabsActiveNext(1)}
               >
                 {drawerType === "edit" ? "Save & Next" : "Next"}

@@ -38,9 +38,9 @@ function Sidebar() {
   const [inputFields, setInputFields] = useState("");
   const [searchMenuItems, setSearchMenuItems] = useState("");
 
-  let domNode = useClickOutSide(() => {
-    setCollapsed(true);
-  });
+  // let domNode = useClickOutSide(() => {
+  //   setCollapsed(true);
+  // });
 
   // Scrollbar
   const [sidebarScrollBar, setSidebarScrollBar] = useState(false);
@@ -75,7 +75,7 @@ function Sidebar() {
   return (
     <>
       <aside
-        ref={domNode}
+        // ref={domNode}
         className={`sidebar ${collapsed ? "desktopStrip" : "desktopCollapse"}`}
         style={{
           background: theme === "light" ? "white" : "#1C1C1C",

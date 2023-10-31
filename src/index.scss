@@ -115,8 +115,8 @@ body.dark::-webkit-scrollbar-thumb {
   // min-height: 379px;
   // min-height: calc(80vh - 148px);
 
-  max-height: 500px;
-  min-height: 500px;
+  // max-height: 500px;
+  // min-height: 500px;
   overflow: scroll;
   border-radius: 4px;
   border: 1px solid;
@@ -175,6 +175,13 @@ body.dark::-webkit-scrollbar-thumb {
 //     overflow: scroll;
 //   }
 // }
+
+@media screen and (max-width: 1366px) {
+  .tableContainer {
+  max-height: 500px;
+  min-height: 500px;
+  }
+}
 
 @media screen and (max-width: 1038px) {
   .footer,

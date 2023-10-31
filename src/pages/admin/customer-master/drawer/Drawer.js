@@ -607,6 +607,8 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
     }
   };
 
+  const [expandButtons, setExpandButtons] = useState(false);
+
   return (
     <div
       className="tableDrawerContainer"
@@ -660,106 +662,123 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         >
           {/* user profile */}
           <div
-            className={`userProfile ${
-              theme === "light" ? "lightTheme" : "darkTheme"
-            }`}
+            className="leftSideTopHeaders"
             style={{
-              border: `1px solid ${theme === "light" ? "#B5B5B6" : "#545454"}`,
+              backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
             }}
           >
-            {/* user header section */}
-            <div className="userImgNameId">
-              {/* user images */}
-              <div
-                className="userImg"
-                style={{
-                  backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
-                  border: `1px solid ${
-                    theme === "light" ? "#B5B5B6" : "#545454"
-                  }`,
-                }}
-              >
-                {data.userImg ? (
-                  <img src={data.userImg} alt={data.username} />
-                ) : (
-                  <span
-                    style={{
-                      borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
-                    }}
-                  >
-                    {firstLetter + "" + lastLetter}
-                  </span>
-                )}
-              </div>
-              {/* user name and Id */}
-              <div className="userName_id">
-                <h3
-                  onMouseEnter={() =>
-                    data.two.length > 22 && setTextTrucat(true)
-                  }
-                  onMouseLeave={() =>
-                    data.two.length > 22 && setTextTrucat(false)
-                  }
-                >
-                  {/* {data.two} */}
-
-                  <span style={{ opacity: textTrucat ? "0" : "1" }}>
-                    {wordSlice(data.two)}
-                  </span>
-
-                  <span
-                    className="userNameSpan"
-                    style={{
-                      opacity: textTrucat ? "1" : "0",
-                      backgroundColor: textTrucat
-                        ? theme === "light"
-                          ? "#ffffff"
-                          : "#0B0B0C"
-                        : "",
-                    }}
-                  >
-                    {data.two}
-                  </span>
-                </h3>
-                <p>C{data.one}</p>
-              </div>
-            </div>
-            {/* divider */}
             <div
-              className="divider"
+              className={`userProfile ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
               style={{
-                backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-              }}
-            ></div>
-            {/* customer types */}
-            <div className="customerType">
-              <p style={{ fontWeight: 500 }}>Customer Type:</p>
-              <p
-                style={{
-                  color: theme === "light" ? "black" : "white",
-                  fontWeight: 400,
-                }}
-              >
-                {data.three}
-              </p>
-            </div>
-
-            {/* More data */}
-            <p
-              style={{
-                width: "100%",
-                fontSize: 12,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+                border: `1px solid ${
+                  theme === "light" ? "#B5B5B6" : "#545454"
+                }`,
               }}
             >
-              <span>Mobile no.:</span>
-              <span style={{ fontWeight: 700 }}>{data.four}</span>
-            </p>
-            {/* see more */}
-            <div className="moreDataShow">
-              {/* <p
+              {/* user header section */}
+              <div className="userImgNameId">
+                {/* user images */}
+                <div
+                  className="userImg"
+                  style={{
+                    backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
+                    border: `1px solid ${
+                      theme === "light" ? "#B5B5B6" : "#545454"
+                    }`,
+                  }}
+                >
+                  {data.userImg ? (
+                    <img src={data.userImg} alt={data.username} />
+                  ) : (
+                    <span
+                      style={{
+                        borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
+                      }}
+                    >
+                      {firstLetter + "" + lastLetter}
+                    </span>
+                  )}
+                </div>
+                {/* user name and Id */}
+                <div className="userName_id">
+                  <h3
+                    onMouseEnter={() =>
+                      data.two.length > 22 && setTextTrucat(true)
+                    }
+                    onMouseLeave={() =>
+                      data.two.length > 22 && setTextTrucat(false)
+                    }
+                  >
+                    {/* {data.two} */}
+
+                    <span style={{ opacity: textTrucat ? "0" : "1" }}>
+                      {wordSlice(data.two)}
+                    </span>
+
+                    <span
+                      className="userNameSpan"
+                      style={{
+                        opacity: textTrucat ? "1" : "0",
+                        backgroundColor: textTrucat
+                          ? theme === "light"
+                            ? "#ffffff"
+                            : "#0B0B0C"
+                          : "",
+                      }}
+                    >
+                      {data.two}
+                    </span>
+                  </h3>
+                  <p>C{data.one}</p>
+                </div>
+              </div>
+              {/* divider */}
+              <div
+                className="divider"
+                style={{
+                  backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
+                }}
+              ></div>
+              {/* customer types */}
+              <div className="customerType">
+                <p
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <span style={{ fontWeight: 500 }}>Customer Type:</span>
+                  <span
+                    style={{
+                      color: theme === "light" ? "black" : "white",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {" "}
+                    {data.three}
+                  </span>
+                </p>
+              </div>
+
+              {/* More data */}
+              <p
+                style={{
+                  width: "100%",
+                  fontSize: 12,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span>Mobile no.:</span>
+                <span style={{ fontWeight: 700 }}>{data.four}</span>
+              </p>
+              {/* see more */}
+              <div className="moreDataShow">
+                {/* <p
                 style={{
                   fontWeight: 700,
                   fontSize: 12,
@@ -799,7 +818,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   </svg>
                 </span>
               </p> */}
-              {/* {seeMoreData && (
+                {/* {seeMoreData && (
                 <>
                   divider
                   <div
@@ -825,6 +844,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   </p>
                 </>
               )} */}
+              </div>
             </div>
           </div>
           {/* tabs steps */}
@@ -1075,51 +1095,64 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             }}
           >
             {/* left close btn */}
-            <button
-              type="button"
-              className="buttons"
-              style={{
-                color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
-                borderColor:
-                  tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
-              }}
-              disabled={tabsStatus === 1}
-              onClick={() => handleTabsActiveBack(1)}
-            >
-              {/* Close */}
-              Back
-            </button>
+            <div className="leftSideBtn">
+              <button
+                type="button"
+                className="buttons"
+                style={{
+                  color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
+                  borderColor:
+                    tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                  cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                }}
+                disabled={tabsStatus === 1}
+                onClick={() => handleTabsActiveBack(1)}
+              >
+                Back
+              </button>
+            </div>
+
             {/* right side button */}
-            <div className="rightSideBtn">
+            <div
+              className="rightSideBtn"
+              style={{
+                justifyContent:
+                  drawerType === "edit" ? "flex-end" : "space-between",
+              }}
+            >
               {drawerType === "view" && (
                 <button
                   type="button"
                   className="buttons"
-                  style={{ color: "#FF3E5B" }}
+                  style={{ color: "#ffffff", backgroundColor: "#ff3e5b" }}
                 >
                   Edit
                 </button>
               )}
+              {/* divider */}
+              {drawerType === "view" && (
+                <div
+                  style={{
+                    backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
+                    width: 1,
+                    height: "30px",
+                    display: "block",
+                  }}
+                  // onClick={() => setExpandButtons(!expandButtons)}
+                />
+              )}
+
               <button
                 type="button"
-                className="buttons"
-                // style={{ color: "#fff", backgroundColor: "#FF3E5B" }}
+                className="secondaryBtn"
                 style={{
-                  color:
-                    tabsList.length === tabsStatus
-                      ? "rgba(255,255,255,0.6)"
-                      : "#ffffff",
+                  border: "1px solid",
                   borderColor:
                     tabsList.length === tabsStatus
                       ? "rgba(255, 62, 91,0.5)"
                       : "#ff3e5b",
                   cursor:
                     tabsList.length === tabsStatus ? "not-allowed" : "pointer",
-                  backgroundColor:
-                    tabsList.length === tabsStatus
-                      ? "rgba(255, 62, 91,0.5)"
-                      : "#FF3E5B",
                 }}
                 disabled={tabsList.length === tabsStatus}
                 onClick={() => handleTabsActiveNext(1)}
