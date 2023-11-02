@@ -5,7 +5,7 @@ export const menuItems = [
   {
     key: 1,
     name: "Home",
-    link: "/dashboard",
+    link: "/home",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -314,7 +314,7 @@ export const menuItems = [
     isFolder: true,
     items: [
       { key: 7.1, name: "Customer Related", link: "/common/customer-related" },
-      { key: 7.1, name: "Vehicle Related", link: "/common/vehicle-related" },
+      { key: 7.2, name: "Vehicle Related", link: "/common/vehicle-related" },
     ],
     icon: (
       <svg
@@ -462,19 +462,19 @@ export const menuItems = [
     key: 8,
     name: "Reports",
     isFolder: true,
-    items:[
+    items: [
       {
-        key:"8.1",
-        name:"Procurement & Inventory Management Reports",
-        isFolder:true,
-        items:[
+        key: "8.1",
+        name: "Procurement & Inventory Management Reports",
+        isFolder: true,
+        items: [
           {
-            name:"Stock Status Report",
-            link:"/reports/procurement-inventory-management-reports/stock-status-report",
-            key:"8.1.1"
-          }
-        ]
-      }
+            name: "Stock Status Report",
+            link: "/reports/procurement-inventory-management-reports/stock-status-report",
+            key: "8.1.1",
+          },
+        ],
+      },
     ],
     icon: (
       <svg
@@ -492,6 +492,118 @@ export const menuItems = [
         />
       </svg>
     ),
+  },
+];
+
+// search items
+export const searchItems = [
+  {
+    name: "Home",
+    link: "/home",
+  },
+  // Favourites
+  {
+    name: "Product Hierarchy Master",
+    link: "/favourites/product-hierarchy-master",
+  },
+  {
+    name: "Vehicle Allotment",
+    link: "/favourites/vehicle-allotment",
+  },
+  // HR Mile
+  {
+    name: "CoTEK Evaluation",
+    link: "/hr-mile/manage-dealer-manpower/coTEK-evaluation",
+  },
+  {
+    name: "Manage Dealers",
+    link: "/hr-mile/manage-dealers",
+  },
+  {
+    name: "Manage Manpower Training",
+    link: "/hr-mile/manage-manpower-training",
+  },
+  // Sales
+  {
+    name: "Vin Block Master",
+    link: "/Sales/vin-block-master",
+  },
+  {
+    name: "Booking Form",
+    link: "/sales/order-to-delivery/booking-form",
+  },
+  {
+    name: "Delivery Note/Invoice Cancellation Request",
+    link: "/sales/delivery-note-invoice-cancellation-request",
+  },
+  {
+    name: "Delivery Note (Vehicles)",
+    link: "/sales/delivery-note-vehicles",
+  },
+  {
+    name: "Vehicles Allotment",
+    link: "/sales/vehicles-allotment",
+  },
+  {
+    name: "Vehicle Price Master",
+    link: "/Sales/vehicle-price/vehicle-price-master",
+  },
+  // Financial
+  {
+    name: "GST-IRN Authentication",
+    link: "/financial-accounting/gst-related/gst-irn-authentication",
+  },
+  {
+    name: "GST-IRN Transaction",
+    link: "/financial-accounting/gst-related/gst-irn-transaction",
+  },
+  {
+    name: "GST Report (Dealer to Customer & MnM)",
+    link: "/financial-accounting/gst-related/gst-report",
+  },
+  {
+    name: "Dealer Ledger Balance",
+    link: "/financial-accounting/dealer-ledger/balance",
+  },
+  {
+    name: "Dealer Credit Balance",
+    link: "/financial-accounting/financial-reports/dealer-credit-balance",
+  },
+  {
+    name: "Customer Outstanding",
+    link: "/financial-accounting/financial-reports/customer-outstanding",
+  },
+  {
+    name: "Credit / Debit Note",
+    link: "/financial-accounting/vouchers/credit-debit-note",
+  },
+
+  {
+    name: "Tax & Charges",
+    link: "/financial-accounting/accout-tax-charges-setup/tax-charges",
+  },
+  // Admin
+  {
+    name: "Customer Master",
+    link: "/admin/customer-master",
+  },
+  {
+    name: "Admin 1.2",
+    link: "/admin/admin-1-2",
+  },
+  // Common
+  {
+    name: "Customer Related",
+    link: "/common/customer-related",
+  },
+  {
+    name: "Vehicle Related",
+    link: "/common/vehicle-related",
+  },
+  // Reports
+  {
+    name: "Stock Status Report",
+    link: "/reports/procurement-inventory-management-reports/stock-status-report",
   },
 ];
 

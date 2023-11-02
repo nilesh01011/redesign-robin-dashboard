@@ -63,7 +63,6 @@
 .sidebar .sidebarContainer .sidebarMenuItemsContainer {
   position: sticky;
   top: 108px;
-  max-height: 580px;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
   opacity: 0;
@@ -171,7 +170,7 @@
   .sidebar .sidebarContainer.desktopCollapse, .sidebar .sidebarContainer.desktopStrip {
     width: 100%;
   }
-  .sidebar .sidebarContainer .searchInputContainer.desktopView, .sidebar .sidebarContainer .searchInputContainer .searchIcons {
+  .sidebar .sidebarContainer .searchInputContainer.desktopView {
     display: none !important;
   }
   .sidebar .sidebarContainer .searchInputContainer.mobileViewSearch {

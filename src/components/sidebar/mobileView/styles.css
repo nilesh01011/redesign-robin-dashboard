@@ -7,6 +7,19 @@
 @media screen and (max-width: 992px) {
   .mobileViewMenuListContainer {
     display: block;
-    margin-bottom: 47px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .mobileViewMenuListContainer::-webkit-scrollbar {
+    width: 8px;
+  }
+  .mobileViewMenuListContainer::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  }
+  .mobileViewMenuListContainer.lightScrollbar::-webkit-scrollbar-thumb {
+    background: #b5b5b6;
+  }
+  .mobileViewMenuListContainer.darkScrollbar::-webkit-scrollbar-thumb {
+    background: #545454;
   }
 }/*# sourceMappingURL=styles.css.map */

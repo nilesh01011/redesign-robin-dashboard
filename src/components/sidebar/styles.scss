@@ -1,5 +1,4 @@
 .sidebar {
-  // height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
 
@@ -83,7 +82,7 @@
       top: 108px;
       // overflow-x: hidden;
       // overflow-y: scroll;
-      max-height: 580px;
+      // max-height: 580px;
       // max-height: 630px;
       // margin-bottom: 58px;
 
@@ -221,8 +220,7 @@
       }
 
       & .searchInputContainer {
-        &.desktopView,
-        & .searchIcons {
+        &.desktopView {
           display: none !important;
         }
 

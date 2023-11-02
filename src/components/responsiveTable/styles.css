@@ -19,7 +19,7 @@
 }
 .responsiveTable .responsiveTableContents {
   overflow-y: scroll;
-  max-height: 600px;
+  max-height: calc(100vh - 420px);
 }
 .responsiveTable .responsiveTableContents::-webkit-scrollbar {
   width: 8px;
@@ -36,4 +36,13 @@
 }
 .responsiveTable .responsiveTableContents.active.dark::-webkit-scrollbar-thumb {
   background: #545454;
+}
+
+@media screen and (max-width: 480px) {
+  .responsiveTable {
+    max-height: 800px;
+  }
+  .responsiveTable .responsiveTableContents {
+    max-height: calc(100vh - 500px);
+  }
 }/*# sourceMappingURL=styles.css.map */

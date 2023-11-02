@@ -22,7 +22,9 @@
   // responsiveTableContents
   & .responsiveTableContents {
     overflow-y: scroll;
-    max-height: 600px;
+    // max-height: 600px;
+    max-height: calc(100vh - 420px);
+    // max-height: calc(100vh - 420px);
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -56,11 +58,14 @@
 }
 
 // media queries
-// @media screen and (max-width: 756px) {
-//   .responsiveTable {
-//     max-height: 800px;
-//   }
-// }
+@media screen and (max-width: 480px) {
+  .responsiveTable {
+    max-height: 800px;
+    & .responsiveTableContents {
+      max-height: calc(100vh - 500px);
+    }
+  }
+}
 
 // @media screen and (max-width: 576px) {
 //   .responsiveTable {

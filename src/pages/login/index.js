@@ -31,7 +31,7 @@ function Index() {
       initialValues: initialValues,
       onSubmit: async (values, action) => {
         // console.log(values);
-        navigate("/dashboard");
+        navigate("/home");
         action.resetForm();
       },
     });

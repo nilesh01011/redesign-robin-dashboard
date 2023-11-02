@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { menuItems } from "../../../data";
 
-function MobileView({ collapsed, setCollapsed }) {
+function MobileView({ collapsed, setCollapsed, handleSidebar }) {
   const [expanded, setExpanded] = useState({});
   const theme = useSelector((state) => state.theme);
 
@@ -23,6 +23,8 @@ function MobileView({ collapsed, setCollapsed }) {
 
   const handleRedirect = (links) => {
     router(links);
+    // sidebar closed
+    // handleSidebar();
   };
 
   const handleCollapseRecursive = (item) => {
@@ -59,6 +61,7 @@ function MobileView({ collapsed, setCollapsed }) {
                 color: IsExpand || pathname === item.link ? "#FF3E5B" : "",
                 margin: "0",
               }}
+              // onClick={() => setCollapsed(!collapsed)}
             >
               {/* items name */}
               <div
@@ -71,6 +74,7 @@ function MobileView({ collapsed, setCollapsed }) {
                       : "#f2f2f2",
                 }}
                 onClick={() => handleRedirect(item.link)}
+                title={item.link && item.link}
               >
                 {item.name}
               </div>
@@ -152,7 +156,11 @@ function MobileView({ collapsed, setCollapsed }) {
     }
   }
   return (
-    <div className="mobileViewMenuListContainer">
+    <div
+      className={`mobileViewMenuListContainer ${
+        theme === "light" ? "lightScrollbar" : "darkScrollbar"
+      }`}
+    >
       {menuItems.map(renderMobileViewMenuItems)}
     </div>
   );

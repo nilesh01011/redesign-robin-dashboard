@@ -19,6 +19,7 @@ import CRM from "./pages/crm";
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
 import OTF from "./pages/otf/OTF";
+import SidebarRedevelop from "./components/sidebarRedevelop";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -51,7 +52,8 @@ function App() {
   return (
     <div className="container">
       {/* sidebar */}
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <SidebarRedevelop />
       <div className="main-container">
         {/* Headers */}
         <Header setModelListDetails={setModelListDetails} />
@@ -84,7 +86,7 @@ function App() {
         {/* main contents */}
         <Routes>
           {/* dashboard */}
-          <Route path="/dashboard" element={<DashboardPage />}></Route>
+          <Route path="/home" element={<DashboardPage />}></Route>
           {/* favourites */}
           <Route path="/favourites" element={<Favourites />}></Route>
           <Route

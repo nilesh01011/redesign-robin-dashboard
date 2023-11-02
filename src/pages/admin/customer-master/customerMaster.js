@@ -111,7 +111,7 @@ function CustomerMaster() {
 
   // empty table data
   const emptyTableData = () => (
-    <div className="emptyDataTable" style={{ color: "#545454" }}>
+    <div className="emptyDataTable" style={{ color: "#545454", }}>
       {/* icons */}
       <span>
         <svg
