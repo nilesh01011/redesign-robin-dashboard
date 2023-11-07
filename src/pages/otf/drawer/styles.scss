@@ -196,6 +196,10 @@
               background-color: #70c922;
               display: block;
             }
+
+            &.lines.activeLines::after {
+              background-color: #2782F9;
+            }
           }
 
           & .tabsText {

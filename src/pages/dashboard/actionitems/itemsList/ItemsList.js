@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 function ItemsList({ items }) {
   const theme = useSelector((state) => state.theme);
+  
   return (
     <div
       className="ItemsList"

@@ -32,13 +32,12 @@
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.4);
+  background: #E6E6E6;
   box-shadow: 1px 0px 1px 0px rgba(0, 0, 0, 0.15);
 }
 
 .swiper-pagination-bullet-active {
-  color: #fff;
-  background: #ffffff;
+  background: #FF3E5B;
 }
 
 @media screen and (max-width: 660px) {

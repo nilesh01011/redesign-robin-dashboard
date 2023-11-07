@@ -84,10 +84,10 @@ function KeyhightlightCarousel() {
         }}
         spaceBetween={10}
         centeredSlides={true}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 4500,
+        //   disableOnInteraction: false,
+        // }}
         pagination={{
           clickable: true,
         }}
@@ -103,7 +103,7 @@ function KeyhightlightCarousel() {
               {/* label */}
               <span className="label">
                 <span className="label_name">GST Update</span>
-                {/* <span className="date mobileView">{data.time}</span> */}
+                <span className="date mobileView">{ele.time}</span>
               </span>
               {/* text */}
               <p className="text">

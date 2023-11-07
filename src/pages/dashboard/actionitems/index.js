@@ -20,6 +20,14 @@ function ActionItemsCollapsed({
     // document.body.classList.add("overflow-hidden");
   };
 
+  const wordSlice = (word) => {
+    if (word.length > 40) {
+      return word.slice(0, 40) + "...";
+    } else {
+      return word;
+    }
+  };
+
   return (
     <div
       key={items.id}
@@ -33,7 +41,7 @@ function ActionItemsCollapsed({
       >
         {/* left side */}
         <div className="leftSide">
-          <p>{items.text}</p>
+          <p>{wordSlice(items.text)}</p>
           <span className="labels">{items.count}</span>
         </div>
         {/* right side */}

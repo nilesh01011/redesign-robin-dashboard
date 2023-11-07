@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addRecentlyView } from "../../../store/slices/recentlyViewSlices";
 
 const Tooltips = (items) => {
   const theme = useSelector((state) => state.theme);
@@ -109,7 +110,12 @@ function MenuItems({
   // setExpandsKey,
   // id,
 }) {
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
+  // const recentlyView = useSelector((state) => state.recentlyView);
+
+  // console.log(recentlyView);
+
   const [expands, setExpands] = useState(false);
   const [activeTooltips, setActiveTooltips] = useState("");
   const router = useNavigate();
@@ -126,6 +132,7 @@ function MenuItems({
 
   const handleRoutes = (ele) => {
     router(ele);
+    // dispatch(addRecentlyView(ele))
   };
 
   const handleSidebarCollapsed = () => {
@@ -135,10 +142,18 @@ function MenuItems({
   };
 
   useEffect(() => {
-    if(collapsed === false) {
-      setActiveTooltips("")
+    if (collapsed === false) {
+      setActiveTooltips("");
     }
-  },[collapsed])
+  }, [collapsed]);
+
+  const wordSlice = (word) => {
+    if (word.length > 27) {
+      return word.slice(0, 27) + "...";
+    } else {
+      return word;
+    }
+  };
 
   return (
     <li
@@ -158,18 +173,21 @@ function MenuItems({
           onClick={() => handleRoutes(ele.link)}
           onMouseOver={() => collapsed === false && setActiveTooltips(ele.name)}
         >
-          <small
-            style={{
-              color:
-                ele.isFolder && collapsed === true
-                  ? expands && "#ff3e5b"
-                  : pathname === ele.link && "#ff3e5b",
-            }}
-            onClick={() => handleSidebarCollapsed()}
-          >
-            {ele.icon}
-          </small>
-
+          {/* icons */}
+          {ele.icon && (
+            <small
+              style={{
+                color:
+                  ele.isFolder && collapsed === true
+                    ? expands && "#ff3e5b"
+                    : pathname === ele.link && "#ff3e5b",
+              }}
+              onClick={() => handleSidebarCollapsed()}
+            >
+              {ele.icon}
+            </small>
+          )}
+          {/* items text */}
           {collapsed === true && (
             <span
               className={`${
@@ -185,7 +203,7 @@ function MenuItems({
                   : pathname === ele.link && "#ff3e5b",
               }}
             >
-              {ele.name}
+              {wordSlice(ele.name)}
             </span>
           )}
         </p>

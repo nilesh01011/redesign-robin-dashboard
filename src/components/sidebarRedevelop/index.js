@@ -54,6 +54,7 @@ function SidebarRedevelop() {
 
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
+
   const router = useNavigate();
   // Theme changed
   const handleThemeChange = (theme) => {
@@ -340,7 +341,7 @@ function SidebarRedevelop() {
               )}
           </div>
 
-          {/* search inputs mobiles view */}
+          {/* mobiles view search inputs */}
           <div
             className="searchInputContainer mobileViewSearch"
             ref={domNode}
@@ -497,7 +498,7 @@ function SidebarRedevelop() {
               style={{
                 paddingLeft: 0,
                 color: theme === "light" ? "#0B0B0C" : "#ffffff",
-                gap: 10,
+                gap: 8,
               }}
             >
               {menuItems.map((ele, index) => (

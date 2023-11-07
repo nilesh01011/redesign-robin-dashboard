@@ -158,11 +158,18 @@
   font-weight: 400;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .sub-menu {
-  padding-left: 35px;
+  padding-left: 45px;
   box-sizing: border-box;
+  gap: 0;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .sub-menu .sub-menu {
+  padding-left: 25px;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .sub-menu li {
   font-size: 12px;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .sub-menu li p {
+  text-align: left;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul li ul {
   gap: 10px;

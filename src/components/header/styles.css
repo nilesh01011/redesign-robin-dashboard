@@ -6,7 +6,7 @@
   height: 100%;
   padding-top: 13px;
   padding-bottom: 13px;
-  padding-left: 32px;
+  padding-left: 40px;
   padding-right: 32px;
 }
 .header .headerLeft {
@@ -64,16 +64,16 @@
   width: 100%;
   height: -moz-max-content;
   height: max-content;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 4px;
+  padding: 8px 10px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
   z-index: 12;
+  border: 1px solid;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 15px;
   white-space: nowrap;
   font-size: 12px;
   cursor: pointer;
@@ -83,16 +83,28 @@
           user-select: none;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:hover {
-  color: #ea3434;
+  color: #FF3E5B;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:hover .iconsColor svg path:first-child, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:hover .iconsColor svg path:first-child {
-  fill: #ea3434 !important;
+  fill: #FF3E5B !important;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists p, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists p {
   text-transform: capitalize;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists p:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists p:hover {
+  color: #FF3E5B !important;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:not(:last-child), .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:not(:last-child) {
   margin-bottom: 10px;
+}
+.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown {
+  min-width: 138px;
+}
+.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList {
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 .header .headerLeft .userText .userServiceArea {
   color: #6c757d;
@@ -151,7 +163,7 @@
 }
 .header .headerRight .userProfileContainer .userProfile .userDetails p {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 4px;
 }
 .header .headerRight .userProfileContainer .userProfile .userDetails p .userNumber {
@@ -163,7 +175,6 @@
 .header .headerRight .userProfileContainer .dropdownUserDetails {
   position: absolute;
   top: 120%;
-  left: 0;
   right: 0;
   width: 100%;
   min-width: -moz-fit-content;
@@ -171,31 +182,93 @@
   height: -moz-max-content;
   height: max-content;
   border-radius: 10px;
-  padding: 10px;
+  padding: 12px 10px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
   z-index: 12;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists {
   width: 100%;
+  white-space: nowrap;
+  font-size: 12px;
+  cursor: pointer;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header {
   display: flex;
   align-items: center;
   gap: 15px;
-  white-space: nowrap;
-  font-size: 12px;
-  line-height: 2px;
-  cursor: pointer;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 23px;
+  padding: 5px 8px;
+  border-radius: 4px;
 }
-.header .headerRight .userProfileContainer .dropdownUserDetails .lists:hover {
-  color: #ea3434;
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header.lightTheme:hover {
+  background-color: #F2F2F2;
 }
-.header .headerRight .userProfileContainer .dropdownUserDetails .lists:hover .iconsColor svg path:first-child {
-  fill: #ea3434 !important;
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header.darkTheme:hover {
+  background-color: #545454;
 }
-.header .headerRight .userProfileContainer .dropdownUserDetails .lists p {
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header:hover {
+  color: #FF3E5B;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header p {
   text-transform: capitalize;
+  font-size: 14px;
 }
-.header .headerRight .userProfileContainer .dropdownUserDetails .lists:not(:last-child) {
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header:not(:last-child) {
   margin-bottom: 10px;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header .leftSideDropdownTextIcons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header .leftSideDropdownTextIcons span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 4px;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items.lightTheme:hover {
+  background-color: #F2F2F2;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items.darkTheme:hover {
+  background-color: #545454;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdownItemsList {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdownItemsList p {
+  min-height: 23px;
+  display: flex;
+  align-items: center;
+}
+.header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdownItemsList p:hover {
+  color: #FF3E5B;
 }
 
 #overlay {

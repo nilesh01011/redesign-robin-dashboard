@@ -937,7 +937,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           <div
             className="leftSideTopHeaders"
             style={{
-              backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+              backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
             }}
           >
             <div
@@ -1187,11 +1187,18 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                           viewBox="0 0 14 14"
                           fill="none"
                         >
+                          <circle
+                            cx="6.99996"
+                            cy="6.99984"
+                            r="5.33333"
+                            fill="#2782F9"
+                            stroke="#2782F9"
+                          />
                           <path
                             fillRule="evenodd"
                             clipRule="evenodd"
-                            d="M7.00002 2.10002C4.29383 2.10002 2.10002 4.29383 2.10002 7.00002C2.10002 9.70622 4.29383 11.9 7.00002 11.9C9.70622 11.9 11.9 9.70622 11.9 7.00002C11.9 4.29383 9.70622 2.10002 7.00002 2.10002ZM1.40002 7.00002C1.40002 3.90723 3.90723 1.40002 7.00002 1.40002C10.0928 1.40002 12.6 3.90723 12.6 7.00002C12.6 10.0928 10.0928 12.6 7.00002 12.6C3.90723 12.6 1.40002 10.0928 1.40002 7.00002ZM7.00002 3.97593C7.19332 3.97593 7.35002 4.13264 7.35002 4.32593V4.37502C7.35002 4.56832 7.19332 4.72502 7.00002 4.72502C6.80673 4.72502 6.65002 4.56832 6.65002 4.37502V4.32593C6.65002 4.13264 6.80673 3.97593 7.00002 3.97593ZM7.00002 5.48336C7.19332 5.48336 7.35002 5.64006 7.35002 5.83336V9.91669C7.35002 10.11 7.19332 10.2667 7.00002 10.2667C6.80673 10.2667 6.65002 10.11 6.65002 9.91669V5.83336C6.65002 5.64006 6.80673 5.48336 7.00002 5.48336Z"
-                            fill="#2782F9"
+                            d="M6.99996 3.8501C7.20131 3.8501 7.36454 4.01333 7.36454 4.21468V4.26582C7.36454 4.46717 7.20131 4.6304 6.99996 4.6304C6.79861 4.6304 6.63538 4.46717 6.63538 4.26582V4.21468C6.63538 4.01333 6.79861 3.8501 6.99996 3.8501ZM6.99996 5.42033C7.20131 5.42033 7.36454 5.58356 7.36454 5.78491V10.0384C7.36454 10.2397 7.20131 10.403 6.99996 10.403C6.79861 10.403 6.63538 10.2397 6.63538 10.0384V5.78491C6.63538 5.58356 6.79861 5.42033 6.99996 5.42033Z"
+                            fill="white"
                           />
                         </svg>
                       </span>
@@ -1248,9 +1255,85 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 {/* left side */}
                 <span
                   className={`icons ${
-                    tabsList.length - 1 === index ? "" : "lines"
+                    tabsList.length - 1 === index
+                      ? ""
+                      : `lines ${
+                          currentTabsTitle === ele.name && "activeLines"
+                        }`
                   }`}
                 >
+                  {/* {currentTabsTitle === ele.name ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                    >
+                      <g filter="url(#filter0_d_247_6166)">
+                        <circle cx="20" cy="16" r="12" fill="#2782F9" />
+                      </g>
+                      <circle cx="20" cy="16" r="5" fill="white" />
+                      <defs>
+                        <filter
+                          id="filter0_d_247_6166"
+                          x="0"
+                          y="0"
+                          width="40"
+                          height="40"
+                          filterUnits="userSpaceOnUse"
+                          colorInterpolationFilters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="4" />
+                          <feGaussianBlur stdDeviation="4" />
+                          <feComposite in2="hardAlpha" operator="out" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0.129412 0 0 0 0 0.129412 0 0 0 0 0.129412 0 0 0 0.1 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_247_6166"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_247_6166"
+                            result="shape"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle cx="12" cy="12" r="12" fill="#70C922" />
+                      <path
+                        d="M17.3333 8L10 15.3333L6.66667 12"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )} */}
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -1269,21 +1352,9 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   </svg>
                 </span>
                 {/* right side */}
-                <div
-                  // onClick={() => {
-                  //   setCurrentTabsTitle(ele.name);
-                  //   setContentsType(ele.type);
-                  // }}
-                  className="tabsText"
-                >
+                <div className="tabsText">
                   <span
                     style={{
-                      // color:
-                      //   currentTabsTitle === ele.name
-                      //     ? theme === "light"
-                      //       ? "#0B0B0C"
-                      //       : "#ffffff"
-                      //     : "#858585",
                       fontWeight: currentTabsTitle === ele.name ? "500" : "400",
                     }}
                     className={`${
@@ -1499,21 +1570,35 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               marginLeft: theme === "light" ? "1px" : "0px",
             }}
           >
-            <button
-              type="button"
-              // className="buttons"
-              className="secondaryBtn"
-              style={{
-                // color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
-                borderColor:
-                  tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
-              }}
-              disabled={tabsStatus === 1}
-              onClick={() => handleTabsActiveBack(1)}
-            >
-              Back
-            </button>
+            {tabsStatus === 1 ? (
+              <button
+                type="button"
+                className="secondaryBtn"
+                // style={{
+                //   borderColor:
+                //     tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                //   cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                // }}
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                Close
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="secondaryBtn"
+                style={{
+                  borderColor:
+                    tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                  cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                }}
+                // disabled={tabsStatus === 1}
+                onClick={() => handleTabsActiveBack(1)}
+              >
+                Back
+              </button>
+            )}
+
             {/* middel buttons */}
             {/* <div className="leftsideBtn">
               <button type="button" className="btns">
@@ -1582,41 +1667,41 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               </button> */}
 
               {/* {expandButtons && ( */}
-                <div className="leftsideBtn">
-                  <button type="button" className="btns">
-                    Edit
-                  </button>
+              <div className="leftsideBtn">
+                <button type="button" className="btns">
+                  Edit
+                </button>
 
-                  <button type="button" className="btns">
-                    Generate SO
-                  </button>
+                <button type="button" className="btns">
+                  Generate SO
+                </button>
 
-                  <button type="button" className="btns">
-                    Transfer
-                  </button>
-                  <button type="button" className="btns">
-                    Allot
-                  </button>
+                <button type="button" className="btns">
+                  Transfer
+                </button>
+                <button type="button" className="btns">
+                  Allot
+                </button>
 
-                  {/* <button type="button" className="btns">
+                {/* <button type="button" className="btns">
                 Un-Allot
               </button> */}
-                  <button type="button" className="btns">
-                    Invoice
-                  </button>
+                <button type="button" className="btns">
+                  Invoice
+                </button>
 
-                  <button type="button" className="btns">
-                    Delivery Note
-                  </button>
+                <button type="button" className="btns">
+                  Delivery Note
+                </button>
 
-                  <button type="button" className="btns">
-                    Cancel Booking
-                  </button>
-                </div>
+                <button type="button" className="btns">
+                  Cancel Booking
+                </button>
+              </div>
               {/* )} */}
 
               {/* More button */}
-              <div
+              {/* <div
                 style={{
                   backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
                   width: 1,
@@ -1625,47 +1710,31 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   // cursor:"pointer"
                 }}
                 // onClick={() => setExpandButtons(!expandButtons)}
-              />
+              /> */}
 
-              <button
-                type="button"
-                className="secondaryBtn"
-                style={{
-                  border: "1px solid",
-                  borderColor:
-                    tabsList.length === tabsStatus
-                      ? "rgba(255, 62, 91,0.5)"
-                      : "#ff3e5b",
-                  cursor:
-                    tabsList.length - 1 === tabsStatus
-                      ? "not-allowed"
-                      : "pointer",
-                }}
-                // style={{
-                //   cursor:
-                //     tabsList.length - 1 === tabsStatus
-                //       ? "not-allowed"
-                //       : "pointer",
-                //   border: `1px solid ${
-                //     tabsList.length === tabsStatus
-                //       ? "rgba(255, 62, 91,0.5)"
-                //       : "#ff3e5b"
-                //   }
-                //      `,
-                //   padding: "6px 16px",
-                //   borderRadius: 4,
-                //   fontWeight: 700,
-                //   fontSize: 14,
-                //   color:
-                //     tabsList.length - 1 === tabsStatus
-                //       ? "rgba(255, 62, 91,0.5)"
-                //       : "#ff3e5b",
-                // }}
-                disabled={tabsList.length - 1 === tabsStatus}
-                onClick={() => handleTabsActiveNext(1)}
-              >
-                {drawerType === "edit" ? "Save & Next" : "Next"}
-              </button>
+              {tabsList.length - 1 === tabsStatus ? (
+                ""
+              ) : (
+                <button
+                  type="button"
+                  className="secondaryBtn"
+                  style={{
+                    border: "1px solid",
+                    borderColor:
+                      tabsList.length === tabsStatus
+                        ? "rgba(255, 62, 91,0.5)"
+                        : "#ff3e5b",
+                    cursor:
+                      tabsList.length - 1 === tabsStatus
+                        ? "not-allowed"
+                        : "pointer",
+                  }}
+                  // disabled={tabsList.length - 1 === tabsStatus}
+                  onClick={() => handleTabsActiveNext(1)}
+                >
+                  {drawerType === "edit" ? "Save & Next" : "Next"}
+                </button>
+              )}
             </div>
           </div>
         </div>

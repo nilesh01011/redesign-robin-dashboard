@@ -37,6 +37,7 @@
   z-index: 50;
   top: 150%;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 .notification .notificationContainer .arrowIcons {
   position: absolute;
@@ -91,10 +92,7 @@
   width: 5px;
 }
 .notification .notificationBody .notificationTabsContent.light::-webkit-scrollbar-track {
-  background: #f0efef;
-}
-.notification .notificationBody .notificationTabsContent.dark::-webkit-scrollbar-track {
-  background: #1c1c1c;
+  background: transparent;
 }
 .notification .notificationBody .notificationTabsContent::-webkit-scrollbar-thumb {
   border-radius: 10px;

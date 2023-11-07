@@ -1,5 +1,6 @@
 .otfContainer {
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .otfContainer .otfHeader {
   margin-bottom: 20px;
@@ -10,8 +11,4 @@
   display: flex;
   align-items: center;
   gap: 20px;
-}
-.otfContainer .tableContainer {
-  max-height: 525px;
-  min-height: 525px;
 }/*# sourceMappingURL=styles.css.map */

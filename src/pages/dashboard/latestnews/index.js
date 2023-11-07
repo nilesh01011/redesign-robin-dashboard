@@ -18,6 +18,14 @@ function LatestNews({
     setDrawerType("Latest News");
   };
 
+  const wordSlice = (word) => {
+    if (word.length > 50) {
+      return word.slice(0, 50) + "...";
+    } else {
+      return word;
+    }
+  };
+
   return (
     <div
       className={`latestNews ${theme === "light" ? "lightHover" : "darkHover"}`}
@@ -27,7 +35,7 @@ function LatestNews({
       {/* text */}
       <div className="text">
         <h5>{items.title}</h5>
-        <p style={{ color: "#B5B5B6", fontSize: 14 }}>{items.desc}</p>
+        <p style={{ color: "#B5B5B6", fontSize: 14 }}>{wordSlice(items.desc)}</p>
       </div>
       {/* date */}
       <p

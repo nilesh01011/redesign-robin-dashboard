@@ -8,13 +8,13 @@
   position: relative;
   cursor: pointer;
 
-  &.lightTheme:hover {
-    background-color: #E6E6E6;
-  }
+  // &.lightTheme:hover {
+  //   background-color: #E6E6E6;
+  // }
   
-  &.darkTheme:hover {
-    background-color: #1C1C1C;
-  }
+  // &.darkTheme:hover {
+  //   background-color: #1C1C1C;
+  // }
 
   & .status {
     position: absolute;

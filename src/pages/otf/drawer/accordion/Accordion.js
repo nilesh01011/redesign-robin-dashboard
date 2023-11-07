@@ -111,6 +111,7 @@ function Accordion({
           style={{
             borderTop: `1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,
             paddingTop: "20px",
+            paddingBottom: "20px",
           }}
         >
           {data.contents.map((ele, index) => (

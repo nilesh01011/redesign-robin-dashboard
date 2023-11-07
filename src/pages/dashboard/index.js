@@ -8,6 +8,7 @@ import {
   ibndstock,
   keyHighlights,
   latestNews,
+  recentlyVisited,
   retailBarGraphs,
   todayBirthday,
   upcomingBirthday,
@@ -19,11 +20,12 @@ import BirthdayCalendar from "./birthdaycalendar";
 import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
 import BarChart from "./graphs/barChart/BarChart";
 // Carousel
-import Carousel from "./carousel/Carousel";
-import Items from "./carousel/items/Items";
-import { ADDS } from "../../assets";
+// import Carousel from "./carousel/Carousel";
+// import Items from "./carousel/items/Items";
+// import { ADDS } from "../../assets";
 import TrendingNewsCarousel from "./trendingNewsCarousel/TrendingNewsCarousel";
 import KeyhightlightCarousel from "./keyhightlightCarousel/KeyhightlightCarousel";
+import RecentlyView from "./recentlyView";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -35,6 +37,8 @@ function DashboardPage() {
   const [actionItemsScrollBar, setActionItemsScrollBar] = useState(false);
   const [latestNewsScrollBar, setLatestNewsScrollBar] = useState(false);
   const [birthdayListScrollBar, setBirthdayListScrollBar] = useState(false);
+
+  const [recentlyViewScrollbar,setRecentlyViewScrollbar] = useState(false)
 
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -173,7 +177,7 @@ function DashboardPage() {
               <KeyhightlightCarousel />
             </div>
           </div>
-          {/* action items contents */}
+          {/* action items and carousel contents */}
           <div
             className="actionItems_container"
             style={{ backgroundColor: theme === "light" ? "white" : "" }}
@@ -204,6 +208,37 @@ function DashboardPage() {
                       setIsDrawerOpen={setIsDrawerOpen}
                       setDrawerSliderID={setDrawerSliderID}
                       setDrawerType={setDrawerType}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            {/* recently view */}
+            <div
+              className="actionItems_left_side box_Contents"
+              // style={{ borderColor: borderColor }}
+            >
+              {/* title */}
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>Recently Visited</h4>
+              {/* contents */}
+              <div
+                className={`recentlyViewContent ${
+                  theme === "light" ? "light" : "dark"
+                } ${recentlyViewScrollbar && "active"}`}
+                style={{
+                  borderColor: borderColor,
+                }}
+                onMouseEnter={() => setRecentlyViewScrollbar(true)}
+                onMouseLeave={() => setRecentlyViewScrollbar(false)}
+              >
+                {recentlyVisited.map((ele,index) => {
+                  return (
+                    <RecentlyView
+                      key={index}
+                      items={ele}
+                      // setIsDrawerOpen={setIsDrawerOpen}
+                      // setDrawerSliderID={setDrawerSliderID}
+                      // setDrawerType={setDrawerType}
                     />
                   );
                 })}
@@ -319,25 +354,9 @@ function DashboardPage() {
               </div>
             </div>
             {/* birthday */}
-            <div
-              className={`birthdaySection boxs`}
-              // style={{ borderColor: borderColor }}
-            >
+            <div className={`birthdaySection boxs`}>
               {/* title */}
-              <h4
-                style={
-                  {
-                    // position: "sticky",
-                    // top: 0,
-                    // backgroundColor: theme === "light" ? "white" : "#0B0B0C",
-                    // zIndex: 3,
-                    // fontSize: 16,
-                    // fontWeight: 700,
-                  }
-                }
-              >
-                Birthday Calendar
-              </h4>
+              <h4>Birthday Calendar</h4>
 
               {/* contents */}
               <div

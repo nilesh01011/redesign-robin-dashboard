@@ -8,7 +8,7 @@
 .dashboard .boxContainer {
   width: 100%;
   overflow-x: hidden;
-  margin-top: 20px;
+  margin-top: 30px;
   padding-bottom: 48px;
 }
 .dashboard .boxContainer .key_highlights_heading {
@@ -23,7 +23,7 @@
 .dashboard .boxContainer .actionItems_container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
   height: 100%;
@@ -77,6 +77,33 @@
   flex-direction: column;
   gap: 16px;
   border-radius: 4px;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid;
+  max-height: 313px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent::-webkit-scrollbar {
+  width: 5px;
+  opacity: 0;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.active::-webkit-scrollbar {
+  opacity: 1;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.active::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.active::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.active.light::-webkit-scrollbar-thumb {
+  background: #b5b5b6;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.active.dark::-webkit-scrollbar-thumb {
+  background: #242424;
 }
 .dashboard .boxContainer .dashboard_api {
   width: 100%;
@@ -176,7 +203,7 @@
 }
 .dashboard .boxContainer .news_birthday .birthdaySection .birthdayListContainer .birthdayList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 16px;
 }
 
@@ -270,11 +297,6 @@
 }
 @media screen and (max-width: 756px) {
   .dashboard .boxContainer {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-@media screen and (max-width: 576px) {
-  .dashboard .boxContainer .news_birthday .birthdaySection .birthdayListContainer .birthdayList {
     grid-template-columns: repeat(1, 1fr);
   }
 }/*# sourceMappingURL=styles.css.map */

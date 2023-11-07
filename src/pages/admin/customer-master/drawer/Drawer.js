@@ -12,6 +12,7 @@ import FormContainer from "./formContainer/FormContainer";
 
 function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const theme = useSelector((state) => state.theme);
+
   const userNameSplit = data.two ? data.two?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
@@ -664,7 +665,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           <div
             className="leftSideTopHeaders"
             style={{
-              backgroundColor: theme === "light" ? "#E6E6E6" : "#1C1C1C",
+              backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
             }}
           >
             <div
@@ -1096,7 +1097,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           >
             {/* left close btn */}
             <div className="leftSideBtn">
-              <button
+              {/* <button
                 type="button"
                 // className="buttons"
                 className="secondaryBtn"
@@ -1110,7 +1111,36 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 onClick={() => handleTabsActiveBack(1)}
               >
                 Back
-              </button>
+              </button> */}
+
+              {tabsStatus === 1 ? (
+                <button
+                  type="button"
+                  className="secondaryBtn"
+                  // style={{
+                  //   borderColor:
+                  //     tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                  //   cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                  // }}
+                  onClick={() => setIsDrawerOpen(false)}
+                >
+                  Close
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="secondaryBtn"
+                  style={{
+                    borderColor:
+                      tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                    cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                  }}
+                  // disabled={tabsStatus === 1}
+                  onClick={() => handleTabsActiveBack(1)}
+                >
+                  Back
+                </button>
+              )}
             </div>
 
             {/* right side button */}
@@ -1131,35 +1161,49 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 </button>
               )}
               {/* divider */}
-              {drawerType === "view" && (
-                <div
-                  style={{
-                    backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
-                    width: 1,
-                    height: "30px",
-                    display: "block",
-                  }}
-                  // onClick={() => setExpandButtons(!expandButtons)}
-                />
+              {tabsList.length === tabsStatus ? (
+                ""
+              ) : (
+                <>
+                  {drawerType === "view" && (
+                    <div
+                      style={{
+                        backgroundColor:
+                          theme === "light" ? "#e6e6e6" : "#232324",
+                        width: 1,
+                        height: "30px",
+                        display: "block",
+                      }}
+                    />
+                  )}
+                </>
               )}
 
-              <button
-                type="button"
-                className="secondaryBtn"
-                style={{
-                  border: "1px solid",
-                  borderColor:
-                    tabsList.length === tabsStatus
-                      ? "rgba(255, 62, 91,0.5)"
-                      : "#ff3e5b",
-                  cursor:
-                    tabsList.length === tabsStatus ? "not-allowed" : "pointer",
-                }}
-                disabled={tabsList.length === tabsStatus}
-                onClick={() => handleTabsActiveNext(1)}
-              >
-                {drawerType === "edit" ? "Save & Next" : "Next"}
-              </button>
+              {/* next buttons */}
+              {tabsList.length === tabsStatus ? (
+                ""
+              ) : (
+                <button
+                  type="button"
+                  className="secondaryBtn"
+                  style={{
+                    // display: tabsList.length === tabsList ? "none" : "block",
+                    border: "1px solid",
+                    borderColor:
+                      tabsList.length === tabsStatus
+                        ? "rgba(255, 62, 91,0.5)"
+                        : "#ff3e5b",
+                    cursor:
+                      tabsList.length === tabsStatus
+                        ? "not-allowed"
+                        : "pointer",
+                  }}
+                  disabled={tabsList.length === tabsStatus}
+                  onClick={() => handleTabsActiveNext(1)}
+                >
+                  {drawerType === "edit" ? "Save & Next" : "Next"}
+                </button>
+              )}
             </div>
           </div>
         </div>

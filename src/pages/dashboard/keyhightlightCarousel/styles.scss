@@ -1,9 +1,6 @@
 .keyhightlightCrousel {
-  //   max-height: 24px;
   height: max-content;
   width: 100%;
-  //   max-width: calc(100% - 282px);
-  // width: calc(100% - 282px);
   position: relative;
   display: flex;
   align-items: center;
@@ -43,6 +40,44 @@
     }
   }
 
+  & .heads {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & .label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & .date {
+        display: none;
+        color: #858585;
+        font-size: 12px;
+      }
+
+      & .label_name {
+        background: #ffd8de;
+        border: 1px solid #ff3e5b;
+        color: #ff3e5b;
+        border-radius: 2px;
+        font-size: 12px;
+        padding: 0 8px;
+      }
+    }
+
+    & .text {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      & .date {
+        color: #858585;
+      }
+    }
+  }
+
   & .carouselBtn {
     height: 100%;
     display: flex;
@@ -75,6 +110,32 @@
     & .swiper {
       & .mobileViewBtnHidden {
         display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .keyhightlightCrousel {
+    & .swiper {
+      & .heads {
+        flex-direction: column;
+        align-items: start;
+        gap: 4px;
+
+        & .label {
+          width: 100%;
+
+          & .date {
+            display: block;
+          }
+        }
+
+        & .text {
+          & .date {
+            display: none;
+          }
+        }
       }
     }
   }

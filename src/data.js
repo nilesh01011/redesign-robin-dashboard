@@ -629,7 +629,7 @@ export const notification = [
         master: "Application Master",
         date: "",
         time: "2 Min Ago",
-        readMark: true,
+        readMark: false,
       },
       {
         key: 1.3,
@@ -666,7 +666,7 @@ export const notification = [
         master: "Application Master",
         date: "16 Apr 2023",
         time: "01:30 AM",
-        readMark: true,
+        readMark: false,
       },
       {
         key: 1.7,
@@ -684,7 +684,7 @@ export const notification = [
         master: "Application Master",
         date: "16 Apr 2023",
         time: "01:30 AM",
-        readMark: true,
+        readMark: false,
       },
       {
         key: 1.9,
@@ -708,7 +708,7 @@ export const notification = [
         master: "Application Master",
         date: "",
         time: "2 Min Ago",
-        readMark: true,
+        readMark: false,
       },
       {
         key: "2.2",
@@ -736,7 +736,7 @@ export const notification = [
         master: "Application Master",
         date: "16 Apr 2023",
         time: "01:30 AM",
-        readMark: true,
+        readMark: false,
       },
       {
         key: "2.5",
@@ -828,6 +828,42 @@ export const keyHighlights = [
     time: "30min ago",
   },
 ];
+
+// Recently Visited
+export const recentlyVisited = [
+  {
+    name:"Customer Master",
+    link:"/admin/customer-master",
+  },
+  {
+    name:"Order booking Form",
+    link:"/sales/order-to-delivery/booking-form",
+  },
+  {
+    name:"Reciepts",
+    link:"/admin/customer-master",
+  },
+  {
+    name:"Vehicle Delivery Note",
+    link:"/admin/customer-master",
+  },
+  {
+    name:"Product Hierarchy",
+    link:"/admin/customer-master",
+  },
+  {
+    name:"Application Master",
+    // link:"/admin/customer-master",
+  },
+  {
+    name:"Home",
+    link:"/home",
+  },
+  {
+    name:"manage Dealers",
+    // link:"/home",
+  }
+]
 
 // Action Items
 export const actionItems = [

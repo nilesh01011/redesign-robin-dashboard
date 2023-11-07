@@ -108,7 +108,7 @@ function Accordion({
           className={`accordionContents ${data.type}`}
           style={{
             borderTop: `1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,
-            paddingTop: "20px",
+            padding: "20px 0",
           }}
         >
           {data.contents.map((ele, index) => (

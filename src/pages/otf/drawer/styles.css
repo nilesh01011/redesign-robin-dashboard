@@ -169,6 +169,9 @@
   background-color: #70c922;
   display: block;
 }
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons.lines.activeLines::after {
+  background-color: #2782F9;
+}
 .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText {
   cursor: pointer;
   font-size: 14px;

@@ -208,11 +208,20 @@
           }
 
           & .sub-menu {
-            padding-left: 35px;
+            padding-left: 45px;
             box-sizing: border-box;
+            gap: 0;
+
+            & .sub-menu {
+              padding-left: 25px;
+            }
 
             & li {
               font-size: 12px;
+
+              & p {
+                text-align: left;
+              }
             }
           }
 
