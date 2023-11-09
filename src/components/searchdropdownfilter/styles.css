@@ -162,6 +162,7 @@
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
+  font-size: 14px;
 }
 .selectDropdownFilter .allListItems .allListItemsChild:first-child {
   border-radius: 3px 3px 0 0;

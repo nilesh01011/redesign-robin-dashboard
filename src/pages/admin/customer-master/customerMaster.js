@@ -10,6 +10,7 @@ import Dropdown from "../../../components/dropdown";
 import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
 import Drawer from "./drawer/Drawer";
 import MobileViewDrawer from "./mobileViewDrawer/MobileViewDrawer";
+import TableRedevelop from "../../../components/tableRedevelop/TableRedevelop";
 
 function CustomerMaster() {
   const theme = useSelector((state) => state.theme);
@@ -111,7 +112,7 @@ function CustomerMaster() {
 
   // empty table data
   const emptyTableData = () => (
-    <div className="emptyDataTable" style={{ color: "#545454", }}>
+    <div className="emptyDataTable" style={{ color: "#545454" }}>
       {/* icons */}
       <span>
         <svg
@@ -356,6 +357,18 @@ function CustomerMaster() {
               setDrawerType={setDrawerType}
               setIsDrawerOpen={setIsDrawerOpen}
             />
+            {/* <TableRedevelop
+              tableHead={tableHead}
+              tableBody={tableData}
+              // tableBody={visibleTableData}
+              selectDropdownFilter={setSelectedDropdownFilterText}
+              searchDropdownText={selectDropdownFilterText}
+              inputFields={inputFields}
+              emptyTableData={emptyTableData}
+              setDrawerData={setDrawerData}
+              setDrawerType={setDrawerType}
+              setIsDrawerOpen={setIsDrawerOpen}
+            /> */}
           </div>
           {/* mobile table contents */}
           <div

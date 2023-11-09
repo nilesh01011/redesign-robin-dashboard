@@ -20,7 +20,6 @@
   position: relative;
   width: 100%;
   display: flex;
-  gap: 10px;
   align-items: flex-start;
 }
 .graphsBarContainer .graphsWrapper .leftSide {
@@ -41,8 +40,6 @@
   width: 100%;
 }
 .graphsBarContainer .graphsWrapper .leftSide .legends p {
-  display: flex;
-  align-items: center;
   gap: 6px;
   min-height: 20px;
   text-transform: capitalize;
@@ -56,6 +53,9 @@
 .graphsBarContainer .graphsWrapper .rightSide .graphs {
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .graphsBarContainer .graphsWrapper .rightSide .graphs canvas {
   width: auto !important;

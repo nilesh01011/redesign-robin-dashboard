@@ -7,7 +7,8 @@
   padding-top: 13px;
   padding-bottom: 13px;
   padding-left: 40px;
-  padding-right: 32px;
+  padding-right: 40px;
+  box-sizing: border-box;
 
   & .headerLeft {
     display: flex;
@@ -72,7 +73,7 @@
             width: 100%;
             height: max-content;
             border-radius: 4px;
-            padding:8px 10px;
+            padding: 8px;
             box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
             z-index: 12;
             border: 1px solid;
@@ -83,32 +84,32 @@
               align-items: center;
               // gap: 15px;
               white-space: nowrap;
-              font-size: 12px;
+              font-size: 14px;
               cursor: pointer;
               // padding: 6px;
               border-radius: 4px;
               user-select: none;
 
               &:hover {
-                color: #FF3E5B;
+                color: #ff3e5b;
 
                 & .iconsColor svg path:first-child {
-                  fill: #FF3E5B !important;
+                  fill: #ff3e5b !important;
                 }
               }
 
               & p {
                 text-transform: capitalize;
                 border-radius: 4px;
-                padding:5px 10px;
+                padding: 5px 10px;
 
                 &:hover {
-                  color: #FF3E5B !important;
+                  color: #ff3e5b !important;
                 }
               }
 
               &:not(:last-child) {
-                margin-bottom: 10px;
+                margin-bottom: 2px;
               }
             }
           }
@@ -134,14 +135,15 @@
   & .headerRight {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 30px;
     position: relative;
 
     & .helpDesk {
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      justify-content: center;
+      // gap: 0.7rem;
 
       & .helpDeskText {
         display: flex;
@@ -167,8 +169,14 @@
 
         & .userAvatar,
         & .username {
-          font-size: 12px;
           font-weight: 700;
+        }
+
+        & .username {
+          font-size: 16px;
+        }
+        & .userAvatar {
+          font-size: 12px;
         }
 
         & .userAvatar {
@@ -211,9 +219,10 @@
         width: 100%;
         min-width: fit-content;
         height: max-content;
-        border-radius: 10px;
+        border-radius: 4px;
         padding: 12px 10px;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+        border: 1px solid;
         z-index: 12;
         display: flex;
         flex-direction: column;
@@ -232,11 +241,11 @@
             justify-content: space-between;
             width: 100%;
             min-height: 23px;
-            padding:5px 8px;
+            padding: 5px 8px;
             border-radius: 4px;
 
             &.lightTheme:hover {
-              background-color: #F2F2F2;
+              background-color: #f2f2f2;
             }
 
             &.darkTheme:hover {
@@ -244,7 +253,7 @@
             }
 
             &:hover {
-              color: #FF3E5B;
+              color: #ff3e5b;
             }
 
             & p {
@@ -275,16 +284,16 @@
             justify-content: space-between;
             flex-direction: column;
             gap: 4px;
-            
+
             & .dropdown-items {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              padding:5px 8px;
+              padding: 5px 8px;
               border-radius: 4px;
 
               &.lightTheme:hover {
-                background-color: #F2F2F2;
+                background-color: #f2f2f2;
               }
 
               &.darkTheme:hover {
@@ -309,8 +318,8 @@
                 display: flex;
                 align-items: center;
 
-                &:hover{
-                  color: #FF3E5B;
+                &:hover {
+                  color: #ff3e5b;
                 }
               }
             }
@@ -336,6 +345,13 @@
 }
 
 // media queries
+@media screen and (max-width: 1280px) {
+  .header {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
 @media screen and (max-width: 1038px) {
   .header {
     padding-left: 26px;
@@ -345,9 +361,6 @@
 
 @media screen and (max-width: 992px) {
   .header {
-    padding-left: 20px;
-    padding-right: 20px;
-
     & .headerLeft {
       //   display: none;
       & .mobileViewBtn {
@@ -371,5 +384,12 @@
         display: none;
       }
     }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

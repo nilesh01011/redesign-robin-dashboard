@@ -49,17 +49,20 @@
   border-radius: 4px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
   opacity: 0;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active::-webkit-scrollbar {
   opacity: 1;
 }
-.dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active::-webkit-scrollbar-track {
-  background: transparent;
+.dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.light::-webkit-scrollbar-track {
+  background: #F0EFEF;
+}
+.dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.dark::-webkit-scrollbar-track {
+  background: #1C1C1C;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active::-webkit-scrollbar-thumb {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active.light::-webkit-scrollbar-thumb {
   background: #b5b5b6;
@@ -87,17 +90,20 @@
   overflow-x: hidden;
 }
 .dashboard .boxContainer .actionItems_container .recentlyViewContent::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
   opacity: 0;
 }
 .dashboard .boxContainer .actionItems_container .recentlyViewContent.active::-webkit-scrollbar {
   opacity: 1;
 }
-.dashboard .boxContainer .actionItems_container .recentlyViewContent.active::-webkit-scrollbar-track {
-  background: transparent;
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.light::-webkit-scrollbar-track {
+  background: #F0EFEF;
+}
+.dashboard .boxContainer .actionItems_container .recentlyViewContent.dark::-webkit-scrollbar-track {
+  background: #1C1C1C;
 }
 .dashboard .boxContainer .actionItems_container .recentlyViewContent.active::-webkit-scrollbar-thumb {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .dashboard .boxContainer .actionItems_container .recentlyViewContent.active.light::-webkit-scrollbar-thumb {
   background: #b5b5b6;
@@ -124,8 +130,8 @@
   justify-content: center;
   gap: 6px;
   border-radius: 4px;
-  background-color: #ff3e5b;
-  color: white;
+  border: 1px solid #f43854;
+  color: #f43854;
   padding: 6px 16px;
   height: 36px;
   font-size: 14px;
@@ -138,6 +144,7 @@
 }
 .dashboard .boxContainer .dashboard_api .dashboard_api_title .addWidgetBtn:hover {
   background-color: #f43854;
+  color: white;
 }
 .dashboard .boxContainer .dashboard_api .graphs_container {
   display: grid;

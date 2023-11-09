@@ -79,7 +79,7 @@ function OTF() {
       </div>
     );
   };
-  
+
   return (
     <div className="otf">
       {/* ============ title ============ */}
@@ -223,24 +223,25 @@ function OTF() {
           {/* right side */}
         </div>
         {/* contents */}
-        <div
-          className="tableContainer"
-          style={{
-            borderColor: theme === "light" ? "#e6e6e6" : "#232324",
-          }}
-        >
-          <Table
-            tableHead={bookingTableHead}
-            tableBody={bookingTableData}
-            // tableBody={visibleTableData}
-            selectDropdownFilter={setSelectedDropdownFilterText}
-            searchDropdownText={selectDropdownFilterText}
-            inputFields={inputFields}
-            emptyTableData={emptyTableData}
-            setDrawerData={setDrawerData}
-            setDrawerType={setDrawerType}
-            setIsDrawerOpen={setIsDrawerOpen}
-          />
+        <div className="tablesScroll">
+          <div
+            className="tableContainer"
+            style={{
+              borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+            }}
+          >
+            <Table
+              tableHead={bookingTableHead}
+              tableBody={bookingTableData}
+              selectDropdownFilter={setSelectedDropdownFilterText}
+              searchDropdownText={selectDropdownFilterText}
+              inputFields={inputFields}
+              emptyTableData={emptyTableData}
+              setDrawerData={setDrawerData}
+              setDrawerType={setDrawerType}
+              setIsDrawerOpen={setIsDrawerOpen}
+            />
+          </div>
         </div>
       </div>
       {/* Footer */}

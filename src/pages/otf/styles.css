@@ -11,4 +11,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.otfContainer .tableContainer {
+  max-height: 525px !important;
 }/*# sourceMappingURL=styles.css.map */

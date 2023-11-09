@@ -65,7 +65,7 @@
   height: -moz-max-content;
   height: max-content;
   border-radius: 4px;
-  padding: 8px 10px;
+  padding: 8px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
   z-index: 12;
   border: 1px solid;
@@ -75,7 +75,7 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
   -webkit-user-select: none;
@@ -83,10 +83,10 @@
           user-select: none;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:hover {
-  color: #FF3E5B;
+  color: #ff3e5b;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:hover .iconsColor svg path:first-child, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:hover .iconsColor svg path:first-child {
-  fill: #FF3E5B !important;
+  fill: #ff3e5b !important;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists p, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists p {
   text-transform: capitalize;
@@ -94,10 +94,10 @@
   padding: 5px 10px;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists p:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists p:hover {
-  color: #FF3E5B !important;
+  color: #ff3e5b !important;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:not(:last-child), .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown {
   min-width: 138px;
@@ -114,14 +114,14 @@
 .header .headerRight {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 30px;
   position: relative;
 }
 .header .headerRight .helpDesk {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  justify-content: center;
 }
 .header .headerRight .helpDesk .helpDeskText {
   display: flex;
@@ -142,8 +142,13 @@
   gap: 6px;
 }
 .header .headerRight .userProfileContainer .userProfile .userAvatar, .header .headerRight .userProfileContainer .userProfile .username {
-  font-size: 12px;
   font-weight: 700;
+}
+.header .headerRight .userProfileContainer .userProfile .username {
+  font-size: 16px;
+}
+.header .headerRight .userProfileContainer .userProfile .userAvatar {
+  font-size: 12px;
 }
 .header .headerRight .userProfileContainer .userProfile .userAvatar {
   width: 30px;
@@ -181,9 +186,10 @@
   min-width: fit-content;
   height: -moz-max-content;
   height: max-content;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 12px 10px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  border: 1px solid;
   z-index: 12;
   display: flex;
   flex-direction: column;
@@ -206,13 +212,13 @@
   border-radius: 4px;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header.lightTheme:hover {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header.darkTheme:hover {
   background-color: #545454;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header:hover {
-  color: #FF3E5B;
+  color: #ff3e5b;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header p {
   text-transform: capitalize;
@@ -246,7 +252,7 @@
   border-radius: 4px;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items.lightTheme:hover {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items.darkTheme:hover {
   background-color: #545454;
@@ -268,7 +274,7 @@
   align-items: center;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdownItemsList p:hover {
-  color: #FF3E5B;
+  color: #ff3e5b;
 }
 
 #overlay {
@@ -292,10 +298,6 @@
   }
 }
 @media screen and (max-width: 992px) {
-  .header {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
   .header .headerLeft .mobileViewBtn {
     display: flex;
     align-items: center;
@@ -311,5 +313,11 @@
   }
   .header .headerRight .helpDesk, .header .headerRight .userProfileContainer {
     display: none;
+  }
+}
+@media screen and (max-width: 880px) {
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }/*# sourceMappingURL=styles.css.map */

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addRecentlyView } from "../../../store/slices/recentlyViewSlices";
 
-const Tooltips = (items) => {
+const Tooltips = (items, setCollapsed, collapsed, handleSidebarCollapsed,toggleCollapsed) => {
   const theme = useSelector((state) => state.theme);
   // current routes
   const router = useNavigate();
@@ -30,9 +30,13 @@ const Tooltips = (items) => {
   const handleRoutes = (links) => {
     router(links);
     setActiveLinks(links);
-  };
 
-  console.log(activeLinks);
+    // open sidebar
+    // const sidebar = document.querySelector(".sidebar");
+
+    // sidebar.classList.add("desktopCollapse");
+    // sidebar.classList.remove("desktopStrip");
+  };
 
   return (
     <div
@@ -106,27 +110,27 @@ function MenuItems({
   ele,
   collapsed,
   setCollapsed,
-  // expandsKey,
-  // setExpandsKey,
-  // id,
+  id,
+  setExpandItems,
+  expandItems,
+  toggleCollapsed
 }) {
-  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
-  // const recentlyView = useSelector((state) => state.recentlyView);
-
-  // console.log(recentlyView);
 
   const [expands, setExpands] = useState(false);
   const [activeTooltips, setActiveTooltips] = useState("");
   const router = useNavigate();
 
+  const [activeLinks, setActiveLinks] = useState("");
+
   const pathname = window.location.pathname;
 
   const handleExpanded = () => {
     if (collapsed === true) {
-      // setExpand(!expand);
-      setExpands(!expands);
-      // setExpandsKey(id);
+      if (ele.isFolder) {
+        setExpands(!expands);
+        // setExpandItems(id)
+      }
     }
   };
 
@@ -147,9 +151,14 @@ function MenuItems({
     }
   }, [collapsed]);
 
+  useEffect(() => {
+    const activeLinksExpand = pathname.split("/")[1];
+    setActiveLinks(activeLinksExpand);
+  }, [ele.link, pathname]);
+
   const wordSlice = (word) => {
-    if (word.length > 27) {
-      return word.slice(0, 27) + "...";
+    if (word.length > 22) {
+      return word.slice(0, 22) + "...";
     } else {
       return word;
     }
@@ -174,12 +183,17 @@ function MenuItems({
           onMouseOver={() => collapsed === false && setActiveTooltips(ele.name)}
         >
           {/* icons */}
+          {/* ele.isFolder && collapsed === true
+                    ? expands && "#ff3e5b"
+                    : activeLinks === ele.link && "#ff3e5b" */}
           {ele.icon && (
             <small
               style={{
+                // color:ele.isFolder && collapsed && expands && "#ff3e5b" || activeLinks === ele.link && "#ff3e5b",
                 color:
                   ele.isFolder && collapsed === true
-                    ? expands && "#ff3e5b"
+                    ? (expands && "#ff3e5b") ||
+                      (pathname === ele.link && "#ff3e5b")
                     : pathname === ele.link && "#ff3e5b",
               }}
               onClick={() => handleSidebarCollapsed()}
@@ -202,6 +216,7 @@ function MenuItems({
                   ? expands && "#ff3e5b"
                   : pathname === ele.link && "#ff3e5b",
               }}
+              title={ele.name}
             >
               {wordSlice(ele.name)}
             </span>
@@ -212,7 +227,7 @@ function MenuItems({
           <span
             style={{
               transform: expands && "rotate(180deg)",
-              transition: "transform 0.3s ease-in-out",
+              // transition: "transform 0.3s ease-in-out",
               color: expands && "#FF3E5B",
               display: "flex",
               alignItems: "center",
@@ -225,8 +240,8 @@ function MenuItems({
               fill="currentColor"
               strokeWidth="0"
               viewBox="0 0 16 16"
-              height="18"
-              width="18"
+              height="16"
+              width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -263,7 +278,14 @@ function MenuItems({
                 : "1px 0px 1px 0px rgba(255, 255, 255, 0.15)",
           }}
         >
-          <Tooltips items={ele} handleRoutes={handleRoutes} />
+          <Tooltips
+            items={ele}
+            handleRoutes={handleRoutes}
+            // setCollapsed={setCollapsed}
+            // collapsed={collapsed}
+            // handleSidebarCollapsed={handleSidebarCollapsed}
+            toggleCollapsed={toggleCollapsed}
+          />
         </div>
       )}
     </li>

@@ -418,107 +418,133 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       {
         key: 3,
         name: "Scheme and Offer Details",
-        type: "accordion",
         title: "Company Address",
-        default: "accordionTwo",
+        type: "accordion",
+        // default: "normalData",
+        default: "accordionGridFlex",
         contents: [
           {
-            title: "Office",
+            title: "Scheme 1",
             type: "gridContents",
-            addressType: "Office",
             contents: [
               {
-                title: "Address Type",
-                text: "Office",
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Scheme Type",
+                    text: "Type Data",
+                  },
+                  {
+                    title: "Scheme Category",
+                    text: "Scheme Category",
+                  },
+                  {
+                    title: "Total Amount",
+                    text: "25900",
+                  },
+                  {
+                    title: "Valid From",
+                    text: "12 Jan 2022",
+                  },
+                  {
+                    title: "Valid To",
+                    text: "12 Jan 2022",
+                  },
+                ],
               },
               {
-                title: "Address Line 1",
-                text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Address Line 2",
-                text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Tehsil",
-                text: "B6G431",
-              },
-              {
-                title: "Pin Code",
-                text: "400001",
-              },
-              {
-                title: "City",
-                text: "Noida",
-              },
-
-              {
-                title: "District",
-                text: "Gautam Budh Nagar",
-              },
-              {
-                title: "State",
-                text: "Uttar Pradesh",
-              },
-              {
-                title: "Contact Name",
-                text: "Arvind Kumar",
-              },
-              {
-                title: "Contact Mobile No.",
-                text: "+91-9893473843",
+                type: "flexColumnData",
+                contents: [
+                  {
+                    title: "Description",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    // VIPDealerChecked: true,
+                  },
+                ],
               },
             ],
-            checked: true,
           },
           {
-            title: "Joe’s Home",
+            title: "Scheme 2",
             type: "gridContents",
-            addressType: "Other",
             contents: [
               {
-                title: "Address Type",
-                text: "Office",
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Scheme Type",
+                    text: "Type Data",
+                  },
+                  {
+                    title: "Scheme Category",
+                    text: "Scheme Category",
+                  },
+                  {
+                    title: "Total Amount",
+                    text: "25900",
+                  },
+                  {
+                    title: "Valid From",
+                    text: "12 Jan 2022",
+                  },
+                  {
+                    title: "Valid To",
+                    text: "12 Jan 2022",
+                  },
+                ],
               },
               {
-                title: "Address Line 1",
-                text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Address Line 2",
-                text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Tehsil",
-                text: "B6G431",
-              },
-              {
-                title: "Pin Code",
-                text: "400001",
-              },
-              {
-                title: "City",
-                text: "Noida",
-              },
-
-              {
-                title: "District",
-                text: "Gautam Budh Nagar",
-              },
-              {
-                title: "State",
-                text: "Uttar Pradesh",
-              },
-              {
-                title: "Contact Name",
-                text: "Arvind Kumar",
-              },
-              {
-                title: "Contact Mobile No.",
-                text: "+91-9893473843",
+                type: "flexColumnData",
+                contents: [
+                  {
+                    title: "Description",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    // VIPDealerChecked: true,
+                  },
+                ],
               },
             ],
-            checked: false,
+          },
+          {
+            title: "Scheme 3",
+            type: "gridContents",
+            contents: [
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Scheme Type",
+                    text: "Type Data",
+                  },
+                  {
+                    title: "Scheme Category",
+                    text: "Scheme Category",
+                  },
+                  {
+                    title: "Total Amount",
+                    text: "25900",
+                  },
+                  {
+                    title: "Valid From",
+                    text: "12 Jan 2022",
+                  },
+                  {
+                    title: "Valid To",
+                    text: "12 Jan 2022",
+                  },
+                ],
+              },
+              {
+                type: "flexColumnData",
+                contents: [
+                  {
+                    title: "Description",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    // VIPDealerChecked: true,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
@@ -700,68 +726,121 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       {
         key: 5,
         name: "Finance Details",
-        type: "normalData",
-        default: "normalData",
+        type: "gridContents",
         contents: [
           {
-            contents: [
-              {
-                type: "gridContents",
-                contents: [
-                  {
-                    title: "Credit Limit",
-                    text: "2500000000",
-                  },
-                  {
-                    title: "Credit Limit Days",
-                    text: "90",
-                  },
-                  {
-                    title: "Outstanding Amount",
-                    text: "150000000",
-                  },
-                  {
-                    title: "Parts Discount %",
-                    text: "25",
-                  },
-                  {
-                    title: "Labour Discount %",
-                    text: "29",
-                  },
-                ],
-              },
-              {
-                type: "flexColumnData",
-                contents: [
-                  {
-                    title: "Remark",
-                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
-                    VIPDealerChecked: true,
-                  },
-                ],
-              },
-            ],
+            title: "Financier",
+            text: "HDFC",
+          },
+          {
+            title: "Branch",
+            text: "Noida",
+          },
+          {
+            title: "File Number",
+            text: "FA123214532",
+          },
+          {
+            title: "Loan Amount",
+            text: "1500000",
+          },
+          {
+            title: "EMI",
+            text: `60`,
+          },
+          {
+            title: "Finance Done",
+            text: "Yes",
+          },
+          {
+            title: "D.O. Received",
+            text: "Yes",
+          },
+          {
+            title: "D.O. Number",
+            text: "542367862487236",
+          },
+          {
+            title: "D.O. Date",
+            text: "12 Nov 2023",
           },
         ],
       },
       {
         key: 6,
         name: "Exchange Vehicle",
-        type: "form",
+        type: "gridContents",
         contents: [
           {
-            title: "Form_60_Doc.jpg",
-            text: "I accept that for the Transferred Vehicle , Claim can be generated from the billed Dealer.",
+            title: "Registration No.",
+            text: "MO1085585",
           },
           {
-            title: "RC_Doc.jpg",
+            title: "Customer Name",
+            text: "Vimal Kumar",
+          },
+          {
+            title: "Make",
+            text: "Maruti Suzuki",
+          },
+          {
+            title: "Modal Group",
+            text: "Swift",
+          },
+          {
+            title: "Variant",
+            text: `Vdi`,
+          },
+          {
+            title: "Old Chassis Number",
+            text: "MACF527736276",
+          },
+          {
+            title: "Relationship",
+            text: "Wife",
+          },
+          {
+            title: "Month of Registration",
+            text: "June",
+          },
+          {
+            title: "Year of Registration",
+            text: "2012",
+          },
+          {
+            title: "Usage",
+            text: "Private",
+          },
+          {
+            title: "Scheme Name",
+            text: "Scheme",
+          },
+          {
+            title: "Scheme Amount",
+            text: "25000",
+          },
+          {
+            title: "KM",
+            text: "78354",
+          },
+          {
+            title: "Customer Expected Price",
+            text: "450000",
+          },
+          {
+            title: "Procurement Price",
+            text: "35000",
+          },
+          {
+            title: "Hypothecated To",
+            text: "ICICI",
           },
         ],
       },
       {
         key: 7,
         name: "Invoice Information",
-        type: "form",
+        type: "accordionTable",
         contents: [
           {
             title: "Form_60_Doc.jpg",
@@ -776,14 +855,43 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       {
         key: 8,
         name: "Referrals",
-        type: "form",
+        type: "gridContents",
         contents: [
           {
-            title: "Form_60_Doc.jpg",
-            text: "I accept that for the Transferred Vehicle , Claim can be generated from the billed Dealer.",
+            title: "Referral ID",
+            text: "Ref00615396",
           },
           {
-            title: "RC_Doc.jpg",
+            title: "Registration Number",
+            text: "UP16BL2123",
+          },
+          {
+            title: "Chassis Number",
+            text: "MAFCL213214547",
+          },
+          {
+            title: "Customer ID",
+            text: "MO1085585",
+          },
+          {
+            title: "Customer Type",
+            text: `Individual`,
+          },
+          {
+            title: "Customer Name",
+            text: "Vimal Kumar",
+          },
+          {
+            title: "Mobile Number",
+            text: "+91-9876543212",
+          },
+          {
+            title: "Email ID",
+            text: "vimalkumar@gmail.com",
+          },
+          {
+            title: "Date of Birth",
+            text: "04 Mar 1998",
           },
         ],
       },
@@ -791,14 +899,69 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       {
         key: 9,
         name: "Loyalty Scheme",
-        type: "form",
+        type: "gridContents",
         contents: [
           {
-            title: "Form_60_Doc.jpg",
-            text: "I accept that for the Transferred Vehicle , Claim can be generated from the billed Dealer.",
+            title: "Customer ID",
+            text: "MO1085585",
           },
           {
-            title: "RC_Doc.jpg",
+            title: "Customer Name",
+            text: "Vishal Kumar",
+          },
+          {
+            title: "Make",
+            text: "Maruti Suzuki",
+          },
+          {
+            title: "Model Group",
+            text: "Swift",
+          },
+          {
+            title: "Variant",
+            text: `Vdi`,
+          },
+          {
+            title: "Old Reg. Number",
+            text: "UP13AB4325",
+          },
+          {
+            title: "Old Chassis Number",
+            text: "MACF527736276",
+          },
+          {
+            title: "Date of Birth",
+            text: "04 Mar 1998",
+          },
+          {
+            title: "Relationship",
+            text: "Wife",
+          },
+
+          {
+            title: "Year of Registration",
+            text: "2012",
+          },
+          {
+            title: "Month of Registration",
+            text: "June",
+          },
+          {
+            title: "Usage",
+            text: "Private",
+          },
+
+          {
+            title: "Scheme Name",
+            text: "Scheme",
+          },
+          {
+            title: "Scheme Amount",
+            text: "25000",
+          },
+          {
+            title: "Remarks",
+            text: "Good Condition",
           },
         ],
       },
@@ -878,6 +1041,8 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
 
   const [expandButtons, setExpandButtons] = useState(false);
 
+  // moreActions
+  const [moreActions, setMoreActions] = useState(false);
   return (
     <div
       className="tableDrawerContainer"
@@ -1574,11 +1739,11 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               <button
                 type="button"
                 className="secondaryBtn"
-                // style={{
-                //   borderColor:
-                //     tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                //   cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
-                // }}
+                style={{
+                  borderColor:
+                    tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                  // cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                }}
                 onClick={() => setIsDrawerOpen(false)}
               >
                 Close
@@ -1667,37 +1832,65 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               </button> */}
 
               {/* {expandButtons && ( */}
-              <div className="leftsideBtn">
-                <button type="button" className="btns">
-                  Edit
-                </button>
+              {moreActions === false && (
+                <div className="leftsideBtn">
+                  <button type="button" className="btns">
+                    Edit
+                  </button>
+                  <button type="button" className="btns">
+                    Allot
+                  </button>
+                  <button type="button" className="btns">
+                    Invoice
+                  </button>
 
-                <button type="button" className="btns">
-                  Generate SO
-                </button>
+                  <button type="button" className="btns">
+                    Delivery Note
+                  </button>
+                </div>
+              )}
 
-                <button type="button" className="btns">
-                  Transfer
-                </button>
-                <button type="button" className="btns">
-                  Allot
-                </button>
+              {moreActions === true && (
+                <div className="leftsideBtn">
+                  <button type="button" className="btns">
+                    Transfer
+                  </button>
+                  <button type="button" className="btns">
+                    Cancel Booking
+                  </button>
+                </div>
+              )}
 
-                {/* <button type="button" className="btns">
-                Un-Allot
-              </button> */}
-                <button type="button" className="btns">
-                  Invoice
-                </button>
-
-                <button type="button" className="btns">
-                  Delivery Note
-                </button>
-
-                <button type="button" className="btns">
-                  Cancel Booking
-                </button>
-              </div>
+              <button
+                type="button"
+                className="btns"
+                onClick={(e) => setMoreActions(!moreActions)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 6,
+                }}
+              >
+                <span>
+                  <svg
+                    style={{ transform: moreActions && "rotate(180deg" }}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
+                      fill="white"
+                    />
+                  </svg>
+                </span>
+                {moreActions ? "Less" : "More"} Actions
+              </button>
               {/* )} */}
 
               {/* More button */}

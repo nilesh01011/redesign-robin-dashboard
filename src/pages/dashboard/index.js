@@ -251,7 +251,7 @@ function DashboardPage() {
             >
               {/* title */}
               <h4 style={{ fontSize: 18, fontWeight: 700 }}>
-                Trending in News
+                What's News
               </h4>
               {/* images */}
               {/* <div
@@ -287,7 +287,7 @@ function DashboardPage() {
               <h2>Business KPIs</h2>
               {/* buttons */}
               <button type="button" className="addWidgetBtn">
-                <span>
+                {/* <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -302,7 +302,7 @@ function DashboardPage() {
                       fill="white"
                     />
                   </svg>
-                </span>
+                </span> */}
                 Add KPI
               </button>
             </div>
@@ -383,7 +383,7 @@ function DashboardPage() {
                   </h5>
 
                   {/* birthday username */}
-                  <div className="birthdayList">
+                  <div className="birthdayList" style={{gridTemplateColumns:"repeat(2,1fr)"}}>
                     {todayBirthday.map((ele) => (
                       <BirthdayCalendar key={ele.id} userData={ele} />
                     ))}

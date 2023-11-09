@@ -21,8 +21,8 @@ function ActionItemsCollapsed({
   };
 
   const wordSlice = (word) => {
-    if (word.length > 40) {
-      return word.slice(0, 40) + "...";
+    if (word.length > 30) {
+      return word.slice(0, 30) + "...";
     } else {
       return word;
     }
@@ -50,8 +50,8 @@ function ActionItemsCollapsed({
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="16"
+              height="16"
               viewBox="0 0 20 20"
               fill="none"
             >

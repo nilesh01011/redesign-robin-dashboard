@@ -20,8 +20,8 @@ function Accordion({
   // console.log(data.type)
 
   const handleChecked = (id) => {
-    checked = !checked
-    setIndicator(id)
+    checked = !checked;
+    setIndicator(id);
     // console.log("Id:",id)
     // console.log("Checked:",checked)
   };
@@ -64,11 +64,16 @@ function Accordion({
                 }}
               />
 
-              <span style={{ fontSize: 14, color: "#858585" }}>{addressType}</span>
+              <span style={{ fontSize: 14, color: "#858585" }}>
+                {addressType}
+              </span>
             </div>
           )}
           {/* icons */}
-          <span onClick={() => setAccordionCollapsed(!accordionCollapsed)} style={{cursor:"pointer"}}>
+          <span
+            onClick={() => setAccordionCollapsed(!accordionCollapsed)}
+            style={{ cursor: "pointer" }}
+          >
             {accordionCollapsed ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,20 +111,85 @@ function Accordion({
 
       {/* contents */}
       {accordionCollapsed && (
-        <div
-          className={`accordionContents ${data.type}`}
-          style={{
-            borderTop: `1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,
-            paddingTop: "20px",
-            paddingBottom: "20px",
-          }}
-        >
-          {data.contents.map((ele, index) => (
-            <GridContent data={ele} key={index} type={data.type} />
-          ))}
+        <>
+          {type === "accordionGridFlex" ? (
+            <div
+            // className={`accordionContents ${data.type}`}
+            // style={{
+            //   borderTop: `1px solid ${
+            //     theme === "light" ? "#e6e6e6" : "#232324"
+            //   }`,
+            //   paddingTop: "20px",
+            //   paddingBottom: "20px",
+            // }}
+            >
+              {data.contents.map((ele, index) => {
+                if (ele.type === "gridContents") {
+                  return (
+                    <div
+                      className={`accordionContents ${data.type}`}
+                      style={{
+                        borderTop: `1px solid ${
+                          theme === "light" ? "#e6e6e6" : "#232324"
+                        }`,
+                        paddingTop: "20px",
+                        paddingBottom: "20px",
+                      }}
+                    >
+                      {ele.contents.map((el, index) => {
+                        return (
+                          <GridContent data={el} key={index} type={data.type} />
+                        );
+                      })}
+                    </div>
+                  );
+                }
 
-          {console.log(data.type)}
-        </div>
+                if (ele.type === "flexColumnData") {
+                  return ele.contents.map((el, index) => {
+                    console.log(el);
+                    return (
+                      <div key={index} className="flexColumnData">
+                        {/* title */}
+                        <span
+                          style={{
+                            fontSize: 14,
+                            color: theme === "light" ? "#545454" : "#858585",
+                            marginBottom:2
+                          }}
+                        >
+                          {el.title}
+                        </span>
+                        <span style={{
+                            fontSize: 14,
+                          }}>{el.text}</span>
+                      </div>
+                    );
+                  });
+                }
+              })}
+
+              {/* {console.log(data.type)} */}
+            </div>
+          ) : (
+            <div
+              className={`accordionContents ${data.type}`}
+              style={{
+                borderTop: `1px solid ${
+                  theme === "light" ? "#e6e6e6" : "#232324"
+                }`,
+                paddingTop: "20px",
+                paddingBottom: "20px",
+              }}
+            >
+              {data.contents.map((ele, index) => (
+                <GridContent data={ele} key={index} type={data.type} />
+              ))}
+
+              {console.log(data.type)}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

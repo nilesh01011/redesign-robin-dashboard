@@ -8,7 +8,7 @@
   min-height: 100vh;
   // max-height: max-content;
   padding-top: 0;
-  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
   &.desktopStrip {
     width: 60px;
@@ -30,7 +30,7 @@
     top: 0;
     left: 0;
     z-index: 10;
-    padding: 14px 0;
+    padding: 14px;
 
     &.mobileViewBtn {
       display: none;
@@ -47,46 +47,54 @@
 
   // sidebar content
   & .sidebarContainer {
-    padding: 0 14px;
     z-index: 5;
     height: 100%;
     width: 100%;
     min-width: fit-content;
-    transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
     // search items
     & .searchInputContainer {
+      width: 100%;
       // position: relative;
+      padding: 0 14px;
+      // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
       & .searchIcons {
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       }
 
       & .searchIconsAbsolute {
         position: absolute;
-        right: 10px;
-        top: 6px;
+        right: 25px;
+        top: 7px;
+        transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       }
 
       // search results items
       & .searchResults {
         position: absolute;
-        left: 0;
+        left: 14px;
+        right: 14px;
         top: 90%;
-        width: 100%;
-        max-height: 160px;
+        // width: calc(100% - 28px);
+        // margin: 0 auto;
+        max-height: 180px;
         overflow-y: scroll;
+        overflow-x: hidden;
         border-radius: 4px;
         border: 1px solid;
+        // padding-right: 0 !important;
 
         &::-webkit-scrollbar {
-          width: 6px;
+          width: 5px;
         }
 
         &::-webkit-scrollbar-thumb {
-          border-radius: 10px;
+          border-radius: 8px;
         }
 
         &.lightThemeScroll::-webkit-scrollbar-thumb {
@@ -97,18 +105,28 @@
           background: #545454;
         }
 
+        &.lightThemeScroll::-webkit-scrollbar-track {
+          background: #f0efef;
+        }
+
+        &.darkThemeScroll::-webkit-scrollbar-track {
+          background: #1c1c1c;
+        }
+
         & ul {
           padding: 6px;
           display: flex;
           flex-direction: column;
           gap: 2px;
+          width: 100%;
 
           & li {
             padding: 5px 12px;
             font-size: 14px;
-            font-weight: 400;
+            font-weight: 500;
             cursor: pointer;
             border-radius: 3px;
+            white-space: nowrap;
           }
 
           &.lightTheme {
@@ -143,11 +161,6 @@
     & .sidebarMenuItemsContainer {
       width: 100%;
       height: 100%;
-      // margin-bottom: 82px;
-      //   padding-bottom: 62px;
-      // padding-bottom: 120px;
-      // max-height: calc(100vh - 62px);
-      // max-height: 600px;
       max-height: calc(100vh - 172px);
 
       &::-webkit-scrollbar {
@@ -159,7 +172,7 @@
         opacity: 1;
       }
 
-      &.activeScrollbar::-webkit-scrollbar-thumb {
+      &::-webkit-scrollbar-thumb {
         border-radius: 10px;
       }
 
@@ -171,6 +184,14 @@
         background: #545454;
       }
 
+      &.activeScrollbar.lightTheme::-webkit-scrollbar-track {
+        background: #f0efef;
+      }
+
+      &.activeScrollbar.darkTheme::-webkit-scrollbar-track {
+        background: #1c1c1c;
+      }
+
       & ul {
         list-style: none;
         display: flex;
@@ -179,7 +200,7 @@
 
         & li {
           display: flex;
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 500;
           text-decoration: none;
           flex-direction: column;
@@ -202,7 +223,7 @@
               min-height: 32px;
 
               & span {
-                font-weight: 400;
+                font-weight: 500;
               }
             }
           }
@@ -217,10 +238,14 @@
             }
 
             & li {
-              font-size: 12px;
+              font-size: 14px;
 
               & p {
                 text-align: left;
+
+                & span {
+                  font-weight: 400;
+                }
               }
             }
           }
@@ -234,7 +259,7 @@
       //   tooltips
       & .tooltips {
         position: absolute;
-        left: 145%;
+        left: 100%;
         display: block;
         padding: 6px 14px;
         border-radius: 5px;

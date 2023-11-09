@@ -27,4 +27,11 @@
     padding: 0 30px;
     user-select: none;
   }
+
+  & .flexColumnData {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    padding-top: 0;
+  }
 }

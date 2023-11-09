@@ -12,4 +12,18 @@
       gap: 20px;
     }
   }
+
+  & .tablesScroll {
+    // width: 100%;
+    // max-width: calc(100vw - 358px);
+    // overflow: scroll;
+
+    & .tableContainer {
+      min-height: calc(100vh - 230px);
+      max-height: calc(100vh - 230px);
+      // max-width:840px;
+      max-width: calc(100vw - 64px);
+      overflow: scroll;
+    }
+  }
 }

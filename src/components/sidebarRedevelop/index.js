@@ -99,6 +99,18 @@ function SidebarRedevelop() {
       overlay.style.display = "none";
     }
   };
+
+  // menu items expand
+  const [expandItems, setExpandItems] = useState(0);
+
+  // search menu items word slice
+  const wordSlice = (word) => {
+    if (word.length > 32) {
+      return word.slice(0, 32) + "...";
+    } else {
+      return word;
+    }
+  };
   return (
     <>
       <aside
@@ -116,6 +128,7 @@ function SidebarRedevelop() {
           className={`sidebarContainer ${
             theme === "light" ? "lightTheme" : "darkTheme"
           }`}
+          // style={{ maxWidth: collapsed ? "100%" : 60 }}
         >
           {/* ============= toggle button ================= */}
           <div
@@ -143,7 +156,7 @@ function SidebarRedevelop() {
             )}
             {/* icons */}
             <span
-              className={`icons ${collapsed ? "" : "iconRotate"}`}
+              className={`icons ${collapsed ? "iconRotate" : ""}`}
               style={{
                 color:
                   collapsed === false
@@ -152,9 +165,12 @@ function SidebarRedevelop() {
                       : "#ffffff"
                     : "#FF3E5B",
                 marginLeft: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <svg
+              {/* <svg
                 stroke="currentColor"
                 fill="currentColor"
                 strokeWidth="0"
@@ -167,14 +183,25 @@ function SidebarRedevelop() {
                   fillRule="evenodd"
                   d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
                 ></path>
+              </svg> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M5.63523 2.15803C5.8241 1.95657 6.14052 1.94637 6.34197 2.13523L14.342 9.63523C14.4428 9.72976 14.5 9.8618 14.5 10C14.5 10.1382 14.4428 10.2702 14.342 10.3648L6.34197 17.8648C6.14052 18.0536 5.8241 18.0434 5.63523 17.842C5.44637 17.6405 5.45657 17.3241 5.65803 17.1352L13.2689 10L5.65803 2.86477C5.45657 2.67591 5.44637 2.35949 5.63523 2.15803Z"
+                  fill="currentColor"
+                />
               </svg>
             </span>
           </div>
           {/* mobile view cancel buttons */}
-          <div
-            className="sidebarBtn mobileViewBtn"
-            // style={{ backgroundColor: theme === "light" ? "white" : "#1C1C1C" }}
-          >
+          <div className="sidebarBtn mobileViewBtn">
             <img
               src={theme === "light" ? ROBIN_LIGHT_THEME : ROBIN_DARK_THEME}
               alt="logo"
@@ -192,17 +219,17 @@ function SidebarRedevelop() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
                 fill="none"
               >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
-                  d="M0.146447 0.146447C0.341709 -0.0488155 0.658291 -0.0488155 0.853553 0.146447L8 7.29289L15.1464 0.146447C15.3417 -0.0488151 15.6583 -0.0488151 15.8536 0.146447C16.0488 0.341709 16.0488 0.658292 15.8536 0.853554L8.70711 8L15.8536 15.1464C16.0488 15.3417 16.0488 15.6583 15.8536 15.8536C15.6583 16.0488 15.3417 16.0488 15.1464 15.8536L8 8.70711L0.853554 15.8536C0.658292 16.0488 0.341709 16.0488 0.146447 15.8536C-0.0488151 15.6583 -0.0488151 15.3417 0.146447 15.1464L7.29289 8L0.146447 0.853554C-0.0488155 0.658291 -0.0488155 0.341709 0.146447 0.146447Z"
+                  d="M5.63523 2.15803C5.8241 1.95657 6.14052 1.94637 6.34197 2.13523L14.342 9.63523C14.4428 9.72976 14.5 9.8618 14.5 10C14.5 10.1382 14.4428 10.2702 14.342 10.3648L6.34197 17.8648C6.14052 18.0536 5.8241 18.0434 5.63523 17.842C5.44637 17.6405 5.45657 17.3241 5.65803 17.1352L13.2689 10L5.65803 2.86477C5.45657 2.67591 5.44637 2.35949 5.63523 2.15803Z"
                   fill="currentColor"
-                ></path>
+                />
               </svg>
             </span>
           </div>
@@ -217,6 +244,9 @@ function SidebarRedevelop() {
               // backgroundColor: theme === "light" ? "white" : "#1C1C1C",
               display: collapsed === false && "flex",
               justifyContent: collapsed === false && "center",
+              paddingLeft: collapsed ? 14 : 0,
+              paddingRight: collapsed ? 14 : 0,
+              maxWidth: collapsed ? "100%" : 60,
             }}
           >
             {collapsed === true && (
@@ -246,16 +276,30 @@ function SidebarRedevelop() {
                 collapsed === true && "searchIconsAbsolute"
               }`}
             >
-              <svg
+              {/* <svg
                 stroke="currentColor"
                 fill="currentColor"
                 strokeWidth="0"
                 viewBox="0 0 1024 1024"
-                height="25"
-                width="25"
+                height="20"
+                width="29"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
+              </svg> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M10.4348 2.40002C5.99729 2.40002 2.39999 5.99732 2.39999 10.4348C2.39999 14.8723 5.99729 18.4696 10.4348 18.4696C12.4376 18.4696 14.2692 17.7368 15.6762 16.5248L20.5757 21.4243C20.81 21.6586 21.1899 21.6586 21.4243 21.4243C21.6586 21.19 21.6586 20.8101 21.4243 20.5758L16.5247 15.6762C17.7368 14.2692 18.4696 12.4376 18.4696 10.4348C18.4696 5.99732 14.8723 2.40002 10.4348 2.40002ZM3.59999 10.4348C3.59999 6.66006 6.66003 3.60002 10.4348 3.60002C14.2095 3.60002 17.2696 6.66006 17.2696 10.4348C17.2696 14.2096 14.2095 17.2696 10.4348 17.2696C6.66003 17.2696 3.59999 14.2096 3.59999 10.4348Z"
+                  fill="currentColor"
+                />
               </svg>
             </span>
             {/* )} */}
@@ -279,28 +323,23 @@ function SidebarRedevelop() {
                       theme === "light" ? "lightTheme" : "darkTheme"
                     }`}
                   >
-                    {/* <li className="active">Customer Master</li>
-                  <li>OTF</li>
-                  <li>Home</li>
-                  <li>Common</li>
-                  <li>Reports</li>
-                  <li>Reports</li>
-                  <li>Reports</li>
-                  <li>Reports</li>
-                  <li>Reports</li> */}
-
                     {searchResultsData !== 0 &&
                       searchResultsData?.map((ele, index) => {
                         return (
                           <li
                             key={index}
                             className={`${pathname === ele.link && "active"}`}
-                            onClick={() => router(ele.link)}
+                            onClick={() => {
+                              router(ele.link);
+                              setSearchBoxClicked(false);
+                              setSearchResultData([]);
+                              setSearchMenuItems("");
+                            }}
                             style={{
                               color: pathname === ele.name && "#ff3e5b",
                             }}
                           >
-                            {ele.name}
+                            {wordSlice(ele.name)}
                           </li>
                         );
                       })}
@@ -347,13 +386,9 @@ function SidebarRedevelop() {
             ref={domNode}
             style={{
               paddingBottom: 10,
-              // backgroundColor: theme === "light" ? "white" : "#1C1C1C",
             }}
           >
             <SearchInput
-              // setSearchMenuItems={setSearchMenuItems}
-              // searchMenuItems={searchMenuItems}
-              // collapsed={collapsed}
               setSearchMenuItems={setSearchMenuItems}
               onSearch={onSearch}
               searchMenuItems={searchMenuItems}
@@ -373,7 +408,7 @@ function SidebarRedevelop() {
                     ? "black"
                     : "white",
                 cursor: "pointer",
-                top:5
+                top: 5,
               }}
               // className={`searchIcons ${
               //   collapsed === true && "searchIconsAbsolute"
@@ -381,15 +416,18 @@ function SidebarRedevelop() {
               className="searchIcons searchIconsAbsolute"
             >
               <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 1024 1024"
-                height="25"
-                width="25"
                 xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
               >
-                <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M10.4348 2.40002C5.99729 2.40002 2.39999 5.99732 2.39999 10.4348C2.39999 14.8723 5.99729 18.4696 10.4348 18.4696C12.4376 18.4696 14.2692 17.7368 15.6762 16.5248L20.5757 21.4243C20.81 21.6586 21.1899 21.6586 21.4243 21.4243C21.6586 21.19 21.6586 20.8101 21.4243 20.5758L16.5247 15.6762C17.7368 14.2692 18.4696 12.4376 18.4696 10.4348C18.4696 5.99732 14.8723 2.40002 10.4348 2.40002ZM3.59999 10.4348C3.59999 6.66006 6.66003 3.60002 10.4348 3.60002C14.2095 3.60002 17.2696 6.66006 17.2696 10.4348C17.2696 14.2096 14.2095 17.2696 10.4348 17.2696C6.66003 17.2696 3.59999 14.2096 3.59999 10.4348Z"
+                  fill="currentColor"
+                />
               </svg>
             </span>
 
@@ -405,7 +443,7 @@ function SidebarRedevelop() {
                     backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C",
                     borderColor: theme === "light" ? "#b5b5b6" : "#342c2c",
                     color: theme === "light" ? "#0B0B0C" : "#ffffff",
-                    zIndex:8
+                    zIndex: 8,
                   }}
                 >
                   <ul
@@ -429,7 +467,13 @@ function SidebarRedevelop() {
                           <li
                             key={index}
                             className={`${pathname === ele.link && "active"}`}
-                            onClick={() => {router(ele.link);handleSidebar()}}
+                            onClick={() => {
+                              router(ele.link);
+                              handleSidebar();
+                              setSearchBoxClicked(false);
+                              setSearchResultData([]);
+                              setSearchMenuItems("");
+                            }}
                             style={{
                               color: pathname === ele.name && "#ff3e5b",
                             }}
@@ -478,7 +522,11 @@ function SidebarRedevelop() {
           <div
             className={`sidebarMenuItemsContainer ${
               theme === "light" ? "lightTheme" : "darkTheme"
-            } ${sidebarScrollBar === true ? "activeScrollbar" : ""}`}
+            } ${
+              sidebarScrollBar === true && collapsed === true
+                ? ""
+                : "activeScrollbar"
+            }`}
             onMouseEnter={() => {
               collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
               // console.log(sidebarScrollBar);
@@ -490,6 +538,8 @@ function SidebarRedevelop() {
             style={{
               overflowY: collapsed === false ? "" : "scroll",
               overflowX: collapsed === false ? "" : "hidden",
+              paddingLeft: collapsed ? 14 : 0,
+              paddingRight: collapsed ? 9 : 6,
             }}
           >
             {/* desktop views */}
@@ -508,6 +558,9 @@ function SidebarRedevelop() {
                   id={index}
                   collapsed={collapsed}
                   setCollapsed={setCollapsed}
+                  expandItems={expandItems}
+                  setExpandItems={setExpandItems}
+                  toggleCollapsed={toggleCollapsed}
                 />
               ))}
             </ul>

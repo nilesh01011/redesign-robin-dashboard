@@ -24,7 +24,7 @@
     width: 100%;
     // height: 100%;
     display: flex;
-    gap: 10px;
+    // gap: 10px;
     align-items: flex-start;
     // overflow: hidden;
 
@@ -46,8 +46,8 @@
         width: 100%;
 
         & p {
-          display: flex;
-          align-items: center;
+          // display: flex;
+          // align-items: center;
           gap: 6px;
           min-height: 20px;
           // min-height: 24px;
@@ -61,10 +61,16 @@
     & .rightSide {
       width: 70%;
       display: flex;
+      // overflow: hidden;
 
       & .graphs {
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // padding: 0 4px;
+        // padding-left: 20px;
 
         & canvas {
           width: auto !important;

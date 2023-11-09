@@ -19,10 +19,10 @@ function Index({
   const filterData = tableBody.filter((item) => {
     return inputFields.toLowerCase() === ""
       ? item
-      : item.one.includes(inputFields) ||
+      : item.one.toLowerCase().includes(inputFields) ||
           item.two.toLowerCase().includes(inputFields) ||
-          item.three.includes(inputFields) ||
-          item.four.includes(inputFields);
+          item.three.toLowerCase().includes(inputFields) ||
+          item.four.toLowerCase().includes(inputFields);
   });
 
   const wordSlice = (word) => {
@@ -49,7 +49,7 @@ function Index({
       >
         <tr className="table">
           {tableHead.map((ele) => (
-            <th key={ele.key} style={{ borderColor: borderColor,}}>
+            <th key={ele.key} style={{ borderColor: borderColor }}>
               {ele.label}
               {/* icons */}
               <span
@@ -92,6 +92,7 @@ function Index({
             <tr
               key={ele.key}
               className={theme === "light" ? "lightHover" : "darkHover"}
+              // style={{borderColor:borderColor}}
             >
               <td
                 style={{
@@ -158,7 +159,13 @@ function Index({
                 }}
               >
                 {ele.status ? (
-                  <span className={`${ele.five} ${theme === "light" ? "lightTheme" : "darkTheme"} status`}>{ele.five}</span>
+                  <span
+                    className={`${ele.five} ${
+                      theme === "light" ? "lightTheme" : "darkTheme"
+                    } status`}
+                  >
+                    {ele.five}
+                  </span>
                 ) : (
                   ele.five
                 )}
@@ -180,7 +187,10 @@ function Index({
                   color: theme === "light" ? "#545454" : "#a3a3a3",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                <div
+                  className="stickyActions"
+                  style={{ display: "flex", alignItems: "center", gap: 20 }}
+                >
                   {/* view data */}
                   <span
                     title="View Details"

@@ -74,8 +74,8 @@ function BarChart({ title, dataItems }) {
           return ele.bgColor;
         }),
         borderWidth: 1,
-        barThickness: 15,
-        borderRadius: 20,
+        barThickness: 12,
+        borderRadius: 4,
         borderSkipped: false,
         barPercentage: 0.5,
         categoryPercentage: 0.5,
@@ -84,8 +84,8 @@ function BarChart({ title, dataItems }) {
   };
 
   const wordSlice = (word) => {
-    if (word.length > 12) {
-      return word.slice(0, 12) + "...";
+    if (word.length > 6) {
+      return word.slice(0, 6) + "...";
     } else {
       return word;
     }

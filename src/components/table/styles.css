@@ -8,6 +8,7 @@ table tr td, table tr th {
   padding: 13px 20px;
   font-size: 14px;
   text-align: left;
+  white-space: nowrap;
 }
 table .tableHeads {
   position: sticky;
@@ -88,7 +89,7 @@ table tbody tr td .status.Invoiced.lightTheme {
 }
 table tbody tr td .status.Invoiced.darkTheme {
   border-color: #9747ff;
-  background: #20232C;
+  background: #20232c;
   color: #9747ff;
 }
 table tbody tr.lightHover:hover {

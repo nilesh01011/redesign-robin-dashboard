@@ -1,16 +1,18 @@
 table {
   width: 100%;
-  height: 100%;
+  // height: 100%;
   border-spacing: 0;
   position: relative;
+  // table-layout: auto;
 
   & tr {
     & td,
     & th {
-      padding: 13px 20px;
       font-size: 14px;
+      padding: 13px 20px;
       text-align: left;
-      // white-space: nowrap;
+      white-space: nowrap;
+      // overflow-x: hidden;
     }
   }
 
@@ -47,6 +49,7 @@ table {
 
   & tbody {
     & tr {
+      // border-bottom: 1px solid;
       & td {
         border-bottom: 1px solid;
 
@@ -121,7 +124,7 @@ table {
           // dark theme
           &.Invoiced.darkTheme {
             border-color: #9747ff;
-            background: #20232C;
+            background: #20232c;
             color: #9747ff;
           }
         }
@@ -137,6 +140,33 @@ table {
     }
   }
 }
+
+@media screen and (max-width: 1366px) {
+  table {
+    & tr td:not(:last-child, :first-child),
+    & th:not(:last-child, :first-child) {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    & tr td:first-child {
+      padding-right: 0;
+    }
+
+    & tr td:last-child {
+      padding-left: 0;
+    }
+  }
+}
+
+// @media screen and (max-width: 1080px) {
+//   table {
+//     & tr td:not(:last-child, :first-child),
+//     & th:not(:last-child, :first-child) {
+//       padding-right: 0;
+//       padding-left: 0;
+//     }
+//   }
+// }
 
 @media screen and (max-width: 1058px) {
   table {

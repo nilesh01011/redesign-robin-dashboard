@@ -862,6 +862,14 @@ export const recentlyVisited = [
   {
     name:"manage Dealers",
     // link:"/home",
+  },
+  {
+    name:"Home",
+    link:"/home",
+  },
+  {
+    name:"manage Dealers",
+    // link:"/home",
   }
 ]
 
@@ -1668,7 +1676,6 @@ export const ibndstock = [
 ];
 
 // Admin => Customer Master Table
-
 export const tableHead = [
   {
     key: "1",
@@ -2120,8 +2127,13 @@ export const customerMasterData = [
   },
 ];
 
-// OTF Booking Table data
+// export const tableRedevelopData = [
+//   {
 
+//   }
+// ]
+
+// OTF Booking Table data
 export const bookingTableHead = [
   {
     key: "1",

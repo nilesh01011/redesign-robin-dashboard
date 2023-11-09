@@ -1,0 +1,38 @@
+.tableRedevelopContainer {
+  width: 100%;
+  height: 100%;
+
+  & .tableRedevelopHead {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: hidden;
+
+    & .tableHeadItems {
+      padding: 13px 20px;
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  //   tableRedevelopBody
+  & .tableRedevelopBody {
+    width: 100%;
+    height: 100%;
+
+    & .tableBodyItems {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        // justify-content: space-between;
+    }
+  }
+}
