@@ -25,4 +25,10 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.accordionContainer .flexColumnData {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  padding-top: 0;
 }/*# sourceMappingURL=styles.css.map */

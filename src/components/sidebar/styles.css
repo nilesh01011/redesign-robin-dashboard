@@ -65,7 +65,7 @@
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
   opacity: 0;
-  width: 8px;
+  width: 5px;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar {
   opacity: 1;

@@ -5,6 +5,8 @@ import "./styles.scss";
 import { useSelector } from "react-redux";
 import GridContent from "./gridContent/GridContent";
 import Accordion from "./accordion/Accordion";
+import AccordionTable from "./accordionTable/AccordionTable";
+import AccordionNTH from "./accordionNTH/AccordionNTH";
 
 function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const theme = useSelector((state) => state.theme);
@@ -841,13 +843,84 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         key: 7,
         name: "Invoice Information",
         type: "accordionTable",
+        default: "accordion",
         contents: [
           {
-            title: "Form_60_Doc.jpg",
-            text: "I accept that for the Transferred Vehicle , Claim can be generated from the billed Dealer.",
+            type: "table",
+            title: "Invoice Information",
+            headContent: [
+              {
+                text: "#",
+              },
+              {
+                text: "Invoice number",
+              },
+              {
+                text: "Invoice date",
+              },
+              {
+                text: "Invoice status",
+              },
+            ],
+            bodyContent: [
+              {
+                one: "1",
+                two: "INV5621545",
+                three: "18 Aug 2023",
+                four: "Status",
+              },
+              {
+                one: "2",
+                two: "INV5621546",
+                three: "19 Aug 2023",
+                four: "Status",
+              },
+              {
+                one: "3",
+                two: "INV5621547",
+                three: "20 Aug 2023",
+                four: "Status",
+              },
+            ],
           },
+
           {
-            title: "RC_Doc.jpg",
+            type: "table",
+            title: "Delivery Information",
+            headContent: [
+              {
+                text: "#",
+              },
+              {
+                text: "Delivery Note Number",
+              },
+              {
+                text: "Delivery Note date",
+              },
+              {
+                text: "Delivery Note status",
+              },
+            ],
+            bodyContent: [
+              {
+                one: "1",
+                two: "DEL4321515231",
+                three: "18 Aug 2023",
+                four: "",
+              },
+              {
+                one: "2",
+                two: "DEL4321515232",
+                three: "19 Aug 2023",
+                four: "",
+              },
+              {
+                one: "3",
+                two: "DEL4321515233",
+                three: "20 Aug 2023",
+                four: "",
+              },
+            ],
           },
         ],
       },
@@ -969,14 +1042,224 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       {
         key: 10,
         name: "Add-On Details",
-        type: "form",
+        type: "accordionNTH",
+        default: "accordion",
         contents: [
           {
-            title: "Form_60_Doc.jpg",
-            text: "I accept that for the Transferred Vehicle , Claim can be generated from the billed Dealer.",
+            title: "Accessories Information",
+            type: "accordion",
+            contents: [
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "accordion",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "gridContents",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
-            title: "RC_Doc.jpg",
+            title: "Shield",
+            type: "accordion",
+            contents: [
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "accordion",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "gridContents",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "AMC",
+            type: "accordion",
+            contents: [
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "accordion",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "gridContents",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "RSA",
+            type: "accordion",
+            contents: [
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "accordion",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                title: "Part Description | ALTD16554",
+                text: "Required Quantity 12",
+                type: "gridContents",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Mobile Number",
+                        text: "+91-9893473843",
+                      },
+                      {
+                        title: "Customer ID",
+                        text: "CFG4554564787",
+                      },
+                      {
+                        title: "Customer Type",
+                        text: "Individual",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
@@ -1642,6 +1925,30 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                           );
                         })}
 
+                      {ele.type === "accordionTable" &&
+                        ele.contents.map((el, index) => {
+                          // console.log(el)
+                          return (
+                            <AccordionTable
+                              type={el.type}
+                              key={index}
+                              data={el}
+                              drawerType={drawerType}
+                            />
+                          );
+                        })}
+
+                      {ele.type === "accordionNTH" &&
+                        ele.contents.map((el, index) => {
+                          return (
+                            <AccordionNTH
+                              key={index}
+                              data={el}
+                              type={ele.default}
+                            />
+                          );
+                        })}
+
                       {/* {ele.type === "accordion" &&
                         ele.contents.map((el, index) => {
                           if (el.type === "accordionGridForm") {
@@ -1872,7 +2179,13 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   gap: 6,
                 }}
               >
-                <span>
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <svg
                     style={{ transform: moreActions && "rotate(180deg" }}
                     xmlns="http://www.w3.org/2000/svg"

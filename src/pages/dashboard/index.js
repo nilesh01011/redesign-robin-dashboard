@@ -401,7 +401,7 @@ function DashboardPage() {
                   {/* birthday username */}
                   <div className="birthdayList">
                     {upcomingBirthday.map((ele) => (
-                      <BirthdayCalendar key={ele.id} userData={ele} />
+                      <BirthdayCalendar key={ele.id} userData={ele} divider={true} />
                     ))}
                   </div>
                 </div>

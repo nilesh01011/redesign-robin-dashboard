@@ -421,10 +421,10 @@
       }
 
       & .searchInputContainer {
-        &.desktopView,
-        & .searchIcons {
-          // display: none !important;
-        }
+        // &.desktopView,
+        // & .searchIcons {
+        //   // display: none !important;
+        // }
 
         &.mobileViewSearch {
           display: block;
@@ -436,6 +436,7 @@
       & .sidebarMenuItemsContainer {
         position: static;
         height: 100%;
+        padding-right: 0 !important;
 
         & .desktopViewSidebar {
           display: none;

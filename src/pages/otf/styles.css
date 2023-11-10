@@ -12,6 +12,9 @@
   align-items: center;
   gap: 20px;
 }
-.otfContainer .tableContainer {
-  max-height: 525px !important;
+.otfContainer .tablesScroll .tableContainer {
+  min-height: calc(100vh - 230px);
+  max-height: calc(100vh - 230px);
+  max-width: calc(100vw - 64px);
+  overflow: scroll;
 }/*# sourceMappingURL=styles.css.map */

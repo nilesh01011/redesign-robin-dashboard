@@ -22,7 +22,7 @@
   max-height: calc(100vh - 420px);
 }
 .responsiveTable .responsiveTableContents::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
   opacity: 0;
 }
 .responsiveTable .responsiveTableContents.active::-webkit-scrollbar {

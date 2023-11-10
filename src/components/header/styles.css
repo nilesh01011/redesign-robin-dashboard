@@ -7,7 +7,8 @@
   padding-top: 13px;
   padding-bottom: 13px;
   padding-left: 40px;
-  padding-right: 32px;
+  padding-right: 40px;
+  box-sizing: border-box;
 }
 .header .headerLeft {
   display: flex;
@@ -291,6 +292,12 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1280px) {
+  .header {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
 @media screen and (max-width: 1038px) {
   .header {
     padding-left: 26px;

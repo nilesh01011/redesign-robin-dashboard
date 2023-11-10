@@ -683,7 +683,7 @@ function Header({ handleClosed, setModelListDetails }) {
                 <div className="userDetails">
                   {/* user name */}
                   <span className="username">Joana Doe</span>
-                  <p>
+                  <p style={{marginTop:2}}>
                     <span className="userNumber" style={{ color: "#FF3E5B" }}>
                       {wordSlice(userRoleChanged)}
                     </span>
@@ -697,7 +697,7 @@ function Header({ handleClosed, setModelListDetails }) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginLeft: 14,
+                    marginLeft: 10,
                   }}
                 >
                   <svg
@@ -773,7 +773,8 @@ function Header({ handleClosed, setModelListDetails }) {
                             <p style={{ fontSize: 14 }}>{ele.text}</p>
                           </p>
                           {/* icons */}
-                          <span onClick={() => handleClicks(ele.text)}>
+                          {/* onClick={() => handleClicks(ele.text)} */}
+                          <span>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"

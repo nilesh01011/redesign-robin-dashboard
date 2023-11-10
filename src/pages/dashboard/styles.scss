@@ -68,11 +68,11 @@
           }
 
           &.light::-webkit-scrollbar-track {
-            background: #F0EFEF;
+            background: #f0efef;
           }
 
           &.dark::-webkit-scrollbar-track {
-            background: #1C1C1C;
+            background: #1c1c1c;
           }
 
           &.active::-webkit-scrollbar-thumb {
@@ -150,11 +150,11 @@
         }
 
         &.light::-webkit-scrollbar-track {
-          background: #F0EFEF;
+          background: #f0efef;
         }
 
         &.dark::-webkit-scrollbar-track {
-          background: #1C1C1C;
+          background: #1c1c1c;
         }
 
         &.active::-webkit-scrollbar-thumb {
@@ -265,8 +265,12 @@
             opacity: 1;
           }
 
-          &.active::-webkit-scrollbar-track {
-            background: transparent;
+          &.light::-webkit-scrollbar-track {
+            background: #f0efef;
+          }
+
+          &.dark::-webkit-scrollbar-track {
+            background: #1c1c1c;
           }
 
           &.active::-webkit-scrollbar-thumb {
@@ -317,7 +321,7 @@
           & .birthdayList {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
-            gap: 16px;
+            // gap: 16px;
           }
         }
       }

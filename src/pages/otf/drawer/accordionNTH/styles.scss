@@ -1,0 +1,16 @@
+.accordionNTH {
+  border-radius: 4px;
+  & .accordionHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+  }
+
+  & .accordionContents {
+    padding: 20px 30px;
+    padding-top: 0;
+    user-select: none;
+  }
+}

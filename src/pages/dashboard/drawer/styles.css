@@ -11,7 +11,7 @@
   padding-bottom: 20px;
 }
 .drawerContainer::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 .drawerContainer.light::-webkit-scrollbar-track {
   background: #F0EFEF;

@@ -38,7 +38,7 @@
   padding-bottom: 40px;
 }
 .tableDrawerContainer .drawerData .leftSide::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 .tableDrawerContainer .drawerData .leftSide::-webkit-scrollbar-track {
   background: transparent;

@@ -326,6 +326,7 @@
   .sidebar .sidebarContainer .sidebarMenuItemsContainer {
     position: static;
     height: 100%;
+    padding-right: 0 !important;
   }
   .sidebar .sidebarContainer .sidebarMenuItemsContainer .desktopViewSidebar {
     display: none;

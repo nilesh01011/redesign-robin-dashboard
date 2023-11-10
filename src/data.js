@@ -1,4 +1,4 @@
-import { AVATAR, AVATAR2, NEWSCARIMAGES } from "./assets";
+import { AVATAR, AVATAR2, NEWSCARIMAGES, USERIMG } from "./assets";
 
 // Sidebar Menu Items =>
 export const menuItems = [
@@ -1495,7 +1495,8 @@ export const todayBirthday = [
     id: 2,
     username: "Aman Yadav",
     date: "21, July 2023 Wednesday",
-    userImg: "",
+    // userImg: "",
+    userImg: USERIMG,
   },
 ];
 

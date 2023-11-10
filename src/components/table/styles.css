@@ -1,14 +1,16 @@
 table {
   width: 100%;
-  height: 100%;
   border-spacing: 0;
   position: relative;
 }
 table tr td, table tr th {
-  padding: 13px 20px;
   font-size: 14px;
+  padding: 13px 20px;
   text-align: left;
   white-space: nowrap;
+}
+table tr:last-child td {
+  border-bottom: 0;
 }
 table .tableHeads {
   position: sticky;
@@ -99,6 +101,18 @@ table tbody tr.darkHover:hover {
   background: #1c1c1c;
 }
 
+@media screen and (max-width: 1366px) {
+  table tr td:not(:last-child, :first-child), table th:not(:last-child, :first-child) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  table tr td:first-child {
+    padding-right: 0;
+  }
+  table tr td:last-child {
+    padding-left: 0;
+  }
+}
 @media screen and (max-width: 1058px) {
   table tr td, table tr th {
     padding: 13px 18px;

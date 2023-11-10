@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
-function BirthdayCalendar({ userData }) {
+function BirthdayCalendar({ userData, divider }) {
   const theme = useSelector((state) => state.theme);
 
   const userNameSplit = userData.username.split(" ");
@@ -11,7 +11,8 @@ function BirthdayCalendar({ userData }) {
 
   return (
     <div
-      className="birthdayContainer"
+      className={`birthdayContainer ${divider && "borderLine"}`}
+      style={{ borderColor: theme === "light" ? "#E6E6E6" : "#232324" }}
     >
       {/* user image */}
       <div className="userimages">
@@ -19,7 +20,10 @@ function BirthdayCalendar({ userData }) {
           <img src={userData.userImg} alt={userData.username} />
         ) : (
           <span
-            style={{ borderColor: theme === "light" ? "#DEDEDE" : "#635D5D" }}
+            style={{
+              borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
+              backgroundColor: theme === "light" ? "#f2f2f2" : "#545454",
+            }}
           >
             {firstLetter + "" + lastLetter}
           </span>
