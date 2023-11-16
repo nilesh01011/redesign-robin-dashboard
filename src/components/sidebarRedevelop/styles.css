@@ -172,6 +172,7 @@
   align-items: center;
   gap: 10px;
   min-height: 32px;
+  line-height: 2px;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .menu-items-heading p span {
   font-weight: 500;
