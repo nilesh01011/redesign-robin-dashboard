@@ -9,6 +9,9 @@
   }
 
   & .leftSideData {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
     & p {
       font-size: 14px;
 

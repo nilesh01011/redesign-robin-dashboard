@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 import Accordion from "./accordion/Accordion";
+import AccordionInput from "../accordionInput/AccordionInput";
 
-function AccordionNTH({ data, type }) {
+function AccordionNTH({ data, type,drawerType }) {
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
+
   return (
     <div
       className="accordionNTH"
@@ -59,10 +61,26 @@ function AccordionNTH({ data, type }) {
       {/* contents */}
       {accordionCollapsed && (
         <div className={`accordionContents ${data.type}`}>
-          {accordionCollapsed &&
-            data.contents.map((ele, index) => {
-              return <Accordion key={index} data={ele} />;
-            })}
+          {accordionCollapsed && (
+            <>
+              {data.type === "accordionInput" ? (
+                <>
+                {
+                  data.contents.map((ele,index) => {
+                    console.log(ele)
+                    return <AccordionInput key={index} data={ele} drawerType={drawerType} />;
+                  })
+                }
+                </>
+              ) : (
+                <>
+                  {data.contents.map((ele, index) => {
+                    return <Accordion key={index} data={ele} />;
+                  })}
+                </>
+              )}
+            </>
+          )}
         </div>
       )}
     </div>

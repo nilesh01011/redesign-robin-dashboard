@@ -7,6 +7,11 @@
 .tableItems:not(:last-child) {
   border-bottom: 1px solid;
 }
+.tableItems .leftSideData {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
 .tableItems .leftSideData p {
   font-size: 14px;
 }

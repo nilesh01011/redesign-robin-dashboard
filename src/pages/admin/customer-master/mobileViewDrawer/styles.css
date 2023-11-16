@@ -116,6 +116,26 @@
   flex-direction: column;
   gap: 16px;
   margin-top: 24px;
+  overflow-y: scroll;
+  max-height: 505px;
+}
+.mobileTableDrawerContainer .drawerData .leftSide .tabsSteps::-webkit-scrollbar {
+  width: 5px;
+}
+.mobileTableDrawerContainer .drawerData .leftSide .tabsSteps.lightTheme::-webkit-scrollbar-track {
+  background: #f0efef;
+}
+.mobileTableDrawerContainer .drawerData .leftSide .tabsSteps.darkTheme::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+.mobileTableDrawerContainer .drawerData .leftSide .tabsSteps::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.mobileTableDrawerContainer .drawerData .leftSide .tabsSteps.lightTheme::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+}
+.mobileTableDrawerContainer .drawerData .leftSide .tabsSteps.darkTheme::-webkit-scrollbar-thumb {
+  background: #545454;
 }
 .mobileTableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems {
   width: 100%;
@@ -191,6 +211,9 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 .rightSideDrawer .contents .rightSideContents {
   padding: 20px;

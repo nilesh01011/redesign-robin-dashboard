@@ -170,7 +170,7 @@
   display: block;
 }
 .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons.lines.activeLines::after {
-  background-color: #2782F9;
+  background-color: #2782f9;
 }
 .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText {
   cursor: pointer;
@@ -211,10 +211,56 @@
 .tableDrawerContainer .drawerData .rightSide .contents.darkTheme::-webkit-scrollbar-thumb {
   background: #545454;
 }
-.tableDrawerContainer .drawerData .rightSide .contents h2 {
-  font-size: 24px;
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader h2 {
+  font-size: 24px;
   font-weight: 700;
+  margin-bottom: 0;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps .stepsBox {
+  width: 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  position: relative;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps .stepsBox:not(:last-child):before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  display: block;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps .stepsBox.lightTheme:not(:last-child)::before {
+  background: #000;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps .stepsBox.darkTheme:not(:last-child)::before {
+  background: #858585;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps .stepsBox span {
+  z-index: 5;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .contentHeader .headerSteps .stepsBox .text {
+  font-size: 12px;
+  font-weight: 500;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails {
   border-radius: 4px;

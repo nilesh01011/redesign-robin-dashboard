@@ -154,12 +154,13 @@ body.dark::-webkit-scrollbar-thumb {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1366px) {
   .footer,
   .container-fluid {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0 30px;
   }
+}
+@media screen and (max-width: 1280px) {
   .tableContainer {
     max-width: calc(100vw - 120px);
   }

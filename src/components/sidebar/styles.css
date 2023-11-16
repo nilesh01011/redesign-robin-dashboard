@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 9998;
-  transition: width 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sidebar.desktopStrip {
   width: 60px;
@@ -44,7 +43,6 @@
   width: 100%;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sidebar .sidebarContainer.desktopStrip {
   width: 60px;
@@ -60,8 +58,8 @@
   display: none;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer {
-  position: sticky;
-  top: 108px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
   opacity: 0;
@@ -78,6 +76,12 @@
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.darkTheme::-webkit-scrollbar-thumb {
   background: #545454;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.lightTheme::-webkit-scrollbar-track {
+  background: #f0efef;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.darkTheme::-webkit-scrollbar-track {
+  background: #1c1c1c;
 }
 .sidebar .themeContainer {
   width: 100%;
@@ -141,7 +145,6 @@
     position: fixed;
     top: 0;
     left: -150%;
-    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
   }
   .sidebar.desktopCollapse, .sidebar.desktopStrip {
@@ -163,7 +166,6 @@
     display: block;
   }
   .sidebar .sidebarContainer {
-    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
   }
   .sidebar .sidebarContainer.desktopCollapse, .sidebar .sidebarContainer.desktopStrip {

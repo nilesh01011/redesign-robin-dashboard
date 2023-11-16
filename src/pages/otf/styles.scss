@@ -6,10 +6,18 @@
     margin-bottom: 20px;
     & .otfHeaderLeftSide {
       border-radius: 4px;
-      padding: 6px 20px;
+      padding: 8px 20px;
       display: flex;
       align-items: center;
       gap: 20px;
+
+      & .otfHeaderLeftSideText {
+        width: max-content;
+
+        & .advanceFilter {
+          display: none !important;
+        }
+      }
     }
   }
 
@@ -25,5 +33,42 @@
       max-width: calc(100vw - 64px);
       overflow: scroll;
     }
+  }
+}
+
+// media queries
+@media screen and (max-width: 880px) {
+  .otfContainer {
+    & .otfHeader {
+      & .otfHeaderLeftSide {
+        flex-direction: column;
+        align-items: flex-start;
+
+        & .searchFilterContainer {
+          & .advanceFilter {
+            display: none !important;
+          }
+        }
+
+        & .otfHeaderLeftSideText {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          & .advanceFilter {
+            display: flex !important;
+          }
+        }
+      }
+    }
+
+    & .tablesScroll {& .tableMobileView {
+      & .responsiveTable {
+        & .responsiveTableContents {
+          max-height: calc(100vh - 370px);
+        }
+      }
+    }}
   }
 }

@@ -432,6 +432,7 @@ function SidebarRedevelop() {
             </span>
 
             {/* search results */}
+            {/* search results */}
             {searchMenuItems &&
               collapsed === true &&
               searchResultsData.length >= 1 && (
@@ -443,7 +444,6 @@ function SidebarRedevelop() {
                     backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C",
                     borderColor: theme === "light" ? "#b5b5b6" : "#342c2c",
                     color: theme === "light" ? "#0B0B0C" : "#ffffff",
-                    zIndex: 8,
                   }}
                 >
                   <ul
@@ -451,16 +451,6 @@ function SidebarRedevelop() {
                       theme === "light" ? "lightTheme" : "darkTheme"
                     }`}
                   >
-                    {/* <li className="active">Customer Master</li>
-                  <li>OTF</li>
-                  <li>Home</li>
-                  <li>Common</li>
-                  <li>Reports</li>
-                  <li>Reports</li>
-                  <li>Reports</li>
-                  <li>Reports</li>
-                  <li>Reports</li> */}
-
                     {searchResultsData !== 0 &&
                       searchResultsData?.map((ele, index) => {
                         return (
@@ -469,7 +459,6 @@ function SidebarRedevelop() {
                             className={`${pathname === ele.link && "active"}`}
                             onClick={() => {
                               router(ele.link);
-                              handleSidebar();
                               setSearchBoxClicked(false);
                               setSearchResultData([]);
                               setSearchMenuItems("");
@@ -478,7 +467,7 @@ function SidebarRedevelop() {
                               color: pathname === ele.name && "#ff3e5b",
                             }}
                           >
-                            {ele.name}
+                            {wordSlice(ele.name)}
                           </li>
                         );
                       })}
@@ -518,14 +507,15 @@ function SidebarRedevelop() {
                 </div>
               )}
           </div>
-          {/* menu items */}
+
+          {/* ================= menu items ================== */}
           <div
-            className={`sidebarMenuItemsContainer ${
+            className={`sidebarMenuItemsContainer desktopView ${
               theme === "light" ? "lightTheme" : "darkTheme"
             } ${
               sidebarScrollBar === true && collapsed === true
-                ? ""
-                : "activeScrollbar"
+                ? "activeScrollbar"
+                : ""
             }`}
             onMouseEnter={() => {
               collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
@@ -564,6 +554,19 @@ function SidebarRedevelop() {
                 />
               ))}
             </ul>
+          </div>
+
+          <div
+            className={`sidebarMenuItemsContainer mobileView ${
+              theme === "light" ? "lightTheme" : "darkTheme"
+            }`}
+            style={{
+              overflowY: collapsed === false ? "" : "scroll",
+              overflowX: collapsed === false ? "" : "hidden",
+              paddingLeft: collapsed ? 14 : 0,
+              paddingRight: collapsed ? 9 : 6,
+            }}
+          >
             {/* Mobile View */}
             <MobileView
               collapsed={collapsed}

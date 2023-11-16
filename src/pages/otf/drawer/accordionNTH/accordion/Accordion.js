@@ -79,7 +79,7 @@ function Accordion({ data }) {
         <div className={`gridContents`} style={{marginTop:20}}>
           {data.contents.map((ele, index) => {
             return ele.contents.map((el,index) => {
-                console.log(el)
+                // console.log(el)
                 return <GridContent data={el} key={index} />
             })
           })}

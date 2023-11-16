@@ -17,7 +17,7 @@ function Accordion({
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
 
-  // console.log(data.type)
+  console.log(data.type)
 
   const handleChecked = (id) => {
     checked = !checked;

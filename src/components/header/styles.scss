@@ -345,12 +345,19 @@
 }
 
 // media queries
-@media screen and (max-width: 1280px) {
-  .header {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+@media screen and (max-width: 1366px) {
+.header {
+  padding-left: 30px;
+  padding-right: 30px;
 }
+}
+
+// @media screen and (max-width: 1280px) {
+//   .header {
+//     padding-left: 32px;
+//     padding-right: 32px;
+//   }
+// }
 
 @media screen and (max-width: 1038px) {
   .header {

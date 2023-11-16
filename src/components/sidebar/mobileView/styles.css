@@ -9,25 +9,5 @@
 @media screen and (max-width: 992px) {
   .mobileViewMenuListContainer {
     display: block;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  .mobileViewMenuListContainer::-webkit-scrollbar {
-    width: 5px;
-  }
-  .mobileViewMenuListContainer::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-  }
-  .mobileViewMenuListContainer.lightScrollbar::-webkit-scrollbar-track {
-    background: #f0efef;
-  }
-  .mobileViewMenuListContainer.darkScrollbar::-webkit-scrollbar-track {
-    background: #1c1c1c;
-  }
-  .mobileViewMenuListContainer.lightScrollbar::-webkit-scrollbar-thumb {
-    background: #b5b5b6;
-  }
-  .mobileViewMenuListContainer.darkScrollbar::-webkit-scrollbar-thumb {
-    background: #545454;
   }
 }/*# sourceMappingURL=styles.css.map */

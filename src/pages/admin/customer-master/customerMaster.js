@@ -379,7 +379,7 @@ function CustomerMaster() {
             }}
           >
             <ResponsiveTable
-              tableHead={tableHead}
+              // tableHead={tableHead}
               tableBody={tableData}
               // tableBody={visibleTableData}
               selectDropdownFilter={setSelectedDropdownFilterText}

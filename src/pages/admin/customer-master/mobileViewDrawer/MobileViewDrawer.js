@@ -716,7 +716,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               </p>
             </div>
             {/* tabs steps */}
-            <div className="tabsSteps">
+            <div className={`tabsSteps ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
               {tabsList.map((ele, index) => (
                 <div
                   key={index}
@@ -798,12 +798,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               theme === "light" ? "lightTheme" : "darkTheme"
             }`}
           >
+             {/* title text */}
             <h2
               style={{
                 boxShadow:
                   theme === "light"
                     ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
                     : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
+                    backgroundColor:theme === "light" ? "#FFFFFF" : "#0B0B0C"
               }}
             >
               <span

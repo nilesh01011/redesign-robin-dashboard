@@ -189,7 +189,9 @@ function Index({
               >
                 <div
                   className="stickyActions"
-                  style={{ display: "flex", alignItems: "center", gap: 20 }}
+                  style={{ display: "flex", alignItems: "center", 
+                  // justifyContent:ele.notEdit && "center",
+                   gap: 20 }}
                 >
                   {/* view data */}
                   <span

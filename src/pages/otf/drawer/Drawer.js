@@ -8,7 +8,13 @@ import Accordion from "./accordion/Accordion";
 import AccordionTable from "./accordionTable/AccordionTable";
 import AccordionNTH from "./accordionNTH/AccordionNTH";
 
-function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
+function Drawer({
+  drawerType,
+  setDrawerType,
+  data,
+  isDrawerOpen,
+  setIsDrawerOpen,
+}) {
   const theme = useSelector((state) => state.theme);
   const userNameSplit = data.three ? data.three?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
@@ -553,175 +559,27 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       {
         key: 4,
         name: "Insurance Details",
-        type: "accordion",
-        title: "Company Contacts",
-        default: "accordionTwo",
+        type: "gridContents",
         contents: [
           {
-            title: "Vimal Pal Kumar",
-            type: "accordionGridForm",
-            addressType: "Payment",
-            contents: [
-              {
-                type: "form",
-                contents: [
-                  {
-                    // userImg: USERIMG,
-                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
-                  },
-                ],
-              },
-              {
-                type: "gridContents",
-                contents: [
-                  {
-                    title: "Purpose of Contact",
-                    text: "Payment",
-                  },
-                  {
-                    title: "Mobile Number",
-                    text: "9813241244",
-                  },
-                  {
-                    title: "Alternate Mobile Number",
-                    text: "9485784596",
-                  },
-                  {
-                    title: "Designation",
-                    text: "Manager",
-                  },
-                  {
-                    title: "Gender",
-                    text: "Male",
-                  },
-                  {
-                    title: "Title",
-                    text: "Mr.",
-                  },
-
-                  {
-                    title: "First Name",
-                    text: "Vimal",
-                  },
-                  {
-                    title: "Middle Name",
-                    text: "Pal",
-                  },
-                  {
-                    title: "Last/Surname",
-                    text: "Kumar",
-                  },
-                  {
-                    title: "E-Mail",
-                    text: "vimal@gmail.com",
-                  },
-                  {
-                    title: "Facebook Link",
-                    text: "http://www.facebook.com",
-                  },
-                  {
-                    title: "Twitter Link",
-                    text: "http://www.twitter.com",
-                  },
-                  {
-                    title: "Instagram Link",
-                    text: "http://www.instagram.com",
-                  },
-                  {
-                    title: "Youtube Channel",
-                    text: "http://www.youtube.com",
-                  },
-                  {
-                    title: "Team BHP Link",
-                    text: "http://www.bhp.com",
-                  },
-                ],
-              },
-            ],
-            checked: true,
+            title: "Insurance company",
+            text: "TATA AIG",
           },
           {
-            title: "Vimal Pal Kumar 2",
-            type: "accordionGridForm",
-            addressType: "Payment",
-            contents: [
-              {
-                type: "form",
-                contents: [
-                  {
-                    // userImg: AVATAR,
-                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
-                  },
-                ],
-              },
-              {
-                type: "gridContents",
-                contents: [
-                  {
-                    title: "Purpose of Contact",
-                    text: "Payment",
-                  },
-                  {
-                    title: "Mobile Number",
-                    text: "9813241244",
-                  },
-                  {
-                    title: "Alternate Mobile Number",
-                    text: "9485784596",
-                  },
-                  {
-                    title: "Designation",
-                    text: "Manager",
-                  },
-                  {
-                    title: "Gender",
-                    text: "Male",
-                  },
-                  {
-                    title: "Title",
-                    text: "Mr.",
-                  },
-
-                  {
-                    title: "First Name",
-                    text: "Vimal",
-                  },
-                  {
-                    title: "Middle Name",
-                    text: "Pal",
-                  },
-                  {
-                    title: "Last/Surname",
-                    text: "Kumar",
-                  },
-                  {
-                    title: "E-Mail",
-                    text: "vimal@gmail.com",
-                  },
-                  {
-                    title: "Facebook Link",
-                    text: "http://www.facebook.com",
-                  },
-                  {
-                    title: "Twitter Link",
-                    text: "http://www.twitter.com",
-                  },
-                  {
-                    title: "Instagram Link",
-                    text: "http://www.instagram.com",
-                  },
-                  {
-                    title: "Youtube Channel",
-                    text: "http://www.youtube.com",
-                  },
-                  {
-                    title: "Team BHP Link",
-                    text: "http://www.bhp.com",
-                  },
-                ],
-              },
-            ],
-            checked: false,
+            title: "Insurance Cover Note",
+            text: "Whole cover",
+          },
+          {
+            title: "Insurance Amount",
+            text: "25876",
+          },
+          {
+            title: "Date",
+            text: "12 Jan 2022",
+          },
+          {
+            title: "Registration Number",
+            text: `UP16BL2094`,
           },
         ],
       },
@@ -1101,163 +959,57 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           },
           {
             title: "Shield",
-            type: "accordion",
+            type: "accordionInput",
             contents: [
               {
-                title: "Part Description | ALTD16554",
-                text: "Required Quantity 12",
-                type: "accordion",
-                contents: [
-                  {
-                    type: "gridContents",
-                    contents: [
-                      {
-                        title: "Mobile Number",
-                        text: "+91-9893473843",
-                      },
-                      {
-                        title: "Customer ID",
-                        text: "CFG4554564787",
-                      },
-                      {
-                        title: "Customer Type",
-                        text: "Individual",
-                      },
-                    ],
-                  },
-                ],
+                label: "Shield",
+                text: "Shield name",
               },
               {
-                title: "Part Description | ALTD16554",
-                text: "Required Quantity 12",
-                type: "gridContents",
-                contents: [
-                  {
-                    type: "gridContents",
-                    contents: [
-                      {
-                        title: "Mobile Number",
-                        text: "+91-9893473843",
-                      },
-                      {
-                        title: "Customer ID",
-                        text: "CFG4554564787",
-                      },
-                      {
-                        title: "Customer Type",
-                        text: "Individual",
-                      },
-                    ],
-                  },
-                ],
+                label: "Shield Rate",
+                text: "Shield rate",
               },
             ],
           },
           {
             title: "AMC",
-            type: "accordion",
+            type: "accordionInput",
             contents: [
               {
-                title: "Part Description | ALTD16554",
-                text: "Required Quantity 12",
-                type: "accordion",
-                contents: [
-                  {
-                    type: "gridContents",
-                    contents: [
-                      {
-                        title: "Mobile Number",
-                        text: "+91-9893473843",
-                      },
-                      {
-                        title: "Customer ID",
-                        text: "CFG4554564787",
-                      },
-                      {
-                        title: "Customer Type",
-                        text: "Individual",
-                      },
-                    ],
-                  },
-                ],
+                label: "AMC",
+                text: "AMC name",
               },
               {
-                title: "Part Description | ALTD16554",
-                text: "Required Quantity 12",
-                type: "gridContents",
-                contents: [
-                  {
-                    type: "gridContents",
-                    contents: [
-                      {
-                        title: "Mobile Number",
-                        text: "+91-9893473843",
-                      },
-                      {
-                        title: "Customer ID",
-                        text: "CFG4554564787",
-                      },
-                      {
-                        title: "Customer Type",
-                        text: "Individual",
-                      },
-                    ],
-                  },
-                ],
+                label: "AMC Rate",
+                text: "340000",
               },
             ],
           },
           {
             title: "RSA",
-            type: "accordion",
+            type: "accordionInput",
             contents: [
               {
-                title: "Part Description | ALTD16554",
-                text: "Required Quantity 12",
-                type: "accordion",
-                contents: [
-                  {
-                    type: "gridContents",
-                    contents: [
-                      {
-                        title: "Mobile Number",
-                        text: "+91-9893473843",
-                      },
-                      {
-                        title: "Customer ID",
-                        text: "CFG4554564787",
-                      },
-                      {
-                        title: "Customer Type",
-                        text: "Individual",
-                      },
-                    ],
-                  },
-                ],
+                label: "RSA",
+                text: "RSA name",
               },
               {
-                title: "Part Description | ALTD16554",
-                text: "Required Quantity 12",
-                type: "gridContents",
-                contents: [
-                  {
-                    type: "gridContents",
-                    contents: [
-                      {
-                        title: "Mobile Number",
-                        text: "+91-9893473843",
-                      },
-                      {
-                        title: "Customer ID",
-                        text: "CFG4554564787",
-                      },
-                      {
-                        title: "Customer Type",
-                        text: "Individual",
-                      },
-                    ],
-                  },
-                ],
+                label: "RSA Rate",
+                text: "34000",
+              },
+            ],
+          },
+          {
+            title: "FMS",
+            type: "accordionInput",
+            contents: [
+              {
+                label: "FMS",
+                text: "FMS name",
+              },
+              {
+                label: "FMS Rate",
+                text: "34000",
               },
             ],
           },
@@ -1326,6 +1078,24 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
 
   // moreActions
   const [moreActions, setMoreActions] = useState(false);
+
+  const stepsHeader = [
+    {
+      name: "Booked",
+    },
+    {
+      name: "Allotted",
+    },
+    {
+      name: "Invoiced",
+    },
+    {
+      name: "Delivered",
+    },
+  ];
+
+  const [activeStepsHeader, setActiveStepsHeader] = useState(0);
+
   return (
     <div
       className="tableDrawerContainer"
@@ -1459,7 +1229,7 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               <button
                 type="button"
                 style={{
-                  color: theme === "light" ? "#0B0B0C" : "#ffffff",
+                  // color: theme === "light" ? "#0B0B0C" : "#ffffff",
                   display: "flex",
                   alignItems: "center",
                   gap: 10,
@@ -1846,7 +1616,58 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               theme === "light" ? "lightTheme" : "darkTheme"
             }`}
           >
-            <h2>{currentTabsTitle}</h2>
+            <div className="contentHeader">
+              <h2>{currentTabsTitle}</h2>
+              {/* steps */}
+              <div className="headerSteps">
+                {stepsHeader.map((ele, index) => {
+                  return (
+                    <p key={index} className={`stepsBox ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
+                      {/* lines */}
+                      <div className="lines" style={{backgroundColor:theme === "light" ? "" : "#858585"}}></div>
+                      {/* icons */}
+                      <span className="icons">
+                        {activeStepsHeader === index ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                              fill="#70C922"
+                            ></circle>
+                            <path
+                              d="M17.3333 8L10 15.3333L6.66667 12"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            ></path>
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <circle cx="12" cy="12" r="12" fill="#858585" />
+                            <circle cx="12" cy="12" r="5" fill="white" />
+                          </svg>
+                        )}
+                      </span>
+                      <span className="text">{ele.name}</span>
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
             {/* user data details */}
             <div
               className="customerDetails"
@@ -1887,27 +1708,6 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                           return <GridContent key={index} data={el} />;
                         })}
 
-                      {/* {ele.default === "accordionTwo" && (
-                        <div className="headerAccordion">
-                          <h3 style={{ fontSize: 16, fontWeight: 700 }}>
-                            {ele.title}
-                          </h3>
-                          <div
-                            className="divider"
-                            style={{
-                              backgroundColor:
-                                theme === "light" ? "#E6E6E6" : "#232324",
-                              marginTop: 20,
-                            }}
-                          ></div>
-                        </div>
-                      )} */}
-
-                      {/* {ele.type === "gridContents" &&
-                        ele.contents.map((el, index) => {
-                          return <GridContent key={index} data={el} />;
-                        })} */}
-
                       {ele.type === "accordion" &&
                         ele.contents.map((el, index) => {
                           return (
@@ -1945,85 +1745,10 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                               key={index}
                               data={el}
                               type={ele.default}
-                            />
-                          );
-                        })}
-
-                      {/* {ele.type === "accordion" &&
-                        ele.contents.map((el, index) => {
-                          if (el.type === "accordionGridForm") {
-                            return (
-                              <AccordionGridForm
-                                key={index}
-                                data={el}
-                                type={ele.default}
-                                addressType={el.addressType}
-                                drawerType={drawerType}
-                                checked={el.checked}
-                                id={index}
-                                indicator={indicator}
-                                setIndicator={setIndicator}
-                              />
-                            );
-                          } else {
-                            return (
-                              <Accordion
-                                key={index}
-                                addressType={el.addressType}
-                                checked={el.checked}
-                                id={index}
-                                drawerType={drawerType}
-                                indicator={indicator}
-                                setIndicator={setIndicator}
-                                data={el}
-                                type={ele.default}
-                              />
-                            );
-                          }
-
-                          // return (
-                          //   <Accordion
-                          //     key={index}
-                          //     addressType={el.addressType}
-                          //     checked={el.checked}
-                          //     id={index}
-                          //     drawerType={drawerType}
-                          //     indicator={indicator}
-                          //     setIndicator={setIndicator}
-                          //     data={el}
-                          //     type={ele.default}
-                          //   />
-                          // );
-                        })} */}
-
-                      {/* {ele.type === "normalData" &&
-                        ele.contents.map((el, index) => {
-                          return (
-                            <NormalData
-                              key={index}
-                              data={el}
                               drawerType={drawerType}
                             />
                           );
                         })}
-
-                      {ele.type === "form" && (
-                        <div
-                          className="formContainer"
-                          style={{
-                            backgroundColor:
-                              theme === "light" ? "#F2F2F2" : "#1C1C1C",
-                          }}
-                        >
-                          {ele.contents.map((el, index) => (
-                            <FormContainer
-                              key={index}
-                              data={el}
-                              drawerType={drawerType}
-                            />
-                          ))}
-                        </div>
-                      )} */}
                     </div>
                   );
                 }
@@ -2141,8 +1866,17 @@ function Drawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {/* {expandButtons && ( */}
               {moreActions === false && (
                 <div className="leftsideBtn">
-                  <button type="button" className="btns">
-                    Edit
+                  <button
+                    type="button"
+                    className="btns"
+                    onClick={() =>
+                      setDrawerType((prev) => {
+                        if (prev === "edit") return "view";
+                        if (prev === "view") return "edit";
+                      })
+                    }
+                  >
+                    {drawerType === "edit" ? "View" : "Edit"}
                   </button>
                   <button type="button" className="btns">
                     Allot

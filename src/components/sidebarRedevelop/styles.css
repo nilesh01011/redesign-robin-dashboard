@@ -51,13 +51,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sidebar .sidebarContainer .searchInputContainer .searchIconsAbsolute {
   position: absolute;
   right: 25px;
   top: 7px;
-  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 .sidebar .sidebarContainer .searchInputContainer .searchResults {
   position: absolute;
@@ -122,9 +120,12 @@
   height: 100%;
   max-height: calc(100vh - 172px);
 }
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView {
+  display: none;
+}
 .sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
   opacity: 0;
-  width: 6px;
+  width: 5px;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar {
   opacity: 1;
@@ -291,7 +292,6 @@
     position: fixed;
     top: 0;
     left: -150%;
-    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
   }
   .sidebar.desktopCollapse, .sidebar.desktopStrip {
@@ -313,7 +313,6 @@
     display: block;
   }
   .sidebar .sidebarContainer {
-    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
   }
   .sidebar .sidebarContainer.desktopCollapse, .sidebar .sidebarContainer.desktopStrip {
@@ -330,6 +329,30 @@
   }
   .sidebar .sidebarContainer .sidebarMenuItemsContainer .desktopViewSidebar {
     display: none;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.desktopView {
+    display: none;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView {
+    display: block;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView::-webkit-scrollbar {
+    width: 5px;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.lightTheme::-webkit-scrollbar-thumb {
+    background: #b5b5b6;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.darkTheme::-webkit-scrollbar-thumb {
+    background: #545454;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.lightTheme::-webkit-scrollbar-track {
+    background: #f0efef;
+  }
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.darkTheme::-webkit-scrollbar-track {
+    background: #1c1c1c;
   }
   .sidebar .themeContainer.desktopView {
     display: none;

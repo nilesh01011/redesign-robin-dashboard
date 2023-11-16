@@ -64,14 +64,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       }
 
       & .searchIconsAbsolute {
         position: absolute;
         right: 25px;
         top: 7px;
-        transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       }
 
       // search results items
@@ -163,9 +163,13 @@
       height: 100%;
       max-height: calc(100vh - 172px);
 
+      &.mobileView {
+        display: none;
+      }
+
       &::-webkit-scrollbar {
         opacity: 0;
-        width: 6px;
+        width: 5px;
       }
 
       &.activeScrollbar::-webkit-scrollbar {
@@ -382,7 +386,7 @@
     position: fixed;
     top: 0;
     left: -150%;
-    transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    // transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
 
     &.desktopCollapse,
@@ -412,7 +416,7 @@
     }
 
     & .sidebarContainer {
-      transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+      // transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       height: 100%;
 
       &.desktopCollapse,
@@ -440,6 +444,38 @@
 
         & .desktopViewSidebar {
           display: none;
+        }
+
+        &.desktopView {
+          display: none;
+        }
+
+        &.mobileView {
+          display: block;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+    
+          &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+          }
+    
+          &.lightTheme::-webkit-scrollbar-thumb {
+            background: #b5b5b6;
+          }
+    
+          &.darkTheme::-webkit-scrollbar-thumb {
+            background: #545454;
+          }
+    
+          &.lightTheme::-webkit-scrollbar-track {
+            background: #f0efef;
+          }
+    
+          &.darkTheme::-webkit-scrollbar-track {
+            background: #1c1c1c;
+          }
         }
       }
     }
