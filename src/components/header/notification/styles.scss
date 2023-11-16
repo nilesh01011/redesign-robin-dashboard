@@ -104,20 +104,19 @@
       }
 
       &.light::-webkit-scrollbar-track {
-        // background: #f0efef;
-        background: transparent;
+        background: #f0efef;
       }
 
-      // &.dark::-webkit-scrollbar-track {
-      //   background: #1c1c1c;
-      // }
+      &.dark::-webkit-scrollbar-track {
+        background: #1c1c1c;
+      }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 10px;
       }
 
       &.light::-webkit-scrollbar-thumb {
-        background: #8a8a8a;
+          background: #b5b5b6;
       }
 
       &.dark::-webkit-scrollbar-thumb {

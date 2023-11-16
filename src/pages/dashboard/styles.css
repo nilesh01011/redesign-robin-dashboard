@@ -68,7 +68,7 @@
   background: #b5b5b6;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_left_side .actionItems_contents.active.dark::-webkit-scrollbar-thumb {
-  background: #242424;
+  background: #545454;
 }
 .dashboard .boxContainer .actionItems_container .actionItems_right_side {
   width: 100%;
@@ -109,7 +109,7 @@
   background: #b5b5b6;
 }
 .dashboard .boxContainer .actionItems_container .recentlyViewContent.active.dark::-webkit-scrollbar-thumb {
-  background: #242424;
+  background: #545454;
 }
 .dashboard .boxContainer .dashboard_api {
   width: 100%;
@@ -195,7 +195,7 @@
   background: #b5b5b6;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper.active.dark::-webkit-scrollbar-thumb, .dashboard .boxContainer .news_birthday .boxs .newsWrapper.active.dark::-webkit-scrollbar-thumb {
-  background: #242424;
+  background: #545454;
 }
 .dashboard .boxContainer .news_birthday .boxs .birthdatListWapper {
   display: flex;

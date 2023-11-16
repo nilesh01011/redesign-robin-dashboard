@@ -92,13 +92,16 @@
   width: 5px;
 }
 .notification .notificationBody .notificationTabsContent.light::-webkit-scrollbar-track {
-  background: transparent;
+  background: #f0efef;
+}
+.notification .notificationBody .notificationTabsContent.dark::-webkit-scrollbar-track {
+  background: #1c1c1c;
 }
 .notification .notificationBody .notificationTabsContent::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 .notification .notificationBody .notificationTabsContent.light::-webkit-scrollbar-thumb {
-  background: #8a8a8a;
+  background: #b5b5b6;
 }
 .notification .notificationBody .notificationTabsContent.dark::-webkit-scrollbar-thumb {
   background: #545454;
