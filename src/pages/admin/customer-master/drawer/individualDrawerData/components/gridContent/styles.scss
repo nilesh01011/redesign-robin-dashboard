@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  & span {
+    font-size: 14px;
+    font-weight: 400;
+
+    &:nth-child(2) {
+        font-weight: 500;
+    }
+  }
+}

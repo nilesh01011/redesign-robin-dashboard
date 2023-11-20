@@ -431,14 +431,18 @@ function Header({ handleClosed, setModelListDetails }) {
                               setCurrentLocation(ele.name);
                               setLocationListDropdown(false);
                             }}
+                            style={{
+                              backgroundColor:
+                                currentLocation === ele.name
+                                  ? theme === "light"
+                                    ? "#F2F2F2"
+                                    : "#232324"
+                                  : "",
+                            }}
                           >
                             {/* location name */}
                             <p
                               style={{
-                                backgroundColor:
-                                  currentLocation === ele.name && theme
-                                    ? "#F2F2F2"
-                                    : "",
                                 color:
                                   currentLocation === ele.name
                                     ? "#ff3e5b"
@@ -532,9 +536,9 @@ function Header({ handleClosed, setModelListDetails }) {
                                     ? "black"
                                     : "white",
                                 backgroundColor:
-                                  currentFinalYear === ele.name && theme
+                                  currentFinalYear === ele.name ? theme === "light"
                                     ? "#F2F2F2"
-                                    : "",
+                                    : "#232324" : "",
                               }}
                             >
                               {ele.name}
@@ -683,7 +687,7 @@ function Header({ handleClosed, setModelListDetails }) {
                 <div className="userDetails">
                   {/* user name */}
                   <span className="username">Joana Doe</span>
-                  <p style={{marginTop:2}}>
+                  <p style={{ marginTop: 2 }}>
                     <span className="userNumber" style={{ color: "#FF3E5B" }}>
                       {wordSlice(userRoleChanged)}
                     </span>

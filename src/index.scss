@@ -168,6 +168,16 @@ body.dark::-webkit-scrollbar-thumb {
     text-transform: capitalize;
     border-radius: 4px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    & span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 

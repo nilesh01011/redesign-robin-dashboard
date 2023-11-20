@@ -101,7 +101,7 @@ function SidebarRedevelop() {
   };
 
   // menu items expand
-  const [expandItems, setExpandItems] = useState(0);
+  const [expandItemsKey, setExpandItemsKey] = useState(0);
 
   // search menu items word slice
   const wordSlice = (word) => {
@@ -517,19 +517,18 @@ function SidebarRedevelop() {
                 ? "activeScrollbar"
                 : ""
             }`}
-            onMouseEnter={() => {
-              collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
-              // console.log(sidebarScrollBar);
-            }}
-            onMouseLeave={() => {
-              collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
-              // console.log(sidebarScrollBar);
-            }}
+            // onMouseEnter={() => {
+            //   collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
+            // }}
+            // onMouseLeave={() => {
+            //   collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
+            // }}
             style={{
               overflowY: collapsed === false ? "" : "scroll",
               overflowX: collapsed === false ? "" : "hidden",
               paddingLeft: collapsed ? 14 : 0,
-              paddingRight: collapsed ? 9 : 6,
+              paddingRight: collapsed ? 9 : 0,
+              paddingTop: collapsed ? 0 : 5
             }}
           >
             {/* desktop views */}
@@ -548,8 +547,8 @@ function SidebarRedevelop() {
                   id={index}
                   collapsed={collapsed}
                   setCollapsed={setCollapsed}
-                  expandItems={expandItems}
-                  setExpandItems={setExpandItems}
+                  expandItemsKey={expandItemsKey}
+                  setExpandItemsKey={setExpandItemsKey}
                   toggleCollapsed={toggleCollapsed}
                 />
               ))}

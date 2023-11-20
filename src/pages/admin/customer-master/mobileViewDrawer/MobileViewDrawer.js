@@ -2,11 +2,16 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
 import { AVATAR, USERIMG } from "../../../../assets";
-import GridContent from "../drawer/gridContent/GridContent";
-import AccordionGridForm from "../drawer/accordionGridForm/AccordionGridForm";
-import Accordion from "../drawer/accordion/Accordion";
-import NormalData from "../drawer/normalData/NormalData";
-import FormContainer from "../drawer/formContainer/FormContainer";
+import GridContent from "../drawer/components/gridContent/GridContent";
+import AccordionGridForm from "../drawer/components/accordionGridForm/AccordionGridForm";
+import Accordion from "../drawer/components/accordion/Accordion";
+import NormalData from "../drawer/components/normalData/NormalData";
+import FormContainer from "../drawer/components/formContainer/FormContainer";
+// import GridContent from "../drawer/gridContent/GridContent";
+// import AccordionGridForm from "../drawer/accordionGridForm/AccordionGridForm";
+// import Accordion from "../drawer/accordion/Accordion";
+// import NormalData from "../drawer/components/normalData/NormalData";
+// import FormContainer from "../drawer/components/formContainer/FormContainer";
 
 function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const theme = useSelector((state) => state.theme);

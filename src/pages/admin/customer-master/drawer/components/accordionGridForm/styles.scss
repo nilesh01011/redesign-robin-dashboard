@@ -1,0 +1,40 @@
+.accordionGridForm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  // gap: 30px;
+
+  & .formContainer {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & .formProfile {
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      border: 1px dashed;
+      border-radius: 6px;
+
+      & .formHeader {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        & p {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+      }
+
+      & img {
+        min-height: 100px;
+        object-fit: contain;
+      }
+    }
+  }
+}

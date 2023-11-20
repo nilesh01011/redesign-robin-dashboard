@@ -124,7 +124,7 @@
             padding: 5px 12px;
             font-size: 14px;
             font-weight: 500;
-            cursor: pointer;
+            // cursor: pointer;
             border-radius: 3px;
             white-space: nowrap;
           }
@@ -167,7 +167,7 @@
         display: none;
       }
 
-      &::-webkit-scrollbar {
+      &.activeScrollbar::-webkit-scrollbar {
         opacity: 0;
         width: 5px;
       }
@@ -189,7 +189,8 @@
       }
 
       &.activeScrollbar.lightTheme::-webkit-scrollbar-track {
-        background: #f0efef;
+        // background: #f0efef;
+        background: transparent;
       }
 
       &.activeScrollbar.darkTheme::-webkit-scrollbar-track {
@@ -215,17 +216,23 @@
             gap: 10px;
             justify-content: space-between;
 
-            &:hover {
+            &.cursorPointer:hover {
               color: #ff3e5b;
-              cursor: pointer;
+              // cursor: pointer;
             }
 
+            
             & p {
               display: flex;
               align-items: center;
               gap: 10px;
               min-height: 32px;
               line-height: 2px;
+
+              &:hover {
+                color: #ff3e5b;
+                // cursor: pointer;
+              }
 
               & span {
                 font-weight: 500;

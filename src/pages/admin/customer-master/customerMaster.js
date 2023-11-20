@@ -575,6 +575,7 @@ function CustomerMaster() {
         drawerType={drawerType}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
+        isActiveTabs={isActiveTabs}
       />
 
       {/* Movile View Drawer */}
@@ -583,6 +584,7 @@ function CustomerMaster() {
         drawerType={drawerType}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
+        isActiveTabs={isActiveTabs}
       />
 
       {/* overlay */}

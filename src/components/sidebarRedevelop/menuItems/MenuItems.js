@@ -3,7 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addRecentlyView } from "../../../store/slices/recentlyViewSlices";
 
-const Tooltips = (items, setCollapsed, collapsed, handleSidebarCollapsed,toggleCollapsed) => {
+const Tooltips = (
+  items,
+  setCollapsed,
+  collapsed,
+  handleSidebarCollapsed,
+  toggleCollapsed
+) => {
   const theme = useSelector((state) => state.theme);
   // current routes
   const router = useNavigate();
@@ -110,10 +116,9 @@ function MenuItems({
   ele,
   collapsed,
   setCollapsed,
-  id,
-  setExpandItems,
-  expandItems,
-  toggleCollapsed
+  expandItemsKey,
+  setExpandItemsKey,
+  toggleCollapsed,
 }) {
   const theme = useSelector((state) => state.theme);
 
@@ -125,11 +130,17 @@ function MenuItems({
 
   const pathname = window.location.pathname;
 
-  const handleExpanded = () => {
+  const handleExpanded = (key) => {
     if (collapsed === true) {
       if (ele.isFolder) {
         setExpands(!expands);
         // setExpandItems(id)
+
+        // if (expandItemsKey === key) {
+        //   setExpandItemsKey(0);
+        // } else {
+        //   setExpandItemsKey(key);
+        // }
       }
     }
   };
@@ -174,13 +185,15 @@ function MenuItems({
       <div
         style={{
           justifyContent: collapsed ? "" : "center",
+          cursor: ele.isFolder && "pointer",
         }}
-        className="menu-items-heading"
-        onClick={() => handleExpanded()}
+        className={`menu-items-heading ${ele.isFolder && "cursorPointer"}`}
+        onClick={() => handleExpanded(ele.key)}
       >
         <p
           onClick={() => handleRoutes(ele.link)}
           onMouseOver={() => collapsed === false && setActiveTooltips(ele.name)}
+          style={{ cursor: ele.name && "pointer" }}
         >
           {/* icons */}
           {/* ele.isFolder && collapsed === true
@@ -227,8 +240,10 @@ function MenuItems({
           <span
             style={{
               transform: expands && "rotate(180deg)",
+              // transform: expandItemsKey === ele.key && "rotate(180deg)",
               // transition: "transform 0.3s ease-in-out",
               color: expands && "#FF3E5B",
+              // color: expandItemsKey === ele.key && "#FF3E5B",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

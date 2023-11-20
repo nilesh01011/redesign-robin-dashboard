@@ -11,15 +11,21 @@ import Model from "./components/model";
 import DashboardPage from "./pages/dashboard";
 // favourites
 import Favourites from "./pages/favourites";
-import CriticalityGroup from "./pages/favourites/criticalityGroup";
+// import CriticalityGroup from "./pages/favourites/criticalityGroup";
 // parts
 // import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
 // CRM
 import CRM from "./pages/crm";
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
-import OTF from "./pages/otf/OTF";
+// sales / order-to-delivery
+import OTF from "./pages/sales/otf/OTF";
 import SidebarRedevelop from "./components/sidebarRedevelop";
+import ProductHierarchyMaster from "./pages/favourites/product-hierarchy-master/ProductHierarchyMaster";
+import VehicleAllotment from "./pages/favourites/vehicle-allotment/VehicleAllotment";
+import CoTEKEvaluation from "./pages/hr/manage-dealer-manpower/coTEK-evaluation/CoTEKEvaluation";
+import ManageDealers from "./pages/hr/manage-dealers/ManageDealers";
+import ManageManpowerTraining from "./pages/hr/manage-manpower-training/ManageManpowerTraining";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -85,21 +91,48 @@ function App() {
         ></div>
         {/* main contents */}
         <Routes>
-          {/* dashboard */}
+          {/* =================== dashboard ============= */}
           <Route path="/home" element={<DashboardPage />}></Route>
-          {/* favourites */}
+          {/* ================= favourites ============== */}
           <Route path="/favourites" element={<Favourites />}></Route>
           <Route
+            path="/favourites/product-hierarchy-master"
+            element={<ProductHierarchyMaster />}
+          ></Route>
+          <Route
+            path="/favourites/vehicle-allotment"
+            element={<VehicleAllotment />}
+          ></Route>
+          {/* <Route
             path="/favourites/criticality-group"
             element={<CriticalityGroup />}
-          ></Route>
+          ></Route> */}
           {/* Parts */}
           {/* <Route
             path="/parts/parts-ordering/suggest-order-qty"
             element={<SuggestOrderQty />}
           ></Route> */}
           {/* <Route path="/crm" element={<CRM />}></Route> */}
-          {/* Admin */}
+
+          {/* ================ HR ================= */}
+
+          {/* coTEK-evaluation */}
+          <Route
+            path="/hr-mile/manage-dealer-manpower/coTEK-evaluation"
+            element={<CoTEKEvaluation />}
+          ></Route>
+          {/* manage-dealers */}
+          <Route
+            path="/hr-mile/manage-dealers"
+            element={<ManageDealers />}
+          ></Route>
+          {/* manage-manpower-training */}
+          <Route
+            path="/hr-mile/manage-manpower-training"
+            element={<ManageManpowerTraining />}
+          ></Route>
+
+          {/* ================= Admin ================ */}
           <Route
             path="/admin/customer-master"
             element={<CustomerMaster />}
