@@ -31,4 +31,31 @@
     padding-bottom: 20px !important;
     user-select: none;
   }
+
+  // submit button
+  & .submitForm {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    & .btn {
+      border-radius: 4px;
+      padding: 6px 16px;
+      border:1px solid #FF3E5B;
+      font-size: 14px;
+      font-weight: 700;
+
+      &.primary{
+        background: #FF3E5B;
+        color: #ffffff;
+      }
+
+      &.secondary {
+        background: transparent;
+        color: #FF3E5B;
+      }
+    }
+  }
 }

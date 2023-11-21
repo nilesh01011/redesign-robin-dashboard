@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
 
-function SwitchButton({ data }) {
+function SwitchButton({ data,drawerType }) {
   const theme = useSelector((state) => state.theme);
-  const [toggleButton, setToggleButton] = useState(false);
+  const [toggleButton, setToggleButton] = useState(data.activeStatus);
+  console.log(drawerType)
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <span style={{ color: theme === "light" ? "#545454" : "#B5B5B6" }}>
@@ -14,7 +15,7 @@ function SwitchButton({ data }) {
         <label className="switch">
           <input
             type="checkbox"
-            onClick={() => setToggleButton(!toggleButton)}
+            onClick={() => drawerType === "edit" && setToggleButton(!toggleButton)}
           />
           <span
             className={`slider ${toggleButton === true && "activeSlide"}`}

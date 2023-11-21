@@ -91,11 +91,19 @@
               user-select: none;
 
               &:hover {
-                color: #ff3e5b;
+                // color: #ff3e5b;
 
                 & .iconsColor svg path:first-child {
                   fill: #ff3e5b !important;
                 }
+              }
+
+              &.lightTheme:hover {
+                background: #f2f2f2;
+              }
+
+              &.darkTheme:hover {
+                background: #232324;
               }
 
               & p {
@@ -103,9 +111,9 @@
                 border-radius: 4px;
                 padding: 5px 10px;
 
-                &:hover {
-                  color: #ff3e5b !important;
-                }
+                // &:hover {
+                //   color: #ff3e5b !important;
+                // }
               }
 
               &:not(:last-child) {
@@ -167,7 +175,7 @@
         align-items: center;
         gap: 6px;
 
-        & .userAvatar,
+       
         & .username {
           font-weight: 700;
         }
@@ -176,7 +184,8 @@
           font-size: 16px;
         }
         & .userAvatar {
-          font-size: 12px;
+          font-size: 16px;
+          font-weight: 600;
         }
 
         & .userAvatar {
@@ -216,7 +225,7 @@
         position: absolute;
         top: 120%;
         right: 0;
-        width: 100%;
+        width: 120%;
         min-width: fit-content;
         height: max-content;
         border-radius: 4px;
@@ -249,7 +258,7 @@
             }
 
             &.darkTheme:hover {
-              background-color: #545454;
+              background-color: #232324;
             }
 
             &:hover {
@@ -297,7 +306,7 @@
               }
 
               &.darkTheme:hover {
-                background-color: #545454;
+                background-color: #232324;
               }
 
               & p {
@@ -308,13 +317,15 @@
             }
 
             & .dropdownItemsList {
-              padding-left: 20px;
+              padding-left: 28px;
+              padding-bottom: 6px;
               display: flex;
               flex-direction: column;
               gap: 4px;
 
               & p {
                 min-height: 23px;
+                font-size: 14px;
                 display: flex;
                 align-items: center;
 

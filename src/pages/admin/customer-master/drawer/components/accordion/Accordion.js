@@ -14,9 +14,11 @@ function Accordion({
   drawerType,
   addressType,
   checked,
+  showSubmitResetBtn,
 }) {
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
+  // const [indicator, setIndicator] = useState(0);
 
   // console.log(data.type)
 
@@ -26,6 +28,8 @@ function Accordion({
     // console.log("Id:",id)
     // console.log("Checked:",checked)
   };
+
+  // console.log(defaultType)
 
   return (
     <div
@@ -113,17 +117,32 @@ function Accordion({
 
       {/* contents */}
       {accordionCollapsed && (
-        <div
-          className={`accordionContents ${data.type}`}
-          style={{
-            borderTop: `1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,
-            padding: "20px 30px",
-          }}
-        >
-          {data.contents.map((ele, index) => (
-            <GridContent data={ele} key={index} type={data.type} />
-          ))}
-        </div>
+        <>
+          <div
+            className={`accordionContents ${data.type}`}
+            style={{
+              borderTop: `1px solid ${
+                theme === "light" ? "#e6e6e6" : "#232324"
+              }`,
+              padding: "20px 30px",
+            }}
+          >
+            {data.contents.map((ele, index) => (
+              <GridContent data={ele} key={index} type={data.type} />
+            ))}
+          </div>
+          {/* button form */}
+          {showSubmitResetBtn && (
+            <div className="submitForm">
+              <button type="button" className="primary btn">
+                Save
+              </button>
+              <button type="button" className="secondary btn">
+                Reset
+              </button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

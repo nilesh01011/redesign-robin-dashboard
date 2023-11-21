@@ -13,11 +13,15 @@ function AccordionGridForm({
   drawerType,
   addressType,
   checked,
+  mainData,
+  showSubmitResetBtn,
 }) {
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
 
   const [types, setTypes] = useState("");
+
+  // const [indicator, setIndicator] = useState(0);
 
   //   console.log(data);
 
@@ -50,18 +54,20 @@ function AccordionGridForm({
       <div className="accordionHeader">
         <span style={{ fontSize: 16, fontWeight: 700 }}>{data.title}</span>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          {type === "accordionTwo" && (
+          {mainData.checkedBox && type === "accordionTwo" && (
             <div className="markDefault">
               <Checkbox
                 label="Mark As Default"
                 indicator={indicator}
                 setIndicator={setIndicator}
                 id={id}
+                dataId={mainData}
                 checked={checked}
                 handleChecked={handleChecked}
                 // disabled={id}
                 drawerType={drawerType}
               />
+              {/* {console.log(id)} */}
               <div
                 className="divider"
                 style={{
@@ -214,7 +220,9 @@ function AccordionGridForm({
                         </span>
                         <p>
                           <span style={{ fontSize: 14, fontWeight: 500 }}>
-                           {drawerType === "edit" ? "Upload Successful" : "Contact Profile Image"}
+                            {drawerType === "edit"
+                              ? "Upload Successful"
+                              : "Contact Profile Image"}
                           </span>
                           <span style={{ fontSize: 12, fontWeight: 500 }}>
                             {el.text}
@@ -230,25 +238,30 @@ function AccordionGridForm({
 
             if (ele.type === "gridContents") {
               return (
-                <div
-                  className={`accordionContents ${types}`}
-                  // style={{
-                  //   borderTop: `1px solid ${
-                  //     theme === "light" ? "#e6e6e6" : "#232324"
-                  //   }`,
-                  //   paddingTop: "20px",
-                  // }}
-                >
-                  {ele.contents.map((el, index) => {
-                    return (
-                      <GridContent
-                        data={el}
-                        key={index}
-                        //   type={el.type}
-                      />
-                    );
-                  })}
-                </div>
+                <>
+                  <div className={`accordionContents ${types}`}>
+                    {ele.contents.map((el, index) => {
+                      return (
+                        <GridContent
+                          data={el}
+                          key={index}
+                          //   type={el.type}
+                        />
+                      );
+                    })}
+                  </div>
+                  {/* button form */}
+                  {showSubmitResetBtn && (
+                    <div className="submitForm">
+                      <button type="button" className="primary btn">
+                        Save
+                      </button>
+                      <button type="button" className="secondary btn">
+                        Reset
+                      </button>
+                    </div>
+                  )}
+                </>
               );
             }
           })}

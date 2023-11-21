@@ -102,7 +102,8 @@ function KeyhightlightCarousel() {
             <div className="heads">
               {/* label */}
               <span className="label">
-                <span className="label_name">GST Update</span>
+                <span className="label_name" 
+                style={{backgroundColor:theme === "light" ? "#FFCCD4" : "#330008",}}>GST Update</span>
                 <span className="date mobileView">{ele.time}</span>
               </span>
               {/* text */}

@@ -33,6 +33,8 @@ import USERIMG from "./images/userImg.png"
 
 import ADDS from "./images/adds.png"
 
+import INDIA_FLAG from "./images/Flag.svg"
+
 export {
   sideBarHeaderArrow,
   R_IMG,
@@ -59,5 +61,7 @@ export {
   AVATAR2,
 
   USERIMG,
-  ADDS
+  ADDS,
+
+  INDIA_FLAG
 };

@@ -57,9 +57,10 @@
       }
 
       & .label_name {
-        background: #ffd8de;
-        border: 1px solid #ff3e5b;
-        color: #ff3e5b;
+        // background: #ffd8de;
+        border: 1px solid #FF3E5B;
+        // color: #ff3e5b;
+        color: #FF3E5B;
         border-radius: 2px;
         font-size: 12px;
         padding: 0 8px;
@@ -74,6 +75,7 @@
 
       & .date {
         color: #858585;
+        white-space: nowrap !important;
       }
     }
   }

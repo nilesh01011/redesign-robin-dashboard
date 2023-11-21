@@ -26,11 +26,19 @@ function FirmAndCorporate({ tabsList, drawerType, currentTabsTitle }) {
                       ? "#F2F2F2"
                       : "#1C1C1C"
                     : "",
+                borderRadius: ele.default === "accordionTwo" && 8,
               }}
             >
               {ele.type === "gridContents" &&
                 ele.contents.map((el, index) => {
-                  return <GridContent key={index} data={el} />;
+                  return (
+                    <GridContent
+                      key={index}
+                      data={el}
+                      drawerType={drawerType}
+                      defaultType={ele.default}
+                    />
+                  );
                 })}
 
               {ele.default === "accordionTwo" && (
@@ -61,6 +69,8 @@ function FirmAndCorporate({ tabsList, drawerType, currentTabsTitle }) {
                         id={index}
                         indicator={indicator}
                         setIndicator={setIndicator}
+                        mainData={ele}
+                        showSubmitResetBtn={el.showSubmitResetBtn}
                       />
                     );
                   } else {
@@ -75,6 +85,7 @@ function FirmAndCorporate({ tabsList, drawerType, currentTabsTitle }) {
                         setIndicator={setIndicator}
                         data={el}
                         type={ele.default}
+                        showSubmitResetBtn={el.showSubmitResetBtn}
                       />
                     );
                   }

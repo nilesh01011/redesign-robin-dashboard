@@ -19,8 +19,8 @@ function LatestNews({
   };
 
   const wordSlice = (word) => {
-    if (word.length > 50) {
-      return word.slice(0, 50) + "...";
+    if (word.length > 42) {
+      return word.slice(0, 42) + "...";
     } else {
       return word;
     }
@@ -44,6 +44,7 @@ function LatestNews({
           backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
           borderColor: theme === "light" ? "#E6E6E6" : "#232324",
           color: "#858585",
+          whiteSpace: "nowrap"
         }}
       >
         {items.date}

@@ -99,7 +99,7 @@ function Header({ handleClosed, setModelListDetails }) {
           />
         </svg>
       ),
-      text: "My Role",
+      text: "Assign Role",
       isFolder: true,
       items: [
         {
@@ -391,7 +391,7 @@ function Header({ handleClosed, setModelListDetails }) {
                         xmlns="http://www.w3.org/2000/svg"
                         style={{
                           transform: locationListDropdown && "rotate(180deg)",
-                          transition: "transform 0.3s ease-in-out",
+                          // transition: "transform 0.3s ease-in-out",
                         }}
                         width="12"
                         height="12"
@@ -426,7 +426,7 @@ function Header({ handleClosed, setModelListDetails }) {
                           <div
                             title={ele.text}
                             key={ele.id}
-                            className="lists"
+                            className={`lists ${theme === "light" ? "lightTheme" : "darkTheme"}`}
                             onClick={() => {
                               setCurrentLocation(ele.name);
                               setLocationListDropdown(false);
@@ -484,7 +484,7 @@ function Header({ handleClosed, setModelListDetails }) {
                         xmlns="http://www.w3.org/2000/svg"
                         style={{
                           transform: finalYearDropdown && "rotate(180deg)",
-                          transition: "transform 0.3s ease-in-out",
+                          // transition: "transform 0.3s ease-in-out",
                         }}
                         width="12"
                         height="12"
@@ -503,7 +503,7 @@ function Header({ handleClosed, setModelListDetails }) {
                     {/* final year dropdown */}
                     {finalYearDropdown && (
                       <div
-                        className="finalYearDropdown"
+                        className={`finalYearDropdown`}
                         style={{
                           borderColor:
                             theme === "light" ? "#0B0B0C" : "#ffffff",
@@ -519,7 +519,7 @@ function Header({ handleClosed, setModelListDetails }) {
                           <div
                             title={ele.text}
                             key={ele.id}
-                            className="lists"
+                            className={`lists ${theme === "light" ? "lightTheme" : "darkTheme"}`}
                             onClick={() => {
                               setCurrentFinalYear(ele.name);
                               setFinalYearDropdown(false);
@@ -760,7 +760,7 @@ function Header({ handleClosed, setModelListDetails }) {
                             backgroundColor: userProfileDropdownItems
                               ? theme === "light"
                                 ? "#F2F2F2"
-                                : "#545454"
+                                : "#232324"
                               : "",
                           }}
                         >
@@ -774,7 +774,7 @@ function Header({ handleClosed, setModelListDetails }) {
                               {ele.icons}
                             </span>
                             {/* text */}
-                            <p style={{ fontSize: 14 }}>{ele.text}</p>
+                            <p style={{ fontSize: 16 }}>{ele.text}</p>
                           </p>
                           {/* icons */}
                           {/* onClick={() => handleClicks(ele.text)} */}
@@ -790,7 +790,7 @@ function Header({ handleClosed, setModelListDetails }) {
                                 transform: userProfileDropdownItems
                                   ? "rotate(360deg)"
                                   : "rotate(180deg)",
-                                transition: "transform 0.3s ease-in-out",
+                                // transition: "transform 0.3s ease-in-out",
                                 color: userProfileDropdownItems && "#FF3E5B",
                               }}
                             >

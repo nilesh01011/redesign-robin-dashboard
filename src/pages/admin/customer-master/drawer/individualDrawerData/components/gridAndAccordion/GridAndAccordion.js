@@ -5,11 +5,10 @@ import "./styles.scss";
 import Accordion from "../accordion/Accordion";
 import SwitchButton from "./switchButton/SwitchButton";
 
-function GridAndAccordion({ data }) {
+function GridAndAccordion({ data, drawerType }) {
   const theme = useSelector((state) => state.theme);
-  console.log(data)
   return (
-    <div className={`${data.type}`}>
+    <div className={`${data.type}`} style={{borderRadius:4}}>
       {data.type === "gridContents" &&
         data.contents.map((ele, index) => {
           return <GridContent data={ele} key={index} />;
@@ -50,7 +49,7 @@ function GridAndAccordion({ data }) {
         <div className="whatAppsGridContent">
           {data.contents.map((ele, index) => {
             if (ele.switchStatus) {
-              return <SwitchButton key={index} data={ele} />;
+              return <SwitchButton key={index} data={ele} drawerType={drawerType} />;
             } else {
               return (
                 <div

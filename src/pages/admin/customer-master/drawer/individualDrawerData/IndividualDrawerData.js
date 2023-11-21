@@ -4,6 +4,8 @@ import GridAndAccordion from "./components/gridAndAccordion/GridAndAccordion";
 // import GridContent from "../components/gridContent/GridContent";
 import AccordionGridForm from "../components/accordionGridForm/AccordionGridForm";
 import Accordion from "../components/accordion/Accordion";
+import NormalData from "../components/normalData/NormalData";
+import FormContainer from "../components/formContainer/FormContainer";
 
 function IndividualDrawerData({
   individualTabsList,
@@ -29,12 +31,23 @@ function IndividualDrawerData({
                     ? theme === "light"
                       ? "#F2F2F2"
                       : "#1C1C1C"
-                    : ele.default === "accordionTwo" ? theme === "light" ? "#F2F2F2" : "#1C1C1C" : "",
+                    : ele.default === "accordionTwo"
+                    ? theme === "light"
+                      ? "#F2F2F2"
+                      : "#1C1C1C"
+                    : "",
+                borderRadius: ele.default === "accordionTwo" ? 8 : 4,
               }}
             >
               {ele.type === "gridAndAccordion" &&
                 ele.contents.map((el, index) => {
-                  return <GridAndAccordion key={index} data={el} />;
+                  return (
+                    <GridAndAccordion
+                      key={index}
+                      data={el}
+                      drawerType={drawerType}
+                    />
+                  );
                 })}
 
               {ele.default === "accordionTwo" && (
@@ -59,11 +72,13 @@ function IndividualDrawerData({
                       <AccordionGridForm
                         key={index}
                         data={el}
+                        mainData={ele}
                         type={ele.default}
                         addressType={el.addressType}
                         drawerType={drawerType}
                         checked={el.checked}
                         id={index}
+                        // id={ele.key}
                         indicator={indicator}
                         setIndicator={setIndicator}
                       />
@@ -85,29 +100,29 @@ function IndividualDrawerData({
                   }
                 })}
 
-              {/* {ele.type === "normalData" &&
-            ele.contents.map((el, index) => {
-              return (
-                <NormalData key={index} data={el} drawerType={drawerType} />
-              );
-            })} */}
+              {ele.type === "normalData" &&
+                ele.contents.map((el, index) => {
+                  return (
+                    <NormalData key={index} data={el} drawerType={drawerType} />
+                  );
+                })}
 
-              {/* {ele.type === "form" && (
-            <div
-              className="formContainer"
-              style={{
-                backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-              }}
-            >
-              {ele.contents.map((el, index) => (
-                <FormContainer
-                  key={index}
-                  data={el}
-                  drawerType={drawerType}
-                />
-              ))}
-            </div>
-          )} */}
+              {ele.type === "form" && (
+                <div
+                  className="formContainer"
+                  style={{
+                    backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                  }}
+                >
+                  {ele.contents.map((el, index) => (
+                    <FormContainer
+                      key={index}
+                      data={el}
+                      drawerType={drawerType}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           );
         }
