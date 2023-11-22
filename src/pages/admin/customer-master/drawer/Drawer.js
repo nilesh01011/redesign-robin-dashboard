@@ -13,6 +13,7 @@ function Drawer({
   data,
   isDrawerOpen,
   setIsDrawerOpen,
+  setDrawerType,
 }) {
   const theme = useSelector((state) => state.theme);
 
@@ -43,7 +44,7 @@ function Drawer({
             inputType: "phoneNumber",
             placeholder: "Enter Mobile Number",
             input: "tel",
-            notEdit:true
+            notEdit: true,
           },
           {
             title: "Customer Type",
@@ -434,7 +435,7 @@ function Drawer({
                 inputType: "phoneNumber",
                 placeholder: "Enter Mobile Number",
                 input: "tel",
-                notEdit:false
+                notEdit: false,
               },
             ],
             checked: true,
@@ -516,7 +517,7 @@ function Drawer({
                 inputType: "phoneNumber",
                 placeholder: "Enter Mobile Number",
                 input: "tel",
-                notEdit:false
+                notEdit: false,
               },
             ],
             checked: false,
@@ -571,7 +572,7 @@ function Drawer({
                     inputType: "phoneNumber",
                     placeholder: "Enter Mobile Number",
                     input: "tel",
-                    notEdit:false
+                    notEdit: false,
                   },
                   {
                     title: "Alternate Mobile Number",
@@ -579,7 +580,7 @@ function Drawer({
                     inputType: "phoneNumber",
                     placeholder: "Enter Alternate Mobile Number",
                     input: "tel",
-                    notEdit:false
+                    notEdit: false,
                   },
                   {
                     title: "Designation",
@@ -726,7 +727,7 @@ function Drawer({
                     inputType: "phoneNumber",
                     placeholder: "Enter Mobile Number",
                     input: "tel",
-                    notEdit:false
+                    notEdit: false,
                   },
                   {
                     title: "Alternate Mobile Number",
@@ -734,7 +735,7 @@ function Drawer({
                     inputType: "phoneNumber",
                     placeholder: "Enter Alternate Mobile Number",
                     input: "tel",
-                    notEdit:false
+                    notEdit: false,
                   },
                   {
                     title: "Designation",
@@ -938,14 +939,34 @@ function Drawer({
               {
                 title: "Mobile Number",
                 text: data.four,
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: true,
               },
               {
                 title: "Customer Type",
                 text: data.three,
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Corporate",
+                  },
+                  {
+                    name: "XYZ Corporate",
+                  },
+                  {
+                    name: "XYZ Corporate 2",
+                  },
+                ],
+                disabled: true,
               },
               {
                 title: "Email Address",
                 text: data.five,
+                inputType: "text",
+                placeholder: "Enter email address",
+                input: "email",
               },
             ],
           },
@@ -967,18 +988,39 @@ function Drawer({
                       {
                         title: "Title",
                         text: "Mr.",
+                        inputType: "dropdown",
+                        dropdownList: [
+                          {
+                            name: "Mr.",
+                          },
+                          {
+                            name: "Mrs.",
+                          },
+                          {
+                            name: "Miss.",
+                          },
+                        ],
                       },
                       {
                         title: "First name",
                         text: "Vimal",
+                        inputType: "text",
+                        placeholder: "Enter first name",
+                        input: "text",
                       },
                       {
                         title: "Middle Name",
                         text: "Pal",
+                        inputType: "text",
+                        placeholder: "Enter middle name",
+                        input: "text",
                       },
                       {
                         title: "Last Name",
                         text: "Singh",
+                        inputType: "text",
+                        placeholder: "Enter last name",
+                        input: "text",
                       },
                     ],
                   },
@@ -994,18 +1036,39 @@ function Drawer({
                       {
                         title: "Title",
                         text: "Mr.",
+                        inputType: "dropdown",
+                        dropdownList: [
+                          {
+                            name: "Mr.",
+                          },
+                          {
+                            name: "Mrs.",
+                          },
+                          {
+                            name: "Miss.",
+                          },
+                        ],
                       },
                       {
                         title: "First name",
                         text: "Vimal",
+                        inputType: "text",
+                        placeholder: "Enter first name",
+                        input: "text",
                       },
                       {
                         title: "Middle Name",
                         text: "Pal",
+                        inputType: "text",
+                        placeholder: "Enter middle name",
+                        input: "text",
                       },
                       {
                         title: "Last Name",
                         text: "Singh",
+                        inputType: "text",
+                        placeholder: "Enter last name",
+                        input: "text",
                       },
                     ],
                   },
@@ -1031,7 +1094,11 @@ function Drawer({
               },
               {
                 title: "WhatsApp Number",
-                text: "+91-9893473843",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: true,
               },
             ],
           },
@@ -1056,23 +1123,66 @@ function Drawer({
               {
                 title: "Corporate Type",
                 text: "Listed",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Listed",
+                  },
+                  {
+                    name: "Unlisted",
+                  },
+                ],
               },
               {
                 title: "Corporate Name",
                 text: "XYZ Corporate Name",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "XYZ Corporate Name",
+                  },
+                  {
+                    name: "XYZ Corporate Name 2",
+                  },
+                ],
               },
               {
                 title: "Corporate Code",
                 text: "222",
+                inputType: "disabled",
+                input: "text",
               },
 
               {
                 title: "Corporate Category",
                 text: "C1",
+                position: "top",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "C1",
+                  },
+                  {
+                    name: "C2",
+                  },
+                ],
               },
               {
                 title: "Membership Type",
                 text: data.six,
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Golden",
+                  },
+                  {
+                    name: "Silver",
+                  },
+                  {
+                    name: "Diamond",
+                  },
+                ],
+                position: "top",
               },
               {
                 title: "",
@@ -1106,65 +1216,149 @@ function Drawer({
                 type: "gridContents",
                 contents: [
                   {
-                    title: "Purpose of Contact",
-                    text: "Payment",
-                  },
-                  {
-                    title: "Mobile Number",
-                    text: "9813241244",
-                  },
-                  {
-                    title: "Alternate Mobile Number",
-                    text: "9485784596",
-                  },
-                  {
-                    title: "Designation",
-                    text: "Manager",
+                    title: "Date Of Birth",
+                    text: "12 Dec 1990",
+                    inputType: "text",
+                    placeholder: "Enter Date Of Birth",
+                    input: "date",
                   },
                   {
                     title: "Gender",
                     text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "Female",
+                      },
+                    ],
                   },
                   {
-                    title: "Title",
-                    text: "Mr.",
+                    title: "Marital Status",
+                    text: "Single",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Single",
+                      },
+                      {
+                        name: "Unmarried",
+                      },
+                      {
+                        name: "Married",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Wedding Anniversary Date",
+                    text: "NA",
+                    inputType: "text",
+                    placeholder: "Enter Wedding Anniversary Date",
+                    input: "date",
+                  },
+                  {
+                    title: "Occupation",
+                    text: "Business",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Business",
+                      },
+                      {
+                        name: "Employees",
+                      },
+                      {
+                        name: "Unemployed",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Annual income",
+                    text: "5-10 Lakhs",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "5-10 Lakhs",
+                      },
+                      {
+                        name: "10-15 Lakhs",
+                      },
+                      {
+                        name: "20-25 Lakhs",
+                      },
+                    ],
                   },
 
                   {
-                    title: "First Name",
-                    text: "Vimal",
+                    title: "Driving License No.",
+                    text: "UP1620195565156",
+                    inputType: "text",
+                    placeholder: "Enter driving license number",
+                    input: "text",
                   },
                   {
-                    title: "Middle Name",
-                    text: "Pal",
+                    title: "Aadhar No.",
+                    text: "8347 8334 4780",
+                    inputType: "text",
+                    placeholder: "Enter aadhar number",
+                    input: "text",
                   },
                   {
-                    title: "Last/Surname",
-                    text: "Kumar",
+                    title: "Voter ID",
+                    text: "FJLTLP1548156",
+                    inputType: "text",
+                    placeholder: "Enter voter id number",
+                    input: "text",
                   },
                   {
-                    title: "E-Mail",
-                    text: "vimal@gmail.com",
+                    title: "Vehicle Used",
+                    text: "Self-Driven",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Self-Driven",
+                      },
+                      {
+                        name: "Undrive",
+                      },
+                    ],
                   },
                   {
-                    title: "Facebook Link",
-                    text: "http://www.facebook.com",
+                    title: "Mother Tongue",
+                    text: "Hindi",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Hindi",
+                      },
+                      {
+                        name: "Marathi",
+                      },
+                      {
+                        name: "English",
+                      },
+                    ],
                   },
                   {
-                    title: "Twitter Link",
-                    text: "http://www.twitter.com",
-                  },
-                  {
-                    title: "Instagram Link",
-                    text: "http://www.instagram.com",
-                  },
-                  {
-                    title: "Youtube Channel",
-                    text: "http://www.youtube.com",
-                  },
-                  {
-                    title: "Team BHP Link",
-                    text: "http://www.bhp.com",
+                    title: "Religion",
+                    text: "Hindu",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Hindu",
+                      },
+                      {
+                        name: "Islam",
+                      },
+                      {
+                        name: "Buddhism",
+                      },
+                      {
+                        name: "No religion",
+                      },
+                    ],
                   },
                 ],
               },
@@ -1177,26 +1371,44 @@ function Drawer({
               {
                 title: "M1-MMFSL",
                 text: "mmfl_id",
+                inputType: "text",
+                placeholder: "Enter MMFSL ID",
+                input: "text",
               },
               {
                 title: "Facebook link",
-                text: "CFG4554564787",
+                text: "http://www.facebook.com/vimal",
+                inputType: "text",
+                placeholder: "Enter facebook link",
+                input: "text",
               },
               {
-                title: "",
-                text: "",
+                title: "Twitter link",
+                text: "http://www.twitter.com/vimal",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
               },
               {
-                title: "Usage/Application Categorization",
-                text: "Application category",
+                title: "Instagram Link",
+                text: "http://www.instagram.com/vimhal",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
               },
               {
-                title: "Usage/Application Sub-Category",
-                text: "Sub Category",
+                title: "Youtube Channel",
+                text: "http://www.youtube.com/vimal",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
               },
               {
-                title: "Customer Category",
-                text: "Common",
+                title: "Team BHP Link",
+                text: "http://www.bhp.com/vimal875",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
               },
             ],
           },
@@ -1207,23 +1419,33 @@ function Drawer({
               {
                 title: "Account Code",
                 text: "CFG464787",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Account Name",
                 text: "Koncept",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Account Segment",
                 text: "Firm",
+                inputType: "disabled",
+                input: "text",
               },
 
               {
                 title: "Account Client Name",
                 text: "Pal Singh",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Account Mapping Date",
                 text: "12 Apr 2023",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -1234,18 +1456,30 @@ function Drawer({
               {
                 title: "Name Of Person",
                 text: "Vimal Kumar",
+                inputType: "number",
+                placeholder: "Enter person name",
+                input: "text",
               },
               {
                 title: "Position",
                 text: "Manager",
+                inputType: "number",
+                placeholder: "Enter designation",
+                input: "text",
               },
               {
                 title: "Company Name",
                 text: "Koncept",
+                inputType: "number",
+                placeholder: "Enter company name",
+                input: "text",
               },
               {
                 title: "Remarks",
                 text: "This is Remark Dummy text",
+                inputType: "number",
+                placeholder: "Enter remarks description",
+                input: "text",
               },
             ],
           },
@@ -1276,43 +1510,76 @@ function Drawer({
               {
                 title: "Address Type",
                 text: "Office",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Office",
+                  },
+                  {
+                    name: "Home",
+                  },
+                ],
               },
               {
                 title: "Address Line 1",
                 text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 1",
+                input: "text",
               },
               {
                 title: "Address Line 2",
                 text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Tehsil",
-                text: "B6G431",
+                inputType: "text",
+                placeholder: "Enter address line 2",
+                input: "text",
               },
               {
                 title: "Pin Code",
                 text: "400001",
+                inputType: "text",
+                placeholder: "Enter Pin Code",
+                input: "text",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City",
                 text: "Noida",
+                inputType: "disabled",
+                input: "text",
               },
 
               {
                 title: "District",
                 text: "Gautam Budh Nagar",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "State",
                 text: "Uttar Pradesh",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Contact Name",
                 text: "Arvind Kumar",
+                inputType: "text",
+                placeholder: "Enter contact name",
+                input: "text",
               },
               {
                 title: "Contact Mobile No.",
-                text: "+91-9893473843",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
             ],
             checked: true,
@@ -1325,43 +1592,76 @@ function Drawer({
               {
                 title: "Address Type",
                 text: "Office",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Home",
+                  },
+                  {
+                    name: "Office",
+                  },
+                ],
               },
               {
                 title: "Address Line 1",
                 text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 1",
+                input: "text",
               },
               {
                 title: "Address Line 2",
                 text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Tehsil",
-                text: "B6G431",
+                inputType: "text",
+                placeholder: "Enter address line 2",
+                input: "text",
               },
               {
                 title: "Pin Code",
                 text: "400001",
+                inputType: "text",
+                placeholder: "Enter Pin Code",
+                input: "text",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City",
                 text: "Noida",
+                inputType: "disabled",
+                input: "text",
               },
 
               {
                 title: "District",
                 text: "Gautam Budh Nagar",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "State",
                 text: "Uttar Pradesh",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Contact Name",
                 text: "Arvind Kumar",
+                inputType: "text",
+                placeholder: "Enter contact name",
+                input: "text",
               },
               {
                 title: "Contact Mobile No.",
-                text: "+91-9893473843",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
             ],
             checked: false,
@@ -1397,63 +1697,134 @@ function Drawer({
                   {
                     title: "Purpose of Contact",
                     text: "Payment",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Payment",
+                      },
+                      {
+                        name: "Payment 1",
+                      },
+                      {
+                        name: "Payment 2",
+                      },
+                    ],
                   },
                   {
                     title: "Mobile Number",
                     text: "9813241244",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Alternate Mobile Number",
                     text: "9485784596",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Designation",
                     text: "Manager",
+                    inputType: "text",
+                    placeholder: "Enter Designation",
+                    input: "text",
                   },
                   {
                     title: "Gender",
                     text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "female",
+                      },
+                    ],
                   },
                   {
                     title: "Title",
                     text: "Mr.",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Mr.",
+                      },
+                      {
+                        name: "Mrs.",
+                      },
+                      {
+                        name: "Miss.",
+                      },
+                    ],
                   },
 
                   {
                     title: "First Name",
                     text: "Vimal",
+                    inputType: "text",
+                    placeholder: "Enter first name",
+                    input: "text",
                   },
                   {
                     title: "Middle Name",
                     text: "Pal",
+                    inputType: "text",
+                    placeholder: "Enter middle name",
+                    input: "text",
                   },
                   {
                     title: "Last/Surname",
                     text: "Kumar",
+                    inputType: "text",
+                    placeholder: "Enter last name",
+                    input: "text",
                   },
                   {
                     title: "E-Mail",
                     text: "vimal@gmail.com",
+                    inputType: "text",
+                    placeholder: "Enter email address",
+                    input: "email",
                   },
                   {
                     title: "Facebook Link",
-                    text: "http://www.facebook.com",
+                    text: "http://www.facebook.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter facebook link",
+                    input: "text",
                   },
                   {
                     title: "Twitter Link",
-                    text: "http://www.twitter.com",
+                    text: "http://www.twitter.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Instagram Link",
-                    text: "http://www.instagram.com",
+                    text: "http://www.instagram.com/vimhal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Youtube Channel",
-                    text: "http://www.youtube.com",
+                    text: "http://www.youtube.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Team BHP Link",
-                    text: "http://www.bhp.com",
+                    text: "http://www.bhp.com/vimal875",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                 ],
               },
@@ -1480,63 +1851,134 @@ function Drawer({
                   {
                     title: "Purpose of Contact",
                     text: "Payment",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Payment",
+                      },
+                      {
+                        name: "Payment 1",
+                      },
+                      {
+                        name: "Payment 2",
+                      },
+                    ],
                   },
                   {
                     title: "Mobile Number",
                     text: "9813241244",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Alternate Mobile Number",
                     text: "9485784596",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Designation",
                     text: "Manager",
+                    inputType: "text",
+                    placeholder: "Enter Designation",
+                    input: "text",
                   },
                   {
                     title: "Gender",
                     text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "female",
+                      },
+                    ],
                   },
                   {
                     title: "Title",
                     text: "Mr.",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Mr.",
+                      },
+                      {
+                        name: "Mrs.",
+                      },
+                      {
+                        name: "Miss.",
+                      },
+                    ],
                   },
 
                   {
                     title: "First Name",
                     text: "Vimal",
+                    inputType: "text",
+                    placeholder: "Enter first name",
+                    input: "text",
                   },
                   {
                     title: "Middle Name",
                     text: "Pal",
+                    inputType: "text",
+                    placeholder: "Enter middle name",
+                    input: "text",
                   },
                   {
                     title: "Last/Surname",
                     text: "Kumar",
+                    inputType: "text",
+                    placeholder: "Enter last name",
+                    input: "text",
                   },
                   {
                     title: "E-Mail",
                     text: "vimal@gmail.com",
+                    inputType: "text",
+                    placeholder: "Enter email address",
+                    input: "email",
                   },
                   {
                     title: "Facebook Link",
-                    text: "http://www.facebook.com",
+                    text: "http://www.facebook.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter facebook link",
+                    input: "text",
                   },
                   {
                     title: "Twitter Link",
-                    text: "http://www.twitter.com",
+                    text: "http://www.twitter.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Instagram Link",
-                    text: "http://www.instagram.com",
+                    text: "http://www.instagram.com/vimhal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Youtube Channel",
-                    text: "http://www.youtube.com",
+                    text: "http://www.youtube.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Team BHP Link",
-                    text: "http://www.bhp.com",
+                    text: "http://www.bhp.com/vimal875",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                 ],
               },
@@ -1555,161 +1997,155 @@ function Drawer({
             title: "Vipul Pal Kumar | Father",
             type: "accordionGridForm",
             addressType: "Payment",
+            showSubmitResetBtns: true,
             contents: [
-              {
-                type: "form",
-                contents: [
-                  {
-                    userImg: USERIMG,
-                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
-                  },
-                ],
-              },
               {
                 type: "gridContents",
                 contents: [
                   {
-                    title: "Purpose of Contact",
-                    text: "Payment",
+                    title: "M&M Customer",
+                    text: "Yes",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "No",
+                      },
+                      {
+                        name: "Yes",
+                      },
+                    ],
                   },
                   {
-                    title: "Mobile Number",
-                    text: "9813241244",
+                    title: "Customer Name",
+                    text: "Vipul Pal Kumar",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
                   },
                   {
-                    title: "Alternate Mobile Number",
-                    text: "9485784596",
+                    title: "Relationship",
+                    text: "Brother",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Father",
+                      },
+                      {
+                        name: "Mother",
+                      },
+                      {
+                        name: "Husband",
+                      },
+                      {
+                        name: "Wife",
+                      },
+                    ],
                   },
                   {
-                    title: "Designation",
-                    text: "Manager",
+                    title: "Date of Birth",
+                    text: "12 Jan 1997",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "date",
                   },
                   {
-                    title: "Gender",
-                    text: "Male",
+                    title: "Age",
+                    text: "45",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
                   },
+                ],
+              },
+              {
+                type: "flexColumnData",
+                contents: [
                   {
-                    title: "Title",
-                    text: "Mr.",
-                  },
-
-                  {
-                    title: "First Name",
-                    text: "Vimal",
-                  },
-                  {
-                    title: "Middle Name",
-                    text: "Pal",
-                  },
-                  {
-                    title: "Last/Surname",
-                    text: "Kumar",
-                  },
-                  {
-                    title: "E-Mail",
-                    text: "vimal@gmail.com",
-                  },
-                  {
-                    title: "Facebook Link",
-                    text: "http://www.facebook.com",
-                  },
-                  {
-                    title: "Twitter Link",
-                    text: "http://www.twitter.com",
-                  },
-                  {
-                    title: "Instagram Link",
-                    text: "http://www.instagram.com",
-                  },
-                  {
-                    title: "Youtube Channel",
-                    text: "http://www.youtube.com",
-                  },
-                  {
-                    title: "Team BHP Link",
-                    text: "http://www.bhp.com",
+                    title: "Remark",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    VIPDealerChecked: true,
                   },
                 ],
               },
             ],
           },
           {
-            title: "Vipul Pal Kumar | Brother",
+            title: "Avinash Pal Kumar | Brother",
             type: "accordionGridForm",
             addressType: "Payment",
+            showSubmitResetBtns: true,
             contents: [
-              {
-                type: "form",
-                contents: [
-                  {
-                    userImg: AVATAR,
-                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
-                  },
-                ],
-              },
               {
                 type: "gridContents",
                 contents: [
                   {
-                    title: "Purpose of Contact",
-                    text: "Payment",
+                    title: "M&M Customer",
+                    text: "Yes",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "No",
+                      },
+                      {
+                        name: "Yes",
+                      },
+                    ],
                   },
                   {
-                    title: "Mobile Number",
-                    text: "9813241244",
+                    title: "Customer Name",
+                    text: "Vipul Pal Kumar",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
                   },
                   {
-                    title: "Alternate Mobile Number",
-                    text: "9485784596",
+                    title: "Relationship",
+                    text: "Brother",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Brother",
+                      },
+                      {
+                        name: "Father",
+                      },
+                      {
+                        name: "Sister",
+                      },
+                      {
+                        name: "Mother",
+                      },
+                      {
+                        name: "Husband",
+                      },
+                      {
+                        name: "Wife",
+                      },
+                    ],
                   },
                   {
-                    title: "Designation",
-                    text: "Manager",
+                    title: "Date of Birth",
+                    text: "12 Jan 1997",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "date",
                   },
                   {
-                    title: "Gender",
-                    text: "Male",
+                    title: "Age",
+                    text: "45",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
                   },
+                ],
+              },
+              {
+                type: "flexColumnData",
+                contents: [
                   {
-                    title: "Title",
-                    text: "Mr.",
-                  },
-
-                  {
-                    title: "First Name",
-                    text: "Vimal",
-                  },
-                  {
-                    title: "Middle Name",
-                    text: "Pal",
-                  },
-                  {
-                    title: "Last/Surname",
-                    text: "Kumar",
-                  },
-                  {
-                    title: "E-Mail",
-                    text: "vimal@gmail.com",
-                  },
-                  {
-                    title: "Facebook Link",
-                    text: "http://www.facebook.com",
-                  },
-                  {
-                    title: "Twitter Link",
-                    text: "http://www.twitter.com",
-                  },
-                  {
-                    title: "Instagram Link",
-                    text: "http://www.instagram.com",
-                  },
-                  {
-                    title: "Youtube Channel",
-                    text: "http://www.youtube.com",
-                  },
-                  {
-                    title: "Team BHP Link",
-                    text: "http://www.bhp.com",
+                    title: "Remark",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    VIPDealerChecked: true,
                   },
                 ],
               },
@@ -1731,22 +2167,37 @@ function Drawer({
                   {
                     title: "Credit Limit",
                     text: "2500000000",
+                    inputType: "text",
+                    placeholder: "Enter Credit Limit",
+                    input: "number",
                   },
                   {
                     title: "Credit Limit Days",
                     text: "90",
+                    inputType: "text",
+                    placeholder: "Enter Credit Limit Days",
+                    input: "number",
                   },
                   {
                     title: "Outstanding Amount",
                     text: "150000000",
+                    inputType: "text",
+                    placeholder: "Enter Outstanding Amount",
+                    input: "number",
                   },
                   {
                     title: "Parts Discount %",
                     text: "25",
+                    inputType: "text",
+                    placeholder: "Enter Parts Discount %",
+                    input: "number",
                   },
                   {
                     title: "Labour Discount %",
                     text: "29",
+                    inputType: "text",
+                    placeholder: "Enter Labour Discount %",
+                    input: "number",
                   },
                 ],
               },
@@ -1757,6 +2208,9 @@ function Drawer({
                     title: "Remark",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     VIPDealerChecked: true,
+                    inputType: "textarea",
+                    placeholder: "Enter Parts Discount %",
+                    input: "text",
                   },
                 ],
               },
@@ -2339,6 +2793,9 @@ function Drawer({
                   type="button"
                   className="secondaryBtn"
                   onClick={() => setIsDrawerOpen(false)}
+                  style={{
+                    borderColor: "#ff3e5b",
+                  }}
                 >
                   Close
                 </button>
@@ -2377,6 +2834,7 @@ function Drawer({
                       backgroundColor: "#ff3e5b",
                       borderColor: "#ff3e5b",
                     }}
+                    onClick={() => setDrawerType("edit")}
                   >
                     Edit
                   </button>
@@ -2401,7 +2859,8 @@ function Drawer({
                 )}
 
                 {/* next buttons */}
-                {individualTabsList.length === tabsStatus ? (
+                {drawerType === "view" &&
+                individualTabsList.length === tabsStatus ? (
                   ""
                 ) : (
                   <button
@@ -2409,20 +2868,36 @@ function Drawer({
                     className="secondaryBtn"
                     style={{
                       // display: tabsList.length === tabsList ? "none" : "block",
+                      backgroundColor: "#FF3E5B",
+                      color: "#ffffff",
                       border: "1px solid",
                       borderColor:
+                        drawerType === "view" &&
                         individualTabsList.length === tabsStatus
                           ? "rgba(255, 62, 91,0.5)"
                           : "#ff3e5b",
                       cursor:
+                        drawerType === "view" &&
                         individualTabsList.length === tabsStatus
                           ? "not-allowed"
                           : "pointer",
                     }}
-                    disabled={individualTabsList.length === tabsStatus}
-                    onClick={() => handleTabsActiveNext(1)}
+                    disabled={
+                      drawerType === "view" &&
+                      individualTabsList.length === tabsStatus
+                    }
+                    onClick={() => {
+                      handleTabsActiveNext(1);
+                      drawerType === "edit" &&
+                        individualTabsList.length === tabsStatus &&
+                        setIsDrawerOpen(false);
+                    }}
                   >
-                    {drawerType === "edit" ? "Save & Next" : "Next"}
+                    {drawerType === "edit"
+                      ? individualTabsList.length === tabsStatus
+                        ? "Submit"
+                        : "Save & Next"
+                      : "Next"}
                   </button>
                 )}
               </div>
@@ -2437,16 +2912,31 @@ function Drawer({
                 {drawerType === "view" && (
                   <button
                     type="button"
+                    className="buttons hoverButton"
+                    style={{
+                      color: "#ff3e5b",
+                      // backgroundColor: "#ff3e5b",
+                      borderColor: "#ff3e5b",
+                    }}
+                    onClick={() => setDrawerType("edit")}
+                  >
+                    Edit
+                  </button>
+                )}
+                {/* {drawerType === "edit" && (
+                  <button
+                    type="button"
                     className="buttons"
                     style={{
                       color: "#ffffff",
                       backgroundColor: "#ff3e5b",
                       borderColor: "#ff3e5b",
                     }}
+                    onClick={() => setDrawerType("view")}
                   >
-                    Edit
+                    View
                   </button>
-                )}
+                )} */}
                 {/* divider */}
                 {tabsList.length === tabsStatus ? (
                   ""
@@ -2467,7 +2957,7 @@ function Drawer({
                 )}
 
                 {/* next buttons */}
-                {tabsList.length === tabsStatus ? (
+                {drawerType === "view" && tabsList.length === tabsStatus ? (
                   ""
                 ) : (
                   <button
@@ -2475,20 +2965,33 @@ function Drawer({
                     className="secondaryBtn"
                     style={{
                       // display: tabsList.length === tabsList ? "none" : "block",
+                      backgroundColor: "#FF3E5B",
+                      color: "#ffffff",
                       border: "1px solid",
                       borderColor:
-                        tabsList.length === tabsStatus
+                        drawerType === "view" && tabsList.length === tabsStatus
                           ? "rgba(255, 62, 91,0.5)"
                           : "#ff3e5b",
                       cursor:
-                        tabsList.length === tabsStatus
+                        drawerType === "view" && tabsList.length === tabsStatus
                           ? "not-allowed"
                           : "pointer",
                     }}
-                    disabled={tabsList.length === tabsStatus}
-                    onClick={() => handleTabsActiveNext(1)}
+                    disabled={
+                      drawerType === "view" && tabsList.length === tabsStatus
+                    }
+                    onClick={() => {
+                      handleTabsActiveNext(1);
+                      drawerType === "edit" &&
+                        tabsList.length === tabsStatus &&
+                        setIsDrawerOpen(false);
+                    }}
                   >
-                    {drawerType === "edit" ? "Save & Next" : "Next"}
+                    {drawerType === "edit"
+                      ? tabsList.length === tabsStatus
+                        ? "Submit"
+                        : "Save & Next"
+                      : "Next"}
                   </button>
                 )}
               </div>

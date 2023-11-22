@@ -4,14 +4,16 @@ import GridContent from "../../../components/gridContent/GridContent";
 import "./styles.scss";
 import Accordion from "../accordion/Accordion";
 import SwitchButton from "./switchButton/SwitchButton";
+import Dropdown from "../../../components/gridContent/dropdown/Dropdown";
+import InputText from "../../../components/gridContent/inputText/InputText";
 
 function GridAndAccordion({ data, drawerType }) {
   const theme = useSelector((state) => state.theme);
   return (
-    <div className={`${data.type}`} style={{borderRadius:4}}>
+    <div className={`${data.type}`} style={{ borderRadius: 4 }}>
       {data.type === "gridContents" &&
         data.contents.map((ele, index) => {
-          return <GridContent data={ele} key={index} />;
+          return <GridContent allData={ele} data={ele} key={index} drawerType={drawerType} />;
         })}
 
       {/* divider */}
@@ -39,7 +41,14 @@ function GridAndAccordion({ data, drawerType }) {
             }}
           />
           {data.contents.map((ele, index) => {
-            return <Accordion key={index} data={data} ele={ele} />;
+            return (
+              <Accordion
+                key={index}
+                data={data}
+                ele={ele}
+                drawerType={drawerType}
+              />
+            );
           })}
         </div>
       )}
@@ -49,7 +58,9 @@ function GridAndAccordion({ data, drawerType }) {
         <div className="whatAppsGridContent">
           {data.contents.map((ele, index) => {
             if (ele.switchStatus) {
-              return <SwitchButton key={index} data={ele} drawerType={drawerType} />;
+              return (
+                <SwitchButton key={index} data={ele} drawerType={drawerType} />
+              );
             } else {
               return (
                 <div
@@ -61,7 +72,34 @@ function GridAndAccordion({ data, drawerType }) {
                   >
                     {ele.title}
                   </span>
-                  <span>{ele.text}</span>
+
+                  {drawerType === "edit" ? (
+                    <>
+                      {ele.text && (
+                        <div>
+                          {ele.input && (
+                            <InputText
+                              types={ele.inputType}
+                              placeholder={ele.placeholder}
+                              data={ele}
+                              inputTypes={ele.input}
+                              text={ele.text}
+                            />
+                          )}
+                          {ele.dropdownList && (
+                            <Dropdown
+                              items={ele.dropdownList}
+                              disabled={ele.disabled}
+                              data={data}
+                              // width={90}
+                            />
+                          )}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <span>{ele.text}</span>
+                  )}
                 </div>
               );
             }

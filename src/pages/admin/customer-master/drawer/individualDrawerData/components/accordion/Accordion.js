@@ -3,7 +3,7 @@ import "./styles.scss";
 import { useSelector } from "react-redux";
 import GridContent from "../gridContent/GridContent";
 
-function Accordion({ data, ele }) {
+function Accordion({ data, ele,drawerType }) {
   // console.log(data)
   const theme = useSelector((state) => state.theme);
   const [isExpand, setIsExpand] = useState(false);
@@ -76,7 +76,7 @@ function Accordion({ data, ele }) {
           return (
             <div className="grid">
               {el.contents.map((e, index) => (
-                <GridContent data={e} key={index} />
+                <GridContent data={e} key={index} drawerType={drawerType} />
               ))}
             </div>
           );

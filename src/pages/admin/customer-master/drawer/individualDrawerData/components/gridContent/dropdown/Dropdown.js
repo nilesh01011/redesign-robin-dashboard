@@ -25,10 +25,12 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function Dropdown({ items, disabled, position }) {
+function Dropdown({ items,disabled,width,data }) {
   const theme = useSelector((state) => state.theme);
   const [selected, setSelected] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // console.log(data)
 
   useEffect(() => {
     if (!selected) {
@@ -43,43 +45,26 @@ function Dropdown({ items, disabled, position }) {
   });
 
   return (
-    <div ref={domNode} className="dropdownContainer">
+    <div ref={domNode} className="dropdownIndividualContainer" style={{width:width}}>
       {/* select options fields */}
       <div
         className="optionsContainer"
         style={{
-          borderColor: disabled
-            ? theme === "light"
-              ? "#E6E6E6"
-              : "#232324"
-            : isDropdownOpen === true
-            ? theme === "light"
-              ? "#0B0B0C"
-              : "#ffffff"
-            : theme === "light"
-            ? "#B5B5B6"
-            : "#545454",
-          cursor: disabled ? "not-allowed" : "pointer",
-          backgroundColor: disabled
-            ? theme === "light"
-              ? "#E6E6E6"
-              : "#232324"
-            : theme === "light"
-            ? "#FFFFFF"
-            : "#0B0B0C",
+          borderColor: disabled ? theme === "light" ? "#E6E6E6" : "#232324" :
+            isDropdownOpen === true
+              ? theme === "light"
+                ? "#0B0B0C"
+                : "#ffffff"
+              : theme === "light"
+              ? "#B5B5B6"
+              : "#545454",
+              cursor:disabled ? "not-allowed" : "pointer",
+          backgroundColor: disabled ? theme === "light" ? "#E6E6E6" : "#232324" : theme === "light" ? "#FFFFFF" : "#0B0B0C",
         }}
         onClick={() => !disabled && setIsDropdownOpen(!isDropdownOpen)}
       >
         <p
-          style={{
-            color: disabled
-              ? theme === "light"
-                ? "#858585"
-                : "#545454"
-              : theme === "light"
-              ? "#0B0B0C"
-              : "#ffffff",
-          }}
+          style={{ color: disabled ? theme === "light" ? "#858585" : "#545454" : theme === "light" ? "#0B0B0C" : "#ffffff"}}
           className="selectedItems"
         >
           {selected}
@@ -115,20 +100,14 @@ function Dropdown({ items, disabled, position }) {
           }`}
           style={{
             backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
-            top: position ? (items.length > 2 ? "-410%" : "-300%") : "125%",
           }}
         >
           {items.map((ele, index) => {
             return (
               <li
                 key={index}
-                className={`listChild ${
-                  theme === "light" ? "lightTheme" : "darkTheme"
-                }`}
-                onClick={() => {
-                  setSelected(ele.name);
-                  setIsDropdownOpen(!isDropdownOpen);
-                }}
+                className={`listChild ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+                onClick={() => {setSelected(ele.name); setIsDropdownOpen(!isDropdownOpen)}}
                 style={{
                   color: selected === ele.name && "#FF3E5B",
                   backgroundColor:

@@ -15,6 +15,7 @@ function AccordionGridForm({
   checked,
   mainData,
   showSubmitResetBtn,
+  showBtns,
 }) {
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
@@ -23,7 +24,7 @@ function AccordionGridForm({
 
   // const [indicator, setIndicator] = useState(0);
 
-  //   console.log(data);
+  console.log(showBtns);
 
   const handleChecked = (id) => {
     checked = !checked;
@@ -37,6 +38,7 @@ function AccordionGridForm({
       setTypes(ele.type);
     });
   }, [data]);
+
   return (
     <div
       className="accordionGridForm accordionContainer"
@@ -129,10 +131,10 @@ function AccordionGridForm({
           //     paddingTop: "20px",
           //   }}
         >
-          {data.contents.map((ele) => {
+          {data.contents.map((ele, index) => {
             if (ele.type === "form") {
               return (
-                <div className="formContainer">
+                <div key={index} className="formContainer">
                   {ele.contents.map((el, index) => (
                     <div
                       key={index}
@@ -238,8 +240,8 @@ function AccordionGridForm({
 
             if (ele.type === "gridContents") {
               return (
-                <>
-                  <div className={`accordionContents ${types}`}>
+                <div key={index}>
+                  <div className={`accordionContents gridContents ${types}`}>
                     {ele.contents.map((el, index) => {
                       return (
                         <GridContent
@@ -261,8 +263,60 @@ function AccordionGridForm({
                       </button>
                     </div>
                   )}
-                </>
+                </div>
               );
+            }
+
+            // flexColumnData
+            if (ele.type === "flexColumnData") {
+              return ele.contents.map((el, index) => (
+                <>
+                  <div key={index} className="remarkDescription">
+                    <p>
+                      <span
+                        style={{
+                          color: theme === "light" ? "#858585" : "#B5B5B6",
+                          fontWeight: 400,
+                        }}
+                      >
+                        {el.title}
+                      </span>
+
+                      {drawerType === "edit" ? (
+                        <textarea
+                          placeholder="Enter remark"
+                          style={{
+                            backgroundColor:
+                              theme === "light" ? "#FFFFFF" : "#0B0B0C",
+                            borderColor:
+                              theme === "light" ? "#B5B5B6" : "#545454",
+                          }}
+                        ></textarea>
+                      ) : (
+                        <span
+                          style={{
+                            color: theme === "light" ? "#0B0B0C" : "#ffffff",
+                            fontWeight: 500,
+                          }}
+                        >
+                          {el.text}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+
+                  {showBtns && (
+                    <div className="submitForm">
+                      <button type="button" className="primary btn">
+                        Save
+                      </button>
+                      <button type="button" className="secondary btn">
+                        Reset
+                      </button>
+                    </div>
+                  )}
+                </>
+              ));
             }
           })}
         </div>

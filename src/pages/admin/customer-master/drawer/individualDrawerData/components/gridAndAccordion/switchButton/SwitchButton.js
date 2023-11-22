@@ -5,7 +5,6 @@ import "./styles.scss";
 function SwitchButton({ data,drawerType }) {
   const theme = useSelector((state) => state.theme);
   const [toggleButton, setToggleButton] = useState(data.activeStatus);
-  console.log(drawerType)
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <span style={{ color: theme === "light" ? "#545454" : "#B5B5B6" }}>

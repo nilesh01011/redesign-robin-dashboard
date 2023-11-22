@@ -252,7 +252,8 @@
             }
 
             & .formContainer {
-              padding: 20px 30px;
+              padding: 20px;
+              // padding: 20px 30px;
               border-radius: 8px;
               display: flex;
               flex-direction: column;
@@ -333,6 +334,11 @@
           border: 1px solid;
           text-transform: capitalize;
           border-radius: 4px;
+
+          &.hoverButton:hover {
+            background: #ff3e5b;
+            color: #ffffff !important;
+          }
         }
 
         & .rightSideBtn {

@@ -576,12 +576,14 @@ function CustomerMaster() {
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
         isActiveTabs={isActiveTabs}
+        setDrawerType={setDrawerType}
       />
 
       {/* Movile View Drawer */}
       <MobileViewDrawer
         data={drawerData}
         drawerType={drawerType}
+        setDrawerType={setDrawerType}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
         isActiveTabs={isActiveTabs}

@@ -5,7 +5,7 @@ import InputText from "./inputText/InputText";
 import Dropdown from "./dropdown/Dropdown";
 import FormUpload from "./formUpload/FormUpload";
 
-function GridContent({ data, type, drawerType, }) {
+function GridContent({ data, type, drawerType,allData }) {
   const theme = useSelector((state) => state.theme);
 
   return (
@@ -86,7 +86,7 @@ function GridContent({ data, type, drawerType, }) {
                       text={data.text}
                     />
                   )}
-                  {data.dropdownList && <Dropdown items={data.dropdownList} />}
+                  {data.dropdownList && <Dropdown position={allData ? allData.position : null} items={data.dropdownList} disabled={data.disabled} />}
                 </div>
               )}
             </>
