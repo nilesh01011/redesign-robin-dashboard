@@ -9,6 +9,7 @@
   // max-height: max-content;
   padding-top: 0;
   // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  user-select: none;
 
   &.desktopStrip {
     width: 60px;
