@@ -22,7 +22,7 @@ function ItemsList({ items }) {
           Vehicle Tracking Details Will Be Updated.
         </p>
         {/* date and type */}
-        <div className="subTest">
+        <div className="subTest" style={{maxHeight:"20px"}}>
           <span style={{ color: theme === "light" ? "#545454" : "#b5b5b6" }}>Application Master</span>
           <span
             className="divider"

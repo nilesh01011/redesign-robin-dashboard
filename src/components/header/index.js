@@ -426,7 +426,9 @@ function Header({ handleClosed, setModelListDetails }) {
                           <div
                             title={ele.text}
                             key={ele.id}
-                            className={`lists ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+                            className={`lists ${
+                              theme === "light" ? "lightTheme" : "darkTheme"
+                            }`}
                             onClick={() => {
                               setCurrentLocation(ele.name);
                               setLocationListDropdown(false);
@@ -519,7 +521,9 @@ function Header({ handleClosed, setModelListDetails }) {
                           <div
                             title={ele.text}
                             key={ele.id}
-                            className={`lists ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+                            className={`lists ${
+                              theme === "light" ? "lightTheme" : "darkTheme"
+                            }`}
                             onClick={() => {
                               setCurrentFinalYear(ele.name);
                               setFinalYearDropdown(false);
@@ -536,9 +540,11 @@ function Header({ handleClosed, setModelListDetails }) {
                                     ? "black"
                                     : "white",
                                 backgroundColor:
-                                  currentFinalYear === ele.name ? theme === "light"
-                                    ? "#F2F2F2"
-                                    : "#232324" : "",
+                                  currentFinalYear === ele.name
+                                    ? theme === "light"
+                                      ? "#F2F2F2"
+                                      : "#232324"
+                                    : "",
                               }}
                             >
                               {ele.name}
@@ -770,6 +776,11 @@ function Header({ handleClosed, setModelListDetails }) {
                               className={
                                 listHover === ele.id ? "iconsColor" : ""
                               }
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
                             >
                               {ele.icons}
                             </span>

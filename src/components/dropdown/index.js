@@ -22,7 +22,7 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function Dropdown({ items, dropdownDirection, padding,selected,setSelected }) {
+function Dropdown({ items, dropdownDirection, padding,selected,setSelected,width }) {
   const theme = useSelector((state) => state.theme);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -58,6 +58,7 @@ function Dropdown({ items, dropdownDirection, padding,selected,setSelected }) {
             borderColor: theme === "light" ? "#DEDEDE" : "#232324",
             backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
             padding: padding,
+            // width:width && width,
           }}
           className="selectOptionContainer"
         >

@@ -1,0 +1,77 @@
+.redevelopGraphsBarContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid;
+  overflow: hidden;
+
+  & h2 {
+    font-size: 16px;
+  }
+
+  // divider
+  & .divider {
+    width: 100%;
+    height: 1px;
+    display: block;
+    margin: 12px 0;
+  }
+
+  // graphsDataWrapper
+  & .graphsDataWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 20px;
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    gap: 10px;
+    align-items: center;
+
+    & .graphsLeftSide {
+      width: 100%;
+
+      & .legends {
+        & p {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            & .name_count {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                line-height: 20px;
+            }
+        }
+      }
+
+      & span {
+        font-size: 12px;
+      }
+    }
+
+    & .graphsRightSide {
+      width: 100%;
+      
+      & .graphs {
+        width: 100%;
+        height: 100%;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        // max-height: 30px;
+
+        & canvas {
+            width: 100% !important;
+          // height: 190px !important;
+          // height: 220px !important;
+            object-fit: contain;
+        }
+      }
+    }
+  }
+}

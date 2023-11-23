@@ -26,6 +26,8 @@ import BarChart from "./graphs/barChart/BarChart";
 import TrendingNewsCarousel from "./trendingNewsCarousel/TrendingNewsCarousel";
 import KeyhightlightCarousel from "./keyhightlightCarousel/KeyhightlightCarousel";
 import RecentlyView from "./recentlyView";
+import RedevelopGraphBar from "./redevelopGraphBar/RedevelopGraphBar";
+import GraphsProgressBar from "./graphsProgressBar/GraphsProgressBar";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -38,7 +40,7 @@ function DashboardPage() {
   const [latestNewsScrollBar, setLatestNewsScrollBar] = useState(false);
   const [birthdayListScrollBar, setBirthdayListScrollBar] = useState(false);
 
-  const [recentlyViewScrollbar,setRecentlyViewScrollbar] = useState(false)
+  const [recentlyViewScrollbar, setRecentlyViewScrollbar] = useState(false);
 
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -219,7 +221,9 @@ function DashboardPage() {
               // style={{ borderColor: borderColor }}
             >
               {/* title */}
-              <h4 style={{ fontSize: 18, fontWeight: 700 }}>Recently Visited</h4>
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>
+                Recently Visited
+              </h4>
               {/* contents */}
               <div
                 className={`recentlyViewContent ${
@@ -231,7 +235,7 @@ function DashboardPage() {
                 onMouseEnter={() => setRecentlyViewScrollbar(true)}
                 onMouseLeave={() => setRecentlyViewScrollbar(false)}
               >
-                {recentlyVisited.map((ele,index) => {
+                {recentlyVisited.map((ele, index) => {
                   return (
                     <RecentlyView
                       key={index}
@@ -250,9 +254,7 @@ function DashboardPage() {
               style={{ borderColor: borderColor }}
             >
               {/* title */}
-              <h4 style={{ fontSize: 18, fontWeight: 700 }}>
-                What's News
-              </h4>
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>What's News</h4>
               {/* images */}
               {/* <div
                 className="images"
@@ -312,8 +314,81 @@ function DashboardPage() {
               className="graphs_container"
               // style={{ borderColor: borderColor }}
             >
-              <BarChart title="Retail" dataItems={retailBarGraphs} />
-              <BarChart title="Billing" dataItems={billingBarGraphs} />
+              {/* ========================================= */}
+              {/* <BarChart title="Retail" dataItems={retailBarGraphs} /> */}
+
+              {/* <div
+                className="redevelopGraphsBarContainer"
+                style={{
+                  backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                  borderColor: borderColor,
+                }}
+              >
+                title
+                <h2>Retail</h2>
+                divider
+                <div
+                  className="divider"
+                  style={{
+                    backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
+                  }}
+                ></div>
+                graphs
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 10 }}
+                >
+                  {retailBarGraphs.map((ele, index) => (
+                    <GraphsProgressBar
+                      key={index}
+                      count={ele.count}
+                      name={ele.name}
+                      bgColor={ele.bgColor}
+                    />
+                  ))}
+                </div>
+              </div> */}
+
+              {/* <div
+                className="redevelopGraphsBarContainer"
+                style={{
+                  backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                  borderColor: borderColor,
+                }}
+              >
+                title
+                <h2>Billing</h2>
+                divider
+                <div
+                  className="divider"
+                  style={{
+                    backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
+                  }}
+                ></div>
+                graphs
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 5 }}
+                >
+                  {billingBarGraphs.map((ele, index) => (
+                    <RedevelopGraphBar
+                      key={index}
+                      count={ele.count}
+                      name={ele.name}
+                      dataStrip={ele.count}
+                      bgColor={ele.bgColor}
+                    />
+                  ))}
+                </div>
+              </div> */}
+              {/* <BarChart title="Billing" dataItems={billingBarGraphs} /> */}
+              {/* ====================================== */}
+              {/* Current Graphs Bar */}
+
+              {/* retail bar charts */}
+              <GraphsProgressBar title="Retail" dataItems={retailBarGraphs} />
+
+              {/* billing bar charts */}
+              <GraphsProgressBar title="Billing" dataItems={billingBarGraphs} />
+
               <DoughnutChart title="IBND Stock" dataItems={ibndstock} />
             </div>
           </div>
@@ -383,7 +458,10 @@ function DashboardPage() {
                   </h5>
 
                   {/* birthday username */}
-                  <div className="birthdayList" style={{gridTemplateColumns:"repeat(2,1fr)"}}>
+                  <div
+                    className="birthdayList"
+                    style={{ gridTemplateColumns: "repeat(2,1fr)",gap:10 }}
+                  >
                     {todayBirthday.map((ele) => (
                       <BirthdayCalendar key={ele.id} userData={ele} />
                     ))}
@@ -401,7 +479,11 @@ function DashboardPage() {
                   {/* birthday username */}
                   <div className="birthdayList">
                     {upcomingBirthday.map((ele) => (
-                      <BirthdayCalendar key={ele.id} userData={ele} divider={true} />
+                      <BirthdayCalendar
+                        key={ele.id}
+                        userData={ele}
+                        divider={true}
+                      />
                     ))}
                   </div>
                 </div>

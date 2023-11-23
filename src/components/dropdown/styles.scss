@@ -1,5 +1,6 @@
 .dropdown-menu {
   width: 100%;
+  max-width: max-content;
   border-radius: 4px;
 
   & .selectOption {
@@ -51,10 +52,23 @@
   }
 
   & .allListItems {
+    // max-width: max-content;
+    max-width: 98.16px;
     position: absolute;
     left: 0;
     right: 0;
     white-space: nowrap;
+
+    width: 100%;
+    z-index: 20;
+    border: 1px solid;
+    border-radius: 3px;
+    transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    font-size: 12px;
+    // padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
     &.top {
       bottom: calc(100% + 10px);
@@ -63,17 +77,6 @@
     &.bottom {
       bottom: calc(100% - 10px);
     }
-
-    width: 100%;
-    z-index: 20;
-    border: 1px solid;
-    border-radius: 3px;
-    transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    font-size: 12px;
-    padding: 12px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 
     & .allListItemsChild {
       padding: 5px 10px;

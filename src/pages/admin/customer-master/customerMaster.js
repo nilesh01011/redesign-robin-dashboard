@@ -415,6 +415,7 @@ function CustomerMaster() {
                 padding="4px 12px"
                 selected={selected}
                 setSelected={setSelected}
+                width={84}
               />
             </div>
           </div>

@@ -1,13 +1,14 @@
 import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
+import InputText from "../components/inputText/InputText";
+import Dropdown from "../components/dropdown/Dropdown";
 
-function GridContent({ data, type }) {
+function GridContent({ data, type, allData, drawerType }) {
   const theme = useSelector((state) => state.theme);
+  console.log(drawerType)
   return (
-    <div
-      className="detailsContents"
-    >
+    <div className="detailsContents">
       <span
         style={{
           color:
@@ -57,7 +58,7 @@ function GridContent({ data, type }) {
           </span>
         )}
       </span>
-      <span
+      {/* <span
         style={{
           color:data.textColor ? data.textColor : theme === "light" ? "#0B0B0C" : "#ffffff",
           textTransform: "capitalize",
@@ -66,7 +67,56 @@ function GridContent({ data, type }) {
         }}
       >
         {data.text}
-      </span>
+      </span> */}
+      {drawerType === "view" ? (
+        <span
+          style={{
+            color:  data.textColor ? data.textColor : theme === "light" ? "#0B0B0C" : "#ffffff",
+            textTransform: "capitalize",
+            fontWeight: 500,
+            fontSize: 14,
+          }}
+        >
+          {data.text ? data.text : "--"}
+        </span>
+      ) : (
+        <>
+          {data.text && (
+            <div>
+              {data.input && (
+                <InputText
+                  types={data.inputType}
+                  placeholder={data.placeholder}
+                  data={data}
+                  inputTypes={data.input}
+                  text={data.text}
+                />
+              )}
+              {/* not edit */}
+              {!data.inputType && (
+                <span
+                  style={{
+                    color: data.textColor ? data.textColor : theme === "light" ? "#0B0B0C" : "#ffffff",
+                    textTransform: "capitalize",
+                    fontWeight: 500,
+                    fontSize: 14,
+                  }}
+                >
+                  {data.text ? data.text : "--"}
+                </span>
+              )}
+              {/* dropdown */}
+              {data.dropdownList && (
+                <Dropdown
+                  position={allData ? allData.position : null}
+                  items={data.dropdownList}
+                  disabled={data.disabled}
+                />
+              )}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }

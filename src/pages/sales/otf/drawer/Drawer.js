@@ -39,38 +39,101 @@ function Drawer({
           {
             title: "Initial Promise Delivery Date",
             text: "23 Jan 2023",
+            inputType: "text",
+            placeholder: "Enter Initial Promise Delivery Date",
+            input: "date",
           },
           {
             title: "Cust. Expected Delivery Date",
             text: "15 Jan 2023",
+            inputType: "text",
+            placeholder: "Enter Cust. Expected Delivery Date",
+            input: "date",
           },
           {
             title: "Sale Type",
             text: "SGST",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "SGST",
+              },
+              {
+                name: "SGST 2",
+              },
+              {
+                name: "SGST 3",
+              },
+            ],
           },
           {
             title: "Price Type",
             text: "Individual",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Individual",
+              },
+              {
+                name: "Individual 2",
+              },
+              {
+                name: "Individual 3",
+              },
+            ],
           },
           {
             title: "Booking Amount",
-            text: `250000`,
+            text: "250000",
+            inputType: "text",
+            placeholder: "Enter Booking Amount",
+            input: "number",
           },
           {
             title: "Sales Consultant",
             text: "Vimal Kumar",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Vimal Kumar",
+              },
+              {
+                name: "Paul Deo",
+              },
+              {
+                name: "John Micheal",
+              },
+            ],
           },
           {
             title: "Special Request",
             text: "Special",
+            inputType: "text",
+            placeholder: "Enter Special Request",
+            input: "text",
           },
           {
             title: "Place of Registration",
             text: "Noida",
+            inputType: "text",
+            placeholder: "Enter Place of Registration",
+            input: "text",
           },
           {
             title: "Delivery At",
             text: "Showroom",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Showroom",
+              },
+              {
+                name: "Showroom 2",
+              },
+              {
+                name: "Showroom 3",
+              },
+            ],
           },
 
           {
@@ -117,70 +180,113 @@ function Drawer({
               {
                 title: "Mobile Number",
                 text: "+91-9893473843",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer ID",
                 text: "CFG4554564787",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Type",
                 text: "Individual",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Salutation",
                 text: "Mr.",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Name",
                 text: "Vinayshambhu",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Address",
                 text: "Address Details",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City/District",
                 text: "Mumbai",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "State",
                 text: "Maharashtra",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PIN Code",
-                text: "123456",
+                text: "201208",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Alternate Number",
-                text: "+91-9349923939",
+                text: "9349923939",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
               {
                 title: "Email",
                 text: "vinay.sk@gmail.com",
+                inputType: "text",
+                placeholder: "Enter email address",
+                input: "email",
               },
               {
                 title: "PAN",
                 text: "ABCTY1234D",
+                inputType: "text",
+                placeholder: "Enter pan number",
+                input: "text",
               },
               {
                 title: "Aadhar",
                 text: "**** **** 2222",
+                inputType: "text",
+                placeholder: "Enter aadhar number",
+                input: "text",
               },
               {
                 title: "GSTIN",
                 text: "27AAAAP0267H2ZN",
+                inputType: "text",
+                placeholder: "Enter GSTIN number",
+                input: "text",
               },
               {
                 title: "Driving Licence",
                 text: "DL-1420110012345",
+                inputType: "text",
+                placeholder: "Enter Driving Licence number",
+                input: "text",
               },
               {
                 title: "Trade Licence",
                 text: "********3432",
+                inputType: "text",
+                placeholder: "Enter Trade Licence number",
+                input: "text",
               },
               {
                 title: "Birthdate",
                 text: "12 Jan 2021",
+                inputType: "text",
+                placeholder: "Enter birth date",
+                input: "date",
               },
             ],
           },
@@ -191,71 +297,114 @@ function Drawer({
               {
                 title: "Mobile Number",
                 text: "+91-9349923939",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer ID",
                 text: "CUST12433461T",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Type",
                 text: "Individual",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Salutation",
                 text: "Mr.",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Name",
                 text: "Vinayshambhu",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Address",
                 text: "Address Details",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City/District",
                 text: "Mumbai",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "State",
                 text: "Maharashtra",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PIN Code",
                 text: "123456",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Alternate Number",
-                text: "+91-9349923939",
+                text: "9349923939",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
               {
                 title: "Email",
                 text: "vinay.sk@gmail.com",
+                inputType: "text",
+                placeholder: "Enter email address",
+                input: "email",
               },
               {
                 title: "PAN",
                 text: "ABCTY1234D",
+                inputType: "text",
+                placeholder: "Enter pan number",
+                input: "text",
               },
               {
                 title: "Aadhar",
                 text: "**** **** 2222",
+                inputType: "text",
+                placeholder: "Enter aadhar number",
+                input: "text",
               },
               {
                 title: "GSTIN",
                 text: "27AAAAP0267H2ZN",
+                inputType: "text",
+                placeholder: "Enter GSTIN number",
+                input: "text",
               },
               {
                 title: "Driving Licence",
                 text: "DL-1420110012345",
+                inputType: "text",
+                placeholder: "Enter Driving Licence number",
+                input: "text",
               },
               {
                 title: "Trade Licence",
                 text: "********3432",
+                inputType: "text",
+                placeholder: "Enter Trade Licence number",
+                input: "text",
               },
 
               {
                 title: "Birthdate",
                 text: "12 Jan 2021",
+                inputType: "text",
+                placeholder: "Enter birth date",
+                input: "date",
               },
             ],
           },
@@ -424,7 +573,7 @@ function Drawer({
         ],
       },
       {
-        key: 3,
+        key: 4,
         name: "Scheme and Offer Details",
         title: "Company Address",
         type: "accordion",
@@ -557,7 +706,7 @@ function Drawer({
         ],
       },
       {
-        key: 4,
+        key: 5,
         name: "Insurance Details",
         type: "gridContents",
         contents: [
@@ -584,7 +733,7 @@ function Drawer({
         ],
       },
       {
-        key: 5,
+        key: 6,
         name: "Finance Details",
         type: "gridContents",
         contents: [
@@ -627,7 +776,7 @@ function Drawer({
         ],
       },
       {
-        key: 6,
+        key: 7,
         name: "Exchange Vehicle",
         type: "gridContents",
         contents: [
@@ -698,7 +847,7 @@ function Drawer({
         ],
       },
       {
-        key: 7,
+        key: 8,
         name: "Invoice Information",
         type: "accordionTable",
         default: "accordion",
@@ -784,7 +933,7 @@ function Drawer({
       },
 
       {
-        key: 8,
+        key: 9,
         name: "Referrals",
         type: "gridContents",
         contents: [
@@ -828,7 +977,7 @@ function Drawer({
       },
 
       {
-        key: 9,
+        key: 10,
         name: "Loyalty Scheme",
         type: "gridContents",
         contents: [
@@ -898,7 +1047,7 @@ function Drawer({
       },
 
       {
-        key: 10,
+        key: 11,
         name: "Add-On Details",
         type: "accordionNTH",
         default: "accordion",
@@ -1552,22 +1701,35 @@ function Drawer({
                     </svg>
                   )} */}
 
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <circle cx="12" cy="12" r="12" fill="#70C922" />
-                    <path
-                      d="M17.3333 8L10 15.3333L6.66667 12"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  {currentTabsTitle === ele.name ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle cx="12" cy="12" r="12" fill="#2782f9" />
+                      <circle cx="12" cy="12" r="5" fill="white" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle cx="12" cy="12" r="12" fill="#70C922" />
+                      <path
+                        d="M17.3333 8L10 15.3333L6.66667 12"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
                 </span>
                 {/* right side */}
                 <div className="tabsText">
@@ -1622,9 +1784,19 @@ function Drawer({
               <div className="headerSteps">
                 {stepsHeader.map((ele, index) => {
                   return (
-                    <p key={index} className={`stepsBox ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
+                    <p
+                      key={index}
+                      className={`stepsBox ${
+                        theme === "light" ? "lightTheme" : "darkTheme"
+                      }`}
+                    >
                       {/* lines */}
-                      <div className="lines" style={{backgroundColor:theme === "light" ? "" : "#858585"}}></div>
+                      <div
+                        className="lines"
+                        style={{
+                          backgroundColor: theme === "light" ? "" : "#858585",
+                        }}
+                      ></div>
                       {/* icons */}
                       <span className="icons">
                         {activeStepsHeader === index ? (
@@ -1705,7 +1877,13 @@ function Drawer({
                     >
                       {ele.type === "gridContents" &&
                         ele.contents.map((el, index) => {
-                          return <GridContent key={index} data={el} />;
+                          return (
+                            <GridContent
+                              key={index}
+                              data={el}
+                              drawerType={drawerType}
+                            />
+                          );
                         })}
 
                       {ele.type === "accordion" &&
@@ -1952,7 +2130,7 @@ function Drawer({
                 // onClick={() => setExpandButtons(!expandButtons)}
               /> */}
 
-              {tabsList.length - 1 === tabsStatus ? (
+              {tabsList.length === tabsStatus ? (
                 ""
               ) : (
                 <button
@@ -1965,7 +2143,7 @@ function Drawer({
                         ? "rgba(255, 62, 91,0.5)"
                         : "#ff3e5b",
                     cursor:
-                      tabsList.length - 1 === tabsStatus
+                      tabsList.length === tabsStatus
                         ? "not-allowed"
                         : "pointer",
                   }}

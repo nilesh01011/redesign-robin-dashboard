@@ -470,6 +470,14 @@
 @media screen and (max-width: 756px) {
   .dashboard .boxContainer {
     grid-template-columns: repeat(1, 1fr);
+
+    & .birthdaySection {
+      & .birthdayListContainer {
+        & .birthdayList {
+          grid-template-columns: repeat(1, 1fr) !important;
+        }
+      }
+    }
   }
 }
 

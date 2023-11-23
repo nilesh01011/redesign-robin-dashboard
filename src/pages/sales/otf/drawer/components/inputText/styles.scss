@@ -1,0 +1,45 @@
+.inputText {
+    border-radius: 4px;
+    max-width: 239px;
+    border: 1px solid;
+    position: relative;
+    
+    & input {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 5px 12px;
+        border-radius: 4px;
+        width: 100%;
+        height: 100%;
+        appearance: none;
+        font-size: 14px;
+    }
+
+    & .editText {
+        position: absolute;
+        right: 12px;
+        top:5px;
+        color:#FF3E5B;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    & .dropdown {
+        position: absolute;
+        left: 12px;
+        top: 5px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+
+        & .img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}

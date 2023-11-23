@@ -78,7 +78,7 @@ textarea {
 }
 
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 body.removeScrollbar::-webkit-scrollbar {
@@ -103,7 +103,8 @@ body.light::-webkit-scrollbar-thumb {
 
 body.dark::-webkit-scrollbar-thumb {
   // background: #545454;
-  background: #242424;
+  // background: #242424;
+  background: #545454;
 }
 
 // Container-fluid
