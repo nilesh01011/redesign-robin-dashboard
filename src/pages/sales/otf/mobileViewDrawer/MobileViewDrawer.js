@@ -6,7 +6,13 @@ import AccordionTable from "../drawer/accordionTable/AccordionTable";
 import AccordionNTH from "../drawer/accordionNTH/AccordionNTH";
 import Accordion from "../drawer/accordion/Accordion";
 
-function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
+function MobileViewDrawer({
+  setDrawerType,
+  drawerType,
+  data,
+  isDrawerOpen,
+  setIsDrawerOpen,
+}) {
   const theme = useSelector((state) => state.theme);
   const userNameSplit = data.two ? data.two?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
@@ -19,6 +25,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
   const [contentsType, setContentsType] = useState("gridContents");
   const [tabsStatus, setTabsStatus] = useState(1);
 
+  const [formDataSubmitted, setFormDataSubmitted] = useState(false);
+
+  const thankyou = {
+    key: 12,
+    name: "Thank You",
+    type: "thankyou",
+  };
+
   //   table data
   const tabsList = useMemo(() => {
     return [
@@ -30,38 +44,101 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Initial Promise Delivery Date",
             text: "23 Jan 2023",
+            inputType: "text",
+            placeholder: "Enter Initial Promise Delivery Date",
+            input: "date",
           },
           {
             title: "Cust. Expected Delivery Date",
             text: "15 Jan 2023",
+            inputType: "text",
+            placeholder: "Enter Cust. Expected Delivery Date",
+            input: "date",
           },
           {
             title: "Sale Type",
             text: "SGST",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "SGST",
+              },
+              {
+                name: "SGST 2",
+              },
+              {
+                name: "SGST 3",
+              },
+            ],
           },
           {
             title: "Price Type",
             text: "Individual",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Individual",
+              },
+              {
+                name: "Individual 2",
+              },
+              {
+                name: "Individual 3",
+              },
+            ],
           },
           {
             title: "Booking Amount",
             text: `250000`,
+            inputType: "text",
+            placeholder: "Enter Booking Amount",
+            input: "number",
           },
           {
             title: "Sales Consultant",
             text: "Vimal Kumar",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Vimal Kumar",
+              },
+              {
+                name: "Paul Deo",
+              },
+              {
+                name: "John Micheal",
+              },
+            ],
           },
           {
             title: "Special Request",
             text: "Special",
+            inputType: "text",
+            placeholder: "Enter Special Request",
+            input: "text",
           },
           {
             title: "Place of Registration",
             text: "Noida",
+            inputType: "text",
+            placeholder: "Enter Place of Registration",
+            input: "text",
           },
           {
             title: "Delivery At",
             text: "Showroom",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Showroom",
+              },
+              {
+                name: "Showroom 2",
+              },
+              {
+                name: "Showroom 3",
+              },
+            ],
           },
 
           {
@@ -104,149 +181,237 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Booking Customer",
             type: "gridContents",
+            default: "gridContents",
             contents: [
               {
                 title: "Mobile Number",
                 text: "+91-9893473843",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer ID",
                 text: "CFG4554564787",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Type",
                 text: "Individual",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Salutation",
                 text: "Mr.",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Name",
                 text: "Vinayshambhu",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Address",
                 text: "Address Details",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City/District",
                 text: "Mumbai",
-              },
-              {
-                title: "State",
-                text: "Maharashtra",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PIN Code",
                 text: "123456",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "State",
+                text: "Maharashtra",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Alternate Number",
-                text: "+91-9349923939",
+                text: "9349923939",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
               {
                 title: "Email",
                 text: "vinay.sk@gmail.com",
+                inputType: "text",
+                placeholder: "Enter email address",
+                input: "email",
               },
               {
                 title: "PAN",
                 text: "ABCTY1234D",
+                inputType: "text",
+                placeholder: "Enter pan number",
+                input: "text",
               },
               {
                 title: "Aadhar",
                 text: "**** **** 2222",
+                placeholder: "Enter aadhar number",
+                input: "text",
+                inputType: "text",
               },
               {
                 title: "GSTIN",
                 text: "27AAAAP0267H2ZN",
+                inputType: "text",
+                placeholder: "Enter GSTIN number",
+                input: "text",
               },
               {
                 title: "Driving Licence",
                 text: "DL-1420110012345",
+                inputType: "text",
+                placeholder: "Enter Driving Licence number",
+                input: "text",
               },
               {
                 title: "Trade Licence",
                 text: "********3432",
+                inputType: "text",
+                placeholder: "Enter Trade Licence number",
+                input: "text",
               },
               {
                 title: "Birthdate",
                 text: "12 Jan 2021",
+                inputType: "text",
+                placeholder: "Enter birth date",
+                input: "date",
               },
             ],
           },
           {
             title: "Billing Customer",
             type: "gridContents",
+            default: "gridContents",
             contents: [
               {
                 title: "Mobile Number",
-                text: "+91-9349923939",
+                text: "9349923939",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer ID",
                 text: "CUST12433461T",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Type",
                 text: "Individual",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Salutation",
                 text: "Mr.",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Customer Name",
                 text: "Vinayshambhu",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Address",
                 text: "Address Details",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City/District",
                 text: "Mumbai",
-              },
-              {
-                title: "State",
-                text: "Maharashtra",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PIN Code",
                 text: "123456",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "State",
+                text: "Maharashtra",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Alternate Number",
-                text: "+91-9349923939",
+                text: "9349923939",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
               {
                 title: "Email",
                 text: "vinay.sk@gmail.com",
+                inputType: "text",
+                placeholder: "Enter email address",
+                input: "email",
               },
               {
                 title: "PAN",
                 text: "ABCTY1234D",
+                inputType: "text",
+                placeholder: "Enter pan number",
+                input: "text",
               },
               {
                 title: "Aadhar",
                 text: "**** **** 2222",
+                inputType: "text",
+                placeholder: "Enter aadhar number",
+                input: "text",
               },
               {
                 title: "GSTIN",
                 text: "27AAAAP0267H2ZN",
+                inputType: "text",
+                placeholder: "Enter GSTIN number",
+                input: "text",
               },
               {
                 title: "Driving Licence",
                 text: "DL-1420110012345",
+                inputType: "text",
+                placeholder: "Enter Driving Licence number",
+                input: "text",
               },
               {
                 title: "Trade Licence",
                 text: "********3432",
+                inputType: "text",
+                placeholder: "Enter Trade Licence number",
+                input: "text",
               },
 
               {
                 title: "Birthdate",
                 text: "12 Jan 2021",
+                inputType: "text",
+                placeholder: "Enter birth date",
+                input: "date",
               },
             ],
           },
@@ -261,107 +426,166 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Vehicle Information",
             type: "gridContents",
+            default: "gridContents",
             contents: [
               {
                 title: "Vehicle Usage Type ",
                 text: "Non-Taxi",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Non-Taxi",
+                  },
+                  {
+                    name: "Non-Taxi 2",
+                  },
+                  {
+                    name: "Non-Taxi 3",
+                  },
+                ],
               },
               {
                 title: "Model",
                 text: "SCORPIO",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "SCORPIO",
+                  },
+                  {
+                    name: "XUV700",
+                  },
+                  {
+                    name: "XUV400",
+                  },
+                  {
+                    name: "SCORPIO N",
+                  },
+                ],
               },
               {
                 title: "Model Code",
                 text: "AX7-L",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Available Stock",
                 text: "14",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Vehicle Allocated Status",
                 text: "PO Generated",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PO Number",
                 text: "123122737328",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PO Date",
                 text: "12 Jan 2023",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PO Status",
                 text: "Status",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "SO Number",
                 text: "653728438213",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "SO Status",
                 text: "Status",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "SO Date",
                 text: "12 Jan 2023",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Booking Amount",
                 text: "24500",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Total Tax Amount",
                 text: "245679",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "VIN Number",
                 text: "MAFCL723849203VIN",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Vehicle Selling Price",
                 text: "12780",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Discount Amount",
                 text: "245000",
+                inputType: "text",
+                placeholder: "Enter Discount Amount",
+                input: "text",
               },
               {
                 title: "Vehicle Amount",
                 text: "150000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
-          {
-            title: "Po/SO Details",
-            type: "gridContents",
-            contents: [
-              {
-                title: "PO Date",
-                text: "12 May 2023",
-              },
-              {
-                title: "PO Status",
-                text: "Status",
-              },
-              {
-                title: "PO Number",
-                text: "653728438213",
-              },
-              {
-                title: "SO Date",
-                text: "12 May 2013",
-              },
-              {
-                title: "SO Date",
-                text: "Status",
-              },
-              {
-                title: "SO Number",
-                text: "123122737328",
-              },
-            ],
-          },
+          // {
+          //   title: "Po/SO Details",
+          //   type: "gridContents",
+          //   contents: [
+          //     {
+          //       title: "PO Date",
+          //       text: "12 May 2023",
+          //     },
+          //     {
+          //       title: "PO Status",
+          //       text: "Status",
+          //     },
+          //     {
+          //       title: "PO Number",
+          //       text: "653728438213",
+          //     },
+          //     {
+          //       title: "SO Date",
+          //       text: "12 May 2013",
+          //     },
+          //     {
+          //       title: "SO Date",
+          //       text: "Status",
+          //     },
+          //     {
+          //       title: "SO Number",
+          //       text: "123122737328",
+          //     },
+          //   ],
+          // },
           {
             title: "Tax Details",
             type: "gridTable",
@@ -392,23 +616,37 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           },
           {
             title: "Optional Service",
-            type: "gridContents",
+            type: "gridTable",
             contents: [
               {
-                title: "Name Of Person",
-                text: "Vimal Kumar",
-              },
-              {
-                title: "Position",
-                text: "Manager",
-              },
-              {
-                title: "Company Name",
-                text: "Koncept",
-              },
-              {
-                title: "Remarks",
-                text: "This is Remark Dummy text",
+                headContent: [
+                  {
+                    text: "#",
+                  },
+                  {
+                    text: "Description",
+                  },
+                  {
+                    text: "Amount",
+                  },
+                ],
+                bodyContent: [
+                  {
+                    one: "1",
+                    two: "Registration Charges",
+                    three: "90,000.00",
+                  },
+                  {
+                    one: "2",
+                    two: "Incidental Charges",
+                    three: "80,000.00",
+                  },
+                  {
+                    one: "3",
+                    two: "INV5621547",
+                    three: "90,000.00",
+                  },
+                ],
               },
             ],
           },
@@ -432,22 +670,32 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   {
                     title: "Scheme Type",
                     text: "Type Data",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Scheme Category",
                     text: "Scheme Category",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Total Amount",
                     text: "25900",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid From",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid To",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                 ],
               },
@@ -458,6 +706,9 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     title: "Description",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     // VIPDealerChecked: true,
+                    inputType: "disabled",
+                    input: "textarea",
+                    placeholder: "Enter description",
                   },
                 ],
               },
@@ -473,22 +724,32 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   {
                     title: "Scheme Type",
                     text: "Type Data",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Scheme Category",
                     text: "Scheme Category",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Total Amount",
                     text: "25900",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid From",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid To",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                 ],
               },
@@ -499,6 +760,9 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     title: "Description",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     // VIPDealerChecked: true,
+                    inputType: "disabled",
+                    input: "textarea",
+                    placeholder: "Enter description",
                   },
                 ],
               },
@@ -514,22 +778,32 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   {
                     title: "Scheme Type",
                     text: "Type Data",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Scheme Category",
                     text: "Scheme Category",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Total Amount",
                     text: "25900",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid From",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid To",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                 ],
               },
@@ -540,6 +814,9 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     title: "Description",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     // VIPDealerChecked: true,
+                    inputType: "disabled",
+                    input: "textarea",
+                    placeholder: "Enter description",
                   },
                 ],
               },
@@ -555,22 +832,32 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Insurance company",
             text: "TATA AIG",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Insurance Cover Note",
             text: "Whole cover",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Insurance Amount",
             text: "25876",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Date",
             text: "12 Jan 2022",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Registration Number",
             text: `UP16BL2094`,
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -582,38 +869,86 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Financier",
             text: "HDFC",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "HDFC",
+              },
+              {
+                name: "ICICI",
+              },
+              {
+                name: "SBI",
+              },
+            ],
           },
           {
             title: "Branch",
             text: "Noida",
+            inputType: "text",
+            placeholder: "Enter branch name",
+            input: "text",
           },
           {
             title: "File Number",
             text: "FA123214532",
+            inputType: "text",
+            placeholder: "Enter file name",
+            input: "text",
           },
           {
             title: "Loan Amount",
             text: "1500000",
+            inputType: "text",
+            placeholder: "Enter loan amount",
+            input: "text",
           },
           {
             title: "EMI",
             text: `60`,
+            inputType: "text",
+            placeholder: "Enter emi",
+            input: "text",
           },
           {
             title: "Finance Done",
             text: "Yes",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Yes",
+              },
+              {
+                name: "No",
+              },
+            ],
           },
           {
             title: "D.O. Received",
             text: "Yes",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Yes",
+              },
+              {
+                name: "No",
+              },
+            ],
           },
           {
             title: "D.O. Number",
             text: "542367862487236",
+            inputType: "text",
+            placeholder: "Enter D.O. number",
+            input: "text",
           },
           {
             title: "D.O. Date",
             text: "12 Nov 2023",
+            inputType: "text",
+            placeholder: "Enter D.O. date",
+            input: "date",
           },
         ],
       },
@@ -625,66 +960,99 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Registration No.",
             text: "MO1085585",
+            inputType: "text",
+            placeholder: "Enter registration number",
+            input: "text",
           },
           {
             title: "Customer Name",
             text: "Vimal Kumar",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Make",
             text: "Maruti Suzuki",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Modal Group",
             text: "Swift",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Variant",
             text: `Vdi`,
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Old Chassis Number",
             text: "MACF527736276",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Relationship",
             text: "Wife",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Month of Registration",
             text: "June",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Year of Registration",
             text: "2012",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Usage",
             text: "Private",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Scheme Name",
             text: "Scheme",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Scheme Amount",
             text: "25000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "KM",
             text: "78354",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Expected Price",
             text: "450000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Procurement Price",
             text: "35000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Hypothecated To",
             text: "ICICI",
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -782,38 +1150,56 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Referral ID",
             text: "Ref00615396",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Registration Number",
             text: "UP16BL2123",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Chassis Number",
             text: "MAFCL213214547",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer ID",
             text: "MO1085585",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Type",
             text: `Individual`,
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Name",
             text: "Vimal Kumar",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Mobile Number",
             text: "+91-9876543212",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Email ID",
             text: "vimalkumar@gmail.com",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Date of Birth",
             text: "04 Mar 1998",
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -826,64 +1212,94 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Customer ID",
             text: "MO1085585",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Name",
             text: "Vishal Kumar",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Make",
             text: "Maruti Suzuki",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Model Group",
             text: "Swift",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Variant",
             text: `Vdi`,
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Old Reg. Number",
             text: "UP13AB4325",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Old Chassis Number",
             text: "MACF527736276",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Date of Birth",
             text: "04 Mar 1998",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Relationship",
             text: "Wife",
+            inputType: "disabled",
+            input: "text",
           },
 
           {
             title: "Year of Registration",
             text: "2012",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Month of Registration",
             text: "June",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Usage",
             text: "Private",
+            inputType: "disabled",
+            input: "text",
           },
 
           {
             title: "Scheme Name",
             text: "Scheme",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Scheme Amount",
             text: "25000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Remarks",
             text: "Good Condition",
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -908,15 +1324,21 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     contents: [
                       {
                         title: "Mobile Number",
-                        text: "+91-9893473843",
+                        text: "9893473843",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer ID",
                         text: "CFG4554564787",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer Type",
                         text: "Individual",
+                        inputType: "disabled",
+                        input: "text",
                       },
                     ],
                   },
@@ -933,14 +1355,20 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                       {
                         title: "Mobile Number",
                         text: "+91-9893473843",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer ID",
                         text: "CFG4554564787",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer Type",
                         text: "Individual",
+                        inputType: "disabled",
+                        input: "text",
                       },
                     ],
                   },
@@ -955,10 +1383,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 label: "Shield",
                 text: "Shield name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "Shield Rate",
                 text: "Shield rate",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -969,10 +1401,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 label: "AMC",
                 text: "AMC name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "AMC Rate",
                 text: "340000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -983,10 +1419,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 label: "RSA",
                 text: "RSA name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "RSA Rate",
                 text: "34000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -997,10 +1437,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 label: "FMS",
                 text: "FMS name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "FMS Rate",
                 text: "34000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -1110,13 +1554,11 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           >
             {/* user profile */}
             <div
-              className={`userProfile ${
-                theme === "light" ? "lightTheme" : "darkTheme"
-              }`}
+              className={`userProfile ${theme === "light" ? "lightTheme" : "darkTheme"
+                }`}
               style={{
-                border: `1px solid ${
-                  theme === "light" ? "#B5B5B6" : "#545454"
-                }`,
+                border: `1px solid ${theme === "light" ? "#B5B5B6" : "#545454"
+                  }`,
               }}
             >
               {/* user header section */}
@@ -1126,9 +1568,8 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   className="userImg"
                   style={{
                     backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
-                    border: `1px solid ${
-                      theme === "light" ? "#B5B5B6" : "#545454"
-                    }`,
+                    border: `1px solid ${theme === "light" ? "#B5B5B6" : "#545454"
+                      }`,
                   }}
                 >
                   {data.userImg ? (
@@ -1185,16 +1626,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             </div>
             {/* tabs steps */}
             <div
-              className={`tabsSteps ${
-                theme === "light" ? "lightTheme" : "darkTheme"
-              }`}
+              className={`tabsSteps ${theme === "light" ? "lightTheme" : "darkTheme"
+                }`}
             >
               {tabsList.map((ele, index) => (
                 <div
                   key={index}
-                  className={`tabsItems ${
-                    theme === "light" ? "lightTheme" : "darkTheme"
-                  }`}
+                  className={`tabsItems ${theme === "light" ? "lightTheme" : "darkTheme"
+                    }`}
                   onClick={() => {
                     //   setCurrentTabsTitle(ele.name);
                     //   setContentsType(ele.type);
@@ -1224,9 +1663,8 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                         fontWeight:
                           currentTabsTitle === ele.name ? "500" : "400",
                       }}
-                      className={`${
-                        theme === "light" ? "lightTheme" : "darkTheme"
-                      }`}
+                      className={`${theme === "light" ? "lightTheme" : "darkTheme"
+                        }`}
                     >
                       {ele.name}
                     </span>
@@ -1267,9 +1705,8 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         >
           {/* contents */}
           <div
-            className={`contents ${
-              theme === "light" ? "lightTheme" : "darkTheme"
-            }`}
+            className={`contents ${theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
           >
             {/* title text */}
             <h2
@@ -1346,7 +1783,13 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                       >
                         {ele.type === "gridContents" &&
                           ele.contents.map((el, index) => {
-                            return <GridContent key={index} data={el} />;
+                            return (
+                              <GridContent
+                                key={index}
+                                data={el}
+                                drawerType={drawerType}
+                              />
+                            );
                           })}
 
                         {ele.type === "accordion" &&
@@ -1362,6 +1805,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                                 setIndicator={setIndicator}
                                 data={el}
                                 type={ele.default}
+                                defaultType={el.default}
                               />
                             );
                           })}
@@ -1430,8 +1874,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                 type="button"
                 className="buttons"
                 style={{ color: "#FF3E5B" }}
+                onClick={() =>
+                  setDrawerType((prev) => {
+                    if (prev === "edit") return "view";
+                    if (prev === "view") return "edit";
+                  })
+                }
               >
-                Edit
+                {drawerType === "edit" ? "View" : "Edit"}
               </button>
               <button
                 type="button"

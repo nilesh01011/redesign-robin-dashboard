@@ -4,6 +4,7 @@ import Logout from "./logout";
 import Setting from "./setting";
 import Profile from "./profile";
 import ChangePassword from "./changePassword";
+import AccountSetting from "./accountSetting/AccountSetting";
 
 function Model({ text, setModelListDetails }) {
   const handleCloseModel = () => {
@@ -27,6 +28,10 @@ function Model({ text, setModelListDetails }) {
 
     if (type === "Logout" || type === "logout") {
       return <Logout handleCloseModel={handleCloseModel} />;
+    }
+
+    if (type === "Account Setting" || type === "account setting") {
+      return <AccountSetting handleCloseModel={handleCloseModel} />;
     }
   };
 

@@ -397,6 +397,7 @@ function OTF() {
         drawerType={drawerType}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
+        setDrawerType={setDrawerType}
       />
 
       {/* overlay */}

@@ -21,7 +21,7 @@ function ProgressBar({ items }) {
               theme === "light"
                 ? " 0 0 3px rgba(0, 0, 0, 0.2)"
                 : "1px 0px 1px 0px rgba(255, 255, 255, 0.15)",
-                right:items.count <= 120 && "-40px"
+                right:items.count < 20 && "-87px" || items.count === 50 && "-87px" || items.count <= 120 && "-40px",
           }}
         >
           <p className={`${theme === "light" ? "lightTheme" : "darkTheme"}`} style={{fontWeight:600}}>

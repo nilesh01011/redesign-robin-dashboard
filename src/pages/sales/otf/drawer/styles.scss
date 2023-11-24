@@ -1,3 +1,16 @@
+@keyframes fadeInOut {
+  0%,
+  100% {
+    width: 40px;
+    height: 40px;
+  }
+
+  50% {
+    width: 128px;
+    height: 128px;
+  }
+}
+
 .tableDrawerContainer {
   width: 93%;
   height: 100%;
@@ -200,6 +213,19 @@
             &.lines.activeLines::after {
               background-color: #2782f9;
             }
+
+            &.thankyouLines::after {
+              content: "";
+              position: absolute;
+              bottom: 24px;
+              top: -20px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 2px;
+              height: 20px;
+              background-color: #70c922;
+              display: block;
+            }
           }
 
           & .tabsText {
@@ -374,6 +400,73 @@
             display: flex;
             flex-direction: column;
           }
+
+          & .thankYouContainer {
+            width: 100%;
+            height: calc(80vh - 56.2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 40px;
+
+            & h1 {
+              font-size: 32px;
+              font-weight: 700;
+            }
+
+            & p {
+              text-align: center;
+            }
+
+            & .animations {
+              position: relative;
+
+              & .fadeInOut {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 128px;
+                height: 128px;
+                border-radius: 50%;
+                background: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: fadeInOut 1.3s infinite;
+                transition: all 0.6s ease-in-out;
+                z-index: -2;
+              }
+
+              &.lightTheme .fadeInOut {
+                background: #e2f9d2;
+              }
+
+              &.darkTheme .fadeInOut {
+                background: #222921;
+              }
+
+              // checkIcons
+              & .checkIcons {
+                position: relative;
+
+                &.light::after {
+                  content: "";
+                  position: absolute;
+                  left: 2px;
+                  top: 0;
+                  transform: translateY(-75%);
+                  background-color: white;
+                  z-index: -1;
+                  width: 51px;
+                  height: 51px;
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
         }
       }
 
@@ -452,6 +545,18 @@
 }
 
 // media queries
+@media screen and (max-width: 1280px) {
+  .tableDrawerContainer {
+    & .drawerData {
+      & .rightSide {
+        & .contents {
+          padding: 30px;
+        }
+      }
+    }
+  }
+}
+
 // @media screen and (max-width: 880px) {
 //   .tableDrawerContainer {
 //     & .drawerTypeText {

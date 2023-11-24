@@ -348,15 +348,15 @@
 }
 
 // media queries
-@media screen and (max-width: 1280px) {
-  .dashboard {
-    & .boxContainer {
-      & .news_birthday {
-        flex-direction: column;
-      }
-    }
-  }
-}
+// @media screen and (max-width: 1280px) {
+//   .dashboard {
+//     & .boxContainer {
+//       & .news_birthday {
+//         flex-direction: column;
+//       }
+//     }
+//   }
+// }
 
 @media screen and (max-width: 1080px) {
   .dashboard .boxContainer {
@@ -385,6 +385,10 @@
       & .key_highlights_heading_right {
         display: none;
       }
+    }
+
+    & .news_birthday {
+      flex-direction: column;
     }
   }
 }

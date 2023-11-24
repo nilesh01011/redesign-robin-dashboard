@@ -18,15 +18,16 @@ function AccordionInput({ data, drawerType }) {
       <input
         placeholder="Shield"
         type="text"
-        disabled={drawerType === "edit" ? false : true}
+        disabled={true}
         className="inputs"
         onChange={(e) => setAccordionInputFields(e.target.value)}
         value={accordionInputFields}
         // value={data.text ? data.text : accordionInputFields}
         style={{
           borderColor: theme === "light" ? "#E6E6E6" : "#232324",
-          background: drawerType === "edit" ? theme === "light" ? "white" : "#0b0b0c" : theme === "light" ? "#E6E6E6" : "#232324",
-          color: theme === "light" ? "#0B0B0C" : "white",
+          // background: drawerType === "edit" ? theme === "light" ? "white" : "#0b0b0c" : theme === "light" ? "#E6E6E6" : "#232324",
+          backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
+          color: theme === "light" ? "#858585" : "#545454",
         }}
       />
     </div>

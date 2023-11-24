@@ -27,7 +27,21 @@ function Drawer({
 
   const [seeMoreData, setSeeMoreData] = useState(false);
 
-  // console.log(data);
+  const [formDataSubmitted, setFormDataSubmitted] = useState(false);
+
+  const thankyou = {
+    key: 12,
+    name: "Thank You",
+    type: "thankyou",
+  };
+
+  // handleSubmitted
+  const handleSubmitted = () => {
+    console.log("Submitted");
+    setFormDataSubmitted(true);
+    setCurrentTabsTitle(thankyou.name);
+    setTabsStatus(thankyou.key);
+  };
 
   const tabsList = useMemo(() => {
     return [
@@ -176,6 +190,7 @@ function Drawer({
           {
             title: "Booking Customer",
             type: "gridContents",
+            default: "gridContents",
             contents: [
               {
                 title: "Mobile Number",
@@ -293,6 +308,7 @@ function Drawer({
           {
             title: "Billing Customer",
             type: "gridContents",
+            default: "gridContents",
             contents: [
               {
                 title: "Mobile Number",
@@ -419,130 +435,203 @@ function Drawer({
           {
             title: "Vehicle Information",
             type: "gridContents",
+            default: "gridContents",
             contents: [
               {
-                title: "Vehicle Usage Type ",
+                title: "Vehicle Usage Type",
                 text: "Non-Taxi",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Non-Taxi",
+                  },
+                  {
+                    name: "Non-Taxi 2",
+                  },
+                  {
+                    name: "Non-Taxi 3",
+                  },
+                ],
               },
               {
                 title: "Model",
                 text: "SCORPIO",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "SCORPIO",
+                  },
+                  {
+                    name: "XUV700",
+                  },
+                  {
+                    name: "XUV400",
+                  },
+                  {
+                    name: "SCORPIO N",
+                  },
+                ],
               },
               {
                 title: "Model Code",
                 text: "AX7-L",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Available Stock",
                 text: "14",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Vehicle Allocated Status",
                 text: "PO Generated",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PO Number",
                 text: "123122737328",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PO Date",
                 text: "12 Jan 2023",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "PO Status",
                 text: "Status",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "SO Number",
                 text: "653728438213",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "SO Status",
                 text: "Status",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "SO Date",
                 text: "12 Jan 2023",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Booking Amount",
                 text: "24500",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Total Tax Amount",
                 text: "245679",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "VIN Number",
                 text: "MAFCL723849203VIN",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Vehicle Selling Price",
                 text: "12780",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Discount Amount",
                 text: "245000",
+                inputType: "text",
+                placeholder: "Enter Discount Amount",
+                input: "text",
               },
               {
                 title: "Vehicle Amount",
                 text: "150000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
-          {
-            title: "Po/SO Details",
-            type: "gridContents",
-            contents: [
-              {
-                title: "PO Date",
-                text: "12 May 2023",
-              },
-              {
-                title: "PO Status",
-                text: "Status",
-              },
-              {
-                title: "PO Number",
-                text: "653728438213",
-              },
-              {
-                title: "SO Date",
-                text: "12 May 2013",
-              },
-              {
-                title: "SO Date",
-                text: "Status",
-              },
-              {
-                title: "SO Number",
-                text: "123122737328",
-              },
-            ],
-          },
+          // {
+          //   title: "Po/SO Details",
+          //   type: "gridContents",
+          //   contents: [
+          //     {
+          //       title: "PO Date",
+          //       text: "12 May 2023",
+          //     },
+          //     {
+          //       title: "PO Status",
+          //       text: "Status",
+          //     },
+          //     {
+          //       title: "PO Number",
+          //       text: "653728438213",
+          //     },
+          //     {
+          //       title: "SO Date",
+          //       text: "12 May 2013",
+          //     },
+          //     {
+          //       title: "SO Date",
+          //       text: "Status",
+          //     },
+          //     {
+          //       title: "SO Number",
+          //       text: "123122737328",
+          //     },
+          //   ],
+          // },
           {
             title: "Tax Details",
             type: "gridTable",
             contents: [
               {
-                tbody: [
+                headContent: [
                   {
-                    textOne: "1",
-                    textTwo: "CGST @18%",
-                    textOne: "18%",
-                    textOne: "90,0000",
+                    text: "#",
                   },
                   {
-                    textOne: "2",
-                    textTwo: "CGST @18%",
-                    textOne: "18%",
-                    textOne: "80,0000",
+                    text: "Description",
                   },
                   {
-                    textOne: "3",
-                    textTwo: "CGST @18%",
-                    textOne: "14%",
-                    textOne: "50,0000",
+                    text: "Rate",
+                  },
+                  {
+                    text: "Amount",
+                  },
+                ],
+                bodyContent: [
+                  {
+                    one: "1",
+                    two: "SGST @18%",
+                    three: "18%",
+                    four: "90,000.00",
+                  },
+                  {
+                    one: "2",
+                    two: "SGST @18%",
+                    three: "14%",
+                    four: "90,000.00",
+                  },
+                  {
+                    one: "3",
+                    two: "SGST @18%",
+                    three: "18%",
+                    four: "90,000.00",
                   },
                 ],
               },
@@ -550,23 +639,37 @@ function Drawer({
           },
           {
             title: "Optional Service",
-            type: "gridContents",
+            type: "gridTable",
             contents: [
               {
-                title: "Name Of Person",
-                text: "Vimal Kumar",
-              },
-              {
-                title: "Position",
-                text: "Manager",
-              },
-              {
-                title: "Company Name",
-                text: "Koncept",
-              },
-              {
-                title: "Remarks",
-                text: "This is Remark Dummy text",
+                headContent: [
+                  {
+                    text: "#",
+                  },
+                  {
+                    text: "Description",
+                  },
+                  {
+                    text: "Amount",
+                  },
+                ],
+                bodyContent: [
+                  {
+                    one: "1",
+                    two: "Registration Charges",
+                    three: "90,000.00",
+                  },
+                  {
+                    one: "2",
+                    two: "Incidental Charges",
+                    three: "80,000.00",
+                  },
+                  {
+                    one: "3",
+                    two: "INV5621547",
+                    three: "90,000.00",
+                  },
+                ],
               },
             ],
           },
@@ -590,22 +693,32 @@ function Drawer({
                   {
                     title: "Scheme Type",
                     text: "Type Data",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Scheme Category",
                     text: "Scheme Category",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Total Amount",
                     text: "25900",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid From",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid To",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                 ],
               },
@@ -616,6 +729,9 @@ function Drawer({
                     title: "Description",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     // VIPDealerChecked: true,
+                    inputType: "disabled",
+                    input: "textarea",
+                    placeholder: "Enter description",
                   },
                 ],
               },
@@ -631,22 +747,32 @@ function Drawer({
                   {
                     title: "Scheme Type",
                     text: "Type Data",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Scheme Category",
                     text: "Scheme Category",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Total Amount",
                     text: "25900",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid From",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid To",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                 ],
               },
@@ -657,6 +783,9 @@ function Drawer({
                     title: "Description",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     // VIPDealerChecked: true,
+                    inputType: "disabled",
+                    input: "textarea",
+                    placeholder: "Enter description",
                   },
                 ],
               },
@@ -672,22 +801,32 @@ function Drawer({
                   {
                     title: "Scheme Type",
                     text: "Type Data",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Scheme Category",
                     text: "Scheme Category",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Total Amount",
                     text: "25900",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid From",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                   {
                     title: "Valid To",
                     text: "12 Jan 2022",
+                    inputType: "disabled",
+                    input: "text",
                   },
                 ],
               },
@@ -698,6 +837,9 @@ function Drawer({
                     title: "Description",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     // VIPDealerChecked: true,
+                    inputType: "disabled",
+                    input: "textarea",
+                    placeholder: "Enter description",
                   },
                 ],
               },
@@ -713,22 +855,32 @@ function Drawer({
           {
             title: "Insurance company",
             text: "TATA AIG",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Insurance Cover Note",
             text: "Whole cover",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Insurance Amount",
             text: "25876",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Date",
             text: "12 Jan 2022",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Registration Number",
             text: `UP16BL2094`,
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -738,40 +890,88 @@ function Drawer({
         type: "gridContents",
         contents: [
           {
-            title: "Financier",
+            title: "Finance Arranged By",
             text: "HDFC",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "HDFC",
+              },
+              {
+                name: "ICICI",
+              },
+              {
+                name: "SBI",
+              },
+            ],
           },
           {
             title: "Branch",
             text: "Noida",
+            inputType: "text",
+            placeholder: "Enter branch name",
+            input: "text",
           },
           {
             title: "File Number",
             text: "FA123214532",
+            inputType: "text",
+            placeholder: "Enter file name",
+            input: "text",
           },
           {
             title: "Loan Amount",
             text: "1500000",
+            inputType: "text",
+            placeholder: "Enter loan amount",
+            input: "text",
           },
           {
             title: "EMI",
             text: `60`,
+            inputType: "text",
+            placeholder: "Enter emi",
+            input: "text",
           },
           {
             title: "Finance Done",
             text: "Yes",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Yes",
+              },
+              {
+                name: "No",
+              },
+            ],
           },
           {
             title: "D.O. Received",
             text: "Yes",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Yes",
+              },
+              {
+                name: "No",
+              },
+            ],
           },
           {
             title: "D.O. Number",
             text: "542367862487236",
+            inputType: "text",
+            placeholder: "Enter D.O. number",
+            input: "text",
           },
           {
             title: "D.O. Date",
             text: "12 Nov 2023",
+            inputType: "text",
+            placeholder: "Enter D.O. date",
+            input: "date",
           },
         ],
       },
@@ -783,66 +983,99 @@ function Drawer({
           {
             title: "Registration No.",
             text: "MO1085585",
+            inputType: "text",
+            placeholder: "Enter registration number",
+            input: "text",
           },
           {
             title: "Customer Name",
             text: "Vimal Kumar",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Make",
             text: "Maruti Suzuki",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Modal Group",
             text: "Swift",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Variant",
             text: `Vdi`,
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Old Chassis Number",
             text: "MACF527736276",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Relationship",
             text: "Wife",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Month of Registration",
             text: "June",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Year of Registration",
             text: "2012",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Usage",
             text: "Private",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Scheme Name",
             text: "Scheme",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Scheme Amount",
             text: "25000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "KM",
             text: "78354",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Expected Price",
             text: "450000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Procurement Price",
             text: "35000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Hypothecated To",
             text: "ICICI",
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -940,38 +1173,56 @@ function Drawer({
           {
             title: "Referral ID",
             text: "Ref00615396",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Registration Number",
             text: "UP16BL2123",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Chassis Number",
             text: "MAFCL213214547",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer ID",
             text: "MO1085585",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Type",
             text: `Individual`,
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Name",
             text: "Vimal Kumar",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Mobile Number",
             text: "+91-9876543212",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Email ID",
             text: "vimalkumar@gmail.com",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Date of Birth",
             text: "04 Mar 1998",
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -984,64 +1235,94 @@ function Drawer({
           {
             title: "Customer ID",
             text: "MO1085585",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Customer Name",
             text: "Vishal Kumar",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Make",
             text: "Maruti Suzuki",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Model Group",
             text: "Swift",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Variant",
             text: `Vdi`,
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Old Reg. Number",
             text: "UP13AB4325",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Old Chassis Number",
             text: "MACF527736276",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Date of Birth",
             text: "04 Mar 1998",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Relationship",
             text: "Wife",
+            inputType: "disabled",
+            input: "text",
           },
 
           {
             title: "Year of Registration",
             text: "2012",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Month of Registration",
             text: "June",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Usage",
             text: "Private",
+            inputType: "disabled",
+            input: "text",
           },
 
           {
             title: "Scheme Name",
             text: "Scheme",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Scheme Amount",
             text: "25000",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Remarks",
             text: "Good Condition",
+            inputType: "disabled",
+            input: "text",
           },
         ],
       },
@@ -1066,15 +1347,21 @@ function Drawer({
                     contents: [
                       {
                         title: "Mobile Number",
-                        text: "+91-9893473843",
+                        text: "9893473843",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer ID",
                         text: "CFG4554564787",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer Type",
                         text: "Individual",
+                        inputType: "disabled",
+                        input: "text",
                       },
                     ],
                   },
@@ -1084,21 +1371,28 @@ function Drawer({
                 title: "Part Description | ALTD16554",
                 text: "Required Quantity 12",
                 type: "gridContents",
+                default: "gridContents",
                 contents: [
                   {
                     type: "gridContents",
                     contents: [
                       {
                         title: "Mobile Number",
-                        text: "+91-9893473843",
+                        text: "9893473843",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer ID",
                         text: "CFG4554564787",
+                        inputType: "disabled",
+                        input: "text",
                       },
                       {
                         title: "Customer Type",
                         text: "Individual",
+                        inputType: "disabled",
+                        input: "text",
                       },
                     ],
                   },
@@ -1113,10 +1407,14 @@ function Drawer({
               {
                 label: "Shield",
                 text: "Shield name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "Shield Rate",
                 text: "Shield rate",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -1127,10 +1425,14 @@ function Drawer({
               {
                 label: "AMC",
                 text: "AMC name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "AMC Rate",
                 text: "340000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -1141,10 +1443,14 @@ function Drawer({
               {
                 label: "RSA",
                 text: "RSA name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "RSA Rate",
                 text: "34000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -1155,17 +1461,26 @@ function Drawer({
               {
                 label: "FMS",
                 text: "FMS name",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 label: "FMS Rate",
                 text: "34000",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
         ],
       },
+      // {
+      //   key: 12,
+      //   name: "Thank You",
+      //   type:"submitForm",
+      // }
     ];
-  }, [data]);
+  }, [data, formDataSubmitted]);
 
   useEffect(() => {
     if (!currentTabsTitle) {
@@ -1616,7 +1931,7 @@ function Drawer({
                   // setCurrentTabsTitle(ele.name);
                   // setContentsType(ele.type);
                   // setTabsStatus(ele.key);
-                  handleTabsActiveNext(ele);
+                  formDataSubmitted === false && handleTabsActiveNext(ele);
                 }}
               >
                 {/* left side */}
@@ -1625,7 +1940,9 @@ function Drawer({
                     tabsList.length - 1 === index
                       ? ""
                       : `lines ${
-                          currentTabsTitle === ele.name && "activeLines"
+                          formDataSubmitted === false
+                            ? currentTabsTitle === ele.name && "activeLines"
+                            : null
                         }`
                   }`}
                 >
@@ -1701,18 +2018,7 @@ function Drawer({
                     </svg>
                   )} */}
 
-                  {currentTabsTitle === ele.name ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <circle cx="12" cy="12" r="12" fill="#2782f9" />
-                      <circle cx="12" cy="12" r="5" fill="white" />
-                    </svg>
-                  ) : (
+                  {formDataSubmitted === true ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -1729,6 +2035,39 @@ function Drawer({
                         strokeLinejoin="round"
                       />
                     </svg>
+                  ) : (
+                    <>
+                      {currentTabsTitle === ele.name ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ zIndex: 5 }}
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#2782f9" />
+                          <circle cx="12" cy="12" r="5" fill="white" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#70C922" />
+                          <path
+                            d="M17.3333 8L10 15.3333L6.66667 12"
+                            stroke="white"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </>
                   )}
                 </span>
                 {/* right side */}
@@ -1768,6 +2107,86 @@ function Drawer({
                 </span>
               </div>
             ))}
+
+            {formDataSubmitted && (
+              <div
+                className={`tabsItems ${
+                  theme === "light" ? "lightTheme" : "darkTheme"
+                }`}
+                onClick={() => {
+                  // setCurrentTabsTitle(ele.name);
+                  // setContentsType(ele.type);
+                  // setTabsStatus(ele.key);
+                  handleTabsActiveNext(thankyou);
+                }}
+              >
+                {/* left side */}
+                <span
+                  // className={`icons ${
+                  //   tabsList.length - 1 === index
+                  //     ? ""
+                  //     : `lines ${
+                  //         currentTabsTitle === "Thank You" && "activeLines"
+                  //       }`
+                  // }`}
+                  className="icons thankyouLines"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <circle cx="12" cy="12" r="12" fill="#70C922" />
+                    <path
+                      d="M17.3333 8L10 15.3333L6.66667 12"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                {/* right side */}
+                <div className="tabsText">
+                  <span
+                    style={{
+                      fontWeight:
+                        currentTabsTitle === "Thank You" ? "500" : "400",
+                      color: "#56AC18",
+                    }}
+                    className={`${
+                      currentTabsTitle === "Thank You"
+                        ? theme === "light"
+                          ? "activeTabsLightTheme"
+                          : "activeTabsDarkTheme"
+                        : "normalText"
+                    } ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+                  >
+                    Thank You
+                  </span>
+                </div>
+
+                {/* mobile view Icons */}
+                <span className="mobileViewIcons">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M5.63523 2.65803C5.8241 2.45657 6.14052 2.44637 6.34197 2.63523L14.342 10.1352C14.4428 10.2298 14.5 10.3618 14.5 10.5C14.5 10.6382 14.4428 10.7702 14.342 10.8648L6.34197 18.3648C6.14052 18.5536 5.8241 18.5434 5.63523 18.342C5.44637 18.1405 5.45657 17.8241 5.65803 17.6352L13.2689 10.5L5.65803 3.36477C5.45657 3.17591 5.44637 2.85949 5.63523 2.65803Z"
+                      fill="#FF3E5B"
+                    />
+                  </svg>
+                </span>
+              </div>
+            )}
           </div>
         </div>
         {/* right side */}
@@ -1778,68 +2197,70 @@ function Drawer({
               theme === "light" ? "lightTheme" : "darkTheme"
             }`}
           >
-            <div className="contentHeader">
-              <h2>{currentTabsTitle}</h2>
-              {/* steps */}
-              <div className="headerSteps">
-                {stepsHeader.map((ele, index) => {
-                  return (
-                    <p
-                      key={index}
-                      className={`stepsBox ${
-                        theme === "light" ? "lightTheme" : "darkTheme"
-                      }`}
-                    >
-                      {/* lines */}
-                      <div
-                        className="lines"
-                        style={{
-                          backgroundColor: theme === "light" ? "" : "#858585",
-                        }}
-                      ></div>
-                      {/* icons */}
-                      <span className="icons">
-                        {activeStepsHeader === index ? (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <circle
-                              cx="12"
-                              cy="12"
-                              r="12"
-                              fill="#70C922"
-                            ></circle>
-                            <path
-                              d="M17.3333 8L10 15.3333L6.66667 12"
-                              stroke="white"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            ></path>
-                          </svg>
-                        ) : (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <circle cx="12" cy="12" r="12" fill="#858585" />
-                            <circle cx="12" cy="12" r="5" fill="white" />
-                          </svg>
-                        )}
-                      </span>
-                      <span className="text">{ele.name}</span>
-                    </p>
-                  );
-                })}
+            {formDataSubmitted === false && (
+              <div className="contentHeader">
+                <h2>{currentTabsTitle}</h2>
+                {/* steps */}
+                <div className="headerSteps">
+                  {stepsHeader.map((ele, index) => {
+                    return (
+                      <p
+                        key={index}
+                        className={`stepsBox ${
+                          theme === "light" ? "lightTheme" : "darkTheme"
+                        }`}
+                      >
+                        {/* lines */}
+                        <div
+                          className="lines"
+                          style={{
+                            backgroundColor: theme === "light" ? "" : "#858585",
+                          }}
+                        ></div>
+                        {/* icons */}
+                        <span className="icons">
+                          {activeStepsHeader === index ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <circle
+                                cx="12"
+                                cy="12"
+                                r="12"
+                                fill="#70C922"
+                              ></circle>
+                              <path
+                                d="M17.3333 8L10 15.3333L6.66667 12"
+                                stroke="white"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              ></path>
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <circle cx="12" cy="12" r="12" fill="#858585" />
+                              <circle cx="12" cy="12" r="5" fill="white" />
+                            </svg>
+                          )}
+                        </span>
+                        <span className="text">{ele.name}</span>
+                      </p>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
             {/* user data details */}
             <div
               className="customerDetails"
@@ -1899,13 +2320,13 @@ function Drawer({
                               setIndicator={setIndicator}
                               data={el}
                               type={ele.default}
+                              defaultType={el.default}
                             />
                           );
                         })}
 
                       {ele.type === "accordionTable" &&
                         ele.contents.map((el, index) => {
-                          // console.log(el)
                           return (
                             <AccordionTable
                               type={el.type}
@@ -1931,6 +2352,38 @@ function Drawer({
                   );
                 }
               })}
+
+              {formDataSubmitted === true && (
+                <div className="thankYouContainer">
+                  <div className={`animations ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
+                
+                  {/* ${theme === "light" && "light"} */}
+                    <span className={`checkIcons light `}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="62"
+                        height="62"
+                        viewBox="0 0 62 62"
+                        fill="none"
+                      >
+                        <path
+                          d="M31.0406 0.560547C14.2483 0.560547 0.564453 14.2444 0.564453 31.0367C0.564453 47.8291 14.2483 61.5129 31.0406 61.5129C47.833 61.5129 61.5168 47.8291 61.5168 31.0367C61.5168 14.2444 47.833 0.560547 31.0406 0.560547ZM45.6083 24.0272L28.3283 41.3072C27.9016 41.7339 27.3225 41.9777 26.713 41.9777C26.1035 41.9777 25.5245 41.7339 25.0978 41.3072L16.473 32.6824C15.5892 31.7986 15.5892 30.3358 16.473 29.452C17.3568 28.5682 18.8197 28.5682 19.7035 29.452L26.713 36.4615L42.3778 20.7967C43.2616 19.9129 44.7245 19.9129 45.6083 20.7967C46.4921 21.6805 46.4921 23.1129 45.6083 24.0272Z"
+                          fill="#56AC18"
+                        />
+                      </svg>
+                    </span>
+                    <span className="fadeInOut"></span>
+                  </div>
+                  <h1>Booking Form updated successfully</h1>
+                  <p
+                    style={{ color: theme === "light" ? "#858585" : "#858585" }}
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           {/* footer side */}
@@ -1968,9 +2421,12 @@ function Drawer({
                   cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
                 }}
                 // disabled={tabsStatus === 1}
-                onClick={() => handleTabsActiveBack(1)}
+                onClick={() => {
+                  formDataSubmitted === false && handleTabsActiveBack(1);
+                  formDataSubmitted === true && setIsDrawerOpen(false);
+                }}
               >
-                Back
+                {formDataSubmitted === false ? "Back" : "Close"}
               </button>
             )}
 
@@ -2003,11 +2459,13 @@ function Drawer({
               </button>
             </div> */}
             {/* right side button */}
-            <div
-              className="rightSideBtn"
-              // style={{justifyContent:drawerType === "edit" ? "flex-end" : "space-between"}}
-            >
-              {/* {drawerType === "view" && (
+
+            {formDataSubmitted === false && (
+              <div
+                className="rightSideBtn"
+                // style={{justifyContent:drawerType === "edit" ? "flex-end" : "space-between"}}
+              >
+                {/* {drawerType === "view" && (
                 <button
                   type="button"
                   className="buttons"
@@ -2041,85 +2499,85 @@ function Drawer({
                 {drawerType === "edit" ? "Save & Next" : "Next"}
               </button> */}
 
-              {/* {expandButtons && ( */}
-              {moreActions === false && (
-                <div className="leftsideBtn">
-                  <button
-                    type="button"
-                    className="btns"
-                    onClick={() =>
-                      setDrawerType((prev) => {
-                        if (prev === "edit") return "view";
-                        if (prev === "view") return "edit";
-                      })
-                    }
-                  >
-                    {drawerType === "edit" ? "View" : "Edit"}
-                  </button>
-                  <button type="button" className="btns">
-                    Allot
-                  </button>
-                  <button type="button" className="btns">
-                    Invoice
-                  </button>
+                {/* {expandButtons && ( */}
+                {moreActions === false && (
+                  <div className="leftsideBtn">
+                    <button
+                      type="button"
+                      className="btns"
+                      onClick={() =>
+                        setDrawerType((prev) => {
+                          if (prev === "edit") return "view";
+                          if (prev === "view") return "edit";
+                        })
+                      }
+                    >
+                      {drawerType === "edit" ? "View" : "Edit"}
+                    </button>
+                    <button type="button" className="btns">
+                      Allot
+                    </button>
+                    <button type="button" className="btns">
+                      Invoice
+                    </button>
 
-                  <button type="button" className="btns">
-                    Delivery Note
-                  </button>
-                </div>
-              )}
+                    <button type="button" className="btns">
+                      Delivery Note
+                    </button>
+                  </div>
+                )}
 
-              {moreActions === true && (
-                <div className="leftsideBtn">
-                  <button type="button" className="btns">
-                    Transfer
-                  </button>
-                  <button type="button" className="btns">
-                    Cancel Booking
-                  </button>
-                </div>
-              )}
+                {moreActions === true && (
+                  <div className="leftsideBtn">
+                    <button type="button" className="btns">
+                      Transfer
+                    </button>
+                    <button type="button" className="btns">
+                      Cancel Booking
+                    </button>
+                  </div>
+                )}
 
-              <button
-                type="button"
-                className="btns"
-                onClick={(e) => setMoreActions(!moreActions)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 6,
-                }}
-              >
-                <span
+                <button
+                  type="button"
+                  className="btns"
+                  onClick={(e) => setMoreActions(!moreActions)}
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    gap: 6,
                   }}
                 >
-                  <svg
-                    style={{ transform: moreActions && "rotate(180deg" }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
+                  <span
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
-                      fill="white"
-                    />
-                  </svg>
-                </span>
-                {moreActions ? "Less" : "More"} Actions
-              </button>
-              {/* )} */}
+                    <svg
+                      style={{ transform: moreActions && "rotate(180deg" }}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </span>
+                  {moreActions ? "Less" : "More"} Actions
+                </button>
+                {/* )} */}
 
-              {/* More button */}
-              {/* <div
+                {/* More button */}
+                {/* <div
                 style={{
                   backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
                   width: 1,
@@ -2130,7 +2588,7 @@ function Drawer({
                 // onClick={() => setExpandButtons(!expandButtons)}
               /> */}
 
-              {tabsList.length === tabsStatus ? (
+                {/* {tabsList.length === tabsStatus ? (
                 ""
               ) : (
                 <button
@@ -2152,8 +2610,58 @@ function Drawer({
                 >
                   {drawerType === "edit" ? "Save & Next" : "Next"}
                 </button>
-              )}
-            </div>
+              )} */}
+
+                {drawerType === "view" ? (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
+                    style={{
+                      border: "1px solid",
+                      borderColor:
+                        tabsList.length === tabsStatus
+                          ? "rgba(255, 62, 91,0.5)"
+                          : "#ff3e5b",
+                      // cursor:
+                      //   tabsList.length === tabsStatus ? "not-allowed" : "pointer",
+                      display: tabsList.length === tabsStatus && "none",
+                    }}
+                    onClick={() => {
+                      handleTabsActiveNext(1);
+                      tabsList.length === tabsStatus &&
+                        drawerType === "edit" &&
+                        handleSubmitted();
+                    }}
+                  >
+                    {tabsList.length === tabsStatus ? "" : "Next"}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
+                    style={{
+                      border: "1px solid",
+                      borderColor:
+                        tabsList.length === tabsStatus
+                          ? "rgba(255, 62, 91,0.5)"
+                          : "#ff3e5b",
+                      // cursor:
+                      //   tabsList.length === tabsStatus ? "not-allowed" : "pointer",
+                    }}
+                    onClick={() => {
+                      formDataSubmitted === false && handleTabsActiveNext(1);
+                      tabsList.length === tabsStatus && handleSubmitted();
+                    }}
+                  >
+                    {drawerType === "edit"
+                      ? tabsList.length === tabsStatus
+                        ? "Save"
+                        : "Save & Next"
+                      : "Next"}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

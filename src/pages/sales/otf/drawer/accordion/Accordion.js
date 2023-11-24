@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 import GridContent from "../gridContent/GridContent";
@@ -8,6 +8,7 @@ function Accordion({
   data,
   type,
   id,
+  defaultType,
   indicator,
   setIndicator,
   drawerType,
@@ -17,7 +18,8 @@ function Accordion({
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
 
-  console.log(data.type)
+  const [tableHead, setTableHead] = useState([]);
+  const [tableBody, setTableBody] = useState([]);
 
   const handleChecked = (id) => {
     checked = !checked;
@@ -26,7 +28,14 @@ function Accordion({
     // console.log("Checked:",checked)
   };
 
-  // const renderData
+  useEffect(() => {
+    if (data.type === "gridTable") {
+      data.contents.map((ele) => {
+        setTableHead(ele.headContent);
+        setTableBody(ele.bodyContent);
+      });
+    }
+  }, [data.type]);
 
   return (
     <div
@@ -112,66 +121,170 @@ function Accordion({
       {/* contents */}
       {accordionCollapsed && (
         <>
-          {type === "accordionGridFlex" ? (
+          {data.type === "gridTable" ? (
             <div
-            // className={`accordionContents ${data.type}`}
-            // style={{
-            //   borderTop: `1px solid ${
-            //     theme === "light" ? "#e6e6e6" : "#232324"
-            //   }`,
-            //   paddingTop: "20px",
-            //   paddingBottom: "20px",
-            // }}
+              className="accordionContents"
+              style={{ borderColor: theme === "light" ? "" : "" }}
             >
-              {data.contents.map((ele, index) => {
-                if (ele.type === "gridContents") {
-                  return (
-                    <div
-                      className={`accordionContents ${data.type}`}
-                      style={{
-                        borderTop: `1px solid ${
-                          theme === "light" ? "#e6e6e6" : "#232324"
-                        }`,
-                        paddingTop: "20px",
-                        paddingBottom: "20px",
-                      }}
-                    >
-                      {ele.contents.map((el, index) => {
-                        return (
-                          <GridContent data={el} key={index} type={data.type} />
-                        );
-                      })}
-                    </div>
-                  );
-                }
-
-                if (ele.type === "flexColumnData") {
-                  return ele.contents.map((el, index) => {
-                    console.log(el);
-                    return (
-                      <div key={index} className="flexColumnData">
-                        {/* title */}
-                        <span
-                          style={{
-                            fontSize: 14,
-                            color: theme === "light" ? "#545454" : "#858585",
-                            marginBottom:2
-                          }}
-                        >
-                          {el.title}
-                        </span>
-                        <span style={{
-                            fontSize: 14,
-                          }}>{el.text}</span>
-                      </div>
-                    );
-                  });
-                }
-              })}
-
-              {/* {console.log(data.type)} */}
+              <table
+                className="table gridTableContainer"
+                style={{
+                  borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+                }}
+              >
+                <thead>
+                  {tableHead &&
+                    tableHead.map((ele, index) => {
+                      return (
+                        <th key={index} className="tableHeadText">
+                          {ele.text}
+                        </th>
+                      );
+                    })}
+                </thead>
+                {/* table contents */}
+                <tbody
+                  style={{
+                    backgroundColor: theme === "light" ? "white" : "#0B0B0C",
+                  }}
+                >
+                  {tableBody &&
+                    tableBody.map((ele, index) => {
+                      return (
+                        <tr key={index}>
+                          <td
+                            style={{
+                              borderColor:
+                                theme === "light" ? "#e6e6e6" : "#232324",
+                              color: theme === "light" ? "#545454" : "#B5B5B6",
+                            }}
+                          >
+                            {ele.one ? ele.one : "--"}
+                          </td>
+                          <td
+                            style={{
+                              borderColor:
+                                theme === "light" ? "#e6e6e6" : "#232324",
+                              color: theme === "light" ? "#545454" : "#B5B5B6",
+                            }}
+                          >
+                            {ele.two ? ele.two : "--"}
+                          </td>
+                          <td
+                            style={{
+                              borderColor:
+                                theme === "light" ? "#e6e6e6" : "#232324",
+                              color: theme === "light" ? "#545454" : "#B5B5B6",
+                            }}
+                          >
+                            {ele.three ? ele.three : "--"}
+                          </td>
+                          {ele.four && (
+                            <td
+                              style={{
+                                borderColor:
+                                  theme === "light" ? "#e6e6e6" : "#232324",
+                                color:
+                                  theme === "light" ? "#545454" : "#B5B5B6",
+                              }}
+                            >
+                              {ele.four ? ele.four : "--"}
+                            </td>
+                          )}
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
             </div>
           ) : (
+            type === "accordionGridFlex" && (
+              <div
+              // className={`accordionContents ${data.type}`}
+              // style={{
+              //   borderTop: `1px solid ${
+              //     theme === "light" ? "#e6e6e6" : "#232324"
+              //   }`,
+              //   paddingTop: "20px",
+              //   paddingBottom: "20px",
+              // }}
+              >
+                {data.contents.map((ele, index) => {
+                  if (ele.type === "gridContents") {
+                    return (
+                      <div
+                        className={`accordionContents ${data.type}`}
+                        style={{
+                          borderTop: `1px solid ${
+                            theme === "light" ? "#e6e6e6" : "#232324"
+                          }`,
+                          paddingTop: "20px",
+                          paddingBottom: "20px",
+                        }}
+                      >
+                        {ele.contents.map((el, index) => {
+                          return (
+                            <GridContent
+                              data={el}
+                              key={index}
+                              type={data.type}
+                              drawerType={drawerType}
+                            />
+                          );
+                        })}
+                      </div>
+                    );
+                  }
+
+                  if (ele.type === "flexColumnData") {
+                    return ele.contents.map((el, index) => {
+                      return (
+                        <div key={index} className="flexColumnData">
+                          {/* title */}
+                          <span
+                            style={{
+                              fontSize: 14,
+                              color: theme === "light" ? "#545454" : "#858585",
+                              marginBottom: 2,
+                            }}
+                          >
+                            {el.title}
+                          </span>
+                          {drawerType === "edit" && el.input == "textarea" ? (
+                            <textarea
+                            disabled={el.inputType === "disabled" ? true : false}
+                              placeholder={el.placeholder}
+                              style={{
+                                backgroundColor: el.inputType === "disabled" ? theme === "light" ? "#E6E6E6" : "#232324" :
+                                  theme === "light" ? "#FFFFFF" : "#0B0B0C",
+                                borderColor:
+                                  theme === "light" ? "#B5B5B6" : "#545454",
+                                color:
+                                  theme === "light" ? "#0B0B0C" : "#FFFFFF",
+                                  marginTop:3
+                              }}
+                            ></textarea>
+                          ) : (
+                            <span
+                              style={{
+                                fontSize: 14,
+                              }}
+                            >
+                              {el.text}
+                            </span>
+                          )}
+                        </div>
+                      );
+                    });
+                  }
+                })}
+
+                {/* {console.log(data.type)} */}
+              </div>
+            )
+          )}
+
+          {defaultType === "gridContents" && defaultType === "gridContents" ? (
             <div
               className={`accordionContents ${data.type}`}
               style={{
@@ -183,12 +296,15 @@ function Accordion({
               }}
             >
               {data.contents.map((ele, index) => (
-                <GridContent data={ele} key={index} type={data.type} />
+                <GridContent
+                  data={ele}
+                  key={index}
+                  type={data.type}
+                  drawerType={drawerType}
+                />
               ))}
-
-              {/* {console.log(data.type)} */}
             </div>
-          )}
+          ) : null}
         </>
       )}
     </div>

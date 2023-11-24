@@ -6,7 +6,15 @@ import Dropdown from "../components/dropdown/Dropdown";
 
 function GridContent({ data, type, allData, drawerType }) {
   const theme = useSelector((state) => state.theme);
-  console.log(drawerType)
+
+  const wordSlice = (word) => {
+    if (word.length > 20) {
+      return word.slice(0, 20) + "...";
+    } else {
+      return word;
+    }
+  };
+
   return (
     <div className="detailsContents">
       <span
@@ -38,7 +46,9 @@ function GridContent({ data, type, allData, drawerType }) {
             `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
         }}
       >
-        <span>{data.title}</span>
+        {/* title */}
+        <span className="title">{wordSlice(data.title)}</span>
+
         {type === "form" && (
           <span style={{ cursor: "pointer" }}>
             <svg
@@ -71,7 +81,11 @@ function GridContent({ data, type, allData, drawerType }) {
       {drawerType === "view" ? (
         <span
           style={{
-            color:  data.textColor ? data.textColor : theme === "light" ? "#0B0B0C" : "#ffffff",
+            color: data.textColor
+              ? data.textColor
+              : theme === "light"
+              ? "#0B0B0C"
+              : "#ffffff",
             textTransform: "capitalize",
             fontWeight: 500,
             fontSize: 14,
@@ -84,19 +98,42 @@ function GridContent({ data, type, allData, drawerType }) {
           {data.text && (
             <div>
               {data.input && (
-                <InputText
-                  types={data.inputType}
-                  placeholder={data.placeholder}
-                  data={data}
-                  inputTypes={data.input}
-                  text={data.text}
-                />
+                <>
+                  {/* {data.inputType === "text" && (
+                    <InputText
+                      types={data.inputType}
+                      placeholder={data.placeholder}
+                      data={data}
+                      inputTypes={data.input}
+                      text={data.text}
+                    />
+                  )} */}
+
+                  <InputText
+                    types={data.inputType}
+                    placeholder={data.placeholder}
+                    data={data}
+                    inputTypes={data.input}
+                    text={data.text}
+                  />
+
+                  {/* {data.inputType === "textarea" && (
+                    <Textarea
+                      placeholder={data.placeholder}
+                      types={data.input}
+                    />
+                  )} */}
+                </>
               )}
               {/* not edit */}
               {!data.inputType && (
                 <span
                   style={{
-                    color: data.textColor ? data.textColor : theme === "light" ? "#0B0B0C" : "#ffffff",
+                    color: data.textColor
+                      ? data.textColor
+                      : theme === "light"
+                      ? "#0B0B0C"
+                      : "#ffffff",
                     textTransform: "capitalize",
                     fontWeight: 500,
                     fontSize: 14,

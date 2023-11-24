@@ -1606,13 +1606,13 @@ export const retailBarGraphs = [
     key: 9,
     count: 60,
     name: "scorpio 1",
-    bgColor: "#001219",
+    bgColor: "#BB3E03",
   },
   {
     key: 10,
     count: 120,
     name: "xuv700 1",
-    bgColor: "#BB3E03",
+    bgColor: "#BE7230",
   },
   {
     key: 11,
