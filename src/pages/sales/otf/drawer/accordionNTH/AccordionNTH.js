@@ -67,7 +67,7 @@ function AccordionNTH({ data, type,drawerType }) {
                 <>
                 {
                   data.contents.map((ele,index) => {
-                    console.log(ele)
+                    // console.log(ele)
                     return <AccordionInput key={index} data={ele} drawerType={drawerType} />;
                   })
                 }
@@ -75,7 +75,7 @@ function AccordionNTH({ data, type,drawerType }) {
               ) : (
                 <>
                   {data.contents.map((ele, index) => {
-                    return <Accordion key={index} data={ele} />;
+                    return <Accordion key={index} data={ele} drawerType={drawerType} />;
                   })}
                 </>
               )}

@@ -7,7 +7,8 @@ import Accordion from "../components/accordion/Accordion";
 import NormalData from "../components/normalData/NormalData";
 import FormContainer from "../components/formContainer/FormContainer";
 import InputText from "../components/gridContent/inputText/InputText";
-import Dropdown from "../components/gridContent/dropdown/Dropdown";
+import DropdownCommon from "./components/dropdown/DropdownCommon";
+// import Dropdown from "../components/gridContent/dropdown/Dropdown";
 
 function IndividualDrawerData({
   individualTabsList,
@@ -145,7 +146,8 @@ function IndividualDrawerData({
                             Document Type
                           </span>
                           {/* dropdown fields */}
-                          <Dropdown items={documentTypes} />
+                          {/* <Dropdown items={documentTypes} /> */}
+                          <DropdownCommon items={documentTypes} />
                         </div>
                         {/* document description */}
                         <div className="document document_description">
@@ -165,6 +167,7 @@ function IndividualDrawerData({
                             text=""
                           />
                         </div>
+                        <div></div>
                       </div>
                       {/* form uploads */}
                       <div

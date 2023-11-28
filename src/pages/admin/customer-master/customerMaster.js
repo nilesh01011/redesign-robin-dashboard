@@ -10,11 +10,12 @@ import Dropdown from "../../../components/dropdown";
 import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
 import Drawer from "./drawer/Drawer";
 import MobileViewDrawer from "./mobileViewDrawer/MobileViewDrawer";
-import TableRedevelop from "../../../components/tableRedevelop/TableRedevelop";
+// import TableRedevelop from "../../../components/tableRedevelop/TableRedevelop";
 
 function CustomerMaster() {
   const theme = useSelector((state) => state.theme);
   const [isActiveTabs, setIsActiveTabs] = useState("");
+
   const [inputFields, setInputFields] = useState("");
   const [tableData, setTableData] = useState([]);
   const [selectDropdownFilterText, setSelectedDropdownFilterText] =
@@ -343,6 +344,8 @@ function CustomerMaster() {
             className="tableContainer"
             style={{
               borderColor: theme === "light" ? "#e6e6e6" : "#232324",
+              // display:"none",
+              overflowX: "scroll",
             }}
           >
             <Table
@@ -400,7 +403,7 @@ function CustomerMaster() {
           {/* left side */}
           <div className="leftSide">
             {/* total length of table data */}
-            <p style={{ color: "#858585", fontSize: 14 }}>
+            <p style={{ color: "#858585", fontSize: 14, whiteSpace: "nowrap" }}>
               Total{" "}
               <span style={{ color: theme === "light" ? "black" : "white" }}>
                 {tableData.length}
@@ -584,10 +587,10 @@ function CustomerMaster() {
       <MobileViewDrawer
         data={drawerData}
         drawerType={drawerType}
-        setDrawerType={setDrawerType}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
         isActiveTabs={isActiveTabs}
+        setDrawerType={setDrawerType}
       />
 
       {/* overlay */}

@@ -24,7 +24,7 @@ function AccordionGridForm({
 
   // const [indicator, setIndicator] = useState(0);
 
-  console.log(showBtns);
+  // console.log(showBtns);
 
   const handleChecked = (id) => {
     checked = !checked;

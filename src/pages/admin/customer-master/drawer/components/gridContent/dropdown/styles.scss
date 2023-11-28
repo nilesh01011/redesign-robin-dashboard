@@ -1,8 +1,8 @@
 .dropdownContainer {
   width: 100%;
   position: relative;
-  max-width: 240px;
-  min-width: 240px;
+  // max-width: 240px;
+  // min-width: 240px;
 
   & .optionsContainer {
     width: 100%;
@@ -30,7 +30,7 @@
   //   dropdownMenuList
   & .dropdownMenuList {
     position: absolute;
-    top:125%;
+    top: 125%;
     width: 100%;
     height: fit-content;
     left: 0;
@@ -38,26 +38,33 @@
     z-index: 5;
     padding: 8px;
     border-radius: 4px;
-    border:1px solid;
+    border: 1px solid;
     display: flex;
     flex-direction: column;
     gap: 4px;
 
     & .listChild {
-        cursor: pointer;
-        font-size: 14px;
-        padding:5px 10px;
-        border-radius: 2px;
-        user-select: none;
-        text-transform: capitalize;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 2px;
+      user-select: none;
+      text-transform: capitalize;
 
-        &.lightTheme:hover {
-            background: #F2F2F2;
-        }
+      &.lightTheme:hover {
+        background: #f2f2f2;
+      }
 
-        &.darkTheme:hover {
-            background: #232324;
-        }
+      &.darkTheme:hover {
+        background: #232324;
+      }
     }
+  }
+}
+
+// media queries
+@media screen and (max-width: 992px) {
+  .dropdownContainer .optionsContainer {
+    margin-top: 6px;
   }
 }

@@ -418,10 +418,10 @@ function Sidebar() {
           className="themeContainer mobileViewThemeWrapper"
           style={{
             backgroundColor: theme === "light" ? "#F2F2F2" : "#232324",
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
+            // position: "absolute",
+            // bottom: 0,
+            // left: 0,
+            // right: 0,
           }}
         >
           <div

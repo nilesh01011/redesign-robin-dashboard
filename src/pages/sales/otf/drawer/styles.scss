@@ -375,7 +375,8 @@
             }
 
             & .formContainer {
-              padding: 20px 30px;
+              padding: 20px;
+              // padding: 20px 30px;
               // padding-top: 0;
               border-radius: 8px;
               display: flex;
@@ -393,7 +394,7 @@
           & .accordion {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
           }
 
           & .form {

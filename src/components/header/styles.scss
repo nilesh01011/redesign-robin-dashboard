@@ -355,6 +355,20 @@
   cursor: pointer;
 }
 
+// user dropdown lists overlay
+#overlay_2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: none;
+  z-index: 99997;
+  cursor: pointer;
+}
+
 // media queries
 @media screen and (max-width: 1366px) {
 .header {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import GridContent from "../../gridContent/GridContent";
 
-function Accordion({ data }) {
+function Accordion({ data,drawerType }) {
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
   return (
@@ -80,7 +80,7 @@ function Accordion({ data }) {
           {data.contents.map((ele, index) => {
             return ele.contents.map((el,index) => {
                 // console.log(el)
-                return <GridContent data={el} key={index} />
+                return <GridContent data={el} key={index} drawerType={drawerType} />
             })
           })}
         </div>

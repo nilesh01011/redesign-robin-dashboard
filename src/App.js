@@ -26,6 +26,11 @@ import VehicleAllotment from "./pages/favourites/vehicle-allotment/VehicleAllotm
 import CoTEKEvaluation from "./pages/hr/manage-dealer-manpower/coTEK-evaluation/CoTEKEvaluation";
 import ManageDealers from "./pages/hr/manage-dealers/ManageDealers";
 import ManageManpowerTraining from "./pages/hr/manage-manpower-training/ManageManpowerTraining";
+import VinBlockMaster from "./pages/sales/vin-block-master/VinBlockMaster";
+import DeliveryNoteRequest from "./pages/sales/orderToDelivery/deliveryNoteInvoiceCancellationRequest/DeliveryNoteRequest";
+import DeliveryNoteVehicles from "./pages/sales/orderToDelivery/deliveryNoteVehicles/DeliveryNoteVehicles";
+import VehiclesAllotment from "./pages/sales/orderToDelivery/vehiclesAllotment/VehiclesAllotment";
+import VehiclesPricesMaster from "./pages/sales/vehiclesPrices/vehiclePriceMaster/VehiclesPricesMaster";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -84,11 +89,17 @@ function App() {
         )}
         {/* </div> */}
 
-        <div
+        {/* <div
           style={{ display: modelListDetails ? "block" : "none" }}
           id="overlay"
           onClick={handleClosed}
-        ></div>
+        ></div> */}
+        {/* overlay */}
+        <div
+          style={{ display: modelListDetails ? "block" : "none",backgroundColor:theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(84, 84, 84,0.7)" }}
+          id="overlay_2"
+          onClick={handleClosed}
+        ></div> 
         {/* main contents */}
         <Routes>
           {/* =================== dashboard ============= */}
@@ -132,15 +143,45 @@ function App() {
             element={<ManageManpowerTraining />}
           ></Route>
 
+          {/* ================= Sales ================ */}
+          {/* OTD */}
+          <Route
+            path="/sales/order-to-delivery/booking-form"
+            element={<OTF />}
+          ></Route>
+
+          {/* delivery-note-invoice-cancellation-request */}
+          <Route
+            path="/sales/order-to-delivery/delivery-note-invoice-cancellation-request"
+            element={<DeliveryNoteRequest />}
+          ></Route>
+
+          {/* delivery-note-vehicles */}
+          <Route
+            path="/sales/order-to-delivery/delivery-note-vehicles"
+            element={<DeliveryNoteVehicles />}
+          ></Route>
+          {/* vehicles-allotment */}
+          <Route
+            path="/sales/order-to-delivery/vehicles-allotment"
+            element={<VehiclesAllotment />}
+          ></Route>
+          {/* vehicle-price */}
+          <Route
+            path="/Sales/vehicle-price/vehicle-price-master"
+            element={<VehiclesPricesMaster />}
+          ></Route>
+
+          {/* vin-block-master */}
+          <Route
+            path="/sales/vin-block-master"
+            element={<VinBlockMaster />}
+          ></Route>
+
           {/* ================= Admin ================ */}
           <Route
             path="/admin/customer-master"
             element={<CustomerMaster />}
-          ></Route>
-
-          <Route
-            path="/sales/order-to-delivery/booking-form"
-            element={<OTF />}
           ></Route>
         </Routes>
         {/* Footer */}

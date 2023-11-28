@@ -7,13 +7,22 @@ import AccordionGridForm from "../drawer/components/accordionGridForm/AccordionG
 import Accordion from "../drawer/components/accordion/Accordion";
 import NormalData from "../drawer/components/normalData/NormalData";
 import FormContainer from "../drawer/components/formContainer/FormContainer";
+import IndividualDrawerData from "../drawer/individualDrawerData/IndividualDrawerData";
+import FirmAndCorporate from "../drawer/firmAndCorporate/FirmAndCorporate";
 // import GridContent from "../drawer/gridContent/GridContent";
 // import AccordionGridForm from "../drawer/accordionGridForm/AccordionGridForm";
 // import Accordion from "../drawer/accordion/Accordion";
 // import NormalData from "../drawer/components/normalData/NormalData";
 // import FormContainer from "../drawer/components/formContainer/FormContainer";
 
-function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
+function MobileViewDrawer({
+  isActiveTabs,
+  drawerType,
+  data,
+  isDrawerOpen,
+  setIsDrawerOpen,
+  setDrawerType,
+}) {
   const theme = useSelector((state) => state.theme);
   const userNameSplit = data.two ? data.two?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
@@ -25,9 +34,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
 
   //   console.log(drawerType)
 
-  const [contentsType, setContentsType] = useState("gridContents");
+  const [contentsType, setContentsType] = useState(
+    isActiveTabs === "Individual" ? "gridAndAccordion" : "gridContents"
+  );
   const [tabsStatus, setTabsStatus] = useState(1);
 
+  const num = 1;
+
+  // Firm/Corporate drawer items
   const tabsList = useMemo(() => {
     return [
       {
@@ -38,53 +52,134 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
           {
             title: "Mobile Number",
             text: data.four,
+            inputType: "phoneNumber",
+            placeholder: "Enter Mobile Number",
+            input: "tel",
+            notEdit: true,
           },
           {
             title: "Customer Type",
             text: data.three,
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Corporate",
+              },
+              {
+                name: "XYZ Corporate",
+              },
+              {
+                name: "XYZ Corporate 2",
+              },
+            ],
           },
-          {
-            title: "Email Address",
-            text: data.five,
-          },
+          // {
+          //   title: "",
+          //   text: "",
+          // },
           {
             title: "Company Name",
             text: "Company Name",
+            inputType: "text",
+            placeholder: "Enter Company name",
+            input: "text",
           },
           {
             title: "Parent Company Code",
             text: `M${data.one}`,
+            inputType: "number",
+            placeholder: "Enter Company Code",
+            input: "text",
           },
           {
             title: "Parent Company Name",
             text: "Parent Company Name",
+            inputType: "disabled",
+            input: "text",
           },
           {
             title: "Corporate Type",
             text: "Listed",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Listed",
+              },
+              {
+                name: "Not Listed",
+              },
+            ],
           },
           {
             title: "Corporate Name",
             text: "XYZ Corporate Name",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "XYZ Corporate Name",
+              },
+              {
+                name: "XYZ Corporate Name 2",
+              },
+              {
+                name: "XYZ Corporate Name 3",
+              },
+              {
+                name: "XYZ Corporate Name 4",
+              },
+            ],
           },
           {
             title: "Corporate Code",
             text: "222",
+            inputType: "disabled",
+            input: "number",
           },
 
           {
             title: "Corporate Category",
             text: "C1",
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "C1",
+              },
+              {
+                name: "C2",
+              },
+              {
+                name: "C3",
+              },
+              {
+                name: "C4",
+              },
+            ],
           },
           {
             title: "Membership Type",
             text: data.six,
+            inputType: "dropdown",
+            dropdownList: [
+              {
+                name: "Golden",
+              },
+              {
+                name: "Silver",
+              },
+              {
+                name: "Diamond",
+              },
+            ],
           },
+          // {
+          //   title: "",
+          //   text: "",
+          // },
         ],
       },
       {
         key: 2,
-        name: "Customer Profile",
+        name: `Customer Profile`,
         type: "accordion",
         default: "accordion",
         contents: [
@@ -94,23 +189,66 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             contents: [
               {
                 title: "PAN",
-                text: "CFG46478" + data.length + 1,
+                text: `CFG46478${num + 1}`,
+                inputType: "text",
+                placeholder: "Enter PAN number",
+                input: "text",
               },
               {
                 title: "GSTIN",
-                text: "CFG4554564787",
+                text: `CFG46478${num + 1}`,
+                inputType: "text",
+                placeholder: "Enter GSTIN number",
+                input: "text",
               },
+              // {
+              //   title: "",
+              //   text: "",
+              // },
               {
                 title: "Usage/Application Categorization",
                 text: "Application category",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Usage category",
+                  },
+                  {
+                    name: "Usage category 2",
+                  },
+                  {
+                    name: "Usage category 3",
+                  },
+                ],
               },
               {
                 title: "Usage/Application Sub-Category",
                 text: "Sub Category",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "sub category",
+                  },
+                  {
+                    name: "sub category 2",
+                  },
+                  {
+                    name: "sub category 3",
+                  },
+                ],
               },
               {
                 title: "Customer Category",
                 text: "Common",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "common",
+                  },
+                  {
+                    name: "fleet",
+                  },
+                ],
               },
             ],
           },
@@ -121,22 +259,23 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 title: "M1-MMFSL",
                 text: "mmfl_id",
+                inputType: "text",
+                placeholder: "Enter M1-MMFSL",
+                input: "text",
               },
               {
                 title: "Facebook link",
-                text: "CFG4554564787",
+                text: "http://www.facebook.com/vimal_kumar",
+                inputType: "text",
+                placeholder: "Enter Facebook link",
+                input: "text",
               },
               {
-                title: "Usage/Application Categorization",
-                text: "Application category",
-              },
-              {
-                title: "Usage/Application Sub-Category",
-                text: "Sub Category",
-              },
-              {
-                title: "Customer Category",
-                text: "Common",
+                title: "Twitter link",
+                text: "http://www.twitter.com/vimal",
+                inputType: "text",
+                placeholder: "Enter Twitter link",
+                input: "text",
               },
             ],
           },
@@ -147,23 +286,33 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 title: "Account Code",
                 text: "CFG464787",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Account Name",
                 text: "Koncept",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Account Segment",
                 text: "Firm",
+                inputType: "disabled",
+                input: "text",
               },
 
               {
                 title: "Account Client Name",
                 text: "Pal Singh",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Account Mapping Date",
                 text: "12 Apr 2023",
+                inputType: "disabled",
+                input: "text",
               },
             ],
           },
@@ -174,18 +323,31 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 title: "Name Of Person",
                 text: "Vimal Kumar",
+                inputType: "text",
+                placeholder: "Enter person name",
+                input: "text",
               },
               {
                 title: "Position",
                 text: "Manager",
+                inputType: "text",
+                placeholder: "Enter position",
+                input: "text",
               },
               {
                 title: "Company Name",
                 text: "Koncept",
+                inputType: "text",
+                placeholder: "Enter company name",
+                input: "text",
               },
               {
-                title: "Remarks",
+                title:
+                  drawerType === "view" ? "Remarks" : "Account Client Name",
                 text: "This is Remark Dummy text",
+                inputType: "text",
+                placeholder: "Enter person name",
+                input: "text",
               },
             ],
           },
@@ -206,6 +368,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         type: "accordion",
         title: "Company Address",
         default: "accordionTwo",
+        checkedBox: true,
         contents: [
           {
             title: "Office",
@@ -215,46 +378,79 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               {
                 title: "Address Type",
                 text: "Office",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Office",
+                  },
+                  {
+                    name: "Home",
+                  },
+                ],
               },
               {
                 title: "Address Line 1",
                 text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 1",
+                input: "text",
               },
               {
                 title: "Address Line 2",
                 text: "A-463,15th Cross Street",
-              },
-              {
-                title: "Tehsil",
-                text: "B6G431",
+                inputType: "text",
+                placeholder: "Enter address line 2",
+                input: "text",
               },
               {
                 title: "Pin Code",
                 text: "400001",
+                inputType: "text",
+                placeholder: "Enter Pin Code",
+                input: "text",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City",
                 text: "Noida",
+                inputType: "disabled",
+                input: "text",
               },
-
               {
                 title: "District",
                 text: "Gautam Budh Nagar",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "State",
                 text: "Uttar Pradesh",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Contact Name",
                 text: "Arvind Kumar",
+                inputType: "text",
+                placeholder: "Enter contact name",
+                input: "text",
               },
               {
                 title: "Contact Mobile No.",
-                text: "+91-9893473843",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
             ],
             checked: true,
+            showSubmitResetBtn: true,
           },
           {
             title: "Joe’s Home",
@@ -263,47 +459,80 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             contents: [
               {
                 title: "Address Type",
-                text: "Office",
+                text: "Home",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Home",
+                  },
+                  {
+                    name: "Office",
+                  },
+                ],
               },
               {
                 title: "Address Line 1",
                 text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 1",
+                input: "text",
               },
               {
                 title: "Address Line 2",
                 text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 2",
+                input: "text",
+              },
+              {
+                title: "Pin Code",
+                text: "400003",
+                inputType: "text",
+                placeholder: "Enter Pin Code",
+                input: "text",
               },
               {
                 title: "Tehsil",
                 text: "B6G431",
-              },
-              {
-                title: "Pin Code",
-                text: "400001",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "City",
                 text: "Noida",
+                inputType: "disabled",
+                input: "text",
               },
-
               {
                 title: "District",
                 text: "Gautam Budh Nagar",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "State",
                 text: "Uttar Pradesh",
+                inputType: "disabled",
+                input: "text",
               },
               {
                 title: "Contact Name",
                 text: "Arvind Kumar",
+                inputType: "text",
+                placeholder: "Enter contact name",
+                input: "text",
               },
               {
                 title: "Contact Mobile No.",
-                text: "+91-9893473843",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
               },
             ],
             checked: false,
+            showSubmitResetBtn: true,
           },
         ],
       },
@@ -313,6 +542,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
         type: "accordion",
         title: "Company Contacts",
         default: "accordionTwo",
+        checkedBox: true,
         contents: [
           {
             title: "Vimal Pal Kumar",
@@ -334,68 +564,140 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   {
                     title: "Purpose of Contact",
                     text: "Payment",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Payment",
+                      },
+                      {
+                        name: "Payment 2",
+                      },
+                      {
+                        name: "Payment 3",
+                      },
+                    ],
                   },
                   {
                     title: "Mobile Number",
                     text: "9813241244",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Alternate Mobile Number",
                     text: "9485784596",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Alternate Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Designation",
                     text: "Manager",
+                    inputType: "text",
+                    placeholder: "Enter Designation",
+                    input: "text",
                   },
                   {
                     title: "Gender",
                     text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "Female",
+                      },
+                    ],
                   },
                   {
                     title: "Title",
                     text: "Mr.",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Mr.",
+                      },
+                      {
+                        name: "Mrs.",
+                      },
+                      {
+                        name: "Mis.",
+                      },
+                    ],
                   },
 
                   {
                     title: "First Name",
                     text: "Vimal",
+                    inputType: "text",
+                    placeholder: "Enter first name",
+                    input: "text",
                   },
                   {
                     title: "Middle Name",
                     text: "Pal",
+                    inputType: "text",
+                    placeholder: "Enter middle name",
+                    input: "text",
                   },
                   {
                     title: "Last/Surname",
                     text: "Kumar",
+                    inputType: "text",
+                    placeholder: "Enter surmename",
+                    input: "text",
                   },
                   {
                     title: "E-Mail",
                     text: "vimal@gmail.com",
+                    inputType: "text",
+                    placeholder: "Enter email address",
+                    input: "email",
                   },
                   {
                     title: "Facebook Link",
                     text: "http://www.facebook.com",
+                    inputType: "text",
+                    placeholder: "Enter facebook link",
+                    input: "text",
                   },
                   {
                     title: "Twitter Link",
                     text: "http://www.twitter.com",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
                   },
                   {
                     title: "Instagram Link",
                     text: "http://www.instagram.com",
+                    inputType: "text",
+                    placeholder: "Enter instagram link",
+                    input: "text",
                   },
                   {
                     title: "Youtube Channel",
                     text: "http://www.youtube.com",
+                    inputType: "text",
+                    placeholder: "Enter youTube link",
+                    input: "text",
                   },
                   {
                     title: "Team BHP Link",
                     text: "http://www.bhp.com",
+                    inputType: "text",
+                    placeholder: "Enter team BHP link",
+                    input: "text",
                   },
                 ],
               },
             ],
             checked: true,
+            showSubmitResetBtn: true,
           },
           {
             title: "Vimal Pal Kumar 2",
@@ -417,68 +719,138 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   {
                     title: "Purpose of Contact",
                     text: "Payment",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Payment",
+                      },
+                      {
+                        name: "Payment 2",
+                      },
+                      {
+                        name: "Payment 3",
+                      },
+                    ],
                   },
                   {
                     title: "Mobile Number",
                     text: "9813241244",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Alternate Mobile Number",
                     text: "9485784596",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Alternate Mobile Number",
+                    input: "tel",
+                    notEdit: false,
                   },
                   {
                     title: "Designation",
                     text: "Manager",
+                    placeholder: "Enter Designation",
+                    input: "text",
                   },
                   {
                     title: "Gender",
                     text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "Female",
+                      },
+                    ],
                   },
                   {
                     title: "Title",
                     text: "Mr.",
+                    dropdownList: [
+                      {
+                        name: "Mr.",
+                      },
+                      {
+                        name: "Mrs.",
+                      },
+                      {
+                        name: "Mis.",
+                      },
+                    ],
                   },
 
                   {
                     title: "First Name",
                     text: "Vimal",
+                    placeholder: "Enter first name",
+                    input: "text",
+                    inputType: "text",
                   },
                   {
                     title: "Middle Name",
                     text: "Pal",
+                    inputType: "text",
+                    placeholder: "Enter middle name",
+                    input: "text",
                   },
                   {
                     title: "Last/Surname",
                     text: "Kumar",
+                    inputType: "text",
+                    placeholder: "Enter surmename",
+                    input: "text",
                   },
                   {
                     title: "E-Mail",
                     text: "vimal@gmail.com",
+                    inputType: "text",
+                    placeholder: "Enter email address",
+                    input: "email",
                   },
                   {
                     title: "Facebook Link",
                     text: "http://www.facebook.com",
+                    placeholder: "Enter facebook link",
+                    input: "text",
+                    inputType: "text",
                   },
                   {
                     title: "Twitter Link",
                     text: "http://www.twitter.com",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                    inputType: "text",
                   },
                   {
                     title: "Instagram Link",
                     text: "http://www.instagram.com",
+                    placeholder: "Enter instagram link",
+                    input: "text",
+                    inputType: "text",
                   },
                   {
                     title: "Youtube Channel",
                     text: "http://www.youtube.com",
+                    placeholder: "Enter youTube link",
+                    input: "text",
+                    inputType: "text",
                   },
                   {
                     title: "Team BHP Link",
                     text: "http://www.bhp.com",
+                    placeholder: "Enter team BHP link",
+                    input: "text",
+                    inputType: "text",
                   },
                 ],
               },
             ],
             checked: false,
+            showSubmitResetBtn: true,
           },
         ],
       },
@@ -496,22 +868,37 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   {
                     title: "Credit Limit",
                     text: "2500000000",
+                    placeholder: "Enter Credit Limit",
+                    input: "text",
+                    inputType: "number",
                   },
                   {
                     title: "Credit Limit Days",
                     text: "90",
+                    placeholder: "Enter Credit Limit Days",
+                    input: "text",
+                    inputType: "text",
                   },
                   {
                     title: "Outstanding Amount",
                     text: "150000000",
+                    placeholder: "Enter Outstanding Amount",
+                    input: "text",
+                    inputType: "number",
                   },
                   {
                     title: "Parts Discount %",
                     text: "25",
+                    placeholder: "Enter Parts Discount %",
+                    input: "text",
+                    inputType: "number",
                   },
                   {
                     title: "Labour Discount %",
                     text: "29",
+                    placeholder: "Enter Labour Discount %",
+                    input: "text",
+                    inputType: "number",
                   },
                 ],
               },
@@ -522,6 +909,9 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                     title: "Remark",
                     text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
                     VIPDealerChecked: true,
+                    placeholder: "Enter remarks",
+                    input: "text",
+                    inputType: "text",
                   },
                 ],
               },
@@ -545,17 +935,1333 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
       },
     ];
   }, [data]);
+  // Individual drawer items
+  const individualTabsList = useMemo(() => {
+    return [
+      {
+        key: 1,
+        name: "Customer Details",
+        type: "gridAndAccordion",
+        contents: [
+          {
+            type: "gridContents",
+            contents: [
+              {
+                title: "Mobile Number",
+                text: data.four,
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: true,
+              },
+              {
+                title: "Customer Type",
+                text: data.three,
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Corporate",
+                  },
+                  {
+                    name: "XYZ Corporate",
+                  },
+                  {
+                    name: "XYZ Corporate 2",
+                  },
+                ],
+                disabled: true,
+              },
+              {
+                title: "Email Address",
+                text: data.five,
+                inputType: "text",
+                placeholder: "Enter email address",
+                input: "email",
+              },
+            ],
+          },
+          {
+            divider: true,
+          },
+          {
+            type: "customerNameAccordion",
+            default: "accordion",
+            name: "Customer Name",
+            contents: [
+              {
+                name: "Mr. Arvindam Pal Singh",
+                status: "Approved",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Title",
+                        text: "Mr.",
+                        inputType: "dropdown",
+                        dropdownList: [
+                          {
+                            name: "Mr.",
+                          },
+                          {
+                            name: "Mrs.",
+                          },
+                          {
+                            name: "Miss.",
+                          },
+                        ],
+                      },
+                      {
+                        title: "First name",
+                        text: "Vimal",
+                        inputType: "text",
+                        placeholder: "Enter first name",
+                        input: "text",
+                      },
+                      {
+                        title: "Middle Name",
+                        text: "Pal",
+                        inputType: "text",
+                        placeholder: "Enter middle name",
+                        input: "text",
+                      },
+                      {
+                        title: "Last Name",
+                        text: "Singh",
+                        inputType: "text",
+                        placeholder: "Enter last name",
+                        input: "text",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "Mr. Customer Name 2",
+                status: "Approved",
+                contents: [
+                  {
+                    type: "gridContents",
+                    contents: [
+                      {
+                        title: "Title",
+                        text: "Mr.",
+                        inputType: "dropdown",
+                        dropdownList: [
+                          {
+                            name: "Mr.",
+                          },
+                          {
+                            name: "Mrs.",
+                          },
+                          {
+                            name: "Miss.",
+                          },
+                        ],
+                      },
+                      {
+                        title: "First name",
+                        text: "Vimal",
+                        inputType: "text",
+                        placeholder: "Enter first name",
+                        input: "text",
+                      },
+                      {
+                        title: "Middle Name",
+                        text: "Pal",
+                        inputType: "text",
+                        placeholder: "Enter middle name",
+                        input: "text",
+                      },
+                      {
+                        title: "Last Name",
+                        text: "Singh",
+                        inputType: "text",
+                        placeholder: "Enter last name",
+                        input: "text",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            divider: true,
+          },
+          {
+            type: "whatAppsGrid",
+            contents: [
+              {
+                title: "Can we contact you over WhatsApp?",
+                switchStatus: true,
+                activeStatus: true,
+              },
+              {
+                title: "Want to use Mobile no. as WhatsApp no.?",
+                switchStatus: true,
+                activeStatus: false,
+              },
+              {
+                title: "WhatsApp Number",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: true,
+              },
+            ],
+          },
+          {
+            divider: true,
+          },
+          {
+            type: "gridContents",
+            contents: [
+              // {
+              //   title: "Company Name",
+              //   text: "Company Name",
+              // },
+              // {
+              //   title: "Parent Company Code",
+              //   text: `M${data.one}`,
+              // },
+              // {
+              //   title: "Parent Company Name",
+              //   text: "Parent Company Name",
+              // },
+              {
+                title: "Corporate Type",
+                text: "Listed",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Listed",
+                  },
+                  {
+                    name: "Unlisted",
+                  },
+                ],
+              },
+              {
+                title: "Corporate Name",
+                text: "XYZ Corporate Name",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "XYZ Corporate Name",
+                  },
+                  {
+                    name: "XYZ Corporate Name 2",
+                  },
+                ],
+              },
+              {
+                title: "Corporate Code",
+                text: "222",
+                inputType: "disabled",
+                input: "text",
+              },
+
+              {
+                title: "Corporate Category",
+                text: "C1",
+                position: "top",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "C1",
+                  },
+                  {
+                    name: "C2",
+                  },
+                ],
+              },
+              {
+                title: "Membership Type",
+                text: data.six,
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Golden",
+                  },
+                  {
+                    name: "Silver",
+                  },
+                  {
+                    name: "Diamond",
+                  },
+                ],
+                position: "top",
+              },
+              // {
+              //   title: "",
+              //   text: "",
+              // },
+            ],
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: "Individual Profile",
+        type: "accordion",
+        default: "accordion",
+        contents: [
+          {
+            title: "Individual Information",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            contents: [
+              {
+                type: "form",
+                contents: [
+                  {
+                    userImg: USERIMG,
+                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
+                  },
+                ],
+              },
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Date Of Birth",
+                    text: "12 Dec 1990",
+                    inputType: "text",
+                    placeholder: "Enter Date Of Birth",
+                    input: "date",
+                  },
+                  {
+                    title: "Gender",
+                    text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "Female",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Marital Status",
+                    text: "Single",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Single",
+                      },
+                      {
+                        name: "Unmarried",
+                      },
+                      {
+                        name: "Married",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Wedding Anniversary Date",
+                    text: "NA",
+                    inputType: "text",
+                    placeholder: "Enter Wedding Anniversary Date",
+                    input: "date",
+                  },
+                  {
+                    title: "Occupation",
+                    text: "Business",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Business",
+                      },
+                      {
+                        name: "Employees",
+                      },
+                      {
+                        name: "Unemployed",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Annual income",
+                    text: "5-10 Lakhs",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "5-10 Lakhs",
+                      },
+                      {
+                        name: "10-15 Lakhs",
+                      },
+                      {
+                        name: "20-25 Lakhs",
+                      },
+                    ],
+                  },
+
+                  {
+                    title: "Driving License No.",
+                    text: "UP1620195565156",
+                    inputType: "text",
+                    placeholder: "Enter driving license number",
+                    input: "text",
+                  },
+                  {
+                    title: "Aadhar No.",
+                    text: "8347 8334 4780",
+                    inputType: "text",
+                    placeholder: "Enter aadhar number",
+                    input: "text",
+                  },
+                  {
+                    title: "Voter ID",
+                    text: "FJLTLP1548156",
+                    inputType: "text",
+                    placeholder: "Enter voter id number",
+                    input: "text",
+                  },
+                  {
+                    title: "Vehicle Used",
+                    text: "Self-Driven",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Self-Driven",
+                      },
+                      {
+                        name: "Undrive",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Mother Tongue",
+                    text: "Hindi",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Hindi",
+                      },
+                      {
+                        name: "Marathi",
+                      },
+                      {
+                        name: "English",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Religion",
+                    text: "Hindu",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Hindu",
+                      },
+                      {
+                        name: "Islam",
+                      },
+                      {
+                        name: "Buddhism",
+                      },
+                      {
+                        name: "No religion",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Social Profiles",
+            type: "gridContents",
+            contents: [
+              {
+                title: "M1-MMFSL",
+                text: "mmfl_id",
+                inputType: "text",
+                placeholder: "Enter MMFSL ID",
+                input: "text",
+              },
+              {
+                title: "Facebook link",
+                text: "http://www.facebook.com/vimal",
+                inputType: "text",
+                placeholder: "Enter facebook link",
+                input: "text",
+              },
+              {
+                title: "Twitter link",
+                text: "http://www.twitter.com/vimal",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
+              },
+              {
+                title: "Instagram Link",
+                text: "http://www.instagram.com/vimhal",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
+              },
+              {
+                title: "Youtube Channel",
+                text: "http://www.youtube.com/vimal",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
+              },
+              {
+                title: "Team BHP Link",
+                text: "http://www.bhp.com/vimal875",
+                inputType: "text",
+                placeholder: "Enter twitter link",
+                input: "text",
+              },
+            ],
+          },
+          {
+            title: "Key Account Details",
+            type: "gridContents",
+            contents: [
+              {
+                title: "Account Code",
+                text: "CFG464787",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "Account Name",
+                text: "Koncept",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "Account Segment",
+                text: "Firm",
+                inputType: "disabled",
+                input: "text",
+              },
+
+              {
+                title: "Account Client Name",
+                text: "Pal Singh",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "Account Mapping Date",
+                text: "12 Apr 2023",
+                inputType: "disabled",
+                input: "text",
+              },
+            ],
+          },
+          {
+            title: "Authority Details (Who Knows Whom)",
+            type: "gridContents",
+            contents: [
+              {
+                title: "Name Of Person",
+                text: "Vimal Kumar",
+                inputType: "number",
+                placeholder: "Enter person name",
+                input: "text",
+              },
+              {
+                title: "Position",
+                text: "Manager",
+                inputType: "number",
+                placeholder: "Enter designation",
+                input: "text",
+              },
+              {
+                title: "Company Name",
+                text: "Koncept",
+                inputType: "number",
+                placeholder: "Enter company name",
+                input: "text",
+              },
+              {
+                title: "Remarks",
+                text: "This is Remark Dummy text",
+                inputType: "number",
+                placeholder: "Enter remarks description",
+                input: "text",
+              },
+            ],
+          },
+          {
+            title: "Upload Customer Form",
+            type: "form",
+            contents: [
+              {
+                title: "Customer Form.pdf",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        key: 3,
+        name: "Address",
+        title: "Individual Address",
+        type: "accordion",
+        default: "accordionTwo",
+        checkedBox: true,
+        contents: [
+          {
+            title: "Office",
+            type: "gridContents",
+            addressType: "Office",
+            contents: [
+              {
+                title: "Address Type",
+                text: "Office",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Office",
+                  },
+                  {
+                    name: "Home",
+                  },
+                ],
+              },
+              {
+                title: "Address Line 1",
+                text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 1",
+                input: "text",
+              },
+              {
+                title: "Address Line 2",
+                text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 2",
+                input: "text",
+              },
+              {
+                title: "Pin Code",
+                text: "400001",
+                inputType: "text",
+                placeholder: "Enter Pin Code",
+                input: "text",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "City",
+                text: "Noida",
+                inputType: "disabled",
+                input: "text",
+              },
+
+              {
+                title: "District",
+                text: "Gautam Budh Nagar",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "State",
+                text: "Uttar Pradesh",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "Contact Name",
+                text: "Arvind Kumar",
+                inputType: "text",
+                placeholder: "Enter contact name",
+                input: "text",
+              },
+              {
+                title: "Contact Mobile No.",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
+              },
+            ],
+            checked: true,
+          },
+          {
+            title: "Joe’s Home",
+            type: "gridContents",
+            addressType: "Other",
+            contents: [
+              {
+                title: "Address Type",
+                text: "Office",
+                inputType: "dropdown",
+                dropdownList: [
+                  {
+                    name: "Home",
+                  },
+                  {
+                    name: "Office",
+                  },
+                ],
+              },
+              {
+                title: "Address Line 1",
+                text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 1",
+                input: "text",
+              },
+              {
+                title: "Address Line 2",
+                text: "A-463,15th Cross Street",
+                inputType: "text",
+                placeholder: "Enter address line 2",
+                input: "text",
+              },
+              {
+                title: "Pin Code",
+                text: "400001",
+                inputType: "text",
+                placeholder: "Enter Pin Code",
+                input: "text",
+              },
+              {
+                title: "Tehsil",
+                text: "B6G431",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "City",
+                text: "Noida",
+                inputType: "disabled",
+                input: "text",
+              },
+
+              {
+                title: "District",
+                text: "Gautam Budh Nagar",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "State",
+                text: "Uttar Pradesh",
+                inputType: "disabled",
+                input: "text",
+              },
+              {
+                title: "Contact Name",
+                text: "Arvind Kumar",
+                inputType: "text",
+                placeholder: "Enter contact name",
+                input: "text",
+              },
+              {
+                title: "Contact Mobile No.",
+                text: "9893473843",
+                inputType: "phoneNumber",
+                placeholder: "Enter Mobile Number",
+                input: "tel",
+                notEdit: false,
+              },
+            ],
+            checked: false,
+          },
+        ],
+      },
+      {
+        key: 4,
+        name: "Contacts",
+        type: "accordion",
+        title: "Individual Contact",
+        default: "accordionTwo",
+        checkedBox: true,
+        contents: [
+          {
+            title: "Vimal Pal Kumar",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            checked: true,
+            contents: [
+              {
+                type: "form",
+                contents: [
+                  {
+                    userImg: USERIMG,
+                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
+                  },
+                ],
+              },
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Purpose of Contact",
+                    text: "Payment",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Payment",
+                      },
+                      {
+                        name: "Payment 1",
+                      },
+                      {
+                        name: "Payment 2",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Mobile Number",
+                    text: "9813241244",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
+                  },
+                  {
+                    title: "Alternate Mobile Number",
+                    text: "9485784596",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
+                  },
+                  {
+                    title: "Designation",
+                    text: "Manager",
+                    inputType: "text",
+                    placeholder: "Enter Designation",
+                    input: "text",
+                  },
+                  {
+                    title: "Gender",
+                    text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "female",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Title",
+                    text: "Mr.",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Mr.",
+                      },
+                      {
+                        name: "Mrs.",
+                      },
+                      {
+                        name: "Miss.",
+                      },
+                    ],
+                  },
+
+                  {
+                    title: "First Name",
+                    text: "Vimal",
+                    inputType: "text",
+                    placeholder: "Enter first name",
+                    input: "text",
+                  },
+                  {
+                    title: "Middle Name",
+                    text: "Pal",
+                    inputType: "text",
+                    placeholder: "Enter middle name",
+                    input: "text",
+                  },
+                  {
+                    title: "Last/Surname",
+                    text: "Kumar",
+                    inputType: "text",
+                    placeholder: "Enter last name",
+                    input: "text",
+                  },
+                  {
+                    title: "E-Mail",
+                    text: "vimal@gmail.com",
+                    inputType: "text",
+                    placeholder: "Enter email address",
+                    input: "email",
+                  },
+                  {
+                    title: "Facebook Link",
+                    text: "http://www.facebook.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter facebook link",
+                    input: "text",
+                  },
+                  {
+                    title: "Twitter Link",
+                    text: "http://www.twitter.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                  {
+                    title: "Instagram Link",
+                    text: "http://www.instagram.com/vimhal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                  {
+                    title: "Youtube Channel",
+                    text: "http://www.youtube.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                  {
+                    title: "Team BHP Link",
+                    text: "http://www.bhp.com/vimal875",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Vimal Pal Kumar 2",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            checked: false,
+            contents: [
+              {
+                type: "form",
+                contents: [
+                  {
+                    userImg: AVATAR,
+                    text: "File type should be .png and .jpg  and max file size to be 5Mb",
+                  },
+                ],
+              },
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Purpose of Contact",
+                    text: "Payment",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Payment",
+                      },
+                      {
+                        name: "Payment 1",
+                      },
+                      {
+                        name: "Payment 2",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Mobile Number",
+                    text: "9813241244",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
+                  },
+                  {
+                    title: "Alternate Mobile Number",
+                    text: "9485784596",
+                    inputType: "phoneNumber",
+                    placeholder: "Enter Mobile Number",
+                    input: "tel",
+                    notEdit: false,
+                  },
+                  {
+                    title: "Designation",
+                    text: "Manager",
+                    inputType: "text",
+                    placeholder: "Enter Designation",
+                    input: "text",
+                  },
+                  {
+                    title: "Gender",
+                    text: "Male",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Male",
+                      },
+                      {
+                        name: "female",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Title",
+                    text: "Mr.",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Mr.",
+                      },
+                      {
+                        name: "Mrs.",
+                      },
+                      {
+                        name: "Miss.",
+                      },
+                    ],
+                  },
+
+                  {
+                    title: "First Name",
+                    text: "Vimal",
+                    inputType: "text",
+                    placeholder: "Enter first name",
+                    input: "text",
+                  },
+                  {
+                    title: "Middle Name",
+                    text: "Pal",
+                    inputType: "text",
+                    placeholder: "Enter middle name",
+                    input: "text",
+                  },
+                  {
+                    title: "Last/Surname",
+                    text: "Kumar",
+                    inputType: "text",
+                    placeholder: "Enter last name",
+                    input: "text",
+                  },
+                  {
+                    title: "E-Mail",
+                    text: "vimal@gmail.com",
+                    inputType: "text",
+                    placeholder: "Enter email address",
+                    input: "email",
+                  },
+                  {
+                    title: "Facebook Link",
+                    text: "http://www.facebook.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter facebook link",
+                    input: "text",
+                  },
+                  {
+                    title: "Twitter Link",
+                    text: "http://www.twitter.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                  {
+                    title: "Instagram Link",
+                    text: "http://www.instagram.com/vimhal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                  {
+                    title: "Youtube Channel",
+                    text: "http://www.youtube.com/vimal",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                  {
+                    title: "Team BHP Link",
+                    text: "http://www.bhp.com/vimal875",
+                    inputType: "text",
+                    placeholder: "Enter twitter link",
+                    input: "text",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        key: 5,
+        name: "Family Details",
+        type: "accordion",
+        title: "Family Details",
+        default: "accordionTwo",
+        contents: [
+          {
+            title: "Vipul Pal Kumar | Father",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            showSubmitResetBtns: true,
+            contents: [
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "M&M Customer",
+                    text: "Yes",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "No",
+                      },
+                      {
+                        name: "Yes",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Customer Name",
+                    text: "Vipul Pal Kumar",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
+                  },
+                  {
+                    title: "Relationship",
+                    text: "Brother",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Father",
+                      },
+                      {
+                        name: "Mother",
+                      },
+                      {
+                        name: "Husband",
+                      },
+                      {
+                        name: "Wife",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Date of Birth",
+                    text: "12 Jan 1997",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "date",
+                  },
+                  {
+                    title: "Age",
+                    text: "45",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
+                  },
+                ],
+              },
+              {
+                type: "flexColumnData",
+                contents: [
+                  {
+                    title: "Remark",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    VIPDealerChecked: true,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Avinash Pal Kumar | Brother",
+            type: "accordionGridForm",
+            addressType: "Payment",
+            showSubmitResetBtns: true,
+            contents: [
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "M&M Customer",
+                    text: "Yes",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "No",
+                      },
+                      {
+                        name: "Yes",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Customer Name",
+                    text: "Vipul Pal Kumar",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
+                  },
+                  {
+                    title: "Relationship",
+                    text: "Brother",
+                    inputType: "dropdown",
+                    dropdownList: [
+                      {
+                        name: "Brother",
+                      },
+                      {
+                        name: "Father",
+                      },
+                      {
+                        name: "Sister",
+                      },
+                      {
+                        name: "Mother",
+                      },
+                      {
+                        name: "Husband",
+                      },
+                      {
+                        name: "Wife",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Date of Birth",
+                    text: "12 Jan 1997",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "date",
+                  },
+                  {
+                    title: "Age",
+                    text: "45",
+                    inputType: "text",
+                    placeholder: "Enter customer name",
+                    input: "text",
+                  },
+                ],
+              },
+              {
+                type: "flexColumnData",
+                contents: [
+                  {
+                    title: "Remark",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    VIPDealerChecked: true,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        key: 6,
+        name: "Account Related",
+        type: "normalData",
+        default: "normalData",
+        contents: [
+          {
+            contents: [
+              {
+                type: "gridContents",
+                contents: [
+                  {
+                    title: "Credit Limit",
+                    text: "2500000000",
+                    inputType: "text",
+                    placeholder: "Enter Credit Limit",
+                    input: "number",
+                  },
+                  {
+                    title: "Credit Limit Days",
+                    text: "90",
+                    inputType: "text",
+                    placeholder: "Enter Credit Limit Days",
+                    input: "number",
+                  },
+                  {
+                    title: "Outstanding Amount",
+                    text: "150000000",
+                    inputType: "text",
+                    placeholder: "Enter Outstanding Amount",
+                    input: "number",
+                  },
+                  {
+                    title: "Parts Discount %",
+                    text: "25",
+                    inputType: "text",
+                    placeholder: "Enter Parts Discount %",
+                    input: "number",
+                  },
+                  {
+                    title: "Labour Discount %",
+                    text: "29",
+                    inputType: "text",
+                    placeholder: "Enter Labour Discount %",
+                    input: "number",
+                  },
+                ],
+              },
+              {
+                type: "flexColumnData",
+                contents: [
+                  {
+                    title: "Remark",
+                    text: "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts",
+                    VIPDealerChecked: true,
+                    inputType: "textarea",
+                    placeholder: "Enter Parts Discount %",
+                    input: "text",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        key: 7,
+        name: "Supporting Documents",
+        type: "form",
+        contents: [
+          {
+            title: "Form_60_Doc.jpg",
+            text: "I accept that for the Transferred Vehicle , Claim can be generated from the billed Dealer.",
+          },
+        ],
+      },
+    ];
+  }, [data]);
 
   useEffect(() => {
-    if (!currentTabsTitle) {
-      setCurrentTabsTitle(tabsList[0].name);
+    if (isActiveTabs === "Individual") {
+      if (!currentTabsTitle) {
+        setCurrentTabsTitle(individualTabsList[0].name);
+      } else {
+        setCurrentTabsTitle(currentTabsTitle);
+      }
     } else {
-      setCurrentTabsTitle(currentTabsTitle);
+      if (!currentTabsTitle) {
+        setCurrentTabsTitle(tabsList[0].name);
+      } else {
+        setCurrentTabsTitle(currentTabsTitle);
+      }
     }
-  }, [currentTabsTitle, tabsList]);
+  }, [currentTabsTitle, tabsList, individualTabsList, isActiveTabs]);
+
+  // console.log(isActiveTabs);
 
   const handleDrawerRightSide = (ele) => {
-    console.log(ele);
+    // console.log(ele);
     setRightSideDrawer(true);
     setCurrentTabsTitle(ele.name);
     setContentsType(ele.type);
@@ -721,7 +2427,11 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               </p>
             </div>
             {/* tabs steps */}
-            <div className={`tabsSteps ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
+            <div
+              className={`tabsSteps ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
+            >
               {tabsList.map((ele, index) => (
                 <div
                   key={index}
@@ -803,14 +2513,14 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
               theme === "light" ? "lightTheme" : "darkTheme"
             }`}
           >
-             {/* title text */}
+            {/* title text */}
             <h2
               style={{
                 boxShadow:
                   theme === "light"
                     ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)"
                     : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)",
-                    backgroundColor:theme === "light" ? "#FFFFFF" : "#0B0B0C"
+                backgroundColor: theme === "light" ? "#FFFFFF" : "#0B0B0C",
               }}
             >
               <span
@@ -820,6 +2530,9 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  position: "absolute",
+                  left: 20,
+                  top: 16,
                 }}
               >
                 <svg
@@ -858,7 +2571,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                   borderRadius: 6,
                 }}
               >
-                {tabsList?.map((ele, index) => {
+                {/* {tabsList?.map((ele, index) => {
                   if (ele.name === currentTabsTitle) {
                     return (
                       <div
@@ -877,7 +2590,13 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                       >
                         {ele.type === "gridContents" &&
                           ele.contents.map((el, index) => {
-                            return <GridContent key={index} data={el} />;
+                            return (
+                              <GridContent
+                                key={index}
+                                data={el}
+                                drawerType={drawerType}
+                              />
+                            );
                           })}
 
                         {ele.default === "accordionTwo" && (
@@ -910,6 +2629,7 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                                   id={index}
                                   indicator={indicator}
                                   setIndicator={setIndicator}
+                                  mainData={ele}
                                 />
                               );
                             } else {
@@ -974,7 +2694,29 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
                       </div>
                     );
                   }
-                })}
+                })} */}
+
+                {isActiveTabs === "Individual" ? (
+                  <>
+                    Individual
+                    {/* <IndividualDrawerData
+                      data={data}
+                      drawerType={drawerType}
+                      currentTabsTitle={currentTabsTitle}
+                      individualTabsList={individualTabsList}
+                    /> */}
+                  </>
+                ) : (
+                  <>
+                    firmAndCorporate
+                    {/* <FirmAndCorporate
+                      data={data}
+                      drawerType={drawerType}
+                      currentTabsTitle={currentTabsTitle}
+                      tabsList={tabsList}
+                    /> */}
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -1007,12 +2749,42 @@ function MobileViewDrawer({ drawerType, data, isDrawerOpen, setIsDrawerOpen }) {
             </button>
             {/* right side button */}
             <div className="rightSideBtn">
-              <button
+              {/* <button
                 type="button"
                 className="buttons"
                 style={{ color: "#FF3E5B" }}
               >
                 Edit
+              </button> */}
+              {/* {drawerType === "view" && (
+                <button
+                  type="button"
+                  className="buttons hoverButton"
+                  style={{
+                    color: "#ff3e5b",
+                    // backgroundColor: "#ff3e5b",
+                    borderColor: "#ff3e5b",
+                  }}
+                  onClick={() => setDrawerType("edit")}
+                >
+                  Edit
+                </button>
+              )} */}
+              <button
+                type="button"
+                className="buttons hoverButton"
+                style={{
+                  color: "#ff3e5b",
+                  // backgroundColor: "#ff3e5b",
+                  borderColor: "#ff3e5b",
+                }}
+                onClick={() =>
+                  drawerType === "view"
+                    ? setDrawerType("edit")
+                    : setDrawerType("view")
+                }
+              >
+                {drawerType === "view" ? "Edit" : "View"}
               </button>
               <button
                 type="button"

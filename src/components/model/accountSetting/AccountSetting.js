@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 function AccountSetting() {
     const theme = useSelector((state) => state.theme);
   return (
-    <div className="accountSettingContainer" style={{backgroundColor:theme === "light" ? "#ffffff" : "#1C1C1C"}}>AccountSetting</div>
+    <div className="accountSettingContainer" style={{backgroundColor:theme === "light" ? "#ffffff" : "#0B0B0C"}}>AccountSetting</div>
   )
 }
 

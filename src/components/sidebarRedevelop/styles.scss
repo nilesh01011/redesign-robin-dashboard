@@ -71,7 +71,8 @@
       & .searchIconsAbsolute {
         position: absolute;
         right: 25px;
-        top: 9px;
+        top: 7px;
+        // top: 9px;
         // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       }
 
@@ -395,7 +396,7 @@
     position: fixed;
     top: 0;
     left: -150%;
-    // transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    transition: left 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
 
     &.desktopCollapse,
@@ -448,7 +449,8 @@
 
       & .sidebarMenuItemsContainer {
         position: static;
-        height: 100%;
+        height: max-content !important;
+        max-height: max-content !important;
         padding-right: 0 !important;
 
         & .desktopViewSidebar {
@@ -497,6 +499,13 @@
 
       &.mobileViewThemeWrapper {
         display: flex;
+        // position: fixed;
+        // left: 0;
+        // bottom: 0;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+
 
         & .themeWrapper {
           width: 100%;

@@ -61,14 +61,37 @@ function NewsDrawer({
         style={{
           borderColor: theme === "light" ? "#DEDEDE" : "#635D5D",
           backgroundColor: theme === "light" ? "white" : "#242424",
-          zIndex:5
+          zIndex: 5,
         }}
       >
+        {/* mobile view cancel icon */}
+        <span
+          className="mobileViewCloseIcons"
+          onClick={() => handleDrawerClosed()}
+          style={{ cursor: "pointer" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M14.3648 2.15803C14.1759 1.95657 13.8595 1.94637 13.658 2.13523L5.65803 9.63523C5.5572 9.72976 5.5 9.8618 5.5 10C5.5 10.1382 5.5572 10.2702 5.65803 10.3648L13.658 17.8648C13.8595 18.0536 14.1759 18.0434 14.3648 17.842C14.5536 17.6405 14.5434 17.3241 14.342 17.1352L6.73106 10L14.342 2.86477C14.5434 2.67591 14.5536 2.35949 14.3648 2.15803Z"
+              fill="#FF3E5B"
+            />
+          </svg>
+        </span>
+
         <h4 style={{ fontSize: 18 }}>{drawerType}</h4>
         {/* cancel icon */}
         <span
           onClick={() => handleDrawerClosed()}
           style={{ cursor: "pointer" }}
+          className="desktopViewCloseIcons"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -2584,7 +2584,7 @@ function Drawer({
                         individualTabsList.length - 1 === index ? "" : "lines"
                       }`}
                     >
-                      <svg
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -2599,7 +2599,32 @@ function Drawer({
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
+                      </svg> */}
+                      {currentTabsTitle === ele.name ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ zIndex: 5 }}
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#2782f9" />
+                          <circle cx="12" cy="12" r="5" fill="white" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ zIndex: 5 }}
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#70C922" />
+                          <circle cx="12" cy="12" r="5" fill="white" />
+                        </svg>
+                      )}
                     </span>
                     {/* right side */}
                     <div className="tabsText">

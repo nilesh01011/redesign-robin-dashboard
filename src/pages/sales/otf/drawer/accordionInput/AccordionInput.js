@@ -4,7 +4,9 @@ import "./styles.scss";
 
 function AccordionInput({ data, drawerType }) {
   const theme = useSelector((state) => state.theme);
-  const [accordionInputFields,setAccordionInputFields] = useState(data.text ? data.text :"")
+  const [accordionInputFields, setAccordionInputFields] = useState(
+    data.text ? data.text : ""
+  );
   return (
     <div className="drawerInputFields">
       {/* label */}
@@ -28,6 +30,7 @@ function AccordionInput({ data, drawerType }) {
           // background: drawerType === "edit" ? theme === "light" ? "white" : "#0b0b0c" : theme === "light" ? "#E6E6E6" : "#232324",
           backgroundColor: theme === "light" ? "#e6e6e6" : "#232324",
           color: theme === "light" ? "#858585" : "#545454",
+          fontSize: 14,
         }}
       />
     </div>

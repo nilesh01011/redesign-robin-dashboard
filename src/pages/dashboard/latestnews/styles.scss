@@ -17,6 +17,9 @@
 
   & .text {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 
     &::after {
       content: "";
@@ -55,7 +58,6 @@
 }
 
 // media queries
-
 @media screen and (max-width: 660px) {
   .latestNews {
     flex-direction: column;
@@ -63,7 +65,8 @@
     gap: 8px;
 
     & .text::after {
-      height: 190%;
+      // height: 190%;
+      height: calc(100% + 32.4px);
     }
   }
 }

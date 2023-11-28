@@ -1,6 +1,7 @@
 .inputText {
   border-radius: 4px;
-  max-width: 239px;
+  // max-width: 239px;
+  width: 100%;
   border: 1px solid;
   position: relative;
 
@@ -46,7 +47,7 @@
 
 @media screen and (max-width: 1280px) {
   .inputText {
-    max-width: 76%;
+    // max-width: 76%;
     margin-right: auto;
   }
 }

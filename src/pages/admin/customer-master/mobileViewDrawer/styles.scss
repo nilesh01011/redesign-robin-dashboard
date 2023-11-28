@@ -131,32 +131,32 @@
         flex-direction: column;
         gap: 16px;
         margin-top: 24px;
-        overflow-y: scroll;
-        max-height: 505px;
+        // overflow-y: scroll;
+        // max-height: 505px;
 
-        &::-webkit-scrollbar {
-          width: 5px;
-        }
+        // &::-webkit-scrollbar {
+        //   width: 5px;
+        // }
 
-        &.lightTheme::-webkit-scrollbar-track {
-          background: #f0efef;
-        }
+        // &.lightTheme::-webkit-scrollbar-track {
+        //   background: #f0efef;
+        // }
 
-        &.darkTheme::-webkit-scrollbar-track {
-          background: #1c1c1c;
-        }
+        // &.darkTheme::-webkit-scrollbar-track {
+        //   background: #1c1c1c;
+        // }
 
-        &::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-        }
+        // &::-webkit-scrollbar-thumb {
+        //   border-radius: 10px;
+        // }
 
-        &.lightTheme::-webkit-scrollbar-thumb {
-          background: #8a8a8a;
-        }
+        // &.lightTheme::-webkit-scrollbar-thumb {
+        //   background: #8a8a8a;
+        // }
 
-        &.darkTheme::-webkit-scrollbar-thumb {
-          background: #545454;
-        }
+        // &.darkTheme::-webkit-scrollbar-thumb {
+        //   background: #545454;
+        // }
 
         & .tabsItems {
           width: 100%;
@@ -250,6 +250,7 @@
       padding: 16px 20px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 20px;
       position: sticky;
       top: 0;
@@ -324,6 +325,10 @@
           display: flex;
           flex-direction: column;
           gap: 20px;
+
+          // &.accordionTwo {
+          //   gap: 0 !important;
+          // }
         }
 
         & .form {

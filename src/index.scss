@@ -120,7 +120,7 @@ body.dark::-webkit-scrollbar-thumb {
 
   // min-height: 500px;
   min-height: calc(100vh - 270px);
-  max-width: calc(100vw - 140px);
+  // max-width: calc(100vw - 140px);
   height: 100%;
   overflow: scroll;
   border-radius: 4px;
@@ -201,7 +201,9 @@ body.dark::-webkit-scrollbar-thumb {
   // }
 
   .tableContainer {
-    max-width: calc(100vw - 120px);
+    // max-width: calc(100vw - 400px);
+    overflow-x: hidden;
+    // max-width: calc(100vw - 120px);
   }
 }
 
@@ -212,7 +214,7 @@ body.dark::-webkit-scrollbar-thumb {
     padding-right: 26px;
   }
   .tableContainer {
-    max-width: calc(100vw - 115px);
+    // max-width: calc(100vw - 115px);
 
     & table .tableHeads tr {
       & th {

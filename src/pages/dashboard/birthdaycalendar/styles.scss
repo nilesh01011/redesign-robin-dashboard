@@ -44,6 +44,10 @@
 
   & .userDetails {
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap:2px;
+
 
     & p {
       color: #858585;

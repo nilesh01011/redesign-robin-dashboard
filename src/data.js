@@ -123,17 +123,17 @@ export const menuItems = [
           {
             name: "Delivery Note/Invoice Cancellation Request",
             key: "4.1.2",
-            link: "/sales/delivery-note-invoice-cancellation-request",
+            link: "/sales/order-to-delivery/delivery-note-invoice-cancellation-request",
           },
           {
             name: "Delivery Note (Vehicles)",
             key: "4.1.3",
-            link: "/sales/delivery-note-vehicles",
+            link: "/sales/order-to-delivery/delivery-note-vehicles",
           },
           {
             name: "Vehicles Allotment",
             key: "4.1.4",
-            link: "/sales/vehicles-allotment",
+            link: "/sales/order-to-delivery/vehicles-allotment",
           },
         ],
       },
@@ -832,46 +832,46 @@ export const keyHighlights = [
 // Recently Visited
 export const recentlyVisited = [
   {
-    name:"Customer Master",
-    link:"/admin/customer-master",
+    name: "Customer Master",
+    link: "/admin/customer-master",
   },
   {
-    name:"Order booking Form",
-    link:"/sales/order-to-delivery/booking-form",
+    name: "Order booking Form",
+    link: "/sales/order-to-delivery/booking-form",
   },
   {
-    name:"Reciepts",
-    link:"/admin/customer-master",
+    name: "Reciepts",
+    link: "/admin/customer-master",
   },
   {
-    name:"Vehicle Delivery Note",
-    link:"/admin/customer-master",
+    name: "Vehicle Delivery Note",
+    link: "/admin/customer-master",
   },
   {
-    name:"Product Hierarchy",
-    link:"/admin/customer-master",
+    name: "Product Hierarchy",
+    link: "/admin/customer-master",
   },
   {
-    name:"Application Master",
+    name: "Application Master",
     // link:"/admin/customer-master",
   },
   {
-    name:"Home",
-    link:"/home",
+    name: "Home",
+    link: "/home",
   },
   {
-    name:"manage Dealers",
+    name: "manage Dealers",
     // link:"/home",
   },
   {
-    name:"Home",
-    link:"/home",
+    name: "Home",
+    link: "/home",
   },
   {
-    name:"manage Dealers",
+    name: "manage Dealers",
     // link:"/home",
-  }
-]
+  },
+];
 
 // Action Items
 export const actionItems = [
@@ -1557,7 +1557,7 @@ export const retailBarGraphs = [
   {
     key: 1,
     count: 130,
-    name: "scorio-N",
+    name: "scorpio-N",
     bgColor: "#264554",
   },
   {
@@ -1657,7 +1657,7 @@ export const billingBarGraphs = [
     key: 1,
     count: 130,
     // count: 60,
-    name: "scorio",
+    name: "scorpio",
     bgColor: "#264653",
   },
   {
@@ -1774,20 +1774,20 @@ export const customerMasterData = [
       {
         key: "1.1",
         one: "9817435",
-        two: "Ankit Lad",
+        two: "Miles Cummerata",
         three: "Individual",
         four: "9664321226",
-        five: "ankitlad@mahindra.com",
+        five: "milescummerata@mahindra.com",
         six: "Golden",
         seven: "Action",
       },
       {
         key: "1.2",
         one: "7293456",
-        two: "Sandip Lad",
+        two: "Terry Medhurst",
         three: "Individual",
         four: "9348583593",
-        five: "sandiplad@mahindra.com",
+        five: "terrymedhurst@mahindra.com",
         six: "Golden",
         seven: "Action",
       },
@@ -1875,20 +1875,20 @@ export const customerMasterData = [
       {
         key: "1.11",
         one: "9817435",
-        two: "Ankit Lad",
+        two: "Miles Cummerata",
         three: "Individual",
         four: "9664321226",
-        five: "ankitlad@mahindra.com",
+        five: "milescummerata@mahindra.com",
         six: "Golden",
         seven: "Action",
       },
       {
         key: "1.12",
         one: "7293456",
-        two: "Sandip Lad",
+        two: "Terry Medhurst",
         three: "Individual",
         four: "9348583593",
-        five: "sandiplad@mahindra.com",
+        five: "terrymedhurst@mahindra.com",
         six: "Golden",
         seven: "Action",
       },
@@ -1976,19 +1976,19 @@ export const customerMasterData = [
       {
         key: "1.21",
         one: "9817435",
-        two: "Ankit Lad",
+        two: "Miles Cummerata",
         three: "Individual",
         four: "9664321226",
-        five: "ankitlad@mahindra.com",
+        five: "milescummerata@mahindra.com",
         six: "Golden",
       },
       {
         key: "1.22",
         one: "7293456",
-        two: "Sandip Lad",
+        two: "Terry Medhurst",
         three: "Individual",
         four: "9348583593",
-        five: "sandiplad@mahindra.com",
+        five: "terrymedhurst@mahindra.com",
         six: "Golden",
       },
       {

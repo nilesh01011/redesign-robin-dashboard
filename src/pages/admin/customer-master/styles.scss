@@ -56,6 +56,11 @@
     // gap: 20px;
     // margin-bottom: 20px;
     position: relative;
+    // overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     & .customerMasterHeader {
       width: 100%;
@@ -102,6 +107,8 @@
     & .tableContainer {
       // border: 1px solid red !important;
       max-height: 160px;
+      overflow-x: hidden;
+      // overflow-x: scroll;
       // max-height: calc(100vh - 50%);
     }
 

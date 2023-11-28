@@ -100,7 +100,7 @@ function Dropdown({ items }) {
           }}
         >
           {items.map((ele, index) => {
-            console.log(ele);
+            // console.log(ele);
             return (
               <li
                 key={index}

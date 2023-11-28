@@ -38,7 +38,7 @@ function ChangePassword({ handleCloseModel }) {
     <>
       <div
         className="changePasswordContainer"
-        style={{ backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C" }}
+        style={{ backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C" }}
       >
         {passwordChanged ? (
           <>

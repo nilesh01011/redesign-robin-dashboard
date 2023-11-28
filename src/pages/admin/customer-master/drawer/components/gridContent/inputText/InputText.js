@@ -54,13 +54,14 @@ function InputText({ data, types, placeholder, inputTypes, text }) {
               ? "#0B0B0C"
               : "#ffffff",
           paddingLeft: types === "phoneNumber" && 79,
+          fontSize: 14,
         }}
         disabled={types === "disabled" && true}
       />
       {types === "phoneNumber" && (
         <>
           <p className="dropdown">
-            <span>+91</span>
+            <span style={{ fontSize: 14 }}>+91</span>
             {/* flag icons */}
             <span>
               <img src={INDIA_FLAG} className="img" alt="flags" />

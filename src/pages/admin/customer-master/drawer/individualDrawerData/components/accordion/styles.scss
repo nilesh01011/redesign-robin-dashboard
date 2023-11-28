@@ -1,6 +1,7 @@
 .innerAccordion {
   padding: 16px 20px;
   border-radius: 4px;
+  border: 1px solid;
 
   &:not(:last-child) {
     margin-bottom: 20px;

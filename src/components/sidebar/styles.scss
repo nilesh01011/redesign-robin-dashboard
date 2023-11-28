@@ -252,6 +252,12 @@
 
       &.mobileViewThemeWrapper {
         display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        // position: sticky;
+        // bottom: 0;
+        // left: 0;
 
         & .themeWrapper {
           width: 100%;

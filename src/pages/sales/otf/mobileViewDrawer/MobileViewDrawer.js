@@ -1462,7 +1462,7 @@ function MobileViewDrawer({
   }, [currentTabsTitle, tabsList]);
 
   const handleDrawerRightSide = (ele) => {
-    console.log(ele);
+    // console.log(ele);
     setRightSideDrawer(true);
     setCurrentTabsTitle(ele.name);
     setContentsType(ele.type);
@@ -1498,6 +1498,14 @@ function MobileViewDrawer({
         }
       });
     }
+  };
+
+  // handleSubmitted
+  const handleSubmitted = () => {
+    console.log("Submitted");
+    setFormDataSubmitted(true);
+    setCurrentTabsTitle(thankyou.name);
+    setTabsStatus(thankyou.key);
   };
 
   return (
@@ -1554,11 +1562,13 @@ function MobileViewDrawer({
           >
             {/* user profile */}
             <div
-              className={`userProfile ${theme === "light" ? "lightTheme" : "darkTheme"
-                }`}
+              className={`userProfile ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
               style={{
-                border: `1px solid ${theme === "light" ? "#B5B5B6" : "#545454"
-                  }`,
+                border: `1px solid ${
+                  theme === "light" ? "#B5B5B6" : "#545454"
+                }`,
               }}
             >
               {/* user header section */}
@@ -1568,8 +1578,9 @@ function MobileViewDrawer({
                   className="userImg"
                   style={{
                     backgroundColor: theme === "light" ? "#E6E6E6" : "#545454",
-                    border: `1px solid ${theme === "light" ? "#B5B5B6" : "#545454"
-                      }`,
+                    border: `1px solid ${
+                      theme === "light" ? "#B5B5B6" : "#545454"
+                    }`,
                   }}
                 >
                   {data.userImg ? (
@@ -1626,14 +1637,16 @@ function MobileViewDrawer({
             </div>
             {/* tabs steps */}
             <div
-              className={`tabsSteps ${theme === "light" ? "lightTheme" : "darkTheme"
-                }`}
+              className={`tabsSteps ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
             >
               {tabsList.map((ele, index) => (
                 <div
                   key={index}
-                  className={`tabsItems ${theme === "light" ? "lightTheme" : "darkTheme"
-                    }`}
+                  className={`tabsItems ${
+                    theme === "light" ? "lightTheme" : "darkTheme"
+                  }`}
                   onClick={() => {
                     //   setCurrentTabsTitle(ele.name);
                     //   setContentsType(ele.type);
@@ -1663,8 +1676,9 @@ function MobileViewDrawer({
                         fontWeight:
                           currentTabsTitle === ele.name ? "500" : "400",
                       }}
-                      className={`${theme === "light" ? "lightTheme" : "darkTheme"
-                        }`}
+                      className={`${
+                        theme === "light" ? "lightTheme" : "darkTheme"
+                      }`}
                     >
                       {ele.name}
                     </span>
@@ -1705,8 +1719,9 @@ function MobileViewDrawer({
         >
           {/* contents */}
           <div
-            className={`contents ${theme === "light" ? "lightTheme" : "darkTheme"
-              }`}
+            className={`contents ${
+              theme === "light" ? "lightTheme" : "darkTheme"
+            }`}
           >
             {/* title text */}
             <h2
@@ -1719,7 +1734,10 @@ function MobileViewDrawer({
               }}
             >
               <span
-                onClick={() => setRightSideDrawer(false)}
+                onClick={() => {
+                  formDataSubmitted === false && setRightSideDrawer(false);
+                  formDataSubmitted === true && setIsDrawerOpen(false);
+                }}
                 style={{
                   cursor: "pointer",
                   display: "flex",
@@ -1838,6 +1856,43 @@ function MobileViewDrawer({
                     );
                   }
                 })}
+                {/* form data submitted */}
+                {formDataSubmitted === true && (
+                  <div className="thankYouContainer">
+                    <div
+                      className={`animations ${
+                        theme === "light" ? "lightTheme" : "darkTheme"
+                      }`}
+                    >
+                      {/* ${theme === "light" && "light"} */}
+                      <span className={`checkIcons light `}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="62"
+                          height="62"
+                          viewBox="0 0 62 62"
+                          fill="none"
+                        >
+                          <path
+                            d="M31.0406 0.560547C14.2483 0.560547 0.564453 14.2444 0.564453 31.0367C0.564453 47.8291 14.2483 61.5129 31.0406 61.5129C47.833 61.5129 61.5168 47.8291 61.5168 31.0367C61.5168 14.2444 47.833 0.560547 31.0406 0.560547ZM45.6083 24.0272L28.3283 41.3072C27.9016 41.7339 27.3225 41.9777 26.713 41.9777C26.1035 41.9777 25.5245 41.7339 25.0978 41.3072L16.473 32.6824C15.5892 31.7986 15.5892 30.3358 16.473 29.452C17.3568 28.5682 18.8197 28.5682 19.7035 29.452L26.713 36.4615L42.3778 20.7967C43.2616 19.9129 44.7245 19.9129 45.6083 20.7967C46.4921 21.6805 46.4921 23.1129 45.6083 24.0272Z"
+                            fill="#56AC18"
+                          />
+                        </svg>
+                      </span>
+                      <span className="fadeInOut"></span>
+                    </div>
+                    <h1>Booking Form updated successfully</h1>
+                    <p
+                      style={{
+                        color: theme === "light" ? "#858585" : "#858585",
+                      }}
+                    >
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -1857,20 +1912,27 @@ function MobileViewDrawer({
             <button
               type="button"
               className="buttons"
+              // style={{
+              //   color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
+              //   borderColor:
+              //     tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+              //   cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+              // }}
+              // disabled={tabsStatus === 1}
               style={{
-                color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
-                borderColor:
-                  tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                color: tabsList === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
               }}
-              disabled={tabsStatus === 1}
-              onClick={() => handleTabsActiveBack(1)}
+              onClick={() => {
+                formDataSubmitted === false && handleTabsActiveBack(1);
+                formDataSubmitted === true && setIsDrawerOpen(false);
+              }}
             >
-              Back
+              {formDataSubmitted === false ? "Back" : "Close"}
             </button>
             {/* right side button */}
-            <div className="rightSideBtn">
-              <button
+            {formDataSubmitted === false && (
+              <div className="rightSideBtn">
+                {/* <button
                 type="button"
                 className="buttons"
                 style={{ color: "#FF3E5B" }}
@@ -1895,19 +1957,83 @@ function MobileViewDrawer({
                     tabsList.length === tabsStatus
                       ? "rgba(255, 62, 91,0.5)"
                       : "#ff3e5b",
-                  cursor:
-                    tabsList.length === tabsStatus ? "not-allowed" : "pointer",
+                  // cursor:
+                  //   tabsList.length === tabsStatus ? "not-allowed" : "pointer",
                   backgroundColor:
                     tabsList.length === tabsStatus
                       ? "rgba(255, 62, 91,0.5)"
                       : "#FF3E5B",
                 }}
-                disabled={tabsList.length === tabsStatus}
+                // disabled={tabsList.length === tabsStatus}
                 onClick={() => handleTabsActiveNext(1)}
               >
                 Next
-              </button>
-            </div>
+              </button> */}
+                <button
+                  type="button"
+                  className="buttons"
+                  style={{ color: "#FF3E5B" }}
+                  onClick={() =>
+                    formDataSubmitted === false &&
+                    setDrawerType((prev) => {
+                      if (prev === "edit") return "view";
+                      if (prev === "view") return "edit";
+                    })
+                  }
+                >
+                  {drawerType === "edit" ? "View" : "Edit"}
+                </button>
+
+                {drawerType === "view" ? (
+                  <button
+                    type="button"
+                    className="secondaryBtn buttons"
+                    style={{
+                      border: "1px solid",
+                      borderColor:
+                        tabsList.length === tabsStatus
+                          ? "rgba(255, 62, 91,0.5)"
+                          : "#ff3e5b",
+                      display: tabsList.length - 1 === tabsStatus && "none",
+                    }}
+                    onClick={() => {
+                      formDataSubmitted === false && handleTabsActiveNext(1);
+                      tabsList.length === tabsStatus &&
+                        drawerType === "edit" &&
+                        handleSubmitted();
+                    }}
+                  >
+                    {tabsList.length === tabsStatus ? "" : "Next"}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
+                    style={{
+                      border: "1px solid",
+                      borderColor:
+                        tabsList.length === tabsStatus
+                          ? "rgba(255, 62, 91,0.5)"
+                          : "#ff3e5b",
+                      // cursor:
+                      //   tabsList.length === tabsStatus ? "not-allowed" : "pointer",
+                    }}
+                    onClick={() => {
+                      formDataSubmitted === false && handleTabsActiveNext(1);
+                      tabsList.length - 1 === tabsStatus && handleSubmitted();
+                      // drawerType === "edit" &&
+                      // handleSubmitted();
+                    }}
+                  >
+                    {drawerType === "edit"
+                      ? tabsList.length - 1 === tabsStatus
+                        ? "Save"
+                        : "Save & Next"
+                      : "Next"}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

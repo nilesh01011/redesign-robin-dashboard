@@ -1919,7 +1919,7 @@ function Drawer({
               )}
             </div>
           </div>
-          {/* tabs steps */}
+          {/* menu tabs steps */}
           <div className="tabsSteps">
             {tabsList.map((ele, index) => (
               <div
@@ -2056,6 +2056,21 @@ function Drawer({
                           height="24"
                           viewBox="0 0 24 24"
                           fill="none"
+                          style={{ zIndex: 5 }}
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#70C922" />
+                          <circle cx="12" cy="12" r="5" fill="white" />
+                        </svg>
+                      )}
+                    </>
+                  )}
+
+                  {/* <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
                         >
                           <circle cx="12" cy="12" r="12" fill="#70C922" />
                           <path
@@ -2065,10 +2080,7 @@ function Drawer({
                             strokeLinecap="round"
                             strokeLinejoin="round"
                           />
-                        </svg>
-                      )}
-                    </>
-                  )}
+                        </svg> */}
                 </span>
                 {/* right side */}
                 <div className="tabsText">
@@ -2352,12 +2364,15 @@ function Drawer({
                   );
                 }
               })}
-
+              {/* form data submitted */}
               {formDataSubmitted === true && (
                 <div className="thankYouContainer">
-                  <div className={`animations ${theme === "light" ? "lightTheme" : "darkTheme"}`}>
-                
-                  {/* ${theme === "light" && "light"} */}
+                  <div
+                    className={`animations ${
+                      theme === "light" ? "lightTheme" : "darkTheme"
+                    }`}
+                  >
+                    {/* ${theme === "light" && "light"} */}
                     <span className={`checkIcons light `}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -2398,37 +2413,132 @@ function Drawer({
               marginLeft: theme === "light" ? "1px" : "0px",
             }}
           >
-            {tabsStatus === 1 ? (
-              <button
-                type="button"
-                className="secondaryBtn"
-                style={{
-                  borderColor:
-                    tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                  // cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
-                }}
-                onClick={() => setIsDrawerOpen(false)}
-              >
-                Close
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="secondaryBtn"
-                style={{
-                  borderColor:
-                    tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                  cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
-                }}
-                // disabled={tabsStatus === 1}
-                onClick={() => {
-                  formDataSubmitted === false && handleTabsActiveBack(1);
-                  formDataSubmitted === true && setIsDrawerOpen(false);
-                }}
-              >
-                {formDataSubmitted === false ? "Back" : "Close"}
-              </button>
-            )}
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              {/* {moreActions === false && ( */}
+              {drawerType === "edit" && (
+                <>
+                  <div className="leftsideBtn">
+                    <button
+                      type="button"
+                      className="btns"
+                      onClick={() =>
+                        setDrawerType((prev) => {
+                          if (prev === "edit") return "view";
+                          if (prev === "view") return "edit";
+                        })
+                      }
+                    >
+                      {drawerType === "edit" ? "View" : "Edit"}
+                    </button>
+                    <button type="button" className="btns">
+                      Allot
+                    </button>
+                    <button type="button" className="btns">
+                      Invoice
+                    </button>
+
+                    <button type="button" className="btns">
+                      Delivery Note
+                    </button>
+
+                    {moreActions === true && (
+                      <div className="leftsideBtn">
+                        <button type="button" className="btns">
+                          Transfer
+                        </button>
+                        <button type="button" className="btns">
+                          Cancel Booking
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    className="btns"
+                    onClick={(e) => setMoreActions(!moreActions)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 6,
+                    }}
+                  >
+                    {moreActions === true && (
+                      <span
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <svg
+                          style={{
+                            transform:
+                              moreActions === false
+                                ? "rotate(180deg)"
+                                : "rotate(360deg",
+                          }}
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </span>
+                    )}
+                    {moreActions ? "Less" : "More"} Actions
+                    {moreActions === false && (
+                      <span
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <svg
+                          style={{
+                            transform:
+                              moreActions === false
+                                ? "rotate(180deg)"
+                                : "rotate(360deg",
+                          }}
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </span>
+                    )}
+                  </button>
+                </>
+              )}
+              {/* )} */}
+
+              {drawerType === "view" && (
+                <button
+                  type="button"
+                  className="btns"
+                  onClick={() => setDrawerType("edit")}
+                >
+                  Edit
+                </button>
+              )}
+            </div>
 
             {/* middel buttons */}
             {/* <div className="leftsideBtn">
@@ -2458,8 +2568,8 @@ function Drawer({
                 Cancel Booking
               </button>
             </div> */}
-            {/* right side button */}
 
+            {/* right side button */}
             {formDataSubmitted === false && (
               <div
                 className="rightSideBtn"
@@ -2500,80 +2610,41 @@ function Drawer({
               </button> */}
 
                 {/* {expandButtons && ( */}
-                {moreActions === false && (
-                  <div className="leftsideBtn">
-                    <button
-                      type="button"
-                      className="btns"
-                      onClick={() =>
-                        setDrawerType((prev) => {
-                          if (prev === "edit") return "view";
-                          if (prev === "view") return "edit";
-                        })
-                      }
-                    >
-                      {drawerType === "edit" ? "View" : "Edit"}
-                    </button>
-                    <button type="button" className="btns">
-                      Allot
-                    </button>
-                    <button type="button" className="btns">
-                      Invoice
-                    </button>
 
-                    <button type="button" className="btns">
-                      Delivery Note
-                    </button>
-                  </div>
-                )}
-
-                {moreActions === true && (
-                  <div className="leftsideBtn">
-                    <button type="button" className="btns">
-                      Transfer
-                    </button>
-                    <button type="button" className="btns">
-                      Cancel Booking
-                    </button>
-                  </div>
-                )}
-
-                <button
-                  type="button"
-                  className="btns"
-                  onClick={(e) => setMoreActions(!moreActions)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 6,
-                  }}
-                >
-                  <span
+                {tabsStatus === 1 ? (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      borderColor:
+                        tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                      // cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                      display: tabsStatus === 1 && "none",
+                    }}
+                    onClick={() => setIsDrawerOpen(false)}
+                  >
+                    {/* Close */}
+                    Back
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
+                    style={{
+                      borderColor:
+                        tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                      cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                    }}
+                    // disabled={tabsStatus === 1}
+                    onClick={() => {
+                      formDataSubmitted === false && handleTabsActiveBack(1);
+                      formDataSubmitted === true && setIsDrawerOpen(false);
                     }}
                   >
-                    <svg
-                      style={{ transform: moreActions && "rotate(180deg" }}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </span>
-                  {moreActions ? "Less" : "More"} Actions
-                </button>
+                    {formDataSubmitted === false ? "Back" : "Close"}
+                  </button>
+                )}
+
                 {/* )} */}
 
                 {/* More button */}

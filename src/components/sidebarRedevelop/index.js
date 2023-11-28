@@ -12,7 +12,7 @@ import {
 } from "../../assets";
 import MenuItems from "./menuItems/MenuItems";
 import { menuItems, searchItems } from "../../data";
-import MobileView from "../sidebar/mobileView/MobileView";
+import MobileView from "./mobileView/MobileView";
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -68,7 +68,7 @@ function SidebarRedevelop() {
   const onSearch = (value) => {
     setSearchMenuItems(value);
 
-    console.log("Value:", value);
+    // console.log("Value:", value);
 
     if (!searchMenuItems) return setSearchResultData([]);
 
@@ -79,7 +79,7 @@ function SidebarRedevelop() {
           return ele.name.toLowerCase().includes(value);
         });
 
-      console.log(results);
+      // console.log(results);
 
       if (!results) {
         setSearchResultData([]);
@@ -759,10 +759,10 @@ function SidebarRedevelop() {
           className="themeContainer mobileViewThemeWrapper"
           style={{
             backgroundColor: theme === "light" ? "#F2F2F2" : "#232324",
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
+            // position: "absolute",
+            // bottom: 0,
+            // left: 0,
+            // right: 0,
           }}
         >
           <div

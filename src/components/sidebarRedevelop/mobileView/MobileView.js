@@ -28,7 +28,8 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
   };
 
   const handleCollapseRecursive = (item) => {
-    setCollapsed(false);
+    // setCollapsed(false);
+    // handleSidebar();
     toggleExpanded(item);
   };
 
