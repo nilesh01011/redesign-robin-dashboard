@@ -4,8 +4,9 @@ import GridContent from "../../../components/gridContent/GridContent";
 import "./styles.scss";
 import Accordion from "../accordion/Accordion";
 import SwitchButton from "./switchButton/SwitchButton";
-import Dropdown from "../../../components/gridContent/dropdown/Dropdown";
+// import Dropdown from "../../../components/gridContent/dropdown/Dropdown";
 import InputText from "../../../components/gridContent/inputText/InputText";
+import Dropdown from "../../../../../../../components/dropdown";
 
 function GridAndAccordion({ data, drawerType }) {
   const theme = useSelector((state) => state.theme);

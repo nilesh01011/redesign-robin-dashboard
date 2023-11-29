@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import SelectDropdownFilter from "../../../components/searchdropdownfilter";
 import { customerMasterData, tableHead } from "../../../data";
 import Table from "../../../components/table";
-import Dropdown from "../../../components/dropdown";
 // import Drawer from "./drawer/Drawer";
 import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
 import Drawer from "./drawer/Drawer";
 import MobileViewDrawer from "./mobileViewDrawer/MobileViewDrawer";
+import Dropdown from "./dropdown/Dropdown";
 // import TableRedevelop from "../../../components/tableRedevelop/TableRedevelop";
 
 function CustomerMaster() {

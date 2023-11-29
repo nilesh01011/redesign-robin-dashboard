@@ -3,7 +3,8 @@ import "./styles.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toggleTheme } from "../../store/slices/themeSlices";
-import SearchInput from "../sidebar/sidebarSearchInput";
+// import SearchInput from "../sidebar/sidebarSearchInput";
+import SearchInput from "./sidebarSearchInput/SidebarSearchInput"
 import {
   B_DARK_THEME,
   B_LIGHT_THEME,

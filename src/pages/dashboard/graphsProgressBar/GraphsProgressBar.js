@@ -7,24 +7,24 @@ function GraphsProgressBar({ title, dataItems }) {
   const theme = useSelector((state) => state.theme);
 
   const wordSlice = (word) => {
-    if (word.length > 12) {
-      return word.slice(0, 12) + "...";
+    if (word.length > 16) {
+      return word.slice(0, 16) + "...";
     } else {
       return word;
     }
   };
 
   const wordSlice_2 = (word) => {
-    if (word.length > 10) {
-      return word.slice(0, 10) + "...";
+    if (word.length > 14) {
+      return word.slice(0, 14) + "...";
     } else {
       return word;
     }
   };
 
   const wordSlice_3 = (word) => {
-    if (word.length > 8) {
-      return word.slice(0, 8) + "...";
+    if (word.length > 12) {
+      return word.slice(0, 12) + "...";
     } else {
       return word;
     }

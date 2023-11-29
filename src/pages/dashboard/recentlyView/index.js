@@ -14,7 +14,7 @@ function RecentlyView({ items }) {
       style={{ borderColor: theme === "light" ? "#E6E6E6" : "#232324" }}
     >
       {/* text */}
-      <p>{items.name}</p>
+      <p style={{textTransform:"capitalize"}}>{items.name}</p>
       {/* icons */}
       <span>
         <svg

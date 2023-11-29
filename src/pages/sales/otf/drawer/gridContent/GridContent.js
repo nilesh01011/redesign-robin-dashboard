@@ -2,7 +2,8 @@ import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 import InputText from "../components/inputText/InputText";
-import Dropdown from "../components/dropdown/Dropdown";
+import Dropdown from "../../../../../components/dropdown";
+// import Dropdown from "../components/dropdown/Dropdown";
 
 function GridContent({ data, type, allData, drawerType }) {
   const theme = useSelector((state) => state.theme);

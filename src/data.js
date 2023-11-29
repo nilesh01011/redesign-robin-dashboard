@@ -836,7 +836,7 @@ export const recentlyVisited = [
     link: "/admin/customer-master",
   },
   {
-    name: "Order booking Form",
+    name: "Order Booking Form",
     link: "/sales/order-to-delivery/booking-form",
   },
   {
@@ -2199,11 +2199,11 @@ export const bookingTableHead = [
   },
   {
     key: "3",
-    label: "Booking Date",
+    label: "Customer Name",
   },
   {
     key: "4",
-    label: "Customer Name",
+    label: "Booking Date",
   },
   {
     key: "5",
@@ -2223,8 +2223,8 @@ export const bookingTableData = [
   {
     key: "1.1",
     one: "BKN21A000001",
-    two: "01 Dec 2021",
-    three: "John Micheal",
+    two: "John Micheal",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Booked",
     notEdit: true,
@@ -2234,8 +2234,8 @@ export const bookingTableData = [
   {
     key: "1.2",
     one: "BKN21A000002",
-    two: "01 Dec 2021",
-    three: "Alison Reichert",
+    two: "Alison Reichert",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Cancelled",
     notEdit: true,
@@ -2245,8 +2245,8 @@ export const bookingTableData = [
   {
     key: "1.3",
     one: "BKN21A000003",
-    two: "01 Dec 2021",
-    three: "Terrill Hills",
+    two: "Terrill Hills",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Cancellation Requsted",
     notEdit: true,
@@ -2256,8 +2256,8 @@ export const bookingTableData = [
   {
     key: "1.4",
     one: "BKN21A000004",
-    two: "01 Dec 2021",
-    three: "Paul Deo",
+    two: "Paul Deo",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Booked",
     notEdit: true,
@@ -2267,8 +2267,8 @@ export const bookingTableData = [
   {
     key: "1.5",
     one: "BKN21A000005",
-    two: "01 Dec 2021",
-    three: "Miles Cummerata",
+    two: "Miles Cummerata",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Transferred",
     notEdit: true,
@@ -2278,8 +2278,8 @@ export const bookingTableData = [
   {
     key: "1.6",
     one: "BKN21A000006",
-    two: "01 Dec 2021",
-    three: "Nilesh Rathod",
+    two: "Nilesh Rathod",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Delivered",
     notEdit: true,
@@ -2289,8 +2289,8 @@ export const bookingTableData = [
   {
     key: "1.7",
     one: "BKN21A000007",
-    two: "01 Dec 2021",
-    three: "Jones Marcel",
+    two: "Jones Marcel",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Invoiced",
     notEdit: true,
@@ -2300,8 +2300,8 @@ export const bookingTableData = [
   {
     key: "1.8",
     one: "BKN21A000008",
-    two: "01 Dec 2021",
-    three: "Jeanne Bloom",
+    two: "Jeanne Bloom",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Alloted",
     action: true,
@@ -2311,8 +2311,8 @@ export const bookingTableData = [
   {
     key: "1.9",
     one: "BKN21A000009",
-    two: "01 Dec 2021",
-    three: "Terry Medhurst",
+    two: "Terry Medhurst",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Cancellation Requsted",
     notEdit: true,
@@ -2322,8 +2322,8 @@ export const bookingTableData = [
   {
     key: "1.10",
     one: "BKN21A0000010",
-    two: "01 Dec 2021",
-    three: "Sheldon Quigley",
+    two: "Sheldon Quigley",
+    three: "01 Dec 2021",
     four: "XUV700 AX7 L PET AT 7 SEATER WHT(C56) ",
     five: "Booked",
     notEdit: true,

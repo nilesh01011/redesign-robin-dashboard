@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import InputField from "../inputField";
+import InputField from "./inputField/index"
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -95,7 +95,7 @@ function Index({
       action="POST"
       onSubmit={handleSubmitFilter}
       className="selectDropdownFilter"
-      style={{ marginBottom: error && "10px" }}
+      style={{ marginBottom: error && "10px", }}
       ref={domNode}
     >
       <div

@@ -43,7 +43,7 @@ function Dropdown({ items, disabled, position }) {
   });
 
   return (
-    <div ref={domNode} className="dropdownContainer">
+    <div ref={domNode} className="dropdownContainer" style={{display:"none"}}>
       {/* select options fields */}
       <div
         className="optionsContainer"

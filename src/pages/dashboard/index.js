@@ -17,8 +17,7 @@ import ActionItemsCollapsed from "./actionitems";
 import LatestNews from "./latestnews";
 import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
-import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
-import BarChart from "./graphs/barChart/BarChart";
+// import BarChart from "./graphs/barChart/BarChart";
 // Carousel
 // import Carousel from "./carousel/Carousel";
 // import Items from "./carousel/items/Items";
@@ -26,8 +25,10 @@ import BarChart from "./graphs/barChart/BarChart";
 import TrendingNewsCarousel from "./trendingNewsCarousel/TrendingNewsCarousel";
 import KeyhightlightCarousel from "./keyhightlightCarousel/KeyhightlightCarousel";
 import RecentlyView from "./recentlyView";
-import RedevelopGraphBar from "./redevelopGraphBar/RedevelopGraphBar";
+// Bar Charts
 import GraphsProgressBar from "./graphsProgressBar/GraphsProgressBar";
+// Doughnut Chart
+import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
 
 function DashboardPage() {
   const theme = useSelector((state) => state.theme);
@@ -254,7 +255,7 @@ function DashboardPage() {
               style={{ borderColor: borderColor }}
             >
               {/* title */}
-              <h4 style={{ fontSize: 18, fontWeight: 700 }}>What's News</h4>
+              <h4 style={{ fontSize: 18, fontWeight: 700 }}>What's New</h4>
               {/* images */}
               {/* <div
                 className="images"
@@ -460,7 +461,7 @@ function DashboardPage() {
                   {/* birthday username */}
                   <div
                     className="birthdayList"
-                    style={{ gridTemplateColumns: "repeat(2,1fr)",gap:10 }}
+                    style={{ gridTemplateColumns: "repeat(2,1fr)", gap: 10 }}
                   >
                     {todayBirthday.map((ele) => (
                       <BirthdayCalendar key={ele.id} userData={ele} />

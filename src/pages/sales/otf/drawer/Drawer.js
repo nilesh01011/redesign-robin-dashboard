@@ -1710,8 +1710,9 @@ function Drawer({
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    transform: seeMoreData && "rotate(180deg)",
-                    transition: "transform 0.3s ease-in-out",
+                    transform: seeMoreData === false && "rotate(180deg)",
+                    // transform: seeMoreData && "rotate(180deg)",
+                    // transition: "transform 0.3s ease-in-out",
                   }}
                 >
                   <svg
@@ -2418,7 +2419,7 @@ function Drawer({
               {drawerType === "edit" && (
                 <>
                   <div className="leftsideBtn">
-                    <button
+                    {/* <button
                       type="button"
                       className="btns"
                       onClick={() =>
@@ -2429,7 +2430,7 @@ function Drawer({
                       }
                     >
                       {drawerType === "edit" ? "View" : "Edit"}
-                    </button>
+                    </button> */}
                     <button type="button" className="btns">
                       Allot
                     </button>

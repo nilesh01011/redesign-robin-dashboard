@@ -1617,7 +1617,8 @@ function MobileViewDrawer({
                     fontWeight: 400,
                   }}
                 >
-                  {data.three}
+                  {/* {data.three} */}
+                  Corporate
                 </p>
               </div>
 
@@ -1743,6 +1744,9 @@ function MobileViewDrawer({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  position:"absolute",
+                  left:20,
+                  top:16
                 }}
               >
                 <svg

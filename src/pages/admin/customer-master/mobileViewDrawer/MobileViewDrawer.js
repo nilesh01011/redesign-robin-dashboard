@@ -2408,7 +2408,8 @@ function MobileViewDrawer({
                     fontWeight: 400,
                   }}
                 >
-                  {data.three}
+                  {/* {data.three} */}
+                  Corporate
                 </p>
               </div>
 

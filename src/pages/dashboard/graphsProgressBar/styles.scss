@@ -29,10 +29,13 @@
     width: 100%;
     height: max-content;
     display: grid;
+    // display: flex;
     align-items: center;
-    grid-template-columns: 0.4fr 0.7fr;
+    // grid-template-columns: 0.4fr 0.7fr;
+    grid-template-columns: repeat(2,1fr);
     padding: 0 16px;
-    gap: 30px;
+    gap: 10px;
+    // gap: 30px;
 
     &.addScrollBar {
       overflow: scroll;

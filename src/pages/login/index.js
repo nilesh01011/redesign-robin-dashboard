@@ -11,7 +11,8 @@ import {
 import { useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { loginSchema } from "../../utils/formikSchema";
-import InputFields from "../../components/inputField";
+// import InputFields from "../../components/inputField";
+import InputFields from "./InputField/InputField"
 import { useNavigate } from "react-router-dom";
 // formik form initial values
 const initialValues = {
