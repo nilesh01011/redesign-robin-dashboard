@@ -21,7 +21,7 @@
   display: block;
 }
 .accordionContainer .accordionContents {
-  padding: 0 30px;
+  padding: 0 16px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -29,6 +29,23 @@
 .accordionContainer .flexColumnData {
   display: flex;
   flex-direction: column;
-  padding: 20px 30px;
+  padding: 20px;
   padding-top: 0;
+}
+.accordionContainer .flexColumnData textarea {
+  resize: none;
+  border-radius: 4px;
+  border: 1px solid;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+}
+.accordionContainer .gridTableContainer {
+  border: 1px solid;
+  border-radius: 4px;
+}
+.accordionContainer .gridTableContainer thead th {
+  padding: 13px 20px;
+  text-align: left;
 }/*# sourceMappingURL=styles.css.map */

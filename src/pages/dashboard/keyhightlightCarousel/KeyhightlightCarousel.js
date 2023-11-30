@@ -84,10 +84,10 @@ function KeyhightlightCarousel() {
         }}
         spaceBetween={10}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 4500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}

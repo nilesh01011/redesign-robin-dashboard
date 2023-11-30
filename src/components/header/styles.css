@@ -83,19 +83,19 @@
      -moz-user-select: none;
           user-select: none;
 }
-.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:hover {
-  color: #ff3e5b;
-}
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:hover .iconsColor svg path:first-child, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:hover .iconsColor svg path:first-child {
   fill: #ff3e5b !important;
+}
+.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists.lightTheme:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists.lightTheme:hover {
+  background: #f2f2f2;
+}
+.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists.darkTheme:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists.darkTheme:hover {
+  background: #232324;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists p, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists p {
   text-transform: capitalize;
   border-radius: 4px;
   padding: 5px 10px;
-}
-.header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists p:hover, .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists p:hover {
-  color: #ff3e5b !important;
 }
 .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .finalYearDropdown .lists:not(:last-child), .header .headerLeft .userText .dropdownLocationFinalYear .dropdown-container .locationDropdownList .lists:not(:last-child) {
   margin-bottom: 2px;
@@ -142,14 +142,15 @@
   align-items: center;
   gap: 6px;
 }
-.header .headerRight .userProfileContainer .userProfile .userAvatar, .header .headerRight .userProfileContainer .userProfile .username {
+.header .headerRight .userProfileContainer .userProfile .username {
   font-weight: 700;
 }
 .header .headerRight .userProfileContainer .userProfile .username {
   font-size: 16px;
 }
 .header .headerRight .userProfileContainer .userProfile .userAvatar {
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 600;
 }
 .header .headerRight .userProfileContainer .userProfile .userAvatar {
   width: 30px;
@@ -182,7 +183,7 @@
   position: absolute;
   top: 120%;
   right: 0;
-  width: 100%;
+  width: 120%;
   min-width: -moz-fit-content;
   min-width: fit-content;
   height: -moz-max-content;
@@ -216,7 +217,7 @@
   background-color: #f2f2f2;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header.darkTheme:hover {
-  background-color: #545454;
+  background-color: #232324;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown-header:hover {
   color: #ff3e5b;
@@ -256,7 +257,7 @@
   background-color: #f2f2f2;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items.darkTheme:hover {
-  background-color: #545454;
+  background-color: #232324;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdown-items p {
   display: flex;
@@ -264,13 +265,15 @@
   gap: 4px;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdownItemsList {
-  padding-left: 20px;
+  padding-left: 28px;
+  padding-bottom: 6px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 .header .headerRight .userProfileContainer .dropdownUserDetails .lists .dropdown .dropdownItemsList p {
   min-height: 23px;
+  font-size: 14px;
   display: flex;
   align-items: center;
 }
@@ -287,6 +290,19 @@
   bottom: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 99997;
+  cursor: pointer;
+}
+
+#overlay_2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   display: none;
   z-index: 99997;
   cursor: pointer;

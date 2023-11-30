@@ -68,8 +68,12 @@ li {
   list-style: none;
 }
 
+textarea {
+  outline: none;
+}
+
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 body.removeScrollbar::-webkit-scrollbar {
@@ -93,7 +97,7 @@ body.light::-webkit-scrollbar-thumb {
 }
 
 body.dark::-webkit-scrollbar-thumb {
-  background: #242424;
+  background: #545454;
 }
 
 .container-fluid {
@@ -104,7 +108,6 @@ body.dark::-webkit-scrollbar-thumb {
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 270px);
-  max-width: calc(100vw - 140px);
   height: 100%;
   overflow: scroll;
   border-radius: 4px;
@@ -152,6 +155,15 @@ body.dark::-webkit-scrollbar-thumb {
   text-transform: capitalize;
   border-radius: 4px;
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.emptyDataTable .addbutton span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1366px) {
@@ -162,7 +174,7 @@ body.dark::-webkit-scrollbar-thumb {
 }
 @media screen and (max-width: 1280px) {
   .tableContainer {
-    max-width: calc(100vw - 120px);
+    overflow-x: hidden;
   }
 }
 @media screen and (max-width: 1038px) {
@@ -170,9 +182,6 @@ body.dark::-webkit-scrollbar-thumb {
   .container-fluid {
     padding-left: 26px;
     padding-right: 26px;
-  }
-  .tableContainer {
-    max-width: calc(100vw - 115px);
   }
   .tableContainer table .tableHeads tr th:not(:last-child) {
     margin-right: 10px;

@@ -1,0 +1,39 @@
+.formUploadsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.formUploadsContainer .formUploadDiv {
+  width: 100%;
+  min-height: 256px;
+  border: 1px dashed;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.formUploadsContainer .formUploadDiv .subText {
+  text-align: center;
+  font-size: 14px;
+  line-height: 23px;
+  margin-top: 3px;
+}
+.formUploadsContainer .formUploadDiv .addbutton {
+  margin-top: 20px;
+  border-radius: 4px;
+  padding: 6px 16px;
+  background: #FF3E5B;
+  color: #ffffff;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 700;
+}
+.formUploadsContainer .formDateStore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 4px;
+}/*# sourceMappingURL=styles.css.map */

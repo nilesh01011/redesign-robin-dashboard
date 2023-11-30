@@ -1,12 +1,13 @@
 import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import InputText from "./inputText/InputText";
+// import InputText from "./inputText/InputText";
 // import Dropdown from "./dropdown/Dropdown";
 import FormUpload from "./formUpload/FormUpload";
 import Dropdown from "../../../../../../components/dropdown";
+import InputText from "../../../../../../components/InputText/InputText";
 
-function GridContent({ data, type, drawerType,allData }) {
+function GridContent({ data, type, drawerType }) {
   const theme = useSelector((state) => state.theme);
 
   return (
@@ -87,7 +88,7 @@ function GridContent({ data, type, drawerType,allData }) {
                       text={data.text}
                     />
                   )}
-                  {data.dropdownList && <Dropdown position={allData ? allData.position : null} items={data.dropdownList} disabled={data.disabled} />}
+                  {data.dropdownList && <Dropdown position={data.dropdownDirection ? data.dropdownDirection : null} items={data.dropdownList} disabled={data.disabled} />}
                 </div>
               )}
             </>

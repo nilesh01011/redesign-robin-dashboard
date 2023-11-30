@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import { INDIA_FLAG } from "../../../../../../../assets";
+import { INDIA_FLAG } from "../../assets";
 
 function InputText({ data, types, placeholder, inputTypes, text }) {
   const [inputText, setInputText] = useState(text ? text : "");
@@ -18,8 +18,6 @@ function InputText({ data, types, placeholder, inputTypes, text }) {
 
     setInputText(e.target.value);
   };
-
-  // console.log(data.notEdit)
   return (
     <div
       className="inputText"

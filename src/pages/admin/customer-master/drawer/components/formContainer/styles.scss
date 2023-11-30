@@ -86,3 +86,11 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .formDataContainer {
+    & .document_attachs {
+      grid-template-columns: 1fr;
+    }
+  }
+}

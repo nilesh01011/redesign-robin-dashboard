@@ -45,24 +45,24 @@ table tbody tr td .status {
   font-size: 12px;
 }
 table tbody tr td .status.Alloted.lightTheme, table tbody tr td .status.Delivered.lightTheme, table tbody tr td .status.Booked.lightTheme {
-  border-color: #70c922;
-  background: #eefcd2;
-  color: #70c922;
+  border-color: #56AC18;
+  background: #E2F9D2;
+  color: #56AC18;
 }
 table tbody tr td .status.Alloted.darkTheme, table tbody tr td .status.Delivered.darkTheme, table tbody tr td .status.Booked.darkTheme {
-  border-color: #70c922;
-  background: #222921;
-  color: #70c922;
+  border-color: #56AC18;
+  background: #162D06;
+  color: #56AC18;
 }
 table tbody tr td .status.Cancelled.lightTheme {
-  border-color: #ed302d;
-  background: #fee3d4;
-  color: #ed302d;
+  border-color: #ED302D;
+  background: #FBD1D0;
+  color: #ED302D;
 }
 table tbody tr td .status.Cancelled.darkTheme {
-  border-color: #ed302d;
-  background: #2b2025;
-  color: #ed302d;
+  border-color: #ED302D;
+  background: #2F0504;
+  color: #ED302D;
 }
 table tbody tr td .status.Cancellation.lightTheme {
   border-color: #f99c22;

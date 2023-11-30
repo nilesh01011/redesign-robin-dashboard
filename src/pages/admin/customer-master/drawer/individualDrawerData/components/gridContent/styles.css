@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.content span {
+  font-size: 14px;
+  font-weight: 400;
+}
+.content span:nth-child(2) {
+  font-weight: 500;
+}/*# sourceMappingURL=styles.css.map */

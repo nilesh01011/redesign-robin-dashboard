@@ -1,3 +1,13 @@
+@keyframes fadeInOut {
+  0%, 100% {
+    width: 40px;
+    height: 40px;
+  }
+  50% {
+    width: 128px;
+    height: 128px;
+  }
+}
 .tableDrawerContainer {
   width: 93%;
   height: 100%;
@@ -66,7 +76,7 @@
   padding-bottom: 0;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 8;
 }
 .tableDrawerContainer .drawerData .leftSide .leftSideTopHeaders .userProfile {
   border-radius: 4px;
@@ -172,6 +182,18 @@
 .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons.lines.activeLines::after {
   background-color: #2782f9;
 }
+.tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .icons.thankyouLines::after {
+  content: "";
+  position: absolute;
+  bottom: 24px;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background-color: #70c922;
+  display: block;
+}
 .tableDrawerContainer .drawerData .leftSide .tabsSteps .tabsItems .tabsText {
   cursor: pointer;
   font-size: 14px;
@@ -275,7 +297,7 @@
   min-height: 47px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer.accordionTwo {
   padding: 20px 30px !important;
@@ -284,6 +306,7 @@
   width: 100%;
   height: 1px;
   display: block;
+  margin-bottom: 0 !important;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer .formContainer {
   padding: 20px 30px;
@@ -300,11 +323,70 @@
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .accordion {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .form {
   display: flex;
   flex-direction: column;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer {
+  width: 100%;
+  height: calc(80vh - 56.2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 40px;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer p {
+  text-align: center;
+  max-width: 70%;
+  margin: 0 auto;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer .animations {
+  position: relative;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer .animations .fadeInOut {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOut 1.3s infinite;
+  transition: all 0.6s ease-in-out;
+  z-index: -2;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer .animations.lightTheme .fadeInOut {
+  background: #e2f9d2;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer .animations.darkTheme .fadeInOut {
+  background: #222921;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer .animations .checkIcons {
+  position: relative;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .thankYouContainer .animations .checkIcons.light::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  transform: translateY(-75%);
+  background-color: white;
+  z-index: -1;
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
 }
 .tableDrawerContainer .drawerData .rightSide .footerSide {
   position: absolute;
@@ -368,4 +450,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+  .tableDrawerContainer .drawerData .rightSide .contents {
+    padding: 30px;
+  }
 }/*# sourceMappingURL=styles.css.map */

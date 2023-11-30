@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
-import InputText from "../../../components/gridContent/inputText/InputText";
+// import InputText from "../../../components/gridContent/inputText/InputText";
 import Dropdown from "../../../../../../../components/dropdown";
+import InputText from "../../../../../../../components/InputText/InputText";
 // import Dropdown from "./dropdown/Dropdown";
 
 function GridContent({ data, drawerType }) {
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector((state) => state.theme); 
   return (
     <div className="content">
       <span
@@ -33,7 +34,7 @@ function GridContent({ data, drawerType }) {
                 />
               )}
               {data.dropdownList && (
-                <Dropdown items={data.dropdownList} disabled={data.disabled} width={90} />
+                <Dropdown items={data.dropdownList} disabled={data.disabled} width={90} data={data} />
               )}
             </div>
           )}

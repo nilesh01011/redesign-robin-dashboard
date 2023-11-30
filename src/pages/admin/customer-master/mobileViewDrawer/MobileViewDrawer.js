@@ -2,18 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import "./styles.scss";
 import { AVATAR, USERIMG } from "../../../../assets";
-import GridContent from "../drawer/components/gridContent/GridContent";
-import AccordionGridForm from "../drawer/components/accordionGridForm/AccordionGridForm";
-import Accordion from "../drawer/components/accordion/Accordion";
-import NormalData from "../drawer/components/normalData/NormalData";
-import FormContainer from "../drawer/components/formContainer/FormContainer";
 import IndividualDrawerData from "../drawer/individualDrawerData/IndividualDrawerData";
 import FirmAndCorporate from "../drawer/firmAndCorporate/FirmAndCorporate";
-// import GridContent from "../drawer/gridContent/GridContent";
-// import AccordionGridForm from "../drawer/accordionGridForm/AccordionGridForm";
-// import Accordion from "../drawer/accordion/Accordion";
-// import NormalData from "../drawer/components/normalData/NormalData";
-// import FormContainer from "../drawer/components/formContainer/FormContainer";
 
 function MobileViewDrawer({
   isActiveTabs,
@@ -22,13 +12,15 @@ function MobileViewDrawer({
   isDrawerOpen,
   setIsDrawerOpen,
   setDrawerType,
+  toastStatus,
+  setToastStatus,
 }) {
   const theme = useSelector((state) => state.theme);
   const userNameSplit = data.two ? data.two?.split(" ") : null;
   const firstLetter = userNameSplit?.[0]?.[0] || "";
   const lastLetter = userNameSplit?.[userNameSplit?.length - 1]?.[0] || "";
   const [currentTabsTitle, setCurrentTabsTitle] = useState("");
-  const [indicator, setIndicator] = useState(0);
+  // const [indicator, setIndicator] = useState(0);
   //   Right side Drawer open
   const [rightSideDrawer, setRightSideDrawer] = useState(false);
 
@@ -2261,41 +2253,66 @@ function MobileViewDrawer({
   // console.log(isActiveTabs);
 
   const handleDrawerRightSide = (ele) => {
-    // console.log(ele);
+    console.log(ele);
     setRightSideDrawer(true);
     setCurrentTabsTitle(ele.name);
     setContentsType(ele.type);
+    setTabsStatus(ele.key);
   };
 
   const handleTabsActiveNext = (value) => {
-    if (typeof value === "number") {
-      tabsList.map((value) => {
-        if (tabsStatus + 1 === value.key) {
-          setCurrentTabsTitle(value.name);
-          setContentsType(value.type);
-          setTabsStatus(value.key);
-        }
-      });
+    if (isActiveTabs === "Individual") {
+      if (typeof value === "number") {
+        return individualTabsList.map((ele) => {
+          if (tabsStatus + 1 === ele.key) {
+            setCurrentTabsTitle(ele.name);
+            setContentsType(ele.type);
+            setTabsStatus(ele.key);
+          }
+        });
+      } else {
+        setCurrentTabsTitle(value.name);
+        setContentsType(value.type);
+        setTabsStatus(value.key);
+      }
     } else {
-      // setCurrentTabsTitle(value.name);
-      // setContentsType(value.type);
-      // setTabsStatus(value.key);
-      // setRightSideDrawer(true);
-      setCurrentTabsTitle(value.name);
-      setContentsType(value.type);
-      setTabsStatus(value.key);
+      if (typeof value === "number") {
+        return tabsList.map((ele) => {
+          if (tabsStatus + 1 === ele.key) {
+            setCurrentTabsTitle(ele.name);
+            setContentsType(ele.type);
+            setTabsStatus(ele.key);
+          }
+        });
+      } else {
+        setCurrentTabsTitle(value.name);
+        setContentsType(value.type);
+        setTabsStatus(value.key);
+      }
     }
   };
 
   const handleTabsActiveBack = (value) => {
-    if (typeof value === "number") {
-      tabsList.map((value) => {
-        if (tabsStatus - 1 === value.key) {
-          setCurrentTabsTitle(value.name);
-          setContentsType(value.type);
-          setTabsStatus(value.key);
-        }
-      });
+    if (isActiveTabs === "Individual") {
+      if (typeof value === "number") {
+        return individualTabsList.map((ele) => {
+          if (tabsStatus - 1 === ele.key) {
+            setCurrentTabsTitle(ele.name);
+            setContentsType(ele.type);
+            setTabsStatus(ele.key);
+          }
+        });
+      }
+    } else {
+      if (typeof value === "number") {
+        return tabsList.map((ele) => {
+          if (tabsStatus - 1 === ele.key) {
+            setCurrentTabsTitle(ele.name);
+            setContentsType(ele.type);
+            setTabsStatus(ele.key);
+          }
+        });
+      }
     }
   };
 
@@ -2433,67 +2450,133 @@ function MobileViewDrawer({
                 theme === "light" ? "lightTheme" : "darkTheme"
               }`}
             >
-              {tabsList.map((ele, index) => (
-                <div
-                  key={index}
-                  className={`tabsItems ${
-                    theme === "light" ? "lightTheme" : "darkTheme"
-                  }`}
-                  onClick={() => {
-                    //   setCurrentTabsTitle(ele.name);
-                    //   setContentsType(ele.type);
-                    handleDrawerRightSide(ele);
-                  }}
-                  style={{
-                    backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-                  }}
-                >
-                  {/* left side */}
-                  <div
-                    // onClick={() => {
-                    //   setCurrentTabsTitle(ele.name);
-                    //   setContentsType(ele.type);
-                    // }}
-                    className="tabsText"
-                  >
-                    <span
-                      style={{
-                        // color:
-                        //   currentTabsTitle === ele.name
-                        //     ? theme === "light"
-                        //       ? "#0B0B0C"
-                        //       : "#ffffff"
-                        //     : "#858585",
-                        fontWeight:
-                          currentTabsTitle === ele.name ? "500" : "400",
-                      }}
-                      className={`${
+              {isActiveTabs === "Individual" ? (
+                <>
+                  {individualTabsList.map((ele, index) => (
+                    <div
+                      key={index}
+                      className={`tabsItems ${
                         theme === "light" ? "lightTheme" : "darkTheme"
                       }`}
+                      onClick={() => {
+                        handleDrawerRightSide(ele);
+                      }}
+                      style={{
+                        backgroundColor:
+                          theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                      }}
                     >
-                      {ele.name}
-                    </span>
-                  </div>
+                      {/* left side */}
+                      <div
+                        // onClick={() => {
+                        //   setCurrentTabsTitle(ele.name);
+                        //   setContentsType(ele.type);
+                        // }}
+                        className="tabsText"
+                      >
+                        <span
+                          style={{
+                            // color:
+                            //   currentTabsTitle === ele.name
+                            //     ? theme === "light"
+                            //       ? "#0B0B0C"
+                            //       : "#ffffff"
+                            //     : "#858585",
+                            fontWeight:
+                              currentTabsTitle === ele.name ? "500" : "400",
+                          }}
+                          className={`${
+                            theme === "light" ? "lightTheme" : "darkTheme"
+                          }`}
+                        >
+                          {ele.name}
+                        </span>
+                      </div>
 
-                  {/* right side view Icons */}
-                  <span className="mobileViewIcons">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="21"
-                      viewBox="0 0 20 21"
-                      fill="none"
+                      {/* right side view Icons */}
+                      <span className="mobileViewIcons">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="21"
+                          viewBox="0 0 20 21"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M5.63523 2.65803C5.8241 2.45657 6.14052 2.44637 6.34197 2.63523L14.342 10.1352C14.4428 10.2298 14.5 10.3618 14.5 10.5C14.5 10.6382 14.4428 10.7702 14.342 10.8648L6.34197 18.3648C6.14052 18.5536 5.8241 18.5434 5.63523 18.342C5.44637 18.1405 5.45657 17.8241 5.65803 17.6352L13.2689 10.5L5.65803 3.36477C5.45657 3.17591 5.44637 2.85949 5.63523 2.65803Z"
+                            fill="#FF3E5B"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {tabsList.map((ele, index) => (
+                    <div
+                      key={index}
+                      className={`tabsItems ${
+                        theme === "light" ? "lightTheme" : "darkTheme"
+                      }`}
+                      onClick={() => {
+                        handleDrawerRightSide(ele);
+                      }}
+                      style={{
+                        backgroundColor:
+                          theme === "light" ? "#F2F2F2" : "#1C1C1C",
+                      }}
                     >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M5.63523 2.65803C5.8241 2.45657 6.14052 2.44637 6.34197 2.63523L14.342 10.1352C14.4428 10.2298 14.5 10.3618 14.5 10.5C14.5 10.6382 14.4428 10.7702 14.342 10.8648L6.34197 18.3648C6.14052 18.5536 5.8241 18.5434 5.63523 18.342C5.44637 18.1405 5.45657 17.8241 5.65803 17.6352L13.2689 10.5L5.65803 3.36477C5.45657 3.17591 5.44637 2.85949 5.63523 2.65803Z"
-                        fill="#FF3E5B"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              ))}
+                      {/* left side */}
+                      <div
+                        // onClick={() => {
+                        //   setCurrentTabsTitle(ele.name);
+                        //   setContentsType(ele.type);
+                        // }}
+                        className="tabsText"
+                      >
+                        <span
+                          style={{
+                            // color:
+                            //   currentTabsTitle === ele.name
+                            //     ? theme === "light"
+                            //       ? "#0B0B0C"
+                            //       : "#ffffff"
+                            //     : "#858585",
+                            fontWeight:
+                              currentTabsTitle === ele.name ? "500" : "400",
+                          }}
+                          className={`${
+                            theme === "light" ? "lightTheme" : "darkTheme"
+                          }`}
+                        >
+                          {ele.name}
+                        </span>
+                      </div>
+
+                      {/* right side view Icons */}
+                      <span className="mobileViewIcons">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="21"
+                          viewBox="0 0 20 21"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M5.63523 2.65803C5.8241 2.45657 6.14052 2.44637 6.34197 2.63523L14.342 10.1352C14.4428 10.2298 14.5 10.3618 14.5 10.5C14.5 10.6382 14.4428 10.7702 14.342 10.8648L6.34197 18.3648C6.14052 18.5536 5.8241 18.5434 5.63523 18.342C5.44637 18.1405 5.45657 17.8241 5.65803 17.6352L13.2689 10.5L5.65803 3.36477C5.45657 3.17591 5.44637 2.85949 5.63523 2.65803Z"
+                            fill="#FF3E5B"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -2568,7 +2651,7 @@ function MobileViewDrawer({
                     contentsType === "gridContents"
                       ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
                       : "",
-                  padding: contentsType === "gridContents" ? "10px" : "",
+                  padding: contentsType === "gridContents" ? "20px" : "",
                   borderRadius: 6,
                 }}
               >
@@ -2699,23 +2782,27 @@ function MobileViewDrawer({
 
                 {isActiveTabs === "Individual" ? (
                   <>
-                    Individual
-                    {/* <IndividualDrawerData
+                    {/* <IndividualDrawerMobileView
                       data={data}
                       drawerType={drawerType}
                       currentTabsTitle={currentTabsTitle}
                       individualTabsList={individualTabsList}
                     /> */}
+                    <IndividualDrawerData
+                      data={data}
+                      drawerType={drawerType}
+                      currentTabsTitle={currentTabsTitle}
+                      individualTabsList={individualTabsList}
+                    />
                   </>
                 ) : (
                   <>
-                    firmAndCorporate
-                    {/* <FirmAndCorporate
+                    <FirmAndCorporate
                       data={data}
                       drawerType={drawerType}
                       currentTabsTitle={currentTabsTitle}
                       tabsList={tabsList}
-                    /> */}
+                    />
                   </>
                 )}
               </div>
@@ -2738,18 +2825,23 @@ function MobileViewDrawer({
               type="button"
               className="buttons"
               style={{
-                color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
-                borderColor:
-                  tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
-                cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
+                // color: tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#FF3E5B",
+                color: "#FF3E5B",
+                // borderColor:
+                //   tabsStatus === 1 ? "rgba(255, 62, 91,0.5)" : "#ff3e5b",
+                borderColor: "#FF3E5B",
+                // cursor: tabsStatus === 1 ? "not-allowed" : "pointer",
               }}
-              disabled={tabsStatus === 1}
-              onClick={() => handleTabsActiveBack(1)}
+              // disabled={tabsStatus === 1}
+              onClick={() => {
+                handleTabsActiveBack(1);
+                tabsStatus === 1 && setIsDrawerOpen(!isDrawerOpen);
+              }}
             >
-              Back
+              {tabsStatus === 1 ? "Close" : "Back"}
             </button>
             {/* right side button */}
-            <div className="rightSideBtn">
+            <div className="rightSideBtn" style={{ display: "none" }}>
               {/* <button
                 type="button"
                 className="buttons"
@@ -2812,6 +2904,177 @@ function MobileViewDrawer({
                 Next
               </button>
             </div>
+            {/* ========================================================== */}
+            {isActiveTabs === "Individual" ? (
+              <div
+                className="rightSideBtn"
+                style={{
+                  justifyContent:
+                    drawerType === "edit" ? "flex-end" : "space-between",
+                }}
+              >
+                {drawerType === "view" && (
+                  <button
+                    type="button"
+                    className="buttons"
+                    style={{
+                      color: "#ffffff",
+                      backgroundColor: "#ff3e5b",
+                      borderColor: "#ff3e5b",
+                    }}
+                    onClick={() => setDrawerType("edit")}
+                  >
+                    Edit
+                  </button>
+                )}
+                {/* divider */}
+                {individualTabsList.length === tabsStatus ? (
+                  ""
+                ) : (
+                  <>
+                    {drawerType === "view" && (
+                      <div
+                        style={{
+                          backgroundColor:
+                            theme === "light" ? "#e6e6e6" : "#232324",
+                          width: 1,
+                          height: "30px",
+                          display: "block",
+                        }}
+                      />
+                    )}
+                  </>
+                )}
+
+                {/* next buttons */}
+                {drawerType === "view" &&
+                individualTabsList.length === tabsStatus ? (
+                  ""
+                ) : (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
+                    style={{
+                      backgroundColor: "#FF3E5B",
+                      color: "#ffffff",
+                      border: "1px solid",
+                      borderColor:
+                        drawerType === "view" &&
+                        individualTabsList.length === tabsStatus
+                          ? "rgba(255, 62, 91,0.5)"
+                          : "#ff3e5b",
+                      cursor:
+                        drawerType === "view" &&
+                        individualTabsList.length === tabsStatus
+                          ? "not-allowed"
+                          : "pointer",
+                    }}
+                    disabled={
+                      drawerType === "view" &&
+                      individualTabsList.length === tabsStatus
+                    }
+                    onClick={() => {
+                      handleTabsActiveNext(1);
+                      drawerType === "edit" &&
+                        individualTabsList.length === tabsStatus &&
+                        setIsDrawerOpen(!isDrawerOpen);
+                      drawerType === "edit" &&
+                        individualTabsList.length === tabsStatus &&
+                        setToastStatus(!toastStatus);
+                    }}
+                  >
+                    {drawerType === "edit"
+                      ? individualTabsList.length === tabsStatus
+                        ? "Submit"
+                        : "Save & Next"
+                      : "Next"}
+                  </button>
+                )}
+              </div>
+            ) : (
+              <div
+                className="rightSideBtn"
+                style={{
+                  justifyContent:
+                    drawerType === "edit" ? "flex-end" : "space-between",
+                }}
+              >
+                {drawerType === "view" && (
+                  <button
+                    type="button"
+                    className="buttons hoverButton"
+                    style={{
+                      color: "#ff3e5b",
+                      // backgroundColor: "#ff3e5b",
+                      borderColor: "#ff3e5b",
+                    }}
+                    onClick={() => setDrawerType("edit")}
+                  >
+                    Edit
+                  </button>
+                )}
+                {/* divider */}
+                {tabsList.length === tabsStatus ? (
+                  ""
+                ) : (
+                  <>
+                    {drawerType === "view" && (
+                      <div
+                        style={{
+                          backgroundColor:
+                            theme === "light" ? "#e6e6e6" : "#232324",
+                          width: 1,
+                          height: "30px",
+                          display: "block",
+                        }}
+                      />
+                    )}
+                  </>
+                )}
+
+                {/* next buttons */}
+                {drawerType === "view" && tabsList.length === tabsStatus ? (
+                  ""
+                ) : (
+                  <button
+                    type="button"
+                    className="secondaryBtn"
+                    style={{
+                      // display: tabsList.length === tabsList ? "none" : "block",
+                      backgroundColor: "#FF3E5B",
+                      color: "#ffffff",
+                      border: "1px solid",
+                      borderColor:
+                        drawerType === "view" && tabsList.length === tabsStatus
+                          ? "rgba(255, 62, 91,0.5)"
+                          : "#ff3e5b",
+                      cursor:
+                        drawerType === "view" && tabsList.length === tabsStatus
+                          ? "not-allowed"
+                          : "pointer",
+                    }}
+                    disabled={
+                      drawerType === "view" && tabsList.length === tabsStatus
+                    }
+                    onClick={() => {
+                      handleTabsActiveNext(1);
+                      drawerType === "edit" &&
+                        tabsList.length === tabsStatus &&
+                        setIsDrawerOpen(!isDrawerOpen);
+                      drawerType === "edit" &&
+                        tabsList.length === tabsStatus &&
+                        setToastStatus(!toastStatus);
+                    }}
+                  >
+                    {drawerType === "edit"
+                      ? tabsList.length === tabsStatus
+                        ? "Submit"
+                        : "Save & Next"
+                      : "Next"}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

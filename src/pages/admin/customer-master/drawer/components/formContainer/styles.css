@@ -19,4 +19,65 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.formDataContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.formDataContainer .document_attachs {
+  display: grid;
+  align-items: center;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.formDataContainer .document_attachs .document {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.formDataContainer .document_attachs .subText {
+  font-size: 14px;
+  font-weight: 400;
+}
+.formDataContainer .formUpload {
+  width: 100%;
+  min-height: 216px;
+  border-radius: 4px;
+  border: 1px dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.formDataContainer .formUpload .formUploadDiv {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.formDataContainer .formUpload .formUploadDiv .subText {
+  text-align: center;
+  font-size: 14px;
+  line-height: 23px;
+  margin-top: 3px;
+}
+.formDataContainer .formUpload .formUploadDiv .addbutton {
+  margin-top: 20px;
+  border-radius: 4px;
+  padding: 6px 16px;
+  background: #ff3e5b;
+  color: #ffffff;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .formDataContainer .document_attachs {
+    grid-template-columns: 1fr;
+  }
 }/*# sourceMappingURL=styles.css.map */

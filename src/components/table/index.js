@@ -11,10 +11,13 @@ function Index({
   setDrawerData,
   setDrawerType,
   setIsDrawerOpen,
+  selected
 }) {
   const theme = useSelector((state) => state.theme);
   // const [tabelScrollbar, setTabelScrollbar] = useState(false);
   const [textTrucat, setTextTrucat] = useState(false);
+
+  // const splitTextToNumber = Number(selected.split(" ")[0]);
 
   const filterData = tableBody.filter((item) => {
     return inputFields.toLowerCase() === ""

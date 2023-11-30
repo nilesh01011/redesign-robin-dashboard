@@ -45,7 +45,7 @@ function Dropdown({ items,disabled,width,data }) {
   });
 
   return (
-    <div ref={domNode} className="dropdownIndividualContainer" style={{width:width,display:"none"}}>
+    <div ref={domNode} className="dropdownIndividualContainer" style={{width:width,}}>
       {/* select options fields */}
       <div
         className="optionsContainer"

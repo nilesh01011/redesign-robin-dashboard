@@ -14,6 +14,8 @@ function Drawer({
   isDrawerOpen,
   setIsDrawerOpen,
   setDrawerType,
+  toastStatus,
+  setToastStatus,
 }) {
   const theme = useSelector((state) => state.theme);
 
@@ -1132,11 +1134,13 @@ function Drawer({
                     name: "Unlisted",
                   },
                 ],
+                dropdownDirection: "top",
               },
               {
                 title: "Corporate Name",
                 text: "XYZ Corporate Name",
                 inputType: "dropdown",
+                dropdownDirection: "top",
                 dropdownList: [
                   {
                     name: "XYZ Corporate Name",
@@ -1156,7 +1160,7 @@ function Drawer({
               {
                 title: "Corporate Category",
                 text: "C1",
-                position: "top",
+                dropdownDirection: "top",
                 inputType: "dropdown",
                 dropdownList: [
                   {
@@ -1182,7 +1186,7 @@ function Drawer({
                     name: "Diamond",
                   },
                 ],
-                position: "top",
+                dropdownDirection: "top",
               },
               {
                 title: "",
@@ -2687,7 +2691,7 @@ function Drawer({
                         tabsList.length - 1 === index ? "" : "lines"
                       }`}
                     >
-                      <svg
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -2702,7 +2706,32 @@ function Drawer({
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
+                      </svg> */}
+                      {currentTabsTitle === ele.name ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ zIndex: 5 }}
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#2782f9" />
+                          <circle cx="12" cy="12" r="5" fill="white" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ zIndex: 5 }}
+                        >
+                          <circle cx="12" cy="12" r="12" fill="#70C922" />
+                          <circle cx="12" cy="12" r="5" fill="white" />
+                        </svg>
+                      )}
                     </span>
                     {/* right side */}
                     <div className="tabsText">
@@ -2893,7 +2922,6 @@ function Drawer({
                     type="button"
                     className="secondaryBtn"
                     style={{
-                      // display: tabsList.length === tabsList ? "none" : "block",
                       backgroundColor: "#FF3E5B",
                       color: "#ffffff",
                       border: "1px solid",
@@ -2917,6 +2945,9 @@ function Drawer({
                       drawerType === "edit" &&
                         individualTabsList.length === tabsStatus &&
                         setIsDrawerOpen(false);
+                      drawerType === "edit" &&
+                        individualTabsList.length === tabsStatus &&
+                        setToastStatus(!toastStatus);
                     }}
                   >
                     {drawerType === "edit"
@@ -2949,20 +2980,6 @@ function Drawer({
                     Edit
                   </button>
                 )}
-                {/* {drawerType === "edit" && (
-                  <button
-                    type="button"
-                    className="buttons"
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#ff3e5b",
-                      borderColor: "#ff3e5b",
-                    }}
-                    onClick={() => setDrawerType("view")}
-                  >
-                    View
-                  </button>
-                )} */}
                 {/* divider */}
                 {tabsList.length === tabsStatus ? (
                   ""
@@ -3011,6 +3028,9 @@ function Drawer({
                       drawerType === "edit" &&
                         tabsList.length === tabsStatus &&
                         setIsDrawerOpen(false);
+                      drawerType === "edit" &&
+                        tabsList.length === tabsStatus &&
+                        setToastStatus(!toastStatus);
                     }}
                   >
                     {drawerType === "edit"

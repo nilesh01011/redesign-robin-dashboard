@@ -6,9 +6,12 @@ import AccordionGridForm from "../components/accordionGridForm/AccordionGridForm
 import Accordion from "../components/accordion/Accordion";
 import NormalData from "../components/normalData/NormalData";
 import FormContainer from "../components/formContainer/FormContainer";
-import InputText from "../components/gridContent/inputText/InputText";
-import DropdownCommon from "./components/dropdown/DropdownCommon";
+// import InputText from "../components/gridContent/inputText/InputText";
+import Dropdown from "../../../../../components/dropdown";
+import InputText from "../../../../../components/InputText/InputText";
+// import DropdownCommon from "./components/dropdown/DropdownCommon";
 // import Dropdown from "../components/gridContent/dropdown/Dropdown";
+import "./styles.scss"
 
 function IndividualDrawerData({
   individualTabsList,
@@ -40,7 +43,7 @@ function IndividualDrawerData({
               style={{
                 paddingBottom: ele.type === "accordion" && 120,
                 paddingBottom: ele.default === "accordionTwo" && 0,
-                padding: ele.type === "gridAndAccordion" && "20px 30px",
+                // padding: ele.type === "gridAndAccordion" && "20px 30px",
                 backgroundColor:
                   ele.type === "gridAndAccordion"
                     ? theme === "light"
@@ -146,8 +149,8 @@ function IndividualDrawerData({
                             Document Type
                           </span>
                           {/* dropdown fields */}
-                          {/* <Dropdown items={documentTypes} /> */}
-                          <DropdownCommon items={documentTypes} />
+                          <Dropdown items={documentTypes} />
+                          {/* <DropdownCommon items={documentTypes} /> */}
                         </div>
                         {/* document description */}
                         <div className="document document_description">

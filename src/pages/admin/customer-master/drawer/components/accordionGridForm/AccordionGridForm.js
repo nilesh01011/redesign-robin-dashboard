@@ -205,8 +205,8 @@ function AccordionGridForm({
                           </svg> */}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="currentWidth"
-                            height="currentHeight"
+                            width="auto"
+                            height="auto"
                             viewBox="0 0 24 24"
                             fill="none"
                           >
@@ -248,6 +248,7 @@ function AccordionGridForm({
                           data={el}
                           key={index}
                           //   type={el.type}
+                          drawerType={drawerType}
                         />
                       );
                     })}

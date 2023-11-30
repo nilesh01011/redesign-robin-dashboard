@@ -5,8 +5,9 @@ import Accordion from "../components/accordion/Accordion";
 import NormalData from "../components/normalData/NormalData";
 import FormContainer from "../components/formContainer/FormContainer";
 import { useSelector } from "react-redux";
-import Dropdown from "./dropdown/Dropdown";
+// import Dropdown from "./dropdown/Dropdown";
 import InputText from "./inputText/InputText";
+import Dropdown from "../../../../../components/dropdown";
 
 function FirmAndCorporate({ tabsList, drawerType, currentTabsTitle }) {
   const theme = useSelector((state) => state.theme);
@@ -23,6 +24,7 @@ function FirmAndCorporate({ tabsList, drawerType, currentTabsTitle }) {
       name: ".png",
     },
   ];
+
   return (
     <>
       {tabsList?.map((ele, index) => {

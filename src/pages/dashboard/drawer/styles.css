@@ -14,16 +14,16 @@
   width: 5px;
 }
 .drawerContainer.light::-webkit-scrollbar-track {
-  background: #F0EFEF;
+  background: #f0efef;
 }
 .drawerContainer.dark::-webkit-scrollbar-track {
-  background: #1C1C1C;
+  background: #1c1c1c;
 }
 .drawerContainer::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 .drawerContainer.light::-webkit-scrollbar-thumb {
-  background: #8A8A8A;
+  background: #8a8a8a;
 }
 .drawerContainer.dark::-webkit-scrollbar-thumb {
   background: #545454;
@@ -36,6 +36,9 @@
   border-bottom: 1px solid;
   position: sticky;
   top: 0;
+}
+.drawerContainer .title .mobileViewCloseIcons {
+  display: none;
 }
 .drawerContainer .contents {
   width: 100%;
@@ -65,10 +68,24 @@
   line-height: 23px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 660px) {
   .drawerContainer {
-    width: 85%;
+    width: 100%;
   }
+  .drawerContainer .title {
+    justify-content: center;
+  }
+  .drawerContainer .title .desktopViewCloseIcons {
+    display: none;
+  }
+  .drawerContainer .title .mobileViewCloseIcons {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
   .drawerContainer .contents {
     padding-left: 16px !important;
     padding-right: 16px !important;

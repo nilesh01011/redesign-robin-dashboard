@@ -6,6 +6,7 @@ import { B_DARK_THEME, B_LIGHT_THEME } from "../../assets";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Title from "../title";
+import Dropdown from "./dropdown/Dropdown";
 // import Logout from "./model/logout";
 // import Model from "./model";
 
@@ -38,11 +39,11 @@ function Header({ handleClosed, setModelListDetails }) {
   // const pathName
   const [userProfileDropdown, setUserProfileDropdown] = useState(false);
   // location dropdown
-  const [locationListDropdown, setLocationListDropdown] = useState(false);
-  const [currentLocation, setCurrentLocation] = useState("Goregoan (W) Mumbai");
+  // const [locationListDropdown, setLocationListDropdown] = useState(false);
+  // const [currentLocation, setCurrentLocation] = useState("Goregoan (W) Mumbai");
   // final year dropdown
-  const [finalYearDropdown, setFinalYearDropdown] = useState(false);
-  const [currentFinalYear, setCurrentFinalYear] = useState("FY 2023");
+  // const [finalYearDropdown, setFinalYearDropdown] = useState(false);
+  // const [currentFinalYear, setCurrentFinalYear] = useState("FY 2023");
   // user dropdown details
   const [listHover, setListHover] = useState(0);
   // skeleton loading
@@ -276,22 +277,22 @@ function Header({ handleClosed, setModelListDetails }) {
   });
 
   // location dropdown
-  const handleClicksLocationListDropdown = (e) => {
-    setLocationListDropdown(!locationListDropdown);
-  };
+  // const handleClicksLocationListDropdown = (e) => {
+  //   setLocationListDropdown(!locationListDropdown);
+  // };
 
-  let domNode_2 = useClickOutSide(() => {
-    setLocationListDropdown(false);
-  });
+  // let domNode_2 = useClickOutSide(() => {
+  //   setLocationListDropdown(false);
+  // });
 
   // final year dropdown
-  const handleClicksFinalYearListDropdown = (e) => {
-    setFinalYearDropdown(!finalYearDropdown);
-  };
+  // const handleClicksFinalYearListDropdown = (e) => {
+  //   setFinalYearDropdown(!finalYearDropdown);
+  // };
 
-  let domNode_3 = useClickOutSide(() => {
-    setFinalYearDropdown(false);
-  });
+  // let domNode_3 = useClickOutSide(() => {
+  //   setFinalYearDropdown(false);
+  // });
 
   return (
     <div
@@ -362,7 +363,7 @@ function Header({ handleClosed, setModelListDetails }) {
                 </p>
                 <div className="dropdownLocationFinalYear">
                   {/* location dropdown */}
-                  <div
+                  {/* <div
                     ref={domNode_2}
                     style={{
                       display: "flex",
@@ -378,7 +379,7 @@ function Header({ handleClosed, setModelListDetails }) {
                     className="dropdown-container"
                     onClick={(e) => handleClicksLocationListDropdown(e)}
                   >
-                    {/* Goregoan (W) Mumbai */}
+                    Goregoan (W) Mumbai
                     <span style={{ minWidth: 125 }}>{currentLocation}</span>
                     <span
                       style={{
@@ -407,7 +408,7 @@ function Header({ handleClosed, setModelListDetails }) {
                       </svg>
                     </span>
 
-                    {/* location dropdown */}
+                    location dropdown
                     {locationListDropdown && (
                       <div
                         className="locationDropdownList"
@@ -442,7 +443,7 @@ function Header({ handleClosed, setModelListDetails }) {
                                   : "",
                             }}
                           >
-                            {/* location name */}
+                            location name
                             <p
                               style={{
                                 color:
@@ -459,9 +460,33 @@ function Header({ handleClosed, setModelListDetails }) {
                         ))}
                       </div>
                     )}
-                  </div>
-                  {/* final year dropdown */}
+                  </div> */}
+
+                  <Dropdown
+                    items={locationList}
+                    minWidth={122}
+                    dropdownMenWidth={177}
+                    defaultSelected="Goregoan (W) Mumbai"
+                  />
+                  {/* divider */}
                   <div
+                    style={{
+                      width: 1,
+                      height: "10px",
+                      display: "block",
+                      backgroundColor:
+                        theme === "light" ? "#b5b5b6" : "#545454",
+                      margin: "0 6px",
+                    }}
+                  />
+                  {/*  final year dropdown */}
+                  <Dropdown
+                    items={finalYearList}
+                    // minWidth={122}
+                    dropdownMenWidth={138}
+                  />
+                  {/* final year dropdown */}
+                  {/* <div
                     ref={domNode_3}
                     style={{
                       display: "flex",
@@ -502,7 +527,7 @@ function Header({ handleClosed, setModelListDetails }) {
                       </svg>
                     </span>
 
-                    {/* final year dropdown */}
+                    final year dropdown
                     {finalYearDropdown && (
                       <div
                         className={`finalYearDropdown`}
@@ -529,7 +554,7 @@ function Header({ handleClosed, setModelListDetails }) {
                               setFinalYearDropdown(false);
                             }}
                           >
-                            {/* final year name */}
+                            final year name
                             <p
                               style={{
                                 width: "100%",
@@ -553,7 +578,7 @@ function Header({ handleClosed, setModelListDetails }) {
                         ))}
                       </div>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </>
             )}

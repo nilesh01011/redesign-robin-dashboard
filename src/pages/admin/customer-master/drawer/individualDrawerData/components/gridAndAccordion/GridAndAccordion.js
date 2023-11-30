@@ -5,8 +5,9 @@ import "./styles.scss";
 import Accordion from "../accordion/Accordion";
 import SwitchButton from "./switchButton/SwitchButton";
 // import Dropdown from "../../../components/gridContent/dropdown/Dropdown";
-import InputText from "../../../components/gridContent/inputText/InputText";
+// import InputText from "../../../components/gridContent/inputText/InputText";
 import Dropdown from "../../../../../../../components/dropdown";
+import InputText from "../../../../../../../components/InputText/InputText";
 
 function GridAndAccordion({ data, drawerType }) {
   const theme = useSelector((state) => state.theme);
@@ -14,7 +15,7 @@ function GridAndAccordion({ data, drawerType }) {
     <div className={`${data.type}`} style={{ borderRadius: 4 }}>
       {data.type === "gridContents" &&
         data.contents.map((ele, index) => {
-          return <GridContent allData={ele} data={ele} key={index} drawerType={drawerType} />;
+          return <GridContent data={ele} key={index} drawerType={drawerType} />;
         })}
 
       {/* divider */}
@@ -87,14 +88,14 @@ function GridAndAccordion({ data, drawerType }) {
                               text={ele.text}
                             />
                           )}
-                          {ele.dropdownList && (
+                          {/* {ele.dropdownList && (
                             <Dropdown
                               items={ele.dropdownList}
                               disabled={ele.disabled}
-                              data={data}
+                              position={ele.position ? ele.position : null}
                               // width={90}
                             />
-                          )}
+                          )} */}
                         </div>
                       )}
                     </>

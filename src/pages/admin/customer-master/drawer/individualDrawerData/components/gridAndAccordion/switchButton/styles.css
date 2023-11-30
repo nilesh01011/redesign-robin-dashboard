@@ -1,0 +1,46 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 15px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch .slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 11px;
+  width: 11px;
+  bottom: 2px;
+  left: 2px;
+  top: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 1px 0px 1px 0px rgba(0, 0, 0, 0.1490196078);
+}
+.switch .activeSlide.slider {
+  box-shadow: -1px 0px 1px 0px rgba(0, 0, 0, 0.1490196078);
+  background-color: #56ac18 !important;
+}
+.switch .activeSlide::before {
+  transform: translateX(10.5px);
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}/*# sourceMappingURL=styles.css.map */

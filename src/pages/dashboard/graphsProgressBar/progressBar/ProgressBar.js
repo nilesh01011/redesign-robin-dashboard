@@ -28,7 +28,8 @@ function ProgressBar({ items }) {
               right:
                 (items.count < 20 && "-87px") ||
                 (items.count === 50 && "-87px") ||
-                (items.count <= 120 && "-40px"),
+                (items.count <= 120 && "-40px") ||
+                (items.count >= 140 && "-10px"),
             }}
           >
             <p

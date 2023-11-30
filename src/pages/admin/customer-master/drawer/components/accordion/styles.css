@@ -8,7 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 20px 16px !important;
+  max-height: 60px;
 }
 .accordionContainer .accordionHeader .markDefault {
   display: flex;
@@ -21,8 +22,31 @@
   display: block;
 }
 .accordionContainer .accordionContents {
-  padding: 0 30px;
+  padding: 0 20px !important;
+  padding-bottom: 20px !important;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.accordionContainer .submitForm {
+  margin-left: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.accordionContainer .submitForm .btn {
+  border-radius: 4px;
+  padding: 6px 16px;
+  border: 1px solid #FF3E5B;
+  font-size: 14px;
+  font-weight: 700;
+}
+.accordionContainer .submitForm .btn.primary {
+  background: #FF3E5B;
+  color: #ffffff;
+}
+.accordionContainer .submitForm .btn.secondary {
+  background: transparent;
+  color: #FF3E5B;
 }/*# sourceMappingURL=styles.css.map */

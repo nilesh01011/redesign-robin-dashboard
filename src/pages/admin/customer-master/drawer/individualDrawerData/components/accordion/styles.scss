@@ -20,3 +20,11 @@
     gap: 20px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .innerAccordion {
+    & .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

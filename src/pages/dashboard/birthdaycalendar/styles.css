@@ -39,6 +39,9 @@
 }
 .birthdayContainer .userDetails {
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .birthdayContainer .userDetails p {
   color: #858585;

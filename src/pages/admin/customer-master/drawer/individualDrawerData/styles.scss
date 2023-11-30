@@ -1,0 +1,13 @@
+.detailsContainer {
+  &.gridAndAccordion {
+    padding: 20px 30px;
+  }
+}
+
+@media screen and (max-width:768px) {
+    .detailsContainer {
+        &.gridAndAccordion {
+            padding: 20px;
+        }
+    }
+}

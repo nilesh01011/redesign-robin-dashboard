@@ -22,7 +22,14 @@ let useClickOutSide = (handler) => {
   return domNode;
 };
 
-function Dropdown({ items, dropdownDirection, padding,selected,setSelected,width }) {
+function Dropdown({
+  items,
+  dropdownDirection,
+  padding,
+  selected,
+  setSelected,
+  width,
+}) {
   const theme = useSelector((state) => state.theme);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -45,13 +52,17 @@ function Dropdown({ items, dropdownDirection, padding,selected,setSelected,width
   let domNode = useClickOutSide(() => {
     setIsDropdownOpen(false);
   });
-  
+
+  useEffect(() => {
+    if (!selected) {
+      setSelected(items[0].name);
+    } else {
+      setSelected(selected);
+    }
+  }, [selected]);
+
   return (
-    <div
-      className="dropdown-menu"
-      ref={domNode}
-      // style={{display:"none"}}
-    >
+    <div className="dropdown-menu" ref={domNode}>
       <div className="selectOption">
         <div
           style={{

@@ -1466,6 +1466,8 @@ function MobileViewDrawer({
     setRightSideDrawer(true);
     setCurrentTabsTitle(ele.name);
     setContentsType(ele.type);
+
+    setTabsStatus(ele.key);
   };
 
   const handleTabsActiveNext = (value) => {
@@ -1633,7 +1635,10 @@ function MobileViewDrawer({
                 }}
               >
                 <span>Mobile no.:</span>
-                <span style={{ fontWeight: 700 }}>{data.four}</span>
+                <span style={{ fontWeight: 700 }}>
+                  +91-9893473843
+                  {/* {data.four} */}
+                </span>
               </p>
             </div>
             {/* tabs steps */}
@@ -1744,9 +1749,9 @@ function MobileViewDrawer({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  position:"absolute",
-                  left:20,
-                  top:16
+                  position: "absolute",
+                  left: 20,
+                  top: 16,
                 }}
               >
                 <svg
@@ -1973,20 +1978,22 @@ function MobileViewDrawer({
               >
                 Next
               </button> */}
-                <button
-                  type="button"
-                  className="buttons"
-                  style={{ color: "#FF3E5B" }}
-                  onClick={() =>
-                    formDataSubmitted === false &&
-                    setDrawerType((prev) => {
-                      if (prev === "edit") return "view";
-                      if (prev === "view") return "edit";
-                    })
-                  }
-                >
-                  {drawerType === "edit" ? "View" : "Edit"}
-                </button>
+                {drawerType === "view" && (
+                  <button
+                    type="button"
+                    className="buttons"
+                    style={{ color: "#FF3E5B" }}
+                    onClick={() =>
+                      formDataSubmitted === false &&
+                      setDrawerType((prev) => {
+                        if (prev === "edit") return "view";
+                        if (prev === "view") return "edit";
+                      })
+                    }
+                  >
+                    Edit
+                  </button>
+                )}
 
                 {drawerType === "view" ? (
                   <button

@@ -4,9 +4,9 @@
 }
 .otfContainer .otfHeader {
   margin-bottom: 20px;
+  border-radius: 4px;
 }
 .otfContainer .otfHeader .otfHeaderLeftSide {
-  border-radius: 4px;
   padding: 8px 20px;
   display: flex;
   align-items: center;

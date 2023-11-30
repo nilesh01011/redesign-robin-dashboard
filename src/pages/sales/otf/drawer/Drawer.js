@@ -2288,7 +2288,7 @@ function Drawer({
                   contentsType === "gridContents"
                     ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
                     : "",
-                padding: contentsType === "gridContents" ? "20px 30px" : "",
+                // padding: contentsType === "gridContents" ? "20px 30px" : "",
                 borderRadius: 6,
               }}
             >
@@ -2414,12 +2414,13 @@ function Drawer({
               marginLeft: theme === "light" ? "1px" : "0px",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              {/* {moreActions === false && ( */}
-              {drawerType === "edit" && (
-                <>
-                  <div className="leftsideBtn">
-                    {/* <button
+            {formDataSubmitted === false && (
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                {/* {moreActions === false && ( */}
+                {drawerType === "edit" && (
+                  <>
+                    <div className="leftsideBtn">
+                      {/* <button
                       type="button"
                       className="btns"
                       onClick={() =>
@@ -2431,115 +2432,128 @@ function Drawer({
                     >
                       {drawerType === "edit" ? "View" : "Edit"}
                     </button> */}
-                    <button type="button" className="btns">
-                      Allot
-                    </button>
-                    <button type="button" className="btns">
-                      Invoice
-                    </button>
+                      <button type="button" className="btns">
+                        Allot
+                      </button>
+                      <button type="button" className="btns">
+                        Invoice
+                      </button>
 
-                    <button type="button" className="btns">
-                      Delivery Note
-                    </button>
+                      <button type="button" className="btns">
+                        Delivery Note
+                      </button>
 
-                    {moreActions === true && (
-                      <div className="leftsideBtn">
-                        <button type="button" className="btns">
-                          Transfer
-                        </button>
-                        <button type="button" className="btns">
-                          Cancel Booking
-                        </button>
-                      </div>
-                    )}
-                  </div>
+                      {moreActions === true && (
+                        <div className="leftsideBtn">
+                          <button type="button" className="btns">
+                            Transfer
+                          </button>
+                          <button type="button" className="btns">
+                            Cancel Booking
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      className="btns"
+                      onClick={(e) => setMoreActions(!moreActions)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 6,
+                      }}
+                    >
+                      {moreActions === true && (
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              transform:
+                                moreActions === false
+                                  ? "rotate(180deg)"
+                                  : "rotate(360deg",
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </span>
+                      )}
+                      {moreActions ? "Less" : "More"} Actions
+                      {moreActions === false && (
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              transform:
+                                moreActions === false
+                                  ? "rotate(180deg)"
+                                  : "rotate(360deg",
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </span>
+                      )}
+                    </button>
+                  </>
+                )}
+                {/* )} */}
+
+                {drawerType === "view" && (
                   <button
                     type="button"
                     className="btns"
-                    onClick={(e) => setMoreActions(!moreActions)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 6,
-                    }}
+                    onClick={() => setDrawerType("edit")}
                   >
-                    {moreActions === true && (
-                      <span
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <svg
-                          style={{
-                            transform:
-                              moreActions === false
-                                ? "rotate(180deg)"
-                                : "rotate(360deg",
-                          }}
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </span>
-                    )}
-                    {moreActions ? "Less" : "More"} Actions
-                    {moreActions === false && (
-                      <span
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <svg
-                          style={{
-                            transform:
-                              moreActions === false
-                                ? "rotate(180deg)"
-                                : "rotate(360deg",
-                          }}
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M10.0554 1.51052C9.92316 1.3695 9.70166 1.36236 9.56064 1.49457L3.96064 6.74457C3.89007 6.81073 3.85002 6.90316 3.85002 6.9999C3.85002 7.09665 3.89007 7.18907 3.96064 7.25524L9.56064 12.5052C9.70166 12.6374 9.92316 12.6303 10.0554 12.4893C10.1876 12.3483 10.1804 12.1268 10.0394 11.9946L4.71176 6.9999L10.0394 2.00524C10.1804 1.87304 10.1876 1.65154 10.0554 1.51052Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </span>
-                    )}
+                    Edit
                   </button>
-                </>
-              )}
-              {/* )} */}
+                )}
+              </div>
+            )}
 
-              {drawerType === "view" && (
+            {formDataSubmitted === true && (
+              <div className="leftsideBtn">
                 <button
                   type="button"
                   className="btns"
-                  onClick={() => setDrawerType("edit")}
+                  onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                 >
-                  Edit
+                  Close
                 </button>
-              )}
-            </div>
+              </div>
+            )}
 
             {/* middel buttons */}
             {/* <div className="leftsideBtn">

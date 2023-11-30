@@ -1,0 +1,25 @@
+.innerAccordion {
+  padding: 16px 20px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.innerAccordion:not(:last-child) {
+  margin-bottom: 20px;
+}
+.innerAccordion .accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.innerAccordion .grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .innerAccordion .grid {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=styles.css.map */

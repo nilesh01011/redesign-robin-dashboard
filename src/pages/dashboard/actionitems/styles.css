@@ -73,6 +73,7 @@
 }
 .actionItems .actionItemsCollapsed .actionItemsCollapsed_content .date {
   color: #858585;
+  white-space: nowrap;
 }
 .actionItems p {
   font-size: 14px;

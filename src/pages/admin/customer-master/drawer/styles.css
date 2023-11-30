@@ -216,7 +216,7 @@
   display: block;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer .formContainer {
-  padding: 20px 30px;
+  padding: 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -225,14 +225,18 @@
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .gridContents {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 20px;
+  gap: 20px;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .accordion {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .form {
+  display: flex;
+  flex-direction: column;
+}
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .gridAndAccordion {
   display: flex;
   flex-direction: column;
 }
@@ -280,6 +284,10 @@
   border: 1px solid;
   text-transform: capitalize;
   border-radius: 4px;
+}
+.tableDrawerContainer .drawerData .rightSide .footerSide .buttons.hoverButton:hover {
+  background: #ff3e5b;
+  color: #ffffff !important;
 }
 .tableDrawerContainer .drawerData .rightSide .footerSide .rightSideBtn {
   display: flex;

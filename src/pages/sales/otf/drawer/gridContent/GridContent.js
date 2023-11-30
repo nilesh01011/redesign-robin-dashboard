@@ -1,8 +1,9 @@
 import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import InputText from "../components/inputText/InputText";
+// import InputText from "../components/inputText/InputText";
 import Dropdown from "../../../../../components/dropdown";
+import InputText from "../../../../../components/InputText/InputText";
 // import Dropdown from "../components/dropdown/Dropdown";
 
 function GridContent({ data, type, allData, drawerType }) {

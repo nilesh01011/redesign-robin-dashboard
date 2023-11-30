@@ -49,6 +49,9 @@
   flex-direction: column;
   position: relative;
 }
+.customerMaster .customerMasterContainer::-webkit-scrollbar {
+  display: none;
+}
 .customerMaster .customerMasterContainer .customerMasterHeader {
   width: 100%;
   height: 100%;
@@ -84,6 +87,7 @@
 }
 .customerMaster .customerMasterContainer .tableContainer {
   max-height: 160px;
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 992px) {

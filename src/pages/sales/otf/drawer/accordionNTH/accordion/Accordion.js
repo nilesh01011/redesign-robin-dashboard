@@ -12,6 +12,8 @@ function Accordion({ data,drawerType }) {
         backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
         border: `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`,
         padding: 20,
+        borderRadius:4,
+        boxShadow:theme === "light" ? "0px 1px 1px 0px rgba(0, 0, 0, 0.15)" : "0px 1px 1px 0px rgba(255, 255, 255, 0.15)"
       }}
     >
       <div

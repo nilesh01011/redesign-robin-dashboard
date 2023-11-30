@@ -18,6 +18,7 @@
 .whatAppsGridContent {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 
   & span {
     font-size: 14px;
@@ -26,5 +27,11 @@
     &:nth-child(2) {
       font-weight: 500;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .whatAppsGridContent {
+    grid-template-columns: 1fr;
   }
 }

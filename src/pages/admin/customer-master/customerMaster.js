@@ -9,7 +9,7 @@ import Table from "../../../components/table";
 import ResponsiveTable from "../../../components/responsiveTable/ResponsiveTable";
 import Drawer from "./drawer/Drawer";
 import MobileViewDrawer from "./mobileViewDrawer/MobileViewDrawer";
-import Dropdown from "./dropdown/Dropdown";
+import PaginationDropdown from "./paginationDropdown/Dropdown";
 // import TableRedevelop from "../../../components/tableRedevelop/TableRedevelop";
 
 function CustomerMaster() {
@@ -24,6 +24,9 @@ function CustomerMaster() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [drawerData, setDrawerData] = useState([]);
   const [drawerType, setDrawerType] = useState("");
+
+  // add totify state
+  const [toastStatus, setToastStatus] = useState(false);
 
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -359,6 +362,7 @@ function CustomerMaster() {
               setDrawerData={setDrawerData}
               setDrawerType={setDrawerType}
               setIsDrawerOpen={setIsDrawerOpen}
+              selected={selected}
             />
             {/* <TableRedevelop
               tableHead={tableHead}
@@ -412,7 +416,7 @@ function CustomerMaster() {
             </p>
             {/* dropdown */}
             <div className="dropdownContainer">
-              <Dropdown
+              <PaginationDropdown
                 items={paginationItems}
                 dropdownDirection="top"
                 padding="4px 12px"
@@ -581,6 +585,8 @@ function CustomerMaster() {
         setIsDrawerOpen={setIsDrawerOpen}
         isActiveTabs={isActiveTabs}
         setDrawerType={setDrawerType}
+        toastStatus={toastStatus}
+        setToastStatus={setToastStatus}
       />
 
       {/* Movile View Drawer */}
@@ -591,7 +597,26 @@ function CustomerMaster() {
         setIsDrawerOpen={setIsDrawerOpen}
         isActiveTabs={isActiveTabs}
         setDrawerType={setDrawerType}
+        toastStatus={toastStatus}
+        setToastStatus={setToastStatus}
       />
+
+      {toastStatus && (
+        <h1
+          style={{
+            position: "absolute",
+            top: 16,
+            right: 16,
+            padding: "10px 16px",
+            backgroundColor: "#162D06",
+            color: "#56AC18",
+            zIndex: 10,
+            borderRadius: 4,
+          }}
+        >
+          Toast Msg
+        </h1>
+      )}
 
       {/* overlay */}
       <div

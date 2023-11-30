@@ -22,7 +22,7 @@ function NormalData({ data, drawerType }) {
             <div key={index} className="gridContents">
               {ele.contents.map((el, index) => {
                 // console.log(el)
-                return <GridContent key={index} data={el} />;
+                return <GridContent key={index} data={el} drawerType={drawerType} />;
               })}
             </div>
           );

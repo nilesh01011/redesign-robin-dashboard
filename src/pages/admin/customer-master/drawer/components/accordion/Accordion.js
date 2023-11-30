@@ -128,7 +128,7 @@ function Accordion({
             }}
           >
             {data.contents.map((ele, index) => (
-              <GridContent data={ele} key={index} type={data.type} />
+              <GridContent data={ele} key={index} type={data.type} drawerType={drawerType} />
             ))}
           </div>
           {/* button form */}

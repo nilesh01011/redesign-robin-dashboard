@@ -36,10 +36,14 @@
   display: flex;
   align-items: center;
 }
+.keyhightlightCrousel .swiper-slide-active .heads {
+  opacity: 1;
+}
 .keyhightlightCrousel .heads {
   display: flex;
   align-items: center;
   gap: 10px;
+  opacity: 0;
 }
 .keyhightlightCrousel .heads .label {
   display: flex;
@@ -52,7 +56,6 @@
   font-size: 12px;
 }
 .keyhightlightCrousel .heads .label .label_name {
-  background: #ffd8de;
   border: 1px solid #ff3e5b;
   color: #ff3e5b;
   border-radius: 2px;
@@ -67,6 +70,7 @@
 }
 .keyhightlightCrousel .heads .text .date {
   color: #858585;
+  white-space: nowrap !important;
 }
 .keyhightlightCrousel .carouselBtn {
   height: 100%;
@@ -77,6 +81,9 @@
   right: 0;
   top: 0;
   z-index: 5;
+}
+.keyhightlightCrousel .carouselBtn button:disabled {
+  opacity: 0.4;
 }
 
 @media screen and (max-width: 992px) {
@@ -94,7 +101,7 @@
   .keyhightlightCrousel .title_heads .mobileViewBtnShow {
     display: flex;
   }
-  .keyhightlightCrousel .swiper .mobileViewBtnHidden {
+  .keyhightlightCrousel .swiper .desktopViewBtn {
     display: none;
   }
 }

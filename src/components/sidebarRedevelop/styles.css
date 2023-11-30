@@ -7,6 +7,9 @@
   height: 100%;
   min-height: 100vh;
   padding-top: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .sidebar.desktopStrip {
   width: 60px;
@@ -97,7 +100,6 @@
   padding: 5px 12px;
   font-size: 14px;
   font-weight: 500;
-  cursor: pointer;
   border-radius: 3px;
   white-space: nowrap;
 }
@@ -123,7 +125,7 @@
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView {
   display: none;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar {
   opacity: 0;
   width: 5px;
 }
@@ -140,7 +142,7 @@
   background: #545454;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.lightTheme::-webkit-scrollbar-track {
-  background: #f0efef;
+  background: transparent;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.darkTheme::-webkit-scrollbar-track {
   background: #1c1c1c;
@@ -163,9 +165,8 @@
   gap: 10px;
   justify-content: space-between;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .menu-items-heading:hover {
+.sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .menu-items-heading.cursorPointer:hover {
   color: #ff3e5b;
-  cursor: pointer;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .menu-items-heading p {
   display: flex;
@@ -173,6 +174,9 @@
   gap: 10px;
   min-height: 32px;
   line-height: 2px;
+}
+.sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .menu-items-heading p:hover {
+  color: #ff3e5b;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul li .menu-items-heading p span {
   font-weight: 500;
@@ -293,6 +297,7 @@
     position: fixed;
     top: 0;
     left: -150%;
+    transition: left 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
     height: 100%;
   }
   .sidebar.desktopCollapse, .sidebar.desktopStrip {
@@ -325,7 +330,10 @@
   }
   .sidebar .sidebarContainer .sidebarMenuItemsContainer {
     position: static;
-    height: 100%;
+    height: -moz-max-content !important;
+    height: max-content !important;
+    max-height: -moz-max-content !important;
+    max-height: max-content !important;
     padding-right: 0 !important;
   }
   .sidebar .sidebarContainer .sidebarMenuItemsContainer .desktopViewSidebar {
@@ -360,6 +368,9 @@
   }
   .sidebar .themeContainer.mobileViewThemeWrapper {
     display: flex;
+    position: sticky;
+    bottom: 0;
+    left: 0;
   }
   .sidebar .themeContainer.mobileViewThemeWrapper .themeWrapper {
     width: 100%;
