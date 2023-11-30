@@ -151,6 +151,17 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .loginPage .logoImg {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .loginPage .logoImg img {
+    -o-object-position: center;
+       object-position: center;
+  }
+  .loginPage .loginForm .robinLogoContainer img {
+    height: 32px;
+  }
   .loginPage .loginForm .formContainer .title {
     font-size: 22px;
   }
@@ -163,6 +174,9 @@
 }
 @media screen and (max-width: 576px) {
   .loginPage .loginForm .formContainer .title {
-    font-size: 20px;
+    font-size: 16px;
+  }
+  .loginPage .loginForm .formContainer form .formTitle h1 {
+    font-size: 22px;
   }
 }/*# sourceMappingURL=styles.css.map */

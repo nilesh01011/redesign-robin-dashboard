@@ -315,6 +315,9 @@
   flex-direction: column;
   gap: 20px;
 }
+.tableDrawerContainer .drawerData .rightSide .contents .customerDetails .detailsContainer.gridContents {
+  padding: 20px 30px;
+}
 .tableDrawerContainer .drawerData .rightSide .contents .customerDetails .gridContents {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -1787,7 +1787,7 @@ function MobileViewDrawer({
                     contentsType === "gridContents"
                       ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
                       : "",
-                  padding: contentsType === "gridContents" ? "10px" : "",
+                  padding: contentsType === "gridContents" ? "20px" : "",
                   borderRadius: 6,
                 }}
               >

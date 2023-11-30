@@ -181,18 +181,36 @@
 
 @media screen and (max-width: 768px) {
   .loginPage {
-    & .loginForm .formContainer {
-      & .title {
-        font-size: 22px;
+    & .logoImg {
+      margin: 0 auto;
+      width: 100%;
+
+      & img {
+        object-position: center;
+      }
+    }
+
+    & .loginForm {
+      // logo
+      & .robinLogoContainer {
+        & img {
+          height: 32px;
+        }
       }
 
-      & form .formTitle {
-        & h1 {
-          font-size: 28px;
+      & .formContainer {
+        & .title {
+          font-size: 22px;
         }
 
-        & p {
-          font-size: 14px;
+        & form .formTitle {
+          & h1 {
+            font-size: 28px;
+          }
+
+          & p {
+            font-size: 14px;
+          }
         }
       }
     }
@@ -203,7 +221,13 @@
   .loginPage {
     & .loginForm .formContainer {
       & .title {
-        font-size: 20px;
+        font-size: 16px;
+      }
+
+      & form .formTitle {
+        & h1 {
+          font-size: 22px;
+        }
       }
     }
   }

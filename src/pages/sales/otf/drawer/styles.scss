@@ -383,6 +383,10 @@
               flex-direction: column;
               gap: 20px;
             }
+
+            &.gridContents {
+              padding:20px 30px;
+            }
           }
 
           & .gridContents {
