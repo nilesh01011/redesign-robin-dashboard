@@ -73,18 +73,19 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
               }}
               // onClick={() => setCollapsed(!collapsed)}
             >
+              {item.icon && <small>{item.icon}</small>}
               {/* items name */}
               <div
-                style={{
-                  color:
-                    IsExpand || pathname === item.link
-                      ? "#FF3E5B"
-                      : theme === "light"
-                      ? "black"
-                      : "#f2f2f2",
-                }}
+                // style={{
+                //   color:
+                //     IsExpand || pathname === item.link
+                //       ? "#FF3E5B"
+                //       : theme === "light"
+                //       ? "black"
+                //       : "#f2f2f2",
+                // }}
                 onClick={() => handleRedirect(item.link)}
-                title={item.link && item.link}
+                title={item.name && item.name}
               >
                 {wordSlice(item.name)}
               </div>
@@ -100,7 +101,7 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
                 justifyContent: "center",
               }}
             >
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
@@ -113,6 +114,21 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
                   d="M17.842 5.63523C18.0434 5.8241 18.0536 6.14052 17.8648 6.34197L10.3648 14.342C10.2702 14.4428 10.1382 14.5 10 14.5C9.86179 14.5 9.72975 14.4428 9.63523 14.342L2.13523 6.34197C1.94637 6.14052 1.95657 5.8241 2.15803 5.63523C2.35948 5.44637 2.6759 5.45657 2.86477 5.65803L10 13.2689L17.1352 5.65803C17.3241 5.45657 17.6405 5.44637 17.842 5.63523Z"
                   fill="currentColor"
                 />
+              </svg> */}
+              <svg
+                style={{ transform: "rotate(270deg)" }}
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 16 16"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                ></path>
               </svg>
             </span>
           </div>
@@ -144,19 +160,23 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
               margin: "0",
             }}
           >
+            {/* icons */}
+            {item.icon && <small>{item.icon}</small>}
+            {/* items */}
             <div
-              style={{
-                color:
-                  IsExpand || pathname === item.link
-                    ? "#FF3E5B"
-                    : theme === "light"
-                    ? "black"
-                    : "#f2f2f2",
-              }}
+              // style={{
+              //   color:
+              //     IsExpand || pathname === item.link
+              //       ? "#FF3E5B"
+              //       : theme === "light"
+              //       ? "black"
+              //       : "#f2f2f2",
+              // }}
               onClick={() => {
                 handleRedirect(item.link);
                 setCollapsed(false);
               }}
+              title={item.name && item.name}
             >
               {wordSlice(item.name)}
             </div>

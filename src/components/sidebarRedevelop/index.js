@@ -208,14 +208,14 @@ function SidebarRedevelop() {
               alt="logo"
               height={26}
               onClick={() => {
-                router("/dashboard");
+                // router("/dashboard");
                 handleSidebar();
               }}
             />
             {/* mobile view icons */}
             <span
               className="mobileIcons"
-              style={{ color: "#FF3E5B" }}
+              style={{ color: "#FF3E5B",display:"flex",alignItems:"center",justifyContent:"center" }}
               onClick={handleSidebar}
             >
               <svg
@@ -542,8 +542,8 @@ function SidebarRedevelop() {
             //   collapsed === true && setSidebarScrollBar(!sidebarScrollBar);
             // }}
             style={{
-              overflowY: collapsed === false ? "" : "scroll",
               overflowX: collapsed === false ? "" : "hidden",
+              overflowY: collapsed === false ? "" : "scroll",
               paddingLeft: collapsed ? 14 : 0,
               paddingRight: collapsed ? 9 : 0,
               paddingTop: collapsed ? 0 : 5,
@@ -577,12 +577,11 @@ function SidebarRedevelop() {
             className={`sidebarMenuItemsContainer mobileView ${
               theme === "light" ? "lightTheme" : "darkTheme"
             }`}
-            style={{
-              overflowY: collapsed === false ? "" : "scroll",
-              overflowX: collapsed === false ? "" : "hidden",
-              paddingLeft: collapsed ? 14 : 0,
-              paddingRight: collapsed ? 9 : 6,
-            }}
+            // style={{
+            //   overflowY: collapsed === false ? "" : "scroll",
+            //   overflowX: collapsed === false ? "" : "hidden",
+            //   paddingRight: collapsed ? 9 : 6,
+            // }}
           >
             {/* Mobile View */}
             <MobileView

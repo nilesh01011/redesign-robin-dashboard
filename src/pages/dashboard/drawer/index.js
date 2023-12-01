@@ -111,12 +111,9 @@ function NewsDrawer({
       </div>
       {/* contents */}
       <div
-        className="contents"
-        style={{
-          paddingLeft: drawerType === "Latest News" && 35,
-          paddingRight: drawerType === "Latest News" && 35,
-          paddingTop: drawerType === "Latest News" && 20,
-        }}
+        className={`contents ${
+          drawerType === "Latest News" && "latestNewsDiv"
+        }`}
       >
         {drawerType === "Latest News" && (
           <>

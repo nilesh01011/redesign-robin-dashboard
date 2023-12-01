@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addRecentlyView } from "../../../store/slices/recentlyViewSlices";
+import "./styles.scss";
 
 const Tooltips = (
   items,

@@ -35,7 +35,8 @@
 .titleContainer {
   padding-top: 7px;
   position: sticky;
-  top: 60px;
+  // top: 60px;
+  top:61.2px;
   z-index: 6;
 }
 
@@ -230,6 +231,10 @@ body.dark::-webkit-scrollbar-thumb {
   .tableContainer {
     max-width: none;
     min-height: calc(100vh - 320px);
+  }
+
+  .titleContainer {
+    top:58px;
   }
 }
 

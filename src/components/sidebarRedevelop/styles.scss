@@ -11,9 +11,18 @@
   // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   user-select: none;
 
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &.desktopStrip {
     width: 60px;
     min-width: 60px;
+
+    // & .sidebarMenuItemsContainer {
+    //   width:60px !important;
+    // }
   }
 
   &.desktopCollapse {
@@ -126,7 +135,6 @@
             padding: 5px 12px;
             font-size: 14px;
             font-weight: 500;
-            // cursor: pointer;
             border-radius: 3px;
             white-space: nowrap;
           }
@@ -169,33 +177,33 @@
         display: none;
       }
 
-      &.activeScrollbar::-webkit-scrollbar {
-        opacity: 0;
+      &::-webkit-scrollbar {
+        // opacity: 0;
         width: 5px;
       }
 
-      &.activeScrollbar::-webkit-scrollbar {
-        opacity: 1;
-      }
+      // &.activeScrollbar::-webkit-scrollbar {
+      //   opacity: 1;
+      // }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 10px;
       }
 
-      &.activeScrollbar.lightTheme::-webkit-scrollbar-thumb {
+      &.lightTheme::-webkit-scrollbar-thumb {
         background: #b5b5b6;
       }
 
-      &.activeScrollbar.darkTheme::-webkit-scrollbar-thumb {
+      &.darkTheme::-webkit-scrollbar-thumb {
         background: #545454;
       }
 
-      &.activeScrollbar.lightTheme::-webkit-scrollbar-track {
+      &.lightTheme::-webkit-scrollbar-track {
         // background: #f0efef;
         background: transparent;
       }
 
-      &.activeScrollbar.darkTheme::-webkit-scrollbar-track {
+      &.darkTheme::-webkit-scrollbar-track {
         background: #1c1c1c;
       }
 
@@ -223,7 +231,6 @@
               // cursor: pointer;
             }
 
-            
             & p {
               display: flex;
               align-items: center;
@@ -364,17 +371,6 @@
   }
 }
 
-// media queries
-// @media screen and (max-width: 1366px) {
-//   .sidebar {
-//     & .sidebarContainer {
-//       & .sidebarMenuItemsContainer {
-//         max-height: 580px;
-//       }
-//     }
-//   }
-// }
-
 @media screen and (max-width: 992px) {
   #overlay {
     width: 100%;
@@ -392,7 +388,7 @@
   }
 
   .sidebar {
-    width: 84%;
+    width: 360px;
     position: fixed;
     top: 0;
     left: -150%;
@@ -401,7 +397,8 @@
 
     &.desktopCollapse,
     &.desktopStrip {
-      width: 84%;
+      // width: 84%;
+      width: 360px;
     }
 
     .desktopViewBtn {
@@ -440,6 +437,10 @@
         //   // display: none !important;
         // }
 
+        &.desktopView {
+          display: none !important;
+        }
+
         &.mobileViewSearch {
           display: block;
           position: relative;
@@ -450,7 +451,8 @@
       & .sidebarMenuItemsContainer {
         position: static;
         height: max-content !important;
-        max-height: max-content !important;
+        // max-height: max-content !important;
+        max-height: calc(100vh - 145px);
         padding-right: 0 !important;
 
         & .desktopViewSidebar {
@@ -467,23 +469,23 @@
           &::-webkit-scrollbar {
             width: 5px;
           }
-    
+
           &::-webkit-scrollbar-thumb {
             border-radius: 10px;
           }
-    
+
           &.lightTheme::-webkit-scrollbar-thumb {
             background: #b5b5b6;
           }
-    
+
           &.darkTheme::-webkit-scrollbar-thumb {
             background: #545454;
           }
-    
+
           &.lightTheme::-webkit-scrollbar-track {
             background: #f0efef;
           }
-    
+
           &.darkTheme::-webkit-scrollbar-track {
             background: #1c1c1c;
           }
@@ -502,10 +504,12 @@
         // position: fixed;
         // left: 0;
         // bottom: 0;
-        position: sticky;
+        position: absolute;
         bottom: 0;
         left: 0;
-
+        // position: sticky;
+        // bottom: 0;
+        // left: 0;
 
         & .themeWrapper {
           width: 100%;
@@ -514,6 +518,17 @@
           padding-right: 14px;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .sidebar {
+    width: 84%;
+
+    &.desktopCollapse,
+    &.desktopStrip {
+      width: 84%;
     }
   }
 }

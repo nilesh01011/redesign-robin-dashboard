@@ -325,12 +325,12 @@ function Header({ handleClosed, setModelListDetails }) {
                 <span>
                   <svg
                     style={{ transform: "rotate(180deg)" }}
-                    stroke="currentColor"
-                    fill="currentColor"
+                    stroke="#FF3E5B"
+                    fill="#FF3E5B"
                     strokeWidth="0"
                     viewBox="0 0 16 16"
-                    height="18"
-                    width="18"
+                    height="16"
+                    width="16"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
