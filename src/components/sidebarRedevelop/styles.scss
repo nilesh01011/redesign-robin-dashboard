@@ -20,9 +20,9 @@
     width: 60px;
     min-width: 60px;
 
-    // & .sidebarMenuItemsContainer {
-    //   width:60px !important;
-    // }
+    & .sidebarMenuItemsContainer.desktopView {
+      width: 60px !important;
+    }
   }
 
   &.desktopCollapse {
@@ -66,9 +66,13 @@
     // search items
     & .searchInputContainer {
       width: 100%;
-      // position: relative;
+      position: sticky;
       padding: 0 14px;
       // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+
+      &.mobileViewSearch {
+        display: none;
+      }
 
       & .searchIcons {
         display: flex;
@@ -91,6 +95,7 @@
         left: 14px;
         right: 14px;
         top: 90%;
+        z-index: 6;
         // width: calc(100% - 28px);
         // margin: 0 auto;
         max-height: 180px;
@@ -172,6 +177,7 @@
       width: 100%;
       height: 100%;
       max-height: calc(100vh - 172px);
+      overflow-y: scroll;
 
       &.mobileView {
         display: none;
@@ -324,7 +330,8 @@
   // theme
   & .themeContainer {
     width: 100%;
-    position: sticky;
+    // position: sticky;
+    position: absolute;
     left: 0;
     bottom: 0;
     z-index: 10;
@@ -424,7 +431,7 @@
 
     & .sidebarContainer {
       // transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-      height: 100%;
+      // height: 100%;
 
       &.desktopCollapse,
       &.desktopStrip {
@@ -475,6 +482,7 @@
           }
 
           &.lightTheme::-webkit-scrollbar-thumb {
+            // background: #b5b5b6;
             background: #b5b5b6;
           }
 
@@ -482,13 +490,17 @@
             background: #545454;
           }
 
-          &.lightTheme::-webkit-scrollbar-track {
-            background: #f0efef;
+          &::-webkit-scrollbar-track {
+            background: transparent;
           }
 
-          &.darkTheme::-webkit-scrollbar-track {
-            background: #1c1c1c;
-          }
+          // &.lightTheme::-webkit-scrollbar-track {
+          //   background: #f0efef;
+          // }
+
+          // &.darkTheme::-webkit-scrollbar-track {
+          //   background: #1c1c1c;
+          // }
         }
       }
     }
@@ -529,6 +541,16 @@
     &.desktopCollapse,
     &.desktopStrip {
       width: 84%;
+    }
+
+    & .themeContainer {
+      &.mobileViewThemeWrapper {
+        position: absolute;
+        // top: 100%;
+        // position: absolute !important;
+        bottom: 0;
+        left: 0;
+      }
     }
   }
 }

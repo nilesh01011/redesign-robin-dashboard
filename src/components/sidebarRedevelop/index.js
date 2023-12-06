@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toggleTheme } from "../../store/slices/themeSlices";
 // import SearchInput from "../sidebar/sidebarSearchInput";
-import SearchInput from "./sidebarSearchInput/SidebarSearchInput"
+import SearchInput from "./sidebarSearchInput/SidebarSearchInput";
 import {
   B_DARK_THEME,
   B_LIGHT_THEME,
@@ -67,7 +67,8 @@ function SidebarRedevelop() {
   };
 
   const onSearch = (value) => {
-    setSearchMenuItems(value);
+    const searchValue = value.toLowerCase();
+    setSearchMenuItems(searchValue);
 
     // console.log("Value:", value);
 
@@ -77,7 +78,7 @@ function SidebarRedevelop() {
       const results =
         value &&
         searchItems.filter((ele) => {
-          return ele.name.toLowerCase().includes(value);
+          return ele.name.toLowerCase().includes(searchValue);
         });
 
       // console.log(results);
@@ -215,7 +216,12 @@ function SidebarRedevelop() {
             {/* mobile view icons */}
             <span
               className="mobileIcons"
-              style={{ color: "#FF3E5B",display:"flex",alignItems:"center",justifyContent:"center" }}
+              style={{
+                color: "#FF3E5B",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
               onClick={handleSidebar}
             >
               <svg
@@ -239,7 +245,7 @@ function SidebarRedevelop() {
             className="searchInputContainer desktopView"
             ref={domNode}
             style={{
-              paddingTop: collapsed === false ? 10 : 0,
+              paddingTop: collapsed === false ? 8 : 0,
               paddingBottom: 14,
               top: collapsed === false ? 52 : 54,
               // backgroundColor: theme === "light" ? "white" : "#1C1C1C",
@@ -343,6 +349,9 @@ function SidebarRedevelop() {
                   >
                     {searchResultsData !== 0 &&
                       searchResultsData?.map((ele, index) => {
+                        // const regex = new RegExp(ele);
+
+                        console.log(searchMenuItems)
                         return (
                           <li
                             key={index}
@@ -428,9 +437,6 @@ function SidebarRedevelop() {
                 cursor: "pointer",
                 top: 5,
               }}
-              // className={`searchIcons ${
-              //   collapsed === true && "searchIconsAbsolute"
-              // }`}
               className="searchIcons searchIconsAbsolute"
             >
               <svg
@@ -448,8 +454,6 @@ function SidebarRedevelop() {
                 />
               </svg>
             </span>
-
-            {/* search results */}
             {/* search results */}
             {searchMenuItems &&
               collapsed === true &&
@@ -489,8 +493,6 @@ function SidebarRedevelop() {
                           </li>
                         );
                       })}
-
-                    {/* {resultNotFound && <span>No result found.</span>} */}
                   </ul>
                 </div>
               )}

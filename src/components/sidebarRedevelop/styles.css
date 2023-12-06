@@ -10,10 +10,17 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .sidebar.desktopStrip {
   width: 60px;
   min-width: 60px;
+}
+.sidebar.desktopStrip .sidebarMenuItemsContainer.desktopView {
+  width: 60px !important;
 }
 .sidebar.desktopCollapse {
   width: 282px;
@@ -48,7 +55,11 @@
 }
 .sidebar .sidebarContainer .searchInputContainer {
   width: 100%;
+  position: sticky;
   padding: 0 14px;
+}
+.sidebar .sidebarContainer .searchInputContainer.mobileViewSearch {
+  display: none;
 }
 .sidebar .sidebarContainer .searchInputContainer .searchIcons {
   display: flex;
@@ -65,6 +76,7 @@
   left: 14px;
   right: 14px;
   top: 90%;
+  z-index: 6;
   max-height: 180px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -121,30 +133,27 @@
   width: 100%;
   height: 100%;
   max-height: calc(100vh - 172px);
+  overflow-y: scroll;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView {
   display: none;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar {
-  opacity: 0;
+.sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar {
   width: 5px;
-}
-.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar::-webkit-scrollbar {
-  opacity: 1;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.lightTheme::-webkit-scrollbar-thumb {
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.lightTheme::-webkit-scrollbar-thumb {
   background: #b5b5b6;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.darkTheme::-webkit-scrollbar-thumb {
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.darkTheme::-webkit-scrollbar-thumb {
   background: #545454;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.lightTheme::-webkit-scrollbar-track {
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.lightTheme::-webkit-scrollbar-track {
   background: transparent;
 }
-.sidebar .sidebarContainer .sidebarMenuItemsContainer.activeScrollbar.darkTheme::-webkit-scrollbar-track {
+.sidebar .sidebarContainer .sidebarMenuItemsContainer.darkTheme::-webkit-scrollbar-track {
   background: #1c1c1c;
 }
 .sidebar .sidebarContainer .sidebarMenuItemsContainer ul {
@@ -237,7 +246,7 @@
 }
 .sidebar .themeContainer {
   width: 100%;
-  position: sticky;
+  position: absolute;
   left: 0;
   bottom: 0;
   z-index: 10;
@@ -293,7 +302,7 @@
     display: none;
   }
   .sidebar {
-    width: 84%;
+    width: 360px;
     position: fixed;
     top: 0;
     left: -150%;
@@ -301,7 +310,7 @@
     height: 100%;
   }
   .sidebar.desktopCollapse, .sidebar.desktopStrip {
-    width: 84%;
+    width: 360px;
   }
   .sidebar .desktopViewBtn {
     display: none;
@@ -324,6 +333,9 @@
   .sidebar .sidebarContainer.desktopCollapse, .sidebar .sidebarContainer.desktopStrip {
     width: 100%;
   }
+  .sidebar .sidebarContainer .searchInputContainer.desktopView {
+    display: none !important;
+  }
   .sidebar .sidebarContainer .searchInputContainer.mobileViewSearch {
     display: block;
     position: relative;
@@ -332,8 +344,7 @@
     position: static;
     height: -moz-max-content !important;
     height: max-content !important;
-    max-height: -moz-max-content !important;
-    max-height: max-content !important;
+    max-height: calc(100vh - 145px);
     padding-right: 0 !important;
   }
   .sidebar .sidebarContainer .sidebarMenuItemsContainer .desktopViewSidebar {
@@ -357,18 +368,15 @@
   .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.darkTheme::-webkit-scrollbar-thumb {
     background: #545454;
   }
-  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.lightTheme::-webkit-scrollbar-track {
-    background: #f0efef;
-  }
-  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView.darkTheme::-webkit-scrollbar-track {
-    background: #1c1c1c;
+  .sidebar .sidebarContainer .sidebarMenuItemsContainer.mobileView::-webkit-scrollbar-track {
+    background: transparent;
   }
   .sidebar .themeContainer.desktopView {
     display: none;
   }
   .sidebar .themeContainer.mobileViewThemeWrapper {
     display: flex;
-    position: sticky;
+    position: absolute;
     bottom: 0;
     left: 0;
   }
@@ -377,6 +385,19 @@
     border-radius: 0;
     padding-left: 14px;
     padding-right: 14px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .sidebar {
+    width: 84%;
+  }
+  .sidebar.desktopCollapse, .sidebar.desktopStrip {
+    width: 84%;
+  }
+  .sidebar .themeContainer.mobileViewThemeWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 @media screen and (max-width: 360px) {

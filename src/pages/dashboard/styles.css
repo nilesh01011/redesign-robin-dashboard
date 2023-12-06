@@ -287,6 +287,9 @@
   }
 }
 @media screen and (max-width: 992px) {
+  .dashboard .boxContainer {
+    margin-top: 20px;
+  }
   .dashboard .boxContainer .key_highlights_heading .key_highlights_heading_left .heads {
     flex-direction: column;
     align-items: flex-start;

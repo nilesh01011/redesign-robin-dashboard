@@ -219,14 +219,14 @@ export const menuItems = [
           {
             name: "GST Report (Dealer to Customer & MnM)",
             key: "5.1.1.3",
-            link: "/financial-accounting/gst-related/gst-report",
+            link: "/financial-accounting/gst-related/gst-report-dealer-to-customer-&-MnM",
           },
         ],
       },
       {
         name: "Dealer Ledger Balance",
         key: "5.1.2",
-        link: "/financial-accounting/dealer-ledger/balance",
+        link: "/financial-accounting/dealer-ledger-balance",
       },
       {
         name: "Financial Reports",

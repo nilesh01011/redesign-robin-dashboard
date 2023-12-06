@@ -2798,11 +2798,11 @@ function Drawer({
                   contentsType === "gridContents"
                     ? `1px solid ${theme === "light" ? "#E6E6E6" : "#232324"}`
                     : "",
-                padding:
-                  isActiveTabs === "Firm/Corporate" &&
-                  contentsType === "gridContents"
-                    ? "20px 30px"
-                    : "",
+                // padding:
+                //   isActiveTabs === "Firm/Corporate" &&
+                //   contentsType === "gridContents"
+                //     ? "20px 30px"
+                //     : "",
                 // borderRadius: 6,
               }}
             >

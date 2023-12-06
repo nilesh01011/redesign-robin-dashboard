@@ -134,7 +134,7 @@ function AccordionGridForm({
           {data.contents.map((ele, index) => {
             if (ele.type === "form") {
               return (
-                <div key={index} className="formContainer">
+                <div key={index} className="formContainer" style={{borderTop:`1px solid ${theme === "light" ? "#e6e6e6" : "#232324"}`,borderRadius:0,padding:"20px 16px"}}>
                   {ele.contents.map((el, index) => (
                     <div
                       key={index}

@@ -83,6 +83,7 @@ function Sidebar() {
             theme === "light"
               ? " 0 0 3px rgba(0, 0, 0, 0.2)"
               : "1px 0px 1px 0px rgba(255, 255, 255, 0.15)",
+              display:"none"
         }}
       >
         {/* ================ main sidebar ================ */}

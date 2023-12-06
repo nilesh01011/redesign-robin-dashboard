@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 
@@ -20,6 +20,7 @@ function SidebarSearchInput({
         style={{
           color: theme === "light" ? "black" : "white",
           backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C",
+          borderColor: theme === "light" ? "#b5b5b6" : "#342c2c"
         }}
         className={`SearchInput ${
           theme === "dark" ? "DarkSearchInput" : "LightSearchInput"

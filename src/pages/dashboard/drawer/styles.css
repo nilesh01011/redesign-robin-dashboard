@@ -43,6 +43,11 @@
 .drawerContainer .contents {
   width: 100%;
 }
+.drawerContainer .contents.latestNewsDiv {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 20px;
+}
 .drawerContainer .contents h5 {
   font-size: 16px;
 }
@@ -68,6 +73,14 @@
   line-height: 23px;
 }
 
+@media screen and (max-width: 992px) {
+  .drawerContainer .contents.latestNewsDiv {
+    padding-right: 25px;
+  }
+  .drawerContainer .contents .ItemsList {
+    padding-left: 44px;
+  }
+}
 @media screen and (max-width: 660px) {
   .drawerContainer {
     width: 100%;
@@ -86,10 +99,6 @@
   }
 }
 @media screen and (max-width: 576px) {
-  .drawerContainer .contents {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
   .drawerContainer .contents p {
     font-size: 14px;
   }

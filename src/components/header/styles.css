@@ -321,10 +321,13 @@
   }
 }
 @media screen and (max-width: 992px) {
+  .header {
+    padding-top: 10px;
+  }
   .header .headerLeft .mobileViewBtn {
     display: flex;
     align-items: center;
-    height: 30px;
+    height: 25px;
     line-height: 6px;
     cursor: pointer;
   }

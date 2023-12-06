@@ -1,36 +1,44 @@
-import { createContext } from "react";
+// import { createContext } from "react";
 
 import { Route, Routes } from "react-router-dom";
 import "./index.scss";
+// components
 import Header from "./components/header";
-import Sidebar from "./components/sidebar";
+import Model from "./components/model";
+import SidebarRedevelop from "./components/sidebarRedevelop";
+
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import Model from "./components/model";
 // dashboard
 import DashboardPage from "./pages/dashboard";
 // favourites
 import Favourites from "./pages/favourites";
-// import CriticalityGroup from "./pages/favourites/criticalityGroup";
-// parts
-// import SuggestOrderQty from "./pages/parts/partsordering/suggestorderqty";
-// CRM
-import CRM from "./pages/crm";
-// admin
-import CustomerMaster from "./pages/admin/customer-master/customerMaster";
-// sales / order-to-delivery
-import OTF from "./pages/sales/otf/OTF";
-import SidebarRedevelop from "./components/sidebarRedevelop";
 import ProductHierarchyMaster from "./pages/favourites/product-hierarchy-master/ProductHierarchyMaster";
 import VehicleAllotment from "./pages/favourites/vehicle-allotment/VehicleAllotment";
-import CoTEKEvaluation from "./pages/hr/manage-dealer-manpower/coTEK-evaluation/CoTEKEvaluation";
-import ManageDealers from "./pages/hr/manage-dealers/ManageDealers";
-import ManageManpowerTraining from "./pages/hr/manage-manpower-training/ManageManpowerTraining";
+// sales
+import OTF from "./pages/sales/otf/OTF";
+// sales / order-to-delivery end
 import VinBlockMaster from "./pages/sales/vin-block-master/VinBlockMaster";
 import DeliveryNoteRequest from "./pages/sales/orderToDelivery/deliveryNoteInvoiceCancellationRequest/DeliveryNoteRequest";
 import DeliveryNoteVehicles from "./pages/sales/orderToDelivery/deliveryNoteVehicles/DeliveryNoteVehicles";
 import VehiclesAllotment from "./pages/sales/orderToDelivery/vehiclesAllotment/VehiclesAllotment";
 import VehiclesPricesMaster from "./pages/sales/vehiclesPrices/vehiclePriceMaster/VehiclesPricesMaster";
+// hr
+import CoTEKEvaluation from "./pages/hr/manage-dealer-manpower/coTEK-evaluation/CoTEKEvaluation";
+import ManageDealers from "./pages/hr/manage-dealers/ManageDealers";
+import ManageManpowerTraining from "./pages/hr/manage-manpower-training/ManageManpowerTraining";
+// financial accounting
+import GstIrnAuthentication from "./pages/financialAccounting/gst-related/gst-irn-authentication/GstIrnAuthentication";
+import GstIrnTransaction from "./pages/financialAccounting/gst-related/gst-irn-transaction/GstIrnTransaction";
+import GstReportDealerToCustomerMnM from "./pages/financialAccounting/gst-related/gst-report-dealer-to-customer-&-MnM/GstReportDealerToCustomerMnM";
+import DealerLedgerBalance from "./pages/financialAccounting/dealer-ledger-balance/DealerLedgerBalance";
+import DealerCreditBalance from "./pages/financialAccounting/financial-reports/dealer-credit-balance/DealerCreditBalance";
+import CustomerOutstanding from "./pages/financialAccounting/financial-reports/customer-outstanding/CustomerOutstanding";
+import CreditDebitNote from "./pages/financialAccounting/vouchers/credit-debit-note/CreditDebitNote";
+import TaxCharges from "./pages/financialAccounting/accout-tax-charges-setup/tax-charges/TaxCharges";
+// admin
+import CustomerMaster from "./pages/admin/customer-master/customerMaster";
+import Admin from "./pages/admin/admin-1-2/Admin";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -63,7 +71,6 @@ function App() {
   return (
     <div className="container">
       {/* sidebar */}
-      {/* <Sidebar /> */}
       <SidebarRedevelop />
       <div className="main-container">
         {/* Headers */}
@@ -96,10 +103,14 @@ function App() {
         ></div> */}
         {/* overlay */}
         <div
-          style={{ display: modelListDetails ? "block" : "none",backgroundColor:theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(84, 84, 84,0.7)" }}
+          style={{
+            display: modelListDetails ? "block" : "none",
+            backgroundColor:
+              theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(84, 84, 84,0.7)",
+          }}
           id="overlay_2"
           onClick={handleClosed}
-        ></div> 
+        ></div>
         {/* main contents */}
         <Routes>
           {/* =================== dashboard ============= */}
@@ -178,12 +189,61 @@ function App() {
             element={<VinBlockMaster />}
           ></Route>
 
+          {/* ================= Financial Accounting ================ */}
+          <Route
+            path="/financial-accounting/gst-related/gst-irn-authentication"
+            element={<GstIrnAuthentication />}
+          ></Route>
+
+          <Route
+            path="/financial-accounting/gst-related/gst-irn-transaction"
+            element={<GstIrnTransaction />}
+          ></Route>
+
+          <Route
+            path="/financial-accounting/gst-related/gst-report-dealer-to-customer-&-MnM"
+            element={<GstReportDealerToCustomerMnM />}
+          ></Route>
+
+          {/* dealer-ledger-balance */}
+
+          <Route
+            path="/financial-accounting/dealer-ledger-balance"
+            element={<DealerLedgerBalance />}
+          ></Route>
+
+          {/* financial report */}
+          <Route
+            path="/financial-accounting/financial-reports/dealer-credit-balance"
+            element={<DealerCreditBalance />}
+          ></Route>
+
+          <Route
+            path="/financial-accounting/financial-reports/customer-outstanding"
+            element={<CustomerOutstanding />}
+          ></Route>
+
+          {/* vouchers */}
+          <Route
+            path="/financial-accounting/vouchers/credit-debit-note"
+            element={<CreditDebitNote />}
+          ></Route>
+
+          {/* accout-tax-charges-setup */}
+          <Route
+            path="/financial-accounting/accout-tax-charges-setup/tax-charges"
+            element={<TaxCharges />}
+          ></Route>
+
           {/* ================= Admin ================ */}
           <Route
             path="/admin/customer-master"
             element={<CustomerMaster />}
           ></Route>
+
+          <Route path="/admin/admin-1-2" element={<Admin />}></Route>
         </Routes>
+
         {/* Footer */}
         {/* <div
           className="footer"
