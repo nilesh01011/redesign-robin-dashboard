@@ -40,6 +40,13 @@
         border: 1px solid #ff3e5b;
         font-size: 12px;
       }
+
+      & p {
+        white-space: nowrap;
+        width: 179px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
 
     & .rightSide {

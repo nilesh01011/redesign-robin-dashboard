@@ -66,6 +66,7 @@ function Header({ handleClosed, setModelListDetails }) {
     if (sidebar && overlay) {
       sidebar.style.left = 0;
       overlay.style.display = "block";
+      document.querySelector("body").style.overflow = "hidden";
     }
   };
 
@@ -720,7 +721,8 @@ function Header({ handleClosed, setModelListDetails }) {
                   <span className="username">Joana Doe</span>
                   <p style={{ marginTop: 2 }}>
                     <span className="userNumber" style={{ color: "#FF3E5B" }}>
-                      {wordSlice(userRoleChanged)}
+                      {/* {wordSlice(userRoleChanged)} */}
+                      {userRoleChanged}
                     </span>
                   </p>
                 </div>

@@ -41,7 +41,8 @@ function ActionItemsCollapsed({
       >
         {/* left side */}
         <div className="leftSide">
-          <p>{wordSlice(items.text)}</p>
+          <p>{items.text}</p>
+          {/* <p>{wordSlice(items.text)}</p> */}
           <span className="labels">{items.count}</span>
         </div>
         {/* right side */}

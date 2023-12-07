@@ -39,6 +39,9 @@ import TaxCharges from "./pages/financialAccounting/accout-tax-charges-setup/tax
 // admin
 import CustomerMaster from "./pages/admin/customer-master/customerMaster";
 import Admin from "./pages/admin/admin-1-2/Admin";
+import CustomerRelated from "./pages/common/customer-related/CustomerRelated";
+import VehicleRelated from "./pages/common/vehicle-related/VehicleRelated";
+import StockStatusReport from "./pages/reports/procurement-inventory-management-reports/stock-status-report/StockStatusReport";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -206,7 +209,6 @@ function App() {
           ></Route>
 
           {/* dealer-ledger-balance */}
-
           <Route
             path="/financial-accounting/dealer-ledger-balance"
             element={<DealerLedgerBalance />}
@@ -242,6 +244,23 @@ function App() {
           ></Route>
 
           <Route path="/admin/admin-1-2" element={<Admin />}></Route>
+
+          {/* ================= Common ================ */}
+          <Route
+            path="/common/customer-related"
+            element={<CustomerRelated />}
+          ></Route>
+
+          <Route
+            path="/common/vehicle-related"
+            element={<VehicleRelated />}
+          ></Route>
+
+          {/* ================= Reports ================ */}
+          <Route
+            path="/reports/procurement-inventory-management-reports/stock-status-report"
+            element={<StockStatusReport />}
+          ></Route>
         </Routes>
 
         {/* Footer */}

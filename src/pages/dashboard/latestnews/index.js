@@ -35,7 +35,8 @@ function LatestNews({
       {/* text */}
       <div className="text">
         <h5>{items.title}</h5>
-        <p style={{ color: "#858585", fontSize: 14 }}>{wordSlice(items.desc)}</p>
+        <p style={{ color: "#858585", fontSize: 14 }}>{items.desc}</p>
+        {/* <p style={{ color: "#858585", fontSize: 14 }}>{wordSlice(items.desc)}</p> */}
       </div>
       {/* date */}
       <p

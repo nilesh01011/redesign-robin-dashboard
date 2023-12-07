@@ -53,6 +53,7 @@ function NewsDrawer({
       style={{
         right: isDrawerOpen ? "0" : "-150%",
         backgroundColor: theme === "light" ? "white" : "#242424",
+        boxShadow:"-5px 0px 50px 0px #00000033"
       }}
     >
       {/* title */}

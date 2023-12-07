@@ -66,13 +66,13 @@ function GraphsProgressBar({ title, dataItems }) {
                   {wordSlice(ele.name)}
                 </span>
                 {/* 1366px screen */}
-                <span className="name middleScreen" title={ele.name}>
+                {/* <span className="name middleScreen" title={ele.name}>
                   {wordSlice_2(ele.name)}
-                </span>
+                </span> */}
                 {/* 1280px screen */}
-                <span className="name smallScreen" title={ele.name}>
+                {/* <span className="name smallScreen" title={ele.name}>
                   {wordSlice_3(ele.name)}
-                </span>
+                </span> */}
               </p>
               {/* count */}
               <span>{ele.count}</span>

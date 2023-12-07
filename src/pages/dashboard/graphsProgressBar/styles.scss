@@ -32,7 +32,7 @@
     // display: flex;
     align-items: center;
     // grid-template-columns: 0.4fr 0.7fr;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 16px;
     gap: 10px;
     // gap: 30px;
@@ -49,19 +49,19 @@
       &.light::-webkit-scrollbar-track {
         background: #f0efef;
       }
-      
+
       &.dark::-webkit-scrollbar-track {
         background: #1c1c1c;
       }
-      
+
       &::-webkit-scrollbar-thumb {
         border-radius: 10px;
       }
-      
+
       &.light::-webkit-scrollbar-thumb {
         background: #b5b5b6;
       }
-      
+
       &.dark::-webkit-scrollbar-thumb {
         background: #545454;
       }
@@ -94,11 +94,14 @@
 
         &.name {
           text-transform: capitalize;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 80px;
 
-          &.middleScreen,
-          &.smallScreen {
-            display: none;
-          }
+          // &.middleScreen,
+          // &.smallScreen {
+          //   display: none;
+          // }
         }
       }
     }
@@ -175,13 +178,13 @@
       & .graphsProgressBarLeftSide {
         & span {
           &.name {
-            &.middleScreen {
-              display: block;
-            }
+            // &.middleScreen {
+            //   display: block;
+            // }
 
-            &.biggScreen {
-              display: none;
-            }
+            // &.biggScreen {
+            //   display: none;
+            // }
           }
         }
       }
@@ -194,7 +197,8 @@
   .graphsProgressBarContaier {
     & .graphsDataWrapper {
       gap: 10px;
-      grid-template-columns: 0.3fr 0.7fr;
+      // grid-template-columns: 0.3fr 0.7fr;
+      // grid-template-columns: 0.5fr 0.4fr;
 
       & .graphsProgressBarRightSide {
         & .progressBar {
@@ -207,13 +211,13 @@
       & .graphsProgressBarLeftSide {
         & span {
           &.name {
-            &.smallScreen {
-              display: block;
-            }
+            // &.smallScreen {
+            //   display: block;
+            // }
 
-            &.middleScreen {
-              display: none;
-            }
+            // &.middleScreen {
+            //   display: none;
+            // }
           }
         }
       }

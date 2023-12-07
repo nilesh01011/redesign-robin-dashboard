@@ -49,6 +49,14 @@
     font-weight: 500;
   }
 
+  & .text p {
+    white-space: nowrap;
+    width: 325px;
+    // width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   & .date {
     padding: 4px 8px;
     font-size: 12px;

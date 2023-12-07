@@ -70,10 +70,16 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
               style={{
                 color: IsExpand || pathname === item.link ? "#FF3E5B" : "",
                 margin: "0",
+                // lineHeight:32
               }}
               // onClick={() => setCollapsed(!collapsed)}
             >
-              {item.icon && <small>{item.icon}</small>}
+              {item.icon && (
+                <small>
+                  {item.icon}
+                  {/* {console.log(item)} */}
+                </small>
+              )}
               {/* items name */}
               <div
                 // style={{
@@ -174,7 +180,7 @@ function MobileView({ collapsed, setCollapsed, handleSidebar }) {
               // }}
               onClick={() => {
                 handleRedirect(item.link);
-                setCollapsed(false);
+                handleSidebar();
               }}
               title={item.name && item.name}
             >

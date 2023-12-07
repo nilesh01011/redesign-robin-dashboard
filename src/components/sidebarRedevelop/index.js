@@ -99,6 +99,7 @@ function SidebarRedevelop() {
     if (sidebar && overlay) {
       sidebar.style.left = "-150%";
       overlay.style.display = "none";
+      document.querySelector("body").style.overflow = "auto";
     }
   };
 
@@ -351,7 +352,7 @@ function SidebarRedevelop() {
                       searchResultsData?.map((ele, index) => {
                         // const regex = new RegExp(ele);
 
-                        console.log(searchMenuItems)
+                        console.log(searchMenuItems);
                         return (
                           <li
                             key={index}
@@ -428,14 +429,15 @@ function SidebarRedevelop() {
             <span
               onClick={() => setCollapsed(true)}
               style={{
-                color:
-                  collapsed === true && searchMenuItems.length !== 0
-                    ? "#ff3e5b"
-                    : theme === "light"
-                    ? "black"
-                    : "white",
+                // color:
+                //   collapsed === true && searchMenuItems.length !== 0
+                //     ? "#ff3e5b"
+                //     : theme === "light"
+                //     ? "black"
+                //     : "white",
+                color:"#ff3e5b",
                 cursor: "pointer",
-                top: 5,
+                top: 6,
               }}
               className="searchIcons searchIconsAbsolute"
             >
