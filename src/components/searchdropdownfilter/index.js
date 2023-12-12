@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import InputField from "./inputField/index"
+import InputField from "./inputField/index";
 
 let useClickOutSide = (handler) => {
   let domNode = useRef();
@@ -74,28 +74,28 @@ function Index({
     setIsDropdownOpen(false);
   });
 
-  const wordSlice = (word) => {
-    if (word.length > 10) {
-      return word.slice(0, 10) + "...";
-    } else {
-      return word;
-    }
-  };
+  // const wordSlice = (word) => {
+  //   if (word.length > 10) {
+  //     return word.slice(0, 10) + "...";
+  //   } else {
+  //     return word;
+  //   }
+  // };
 
-  const wordSlice_2 = (word) => {
-    if (word.length > 8) {
-      return word.slice(0, 8) + "...";
-    } else {
-      return word;
-    }
-  };
+  // const wordSlice_2 = (word) => {
+  //   if (word.length > 8) {
+  //     return word.slice(0, 8) + "...";
+  //   } else {
+  //     return word;
+  //   }
+  // };
 
   return (
     <form
       action="POST"
       onSubmit={handleSubmitFilter}
       className="selectDropdownFilter"
-      style={{ marginBottom: error && "10px", }}
+      style={{ marginBottom: error && "10px" }}
       ref={domNode}
     >
       <div
@@ -143,7 +143,9 @@ function Index({
               //   borderColor: theme === "light" ? "#DEDEDE" : "#232324",
               //   backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
               // }}
-              className={`selectOptionContainer ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+              className={`selectOptionContainer ${
+                theme === "light" ? "lightTheme" : "darkTheme"
+              }`}
             >
               {/* select fields */}
               <div
@@ -154,9 +156,10 @@ function Index({
                   style={{ color: theme === "light" ? "black" : "#A3A3A3" }}
                   className="selectFields desktopView"
                 >
-                  {!selected
+                  {/* {!selected
                     ? wordSlice(customersList[0].name)
-                    : wordSlice(selected)}
+                    : wordSlice(selected)} */}
+                  {!selected ? customersList[0].name : selected}
                 </p>
 
                 <p
@@ -166,7 +169,7 @@ function Index({
                   {/* {!selected
                     ? wordSlice_2(customersList[0].name)
                     : wordSlice_2(selected)} */}
-                    {selected}
+                  {selected}
                 </p>
 
                 {/* icons */}
@@ -197,8 +200,11 @@ function Index({
         </div>
 
         {/* inputs */}
-        <div className={`inputFieldsContainer ${theme === "light" ? "lightTheme" : "darkTheme"}`} 
-        // style={{backgroundColor:theme === "light" ? "#ffffff" : "#1c1c1c"}}
+        <div
+          className={`inputFieldsContainer ${
+            theme === "light" ? "lightTheme" : "darkTheme"
+          }`}
+          // style={{backgroundColor:theme === "light" ? "#ffffff" : "#1c1c1c"}}
         >
           <InputField
             placeholder="Search"
@@ -242,7 +248,9 @@ function Index({
           //   right: 0,
           //   backgroundColor: theme === "light" ? "white" : "#1C1C1C",
           // }}
-          className={`allListItems ${theme === "light" ? "lightTheme" : "darkTheme"}`}
+          className={`allListItems ${
+            theme === "light" ? "lightTheme" : "darkTheme"
+          }`}
         >
           {customersList.map((ele, id) => {
             return (

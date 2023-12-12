@@ -221,13 +221,13 @@ function Header({ handleClosed, setModelListDetails }) {
   ];
 
   // user dropdown role text word slice
-  const wordSlice = (word) => {
-    if (word.length > 11) {
-      return word.slice(0, 11) + "...";
-    } else {
-      return word;
-    }
-  };
+  // const wordSlice = (word) => {
+  //   if (word.length > 11) {
+  //     return word.slice(0, 11) + "...";
+  //   } else {
+  //     return word;
+  //   }
+  // };
 
   // location list
   const locationList = [

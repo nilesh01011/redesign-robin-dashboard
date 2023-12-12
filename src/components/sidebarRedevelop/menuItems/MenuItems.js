@@ -232,6 +232,7 @@ function MenuItems({
               }}
               title={ele.name}
             >
+              {/* {ele.name} */}
               {wordSlice(ele.name)}
             </span>
           )}

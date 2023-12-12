@@ -678,7 +678,7 @@ function CustomerMaster() {
       {/* overlay */}
       <div
         id="newsDrawerOverlay"
-        style={{ display: isDrawerOpen ? "block" : "none" }}
+        style={{ display: isDrawerOpen ? "block" : "none",backgroundColor:theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(84, 84, 84, 0.8)" }}
         onClick={() => handleDrawerClosed()}
       ></div>
     </>

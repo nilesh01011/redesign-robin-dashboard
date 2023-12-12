@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function ManageManpowerTraining() {
   const theme = useSelector((state) => state.theme);
   return (
-    <div>
+    <div style={{height:"100vh"}}>
       {/* ============ title ============ */}
       <div
         style={{

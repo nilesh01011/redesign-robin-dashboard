@@ -254,7 +254,8 @@ function SidebarRedevelop() {
               justifyContent: collapsed === false && "center",
               paddingLeft: collapsed ? 14 : 0,
               paddingRight: collapsed ? 14 : 0,
-              maxWidth: collapsed ? "100%" : 60,
+              maxWidth: collapsed ? "100%" : 68,
+              // maxWidth: collapsed ? "100%" : 60,
             }}
           >
             {collapsed === true && (
@@ -600,7 +601,8 @@ function SidebarRedevelop() {
         <div
           className="themeContainer desktopView"
           style={{
-            padding: collapsed === false ? "7px 10px" : "10px 16px",
+            padding: collapsed === false ? 10 : "10px 16px",
+            // padding: collapsed === false ? "7px 10px" : "10px 16px",
             backgroundColor: theme === "light" ? "#F2F2F2" : "#232324",
           }}
         >

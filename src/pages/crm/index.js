@@ -6,7 +6,7 @@ import Title from "../../components/title";
 function Index() {
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="crm">
+    <div className="crm" style={{height:"100vh"}}>
       {/* ============ title ============ */}
       <div
         style={{

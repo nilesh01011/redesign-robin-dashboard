@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 // dashboard
 import DashboardPage from "./pages/dashboard";
 // favourites
-import Favourites from "./pages/favourites";
+// import Favourites from "./pages/favourites";
 import ProductHierarchyMaster from "./pages/favourites/product-hierarchy-master/ProductHierarchyMaster";
 import VehicleAllotment from "./pages/favourites/vehicle-allotment/VehicleAllotment";
 // sales
@@ -119,7 +119,7 @@ function App() {
           {/* =================== dashboard ============= */}
           <Route path="/home" element={<DashboardPage />}></Route>
           {/* ================= favourites ============== */}
-          <Route path="/favourites" element={<Favourites />}></Route>
+          {/* <Route path="/favourites" element={<Favourites />}></Route> */}
           <Route
             path="/favourites/product-hierarchy-master"
             element={<ProductHierarchyMaster />}

@@ -66,6 +66,7 @@ function FirmAndCorporate({ tabsList, drawerType, currentTabsTitle }) {
                       backgroundColor:
                         theme === "light" ? "#E6E6E6" : "#232324",
                       marginTop: 20,
+                      
                     }}
                   ></div>
                 </div>

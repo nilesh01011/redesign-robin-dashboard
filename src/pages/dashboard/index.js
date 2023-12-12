@@ -17,11 +17,6 @@ import ActionItemsCollapsed from "./actionitems";
 import LatestNews from "./latestnews";
 import Drawer from "./drawer";
 import BirthdayCalendar from "./birthdaycalendar";
-// import BarChart from "./graphs/barChart/BarChart";
-// Carousel
-// import Carousel from "./carousel/Carousel";
-// import Items from "./carousel/items/Items";
-// import { ADDS } from "../../assets";
 import TrendingNewsCarousel from "./trendingNewsCarousel/TrendingNewsCarousel";
 import KeyhightlightCarousel from "./keyhightlightCarousel/KeyhightlightCarousel";
 import RecentlyView from "./recentlyView";
@@ -81,100 +76,6 @@ function DashboardPage() {
               overflowX: "hidden",
             }}
           >
-            {/* left sides */}
-            <div
-              className="key_highlights_heading_left heading_side"
-              style={{ display: "none" }}
-            >
-              {/* keyhightlight title */}
-              {/* <div className="title_heads"> */}
-              {/* <h4>Key Highlights</h4> */}
-              {/* <p>
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M12.9283 1.94223C12.7584 1.76092 12.4736 1.75173 12.2923 1.92171L5.09228 8.67171C5.00153 8.75678 4.95005 8.87562 4.95005 9.00001C4.95005 9.12439 5.00153 9.24322 5.09228 9.3283L12.2923 16.0783C12.4736 16.2483 12.7584 16.2391 12.9283 16.0578C13.0983 15.8765 13.0891 15.5917 12.9078 15.4217L6.058 9.00001L12.9078 2.5783C13.0891 2.40832 13.0983 2.12354 12.9283 1.94223Z"
-                        fill="#FF3E5B"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M5.07166 1.94223C5.24164 1.76092 5.52642 1.75173 5.70773 1.92171L12.9077 8.67171C12.9985 8.75678 13.05 8.87562 13.05 9.00001C13.05 9.12439 12.9985 9.24323 12.9077 9.3283L5.70773 16.0783C5.52642 16.2483 5.24164 16.2391 5.07166 16.0578C4.90168 15.8765 4.91087 15.5917 5.09218 15.4217L11.942 9.00001L5.09218 2.5783C4.91087 2.40832 4.90168 2.12354 5.07166 1.94223Z"
-                        fill="#FF3E5B"
-                      />
-                    </svg>
-                  </span>
-                </p> */}
-              {/* </div> */}
-              {/* divide */}
-              <div
-                className="divider"
-                style={{
-                  backgroundColor: theme === "light" ? "#B5B5B6" : "#635d5d",
-                }}
-              ></div>
-              {/* contents
-              <div className="heads one">
-                label
-                <span className="label_name">GST Update</span>
-                text
-                <p className="text" style={{ color: "#FF3E5B" }}>
-                  Lorem Ipsum is simply dummy text of the printing Lorem Ipsum
-                  is simply dummy text of the printing
-                  <span style={{ color: "#858585", marginLeft: 4 }}>
-                    5min ago
-                  </span>
-                </p>
-              </div>
-
-              <div className="heads two">
-                <div
-                  className="headsContainer"
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  label
-                  <span className="label_name">GST Update</span>
-                  <span style={{ color: "#858585", marginLeft: 4 }}>
-                    5min ago
-                  </span>
-                </div>
-                text
-                <p className="text" style={{ color: "#FF3E5B" }}>
-                  Lorem Ipsum is simply dummy text of the printing Lorem Ipsum
-                  is simply dummy text of the printing
-                </p>
-              </div> */}
-            </div>
-
-            {/* Carousel Sections */}
-            {/* <Carousel>
-              {keyHighlights.map((ele) => (
-                <Items key={ele.key} data={ele} />
-              ))}
-            </Carousel> */}
             {/* Carousel Sections End */}
             <div style={{ width: "100%", overflow: "hidden" }}>
               <KeyhightlightCarousel />
@@ -511,7 +412,11 @@ function DashboardPage() {
       {/* overlay */}
       <div
         id="newsDrawerOverlay"
-        style={{ display: isDrawerOpen ? "block" : "none",backgroundColor:theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(84, 84, 84,0.8)" }}
+        style={{
+          display: isDrawerOpen ? "block" : "none",
+          backgroundColor:
+            theme === "light" ? "rgba(0, 0, 0, 0.8)" : "rgba(84, 84, 84,0.8)",
+        }}
         onClick={() => handleDrawerClosed()}
       ></div>
     </>

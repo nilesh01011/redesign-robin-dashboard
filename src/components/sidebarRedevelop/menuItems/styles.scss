@@ -66,6 +66,13 @@
       height: 32px;
       gap: 10px;
       white-space: nowrap;
+
+      & .itemName {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 200px;
+        white-space: nowrap;
+      }
   
       &:hover,
       &:hover .menuText {

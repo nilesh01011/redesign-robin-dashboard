@@ -55,3 +55,11 @@
     }
   }
 }
+
+@media screen and (max-width: 756px) {
+  .accordionContainer {
+    & .accordionContents {
+      padding: 0 16px !important;
+    }
+  }
+}

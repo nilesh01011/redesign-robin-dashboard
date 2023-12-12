@@ -62,13 +62,8 @@
   .responsiveTable {
     max-height: 800px;
     & .responsiveTableContents {
-      max-height: calc(100vh - 500px);
+      max-height: calc(100vh - 520px);
+      // max-height: calc(100vh - 500px);
     }
   }
 }
-
-// @media screen and (max-width: 576px) {
-//   .responsiveTable {
-//     max-height: 400px;
-//   }
-// }

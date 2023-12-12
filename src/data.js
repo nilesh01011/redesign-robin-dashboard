@@ -841,7 +841,7 @@ export const recentlyVisited = [
   },
   {
     name: "Reciepts",
-    link: "/admin/customer-master",
+    link: "/home",
   },
   {
     name: "Vehicle Delivery Note",

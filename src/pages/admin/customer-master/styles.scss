@@ -167,6 +167,7 @@
 @media screen and (max-width: 992px) {
   .customerMaster .customerMasterContainer {
     & .customerMasterHeader {
+      margin-top: 20px;
       & .customerMasterHeaderLeft {
         flex-direction: column;
         width: 100%;
@@ -231,7 +232,17 @@
     }
 
     & .customerMasterContainer {
-      margin-bottom: 160px;
+      margin-bottom: 120px;
+      // margin-bottom: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .customerMaster {
+    & .customerMasterContainer {
+      // margin-bottom: 20px;
+      margin-bottom: 0 !important;
     }
   }
 }

@@ -52,7 +52,6 @@
   & .text p {
     white-space: nowrap;
     width: 325px;
-    // width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -75,6 +74,14 @@
     & .text::after {
       // height: 190%;
       height: calc(100% + 32.4px);
+    }
+
+    & .text {
+      & p {
+        width: auto;
+        // width: 350px;
+        white-space: wrap;
+      }
     }
   }
 }

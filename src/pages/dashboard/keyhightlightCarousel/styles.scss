@@ -40,17 +40,17 @@
     }
   }
 
-  & .swiper-slide-active {
-    & .heads {
-      opacity: 1;
-    }
-  }
+  // & .swiper-slide-active {
+  //   & .heads {
+  //     opacity: 1;
+  //   }
+  // }
 
   & .heads {
     display: flex;
     align-items: center;
     gap: 10px;
-    opacity: 0;
+    // opacity: 0;
 
     & .label {
       display: flex;
@@ -125,6 +125,12 @@
     & .swiper {
       & .desktopViewBtn {
         display: none;
+      }
+    }
+
+    & .heads {
+      & .text {
+        font-size: 12px;
       }
     }
   }

@@ -5,7 +5,7 @@ import Title from "../../../../components/title";
 function CustomerOutstanding() {
   const theme = useSelector((state) => state.theme);
   return (
-    <div>
+    <div style={{height:"100vh"}}>
       {/* ============ title ============ */}
       <div
         style={{
