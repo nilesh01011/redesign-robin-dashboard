@@ -198,10 +198,10 @@
       }
     }
 
-    // right side
   }
 }
 
+// right side drawer sidebar
 .rightSideDrawer {
   width: 100%;
   height: 100%;
@@ -212,7 +212,7 @@
   justify-content: space-between;
   flex-direction: column;
   z-index: 99999;
-  transition: 0.7s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
   & .contents {
     width: 100%;
@@ -290,6 +290,7 @@
             & .accordionContainer {
               & .accordionHeader {
                 padding: 16px 20px;
+                // padding: 20px 30px;
                 & .markDefault {
                   display: none;
                 }

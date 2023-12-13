@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Accordion from "./accordion/Accordion";
 import AccordionInput from "../accordionInput/AccordionInput";
 
-function AccordionNTH({ data, type,drawerType }) {
+function AccordionNTH({ data, type, drawerType }) {
   const theme = useSelector((state) => state.theme);
   const [accordionCollapsed, setAccordionCollapsed] = useState(false);
 
@@ -60,28 +60,50 @@ function AccordionNTH({ data, type,drawerType }) {
       </div>
       {/* contents */}
       {accordionCollapsed && (
-        <div className={`accordionContents ${data.type}`}>
-          {accordionCollapsed && (
-            <>
-              {data.type === "accordionInput" ? (
-                <>
-                {
-                  data.contents.map((ele,index) => {
-                    // console.log(ele)
-                    return <AccordionInput key={index} data={ele} drawerType={drawerType} />;
-                  })
-                }
-                </>
-              ) : (
-                <>
-                  {data.contents.map((ele, index) => {
-                    return <Accordion key={index} data={ele} drawerType={drawerType} />;
-                  })}
-                </>
-              )}
-            </>
-          )}
-        </div>
+        <>
+          {/* divider */}
+          <div
+            className="divider"
+            style={{
+              backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
+              marginTop: 0,
+            }}
+          />
+
+          {/* accordion contents */}
+          <div className={`accordionContents ${data.type}`}>
+            {accordionCollapsed && (
+              <>
+                {data.type === "accordionInput" ? (
+                  <>
+                    {data.contents.map((ele, index) => {
+                      // console.log(ele)
+                      return (
+                        <AccordionInput
+                          key={index}
+                          data={ele}
+                          drawerType={drawerType}
+                        />
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>
+                    {data.contents.map((ele, index) => {
+                      return (
+                        <Accordion
+                          key={index}
+                          data={ele}
+                          drawerType={drawerType}
+                        />
+                      );
+                    })}
+                  </>
+                )}
+              </>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

@@ -342,6 +342,7 @@ function SidebarRedevelop() {
                     backgroundColor: theme === "light" ? "#ffffff" : "#0B0B0C",
                     borderColor: theme === "light" ? "#b5b5b6" : "#342c2c",
                     color: theme === "light" ? "#0B0B0C" : "#ffffff",
+                    zIndex:1000,
                   }}
                 >
                   <ul
@@ -357,16 +358,16 @@ function SidebarRedevelop() {
                         return (
                           <li
                             key={index}
-                            className={`${pathname === ele.link && "active"}`}
+                            // className={`${pathname === ele.link && "active"}`}
                             onClick={() => {
                               router(ele.link);
                               setSearchBoxClicked(false);
                               setSearchResultData([]);
                               setSearchMenuItems("");
                             }}
-                            style={{
-                              color: pathname === ele.name && "#ff3e5b",
-                            }}
+                            // style={{
+                            //   color: pathname === ele.name && "#ff3e5b",
+                            // }}
                           >
                             {wordSlice(ele.name)}
                           </li>

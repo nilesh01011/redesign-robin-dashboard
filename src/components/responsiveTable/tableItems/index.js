@@ -31,6 +31,7 @@ function TableItems({ items, setDrawerData, setDrawerType, setIsDrawerOpen }) {
             setIsDrawerOpen(true);
           }}
           style={{ cursor: "pointer" }}
+          title="View Data"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +57,7 @@ function TableItems({ items, setDrawerData, setDrawerType, setIsDrawerOpen }) {
               setDrawerType("edit");
               setIsDrawerOpen(true);
             }}
+            title="View Data"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

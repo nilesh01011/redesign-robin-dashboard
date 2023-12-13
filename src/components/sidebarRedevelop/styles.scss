@@ -93,13 +93,19 @@
         // transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
       }
 
+      & .desktopView {
+        & .searchResults {
+          z-index: 14;
+        }
+      }
+
       // search results items
       & .searchResults {
         position: absolute;
         left: 14px;
         right: 14px;
         top: 90%;
-        z-index: 6;
+        z-index: 14;
         // width: calc(100% - 28px);
         // margin: 0 auto;
         max-height: 180px;
@@ -146,6 +152,7 @@
             font-weight: 500;
             border-radius: 3px;
             white-space: nowrap;
+            cursor: pointer;
           }
 
           &.lightTheme {
