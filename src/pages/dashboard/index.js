@@ -6,7 +6,7 @@ import {
   actionItems,
   billingBarGraphs,
   ibndstock,
-  keyHighlights,
+  // keyHighlights,
   latestNews,
   recentlyVisited,
   retailBarGraphs,
@@ -21,7 +21,7 @@ import TrendingNewsCarousel from "./trendingNewsCarousel/TrendingNewsCarousel";
 import KeyhightlightCarousel from "./keyhightlightCarousel/KeyhightlightCarousel";
 import RecentlyView from "./recentlyView";
 // Bar Charts
-import GraphsProgressBar from "./graphsProgressBar/GraphsProgressBar";
+import GraphsProgressBar from "./graphs/graphsProgressBar/GraphsProgressBar";
 // Doughnut Chart
 import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
 
@@ -37,6 +37,8 @@ function DashboardPage() {
   const [birthdayListScrollBar, setBirthdayListScrollBar] = useState(false);
 
   const [recentlyViewScrollbar, setRecentlyViewScrollbar] = useState(false);
+
+  const [graphsExpand, setGraphsExpand] = useState(false);
 
   const handleDrawerClosed = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -87,10 +89,7 @@ function DashboardPage() {
             style={{ backgroundColor: theme === "light" ? "white" : "" }}
           >
             {/* left side */}
-            <div
-              className="actionItems_left_side box_Contents"
-              // style={{ borderColor: borderColor }}
-            >
+            <div className="actionItems_left_side box_Contents">
               {/* title */}
               <h4 style={{ fontSize: 18, fontWeight: 700 }}>Action Items</h4>
               {/* contents */}
@@ -118,10 +117,7 @@ function DashboardPage() {
               </div>
             </div>
             {/* recently view */}
-            <div
-              className="actionItems_left_side box_Contents"
-              // style={{ borderColor: borderColor }}
-            >
+            <div className="actionItems_left_side box_Contents">
               {/* title */}
               <h4 style={{ fontSize: 18, fontWeight: 700 }}>
                 Recently Visited
@@ -138,15 +134,7 @@ function DashboardPage() {
                 onMouseLeave={() => setRecentlyViewScrollbar(false)}
               >
                 {recentlyVisited.map((ele, index) => {
-                  return (
-                    <RecentlyView
-                      key={index}
-                      items={ele}
-                      // setIsDrawerOpen={setIsDrawerOpen}
-                      // setDrawerSliderID={setDrawerSliderID}
-                      // setDrawerType={setDrawerType}
-                    />
-                  );
+                  return <RecentlyView key={index} items={ele} />;
                 })}
               </div>
             </div>
@@ -157,30 +145,6 @@ function DashboardPage() {
             >
               {/* title */}
               <h4 style={{ fontSize: 18, fontWeight: 700 }}>What's New</h4>
-              {/* images */}
-              {/* <div
-                className="images"
-                // style={{
-                //   backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-                // }}
-              >
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  quality={50}
-                  importance="high"
-                  rel="none"
-                  // src="https://auto.mahindra.com//-/media/project/mahindra/dotcom/mahindra/in-news---home/pr/neo-ambulance/bolero-neo-ambulancefor-website.jpg?rev=cab8637b0f6f4a80a53cd2a23006e0d6&extension=webp"
-                  // src={ADDS}
-                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/tech-that-spoil/web-banner-master.jpg?rev=1c658c8dd1d0444c814a626e86b1921a&extension=webp"
-                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/all-vehicles/pick-ups/maxx-hd-new/1920x829.jpg?rev=39eddff21de044e3bbef2cc30ec38103&extension=webp"
-                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/all-vehicles/suv/teaser-banner/web-1920x829-new.jpg?rev=20bc8b8198b34f79b689e8110b59ddb4&extension=webp"
-                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/amc-hero/cng-petrol/desktop.jpg?rev=c4cf3de2f8a04924a9883cb211d6e119&extension=webp"
-                  // src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/dark-theme-mahindra-images/thar_optimized/desktop/brand-page-banner-desktop_1920x829---copy-new.jpg?rev=7074046a9b124c33853be61e3ce52021&extension=webp"
-                  src="https://auto.mahindra.com/-/media/project/mahindra/dotcom/mahindra/amc-hero/scorpio-n---9-lakh/desktop.png?rev=c6c08b8bcc444836b709896fcfd25d5c&extension=webp"
-                  alt="Trending in News"
-                />
-              </div> */}
               <TrendingNewsCarousel />
             </div>
           </div>
@@ -190,7 +154,11 @@ function DashboardPage() {
               {/* title */}
               <h2>Business KPIs</h2>
               {/* buttons */}
-              <button type="button" className="addWidgetBtn">
+              <button
+                type="button"
+                className="addWidgetBtn"
+                onClick={() => setGraphsExpand(!graphsExpand)}
+              >
                 {/* <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -207,91 +175,19 @@ function DashboardPage() {
                     />
                   </svg>
                 </span> */}
-                Add KPI
+                {graphsExpand === false ? "Collapse" : "Expand"} KPIs
+                {/* Add KPI */}
               </button>
             </div>
 
             {/* graphs contents */}
-            <div
-              className="graphs_container"
-              // style={{ borderColor: borderColor }}
-            >
-              {/* ========================================= */}
-              {/* <BarChart title="Retail" dataItems={retailBarGraphs} /> */}
-
-              {/* <div
-                className="redevelopGraphsBarContainer"
-                style={{
-                  backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-                  borderColor: borderColor,
-                }}
-              >
-                title
-                <h2>Retail</h2>
-                divider
-                <div
-                  className="divider"
-                  style={{
-                    backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  }}
-                ></div>
-                graphs
-                <div
-                  style={{ display: "flex", flexDirection: "column", gap: 10 }}
-                >
-                  {retailBarGraphs.map((ele, index) => (
-                    <GraphsProgressBar
-                      key={index}
-                      count={ele.count}
-                      name={ele.name}
-                      bgColor={ele.bgColor}
-                    />
-                  ))}
-                </div>
-              </div> */}
-
-              {/* <div
-                className="redevelopGraphsBarContainer"
-                style={{
-                  backgroundColor: theme === "light" ? "#F2F2F2" : "#1C1C1C",
-                  borderColor: borderColor,
-                }}
-              >
-                title
-                <h2>Billing</h2>
-                divider
-                <div
-                  className="divider"
-                  style={{
-                    backgroundColor: theme === "light" ? "#E6E6E6" : "#232324",
-                  }}
-                ></div>
-                graphs
-                <div
-                  style={{ display: "flex", flexDirection: "column", gap: 5 }}
-                >
-                  {billingBarGraphs.map((ele, index) => (
-                    <RedevelopGraphBar
-                      key={index}
-                      count={ele.count}
-                      name={ele.name}
-                      dataStrip={ele.count}
-                      bgColor={ele.bgColor}
-                    />
-                  ))}
-                </div>
-              </div> */}
-              {/* <BarChart title="Billing" dataItems={billingBarGraphs} /> */}
-              {/* ====================================== */}
-              {/* Current Graphs Bar */}
-
-              {/* retail bar charts */}
-              <GraphsProgressBar title="Retail" dataItems={retailBarGraphs} />
+            <div className="graphs_container">
+              <GraphsProgressBar title="Retail" dataItems={retailBarGraphs} graphsExpand={graphsExpand} />
 
               {/* billing bar charts */}
-              <GraphsProgressBar title="Billing" dataItems={billingBarGraphs} />
+              <GraphsProgressBar title="Billing" dataItems={billingBarGraphs} graphsExpand={graphsExpand} />
 
-              <DoughnutChart title="IBND Stock" dataItems={ibndstock} />
+              <DoughnutChart title="IBND Stock" dataItems={ibndstock} graphsExpand={graphsExpand} />
             </div>
           </div>
           {/* news and birthdays */}

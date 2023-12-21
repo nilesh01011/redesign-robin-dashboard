@@ -2818,10 +2818,11 @@ function MobileViewDrawer({
                   : "0px -1px 1px 0px rgba(255, 255, 255, 0.15)",
               backgroundColor: theme === "light" ? "#ffffff" : "#1C1C1C",
               marginLeft: theme === "light" ? "1px" : "0px",
+              justifyContent:"flex-end"
             }}
           >
             {/* left close btn */}
-            <button
+            {/* <button
               type="button"
               className="buttons"
               style={{
@@ -2839,7 +2840,9 @@ function MobileViewDrawer({
               }}
             >
               {tabsStatus === 1 ? "Close" : "Back"}
-            </button>
+            </button> */}
+
+            
             {/* right side button */}
             <div className="rightSideBtn" style={{ display: "none" }}>
               {/* <button

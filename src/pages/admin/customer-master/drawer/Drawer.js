@@ -2843,7 +2843,7 @@ function Drawer({
           >
             {/* left close btn */}
             <div className="leftSideBtn">
-              {tabsStatus === 1 ? (
+              {/* {tabsStatus === 1 ? (
                 <button
                   type="button"
                   className="secondaryBtn"
@@ -2868,7 +2868,7 @@ function Drawer({
                 >
                   Back
                 </button>
-              )}
+              )} */}
             </div>
 
             {/* right side button */}

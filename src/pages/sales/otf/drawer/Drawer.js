@@ -2495,7 +2495,7 @@ function Drawer({
                           </svg>
                         </span>
                       )}
-                      {moreActions ? "Less" : "More"} Actions
+                      {moreActions ? "Less" : "More"}
                       {moreActions === false && (
                         <span
                           style={{

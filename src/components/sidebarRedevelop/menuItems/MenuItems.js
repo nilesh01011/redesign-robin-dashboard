@@ -241,6 +241,7 @@ function MenuItems({
         {collapsed && ele.isFolder && (
           <span
             style={{
+              zIndex:"-1",
               transform: expands && "rotate(180deg)",
               // transform: expandItemsKey === ele.key && "rotate(180deg)",
               // transition: "transform 0.3s ease-in-out",
