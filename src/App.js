@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 // dashboard
 import DashboardPage from "./pages/dashboard";
 // favourites
-// import Favourites from "./pages/favourites";
 import ProductHierarchyMaster from "./pages/favourites/product-hierarchy-master/ProductHierarchyMaster";
 import VehicleAllotment from "./pages/favourites/vehicle-allotment/VehicleAllotment";
 // sales
