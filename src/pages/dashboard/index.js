@@ -159,6 +159,7 @@ function DashboardPage() {
                 className="addWidgetBtn"
                 onClick={() => setGraphsExpand(!graphsExpand)}
               >
+                {/* icons */}
                 {/* <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
