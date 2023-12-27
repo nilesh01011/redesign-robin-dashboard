@@ -175,7 +175,7 @@ function DashboardPage() {
                     />
                   </svg>
                 </span> */}
-                {graphsExpand === false ? "Collapse" : "Expand"} KPIs
+                {graphsExpand === false ? "Expand" : "Collapse"} KPIs
                 {/* Add KPI */}
               </button>
             </div>
