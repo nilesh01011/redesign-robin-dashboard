@@ -20,7 +20,7 @@ function KeyhightlightCarousel() {
     <div className="keyhightlightCrousel">
       {/* title */}
       <div className="title_heads">
-        <h4>Key Highlights</h4>
+        <h6>Key Highlights</h6>
 
         {/* button */}
         <div
