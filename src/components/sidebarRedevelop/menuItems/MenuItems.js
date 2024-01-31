@@ -131,6 +131,12 @@ function MenuItems({
 
   const pathname = window.location.pathname;
 
+  // useEffect(() => {
+  //   const slashCount = (pathname.match(/\//g) || []).length;
+
+  //   console.log(slashCount > 1);
+  // }, [pathname]);
+
   const handleExpanded = (key) => {
     if (collapsed === true) {
       if (ele.isFolder) {
@@ -241,7 +247,7 @@ function MenuItems({
         {collapsed && ele.isFolder && (
           <span
             style={{
-              zIndex:"-1",
+              zIndex: "-1",
               transform: expands && "rotate(180deg)",
               // transform: expandItemsKey === ele.key && "rotate(180deg)",
               // transition: "transform 0.3s ease-in-out",

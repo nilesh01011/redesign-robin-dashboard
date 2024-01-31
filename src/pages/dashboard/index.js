@@ -183,12 +183,24 @@ function DashboardPage() {
 
             {/* graphs contents */}
             <div className="graphs_container">
-              <GraphsProgressBar title="Retail" dataItems={retailBarGraphs} graphsExpand={graphsExpand} />
+              <GraphsProgressBar
+                title="Retail"
+                dataItems={retailBarGraphs}
+                graphsExpand={graphsExpand}
+              />
 
               {/* billing bar charts */}
-              <GraphsProgressBar title="Billing" dataItems={billingBarGraphs} graphsExpand={graphsExpand} />
-
-              <DoughnutChart title="IBND Stock" dataItems={ibndstock} graphsExpand={graphsExpand} />
+              <GraphsProgressBar
+                title="Billing"
+                dataItems={billingBarGraphs}
+                graphsExpand={graphsExpand}
+              />
+              {/* doughnut chart */}
+              <DoughnutChart
+                title="IBND Stock"
+                dataItems={ibndstock}
+                graphsExpand={graphsExpand}
+              />
             </div>
           </div>
           {/* news and birthdays */}

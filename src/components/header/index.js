@@ -468,6 +468,7 @@ function Header({ handleClosed, setModelListDetails }) {
                     minWidth={122}
                     dropdownMenWidth={177}
                     defaultSelected="Goregoan (W) Mumbai"
+                    fontSize="14px"
                   />
                   {/* divider */}
                   <div
@@ -812,7 +813,7 @@ function Header({ handleClosed, setModelListDetails }) {
                               {ele.icons}
                             </span>
                             {/* text */}
-                            <p style={{ fontSize: 16 }}>{ele.text}</p>
+                            <span style={{ fontSize: 14 }}>{ele.text}</span>
                           </p>
                           {/* icons */}
                           {/* onClick={() => handleClicks(ele.text)} */}
