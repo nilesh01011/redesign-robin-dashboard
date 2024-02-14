@@ -42,7 +42,7 @@ function Index({
   const borderColor = theme === "light" ? "#e6e6e6" : "#232324";
 
   return (
-    <table>
+    <table className="mainTable">
       {/* tabel heading */}
       <thead
         className="tableHeads"

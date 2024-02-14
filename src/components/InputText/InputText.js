@@ -9,12 +9,6 @@ function InputText({ data, types, placeholder, inputTypes, text }) {
   const theme = useSelector((state) => state.theme);
 
   const handleChanged = (e) => {
-    // console.log(edit)
-    // if (edit === false && types === "phoneNumber") {
-    // //   setInputText(e.target.value);
-    // setInputText(text);
-    // // console.log("not changed");
-    // }
 
     setInputText(e.target.value);
   };

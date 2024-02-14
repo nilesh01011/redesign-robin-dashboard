@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: center;
+    // column-gap: 10rem;
+    .ant-picker.ant-picker-range.ant-picker-outlined.css-dev-only-do-not-override-1rqnfsa.range {
+      // background-color: black;
+    }
+    & .ant-picker-input input {
+      color: red;
+  
+      &::placeholder {
+        color: red;
+      }
+    }
+    .anticon.anticon-swap-right svg {
+      color: red;
+    }
+    .anticon.anticon-calendar svg {
+      color: red;
+    }
+  
+    //  & .ant-picker-range-wrapper.ant-picker-date-range-wrapper .ant-picker-panel-container.ant-picker-date-panel-container {
+    //     background-color: red !important;
+    //   }
+  
+    :where(.css-dev-only-do-not-override-1rqnfsa).ant-picker-dropdown
+      .ant-picker-panel-container
+      .ant-picker-panels:last-child
+      .ant-picker-panel {
+      background: red !important;
+    }
+    .ant-picker-cell-inner {
+      background-color: red !important;
+    }
+  }
+  

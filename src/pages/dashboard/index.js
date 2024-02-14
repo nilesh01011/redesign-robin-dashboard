@@ -6,7 +6,6 @@ import {
   actionItems,
   billingBarGraphs,
   ibndstock,
-  // keyHighlights,
   latestNews,
   recentlyVisited,
   retailBarGraphs,
@@ -24,8 +23,30 @@ import RecentlyView from "./recentlyView";
 import GraphsProgressBar from "./graphs/graphsProgressBar/GraphsProgressBar";
 // Doughnut Chart
 import DoughnutChart from "./graphs/doughnutChart/doughnutChart";
+import { ConfigProvider } from "antd";
+import MyDatePicker from "../../components/date/Date-picker/MyDatePicker";
+import MyRangePicker from "../../components/date/Date-Range-picker/MyRangePicker";
+import moment from "moment";
 
 function DashboardPage() {
+  // date //
+  const [dates, setDates] = useState([]);
+  // console.log(dates);
+
+  const handleDatePickerChange = (date, dateString) => {
+    console.log("Selected Date:", dateString);
+  };
+
+  const handleRangePickerChange = (values) => {
+    // console.log("Selected Range:", values);
+    if (values) {
+      setDates(values.map((date) => moment(date).format("YYYY-MM-DD")));
+    } else {
+      setDates([]);
+    }
+  };
+
+  // date-end //
   const theme = useSelector((state) => state.theme);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [drawerSliderID, setDrawerSliderID] = useState(0);
@@ -67,6 +88,30 @@ function DashboardPage() {
         {/* =============== Content ================ */}
         <div className="boxContainer container-fluid">
           {/* ========== New Design ========== */}
+
+          {/* Date */}
+
+          <div style={{ margin: 20 }} className="container">
+            <ConfigProvider
+              theme={{
+                inherit: true,
+                token: {
+                  colorBgLayout: "red",
+                  colorPrimary: "red",
+                },
+                components: {
+                  DatePicker: {
+                    colorPrimary: "red",
+                  },
+                },
+              }}
+            >
+              <div style={{display:"flex",alignItems:"center",gap:20}}>
+              <MyDatePicker onChange={handleDatePickerChange} />
+              <MyRangePicker onChange={handleRangePickerChange} />
+              </div>
+            </ConfigProvider>
+          </div>
 
           {/* heading */}
           <div
