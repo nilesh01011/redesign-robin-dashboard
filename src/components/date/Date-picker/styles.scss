@@ -1,28 +1,69 @@
-.container {
-    display: flex;
-    justify-content: center;
-  
-    & .cal1 {
-      & input {
-        &::placeholder {
-          color: red;
-        }
-      }
-      .ant-picker-clear .anticon.anticon-close-circle svg {
-        color: red !important;
-      }
-  
-      & .ant-picker-suffix {
-        & span.anticon.anticon-calendar {
-          color: red !important;
-        }
-      }
-  
-      :where(.css-dev-only-do-not-override-1rqnfsa).ant-picker-dropdown
-        .ant-picker-panel-container
-        .ant-picker-panel-layout {
-        background-color: red !important;
-      }
+.cal1 {
+  & input {
+    &::placeholder {
+      color: #a3a3a3 !important;
     }
   }
-  
+  .ant-picker-clear .anticon.anticon-close-circle svg {
+    color: #FF3E5B !important;
+  }
+
+  & .ant-picker-suffix {
+    & span.anticon.anticon-calendar {
+      color: #FF3E5B !important;
+    }
+  }
+}
+
+.dark :where(.css-dev-only-do-not-override-pwpnrm).ant-picker .ant-picker-input >input {
+  color: #ffffff;
+}
+
+.dark :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-outlined {
+  background: #1c1c1c;
+}
+
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-panel-container {
+  background: #1c1c1c;
+}
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-header
+  .ant-picker-header-view
+  button {
+  color: #fff;
+}
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-header
+  button {
+  color: #545454;
+}
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-content
+  th {
+  color: #fff;
+}
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-cell {
+  color: #545454;
+}
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-cell-in-view {
+  color: #fff;
+}
+.dark :where(.css-dev-only-do-not-override-pwpnrm) a {
+  color: #fff;
+}
+.dark
+  :where(.css-dev-only-do-not-override-pwpnrm).ant-picker-dropdown
+  .ant-picker-cell-in-view.ant-picker-cell-in-range:not(
+    .ant-picker-cell-disabled
+  ):before {
+  background: #270706;
+}
