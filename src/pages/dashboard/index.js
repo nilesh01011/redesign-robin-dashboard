@@ -91,7 +91,7 @@ function DashboardPage() {
 
           {/* Date */}
 
-          <div style={{ margin: 20 }} className="container">
+          {/* <div style={{ margin: 20 }} className="container">
             <ConfigProvider
               theme={{
                 inherit: true,
@@ -111,7 +111,7 @@ function DashboardPage() {
               <MyRangePicker onChange={handleRangePickerChange} />
               </div>
             </ConfigProvider>
-          </div>
+          </div> */}
 
           {/* heading */}
           <div
